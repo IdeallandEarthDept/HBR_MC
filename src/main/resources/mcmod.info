@@ -1,0 +1,16 @@
+[
+{
+  "modid": "sandbox",
+  "name": "Sandbox",
+  "description": "Example placeholder mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Taoism DeepLake"],
+  "credits": "ZekerZhayard for renewing the gradle file.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
