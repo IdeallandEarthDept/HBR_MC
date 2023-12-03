@@ -33,5 +33,7 @@ public class ModConfig {
 
     public static class GeneralConf {
         public boolean LOG_ON = false;
+
+        public boolean BAN_HEAL = true;
     }
 }
