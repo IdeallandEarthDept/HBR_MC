@@ -1,7 +1,9 @@
 package com.deeplake.sandbox.init;
 
 import com.deeplake.sandbox.ExampleMod;
+import com.deeplake.sandbox.blocks.BlockHealStash;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -14,7 +16,7 @@ public class RegisterBlocks {
 
     public static final List<Block> BLOCK_LIST = new ArrayList<>();
 
-    //public static final Block BLOCK_1 = new BlockBase("block_1",Material.ROCK);
+    public static final Block BLOCK_1 = new BlockHealStash("heal_stash", Material.ROCK, 5);
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)

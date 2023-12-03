@@ -1,11 +1,15 @@
 package com.deeplake.sandbox.entities;
 
+import com.deeplake.sandbox.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class EntityCancer extends EntityBase implements IMob {
@@ -13,6 +17,16 @@ public class EntityCancer extends EntityBase implements IMob {
         super(worldIn);
     }
 
+    public float getInitShield()
+    {
+        return 20;
+    }
+
+    @Override
+    public void onFirstTickInLife() {
+        super.onFirstTickInLife();
+        setAbsorptionAmount(getInitShield());
+    }
 
     protected void damageEntity(DamageSource damageSrc, float damageAmount)
     {
@@ -39,6 +53,19 @@ public class EntityCancer extends EntityBase implements IMob {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        if (getAbsorptionAmount() > 0 && !canAttackCancer(source))
+        {
+            if (!world.isRemote)
+            {
+                world.playSound(null, posX, posY, posZ, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.HOSTILE, 1.0f, 1.0f);
+//                world.playSound(null, posX, posY, posZ, SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.HOSTILE, 1.0f, 1.0f);
+            }
+        }
+        return super.attackEntityFrom(source, amount);
     }
 
     //Cannot be attacked when it still has shell
@@ -68,6 +95,15 @@ public class EntityCancer extends EntityBase implements IMob {
 
     public static boolean isUsingSeraph(Entity livingBase)
     {
+        if (livingBase instanceof EntityLivingBase)
+        {
+            Item item = ((EntityLivingBase) livingBase).getHeldItemMainhand().getItem();
+            if (item instanceof ItemSeraphBase)
+            {
+                return true;
+            }
+        }
+
         return false;
     }
 }

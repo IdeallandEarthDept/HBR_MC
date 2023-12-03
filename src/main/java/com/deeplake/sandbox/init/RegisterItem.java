@@ -3,6 +3,7 @@ package com.deeplake.sandbox.init;
 import com.deeplake.sandbox.ExampleMod;
 import com.deeplake.sandbox.items.ItemArmorBase;
 import com.deeplake.sandbox.items.ItemBowBase;
+import com.deeplake.sandbox.items.seraph.ItemSeraphBase;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -24,7 +25,7 @@ import java.util.List;
 @Mod.EventBusSubscriber
 public class RegisterItem {
     public static final List<Item> ITEM_LIST = new ArrayList<>();
-//    public static final ItemBow BOW_1 = (ItemBow) new ItemBow().setRegistryName("bow1").setCreativeTab(ModTabs.TAB1).setUnlocalizedName("bow1");
+    public static final Item BOW_1 = new ItemSeraphBase("test_seraph");
 
     @SubscribeEvent
     public static void handleItem(RegistryEvent.Register<Item> event)
