@@ -1,0 +1,2 @@
+lua DynamicGen.lua
+pause
