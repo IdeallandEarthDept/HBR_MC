@@ -1,5 +1,6 @@
-package com.deeplake.sandbox.entities;
+package com.deeplake.sandbox.entities.cancer;
 
+import com.deeplake.sandbox.entities.EntityBase;
 import com.deeplake.sandbox.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

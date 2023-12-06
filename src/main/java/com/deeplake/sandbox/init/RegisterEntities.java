@@ -1,7 +1,8 @@
 package com.deeplake.sandbox.init;
 
 import com.deeplake.sandbox.ExampleMod;
-import com.deeplake.sandbox.entities.EntityCancer;
+import com.deeplake.sandbox.entities.cancer.EntityCancer;
+import com.deeplake.sandbox.entities.cancer.EntityMarionette;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -12,17 +13,23 @@ public class RegisterEntities {
     {
 
         registerEntity("cancer_test", EntityCancer.class);
+        registerEntity("c_marionette", EntityMarionette.class, 64, 0x000000, 0xcccc00);
 
         //Assign Dungeons
         //DungeonHooks.addDungeonMob(EntityList.getKey(EntityMoroonStandardInfantrySpawner.class), STANDARD_DUNGEON_MOB_RARITY >> 1);
     }
 
-    private  static  void registerEntity(String name, Class<? extends Entity> entity)
+    private static void registerEntity(String name, Class<? extends Entity> entity)
     {
         registerEntity(name, entity, ENTITY_NEXT_ID, 50, 0xff00ff, 0x000000);
     }
 
-    private  static  void registerEntity(String name, Class<? extends Entity> entity, int color1, int color2)
+    private static void registerEntity(String name, Class<? extends Entity> entity, int range, int color1, int color2)
+    {
+        registerEntity(name, entity, ENTITY_NEXT_ID, range, color1, color2);
+    }
+
+    private static void registerEntity(String name, Class<? extends Entity> entity, int color1, int color2)
     {
         registerEntity(name, entity, ENTITY_NEXT_ID, 50, color1, color2);
     }
