@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.items.seraph;
 
 import com.deeplake.hbr_mc.ModTabs;
+import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.RegisterUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
@@ -9,6 +10,8 @@ import com.google.common.collect.Multimap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
@@ -27,7 +30,9 @@ import net.minecraftforge.common.IRarity;
 import java.util.UUID;
 
 public class ItemSeraphBase extends ItemSword {
+    public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
     UUID uuid = UUID.fromString("7cf25a1c-6768-4836-8d24-ec64ed2a4ef7");
+    UUID uuidPer = UUID.fromString("c73c33a5-9de0-4619-81bf-6009a3a84c02");
     public ItemSeraphBase(String name) {
         super(ToolMaterial.DIAMOND);
         RegisterUtil.initItem(this, name);
@@ -178,8 +183,24 @@ public class ItemSeraphBase extends ItemSword {
         {
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", SeraphUtil.getLevel(stack)+3, 0));
             multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D, 0));
+
+            addToMap(multimap, RegisterAttr.STR, stack);
+            addToMap(multimap, RegisterAttr.DEX, stack);
+            addToMap(multimap, RegisterAttr.END, stack);
+            addToMap(multimap, RegisterAttr.MEN, stack);
+            addToMap(multimap, RegisterAttr.INT, stack);
+            addToMap(multimap, RegisterAttr.LUC, stack);
         }
 
         return super.getAttributeModifiers(slot, stack);
+    }
+
+    private void addToMap(Multimap<String, AttributeModifier> multimap, IAttribute str, ItemStack stack) {
+        multimap.put(str.getName(), new AttributeModifier(uuid, SERAPH_MODIFIER_BASE, getAttrValue(stack, str), 0));
+    }
+
+    public float getAttrValue(ItemStack stack, IAttribute attr)
+    {
+        return SeraphUtil.getLevel(stack) + 3;
     }
 }

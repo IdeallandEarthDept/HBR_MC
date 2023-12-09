@@ -14,6 +14,7 @@ public class EntityMarionette extends EntityCancer{
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
+        setAttr(32,0.1f,3,0,5);
     }
 
     @Override
