@@ -12,6 +12,11 @@ public class EntityMarionette extends EntityCancer{
     }
 
     @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+    }
+
+    @Override
     protected void initEntityAI() {
         super.initEntityAI();
         this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));

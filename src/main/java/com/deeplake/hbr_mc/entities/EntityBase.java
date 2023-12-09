@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.entities;
 
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
@@ -45,5 +46,15 @@ public class EntityBase extends EntityCreature {
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
         needFirstTickInLife = compound.getBoolean(IDLNBTDef.NEED_FIRST_TICK);
+    }
+
+    public void setAttr(double sight, double speed, double attack, double armor, double hp) {
+        //float modifier = getLevelModifier();
+        float modifier = 1f;
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(sight * modifier);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(speed);//don't modify speed, crazy.
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(attack * modifier);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(armor * modifier);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(hp * modifier);
     }
 }
