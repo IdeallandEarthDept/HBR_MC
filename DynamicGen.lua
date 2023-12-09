@@ -1,4 +1,3 @@
 require "GenBlockJson"
 
-GenItem("misc","logo")
-GenItem("misc","logo2")
+GenItem("seraph","brave_blue")

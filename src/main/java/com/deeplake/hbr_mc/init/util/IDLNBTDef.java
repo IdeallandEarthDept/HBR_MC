@@ -30,7 +30,8 @@ public class IDLNBTDef {
 	public static final String EVILNESS = "evilness";
 
 	public static final String LV_EXP = "lv_xp";
-
+	//multiple card onto one
+	public static final String BREAKTHROUGH = "brk_thru";
 	//Grand Protection
 	public static final String PROTECT_STATUS = "grand_protect";
 
@@ -294,6 +295,9 @@ public class IDLNBTDef {
     public static final String KEY_DUMMY = "d";//used for a shortest key
 
     public static final String KEY_NOT_NEW_PLAYER = "not_newbie";//first login
+
+	//HBR
+    public static final String KEY_BROKEN = "is_broken";//first login
 
     public enum SPAWNER_TYPE{
 		NONE,

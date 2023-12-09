@@ -1,10 +1,9 @@
 #PARSE_ESCAPES
 
 #tabs
-itemGroup.sandbox.tab1=Teaching
+itemGroup.hbr_mc.tab1=Heaven Burns Red
 
 #items
 item.test3.name=Test Item
-item.bow2.name=Test 2
-item.bow3.name=Test 3
-item.bow4.name=Test 4
+
+entity.c_marionette.name=Marionette

@@ -2,16 +2,23 @@ package com.deeplake.hbr_mc.entities.cancer;
 
 import com.deeplake.hbr_mc.entities.EntityBase;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
+import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class EntityCancer extends EntityBase implements IMob {
+import java.util.List;
+
+public class EntityCancer extends EntityBase implements IMob, ICancer {
     public EntityCancer(World worldIn) {
         super(worldIn);
     }
@@ -27,6 +34,7 @@ public class EntityCancer extends EntityBase implements IMob {
         setAbsorptionAmount(getInitShield());
     }
 
+    //when there is still shield, takes no damage to HP even if damage is overkill for shield
     protected void damageEntity(DamageSource damageSrc, float damageAmount)
     {
         if (!this.isEntityInvulnerable(damageSrc))
@@ -40,6 +48,13 @@ public class EntityCancer extends EntityBase implements IMob {
             if (getAbsorptionAmount() > 0)
             {
                 this.setAbsorptionAmount(this.getAbsorptionAmount() - (f - damageAmount));
+                //no damage to HP
+                if (getAbsorptionAmount() <= 0)
+                {
+                    //stun
+                    addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 5));
+                    //todo: special AI task
+                }
             }
             else {
                 damageAmount = net.minecraftforge.common.ForgeHooks.onLivingDamage(this, damageSrc, damageAmount);
@@ -96,13 +111,56 @@ public class EntityCancer extends EntityBase implements IMob {
     {
         if (livingBase instanceof EntityLivingBase)
         {
-            Item item = ((EntityLivingBase) livingBase).getHeldItemMainhand().getItem();
-            if (item instanceof ItemSeraphBase)
-            {
-                return true;
-            }
+            ItemStack stack = ((EntityLivingBase) livingBase).getHeldItemMainhand();
+            return SeraphUtil.isSeraph(stack) && !SeraphUtil.isBroken(stack);
         }
 
         return false;
+    }
+
+    @Override
+    public void onDeath(DamageSource cause) {
+        super.onDeath(cause);
+        if (net.minecraftforge.common.ForgeHooks.onLivingDeath(this, cause)) return;
+        if (!this.dead)
+        {
+            //add xp to seraph if killed by player, and seraph is in hand
+            if (cause.getTrueSource() instanceof EntityPlayer)
+            {
+                List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, getEntityBoundingBox().grow(32));
+                for (EntityPlayer player: players
+                     ){
+                    ItemStack stack = player.getHeldItemMainhand();
+                    if (!SeraphUtil.isSeraph(stack))
+                    {
+                        stack = player.getHeldItemOffhand();
+                        if (!SeraphUtil.isSeraph(stack))
+                        {
+                            continue;
+                        }
+                    }
+
+                    SeraphUtil.addXP(stack, getXPWorth(), player);
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void updateAITasks() {
+        super.updateAITasks();
+        if (fallDistance > 20)
+        {
+            setFire(10);
+        }
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier) {
+        super.fall(distance, damageMultiplier);
+        if (distance > 20)
+        {
+            world.playSound(null, posX, posY, posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.HOSTILE, 1.0f, 1.0f);
+        }
     }
 }

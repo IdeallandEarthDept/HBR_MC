@@ -1,14 +1,14 @@
 [
 {
-  "modid": "sandbox",
-  "name": "Sandbox",
-  "description": "Example placeholder mod.",
+  "modid": "hbr_mc",
+  "name": "Heaven Burns Red",
+  "description": "Heaven Burns Red in Minecraft.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Taoism DeepLake"],
-  "credits": "ZekerZhayard for renewing the gradle file.",
+  "credits": "Wright Flyer Studio",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

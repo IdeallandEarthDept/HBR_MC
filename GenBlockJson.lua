@@ -1,5 +1,5 @@
 local outFile = nil;
-local modName = "bnds";
+local modName = "hbr_mc";
 local blockName = "grid_normal";
 
 local function GenModelBlockItem(spName)

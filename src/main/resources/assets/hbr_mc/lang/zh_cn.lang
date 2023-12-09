@@ -1,4 +1,10 @@
 #PARSE_ESCAPES
-#items
-item.test3.name=测试物品
 
+#tabs
+itemGroup.hbr_mc.tab1=Heaven Burns Red
+
+#items
+item.test3.name=Test Item
+
+#entity
+entity.c_marionette.name=Marionette
