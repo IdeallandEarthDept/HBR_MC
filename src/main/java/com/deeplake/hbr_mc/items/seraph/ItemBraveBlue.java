@@ -6,5 +6,5 @@ public class ItemBraveBlue extends ItemSeraphBase{
         super(name);
     }
 
-    
+
 }

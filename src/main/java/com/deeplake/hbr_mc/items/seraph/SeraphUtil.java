@@ -74,4 +74,25 @@ public class SeraphUtil {
     public static boolean isBroken(ItemStack stack) {
         return IDLNBTUtil.GetBoolean(stack, IDLNBTDef.KEY_BROKEN);
     }
+
+    public static void repairSeraph(ItemStack stack)
+    {
+        stack.setItemDamage(0);
+        IDLNBTUtil.SetBoolean(stack, IDLNBTDef.KEY_BROKEN, false);
+    }
+
+    public static ItemStack getFirstSeraphInHand(EntityPlayer player)
+    {
+        ItemStack stack = player.getHeldItemMainhand();
+        if (!SeraphUtil.isSeraph(stack))
+        {
+            stack = player.getHeldItemOffhand();
+            if (!SeraphUtil.isSeraph(stack))
+            {
+                return null;
+            }
+        }
+
+        return stack;
+    }
 }

@@ -145,19 +145,21 @@ public class ItemSeraphBase extends ItemSword {
         super.setDamage(stack, damage);
     }
 
-    @Override
-    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-        super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-        if (!worldIn.isRemote)
-        {
-            if (SeraphUtil.isBroken(stack))
-            {
-                if (worldIn.getTotalWorldTime() % 24000 == 0)
-                {
-                    //todo: chance to repair
-                }
-                return;
-            }
-        }
-    }
+//    @Override
+//    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+//        super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
+//        if (!worldIn.isRemote)
+//        {
+//            if (SeraphUtil.isBroken(stack))
+//            {
+//                if (worldIn.getTotalWorldTime() % 24000 == 0)
+//                {
+//                    //todo: chance to repair
+//                }
+//                return;
+//            }
+//        }
+//    }
+
+
 }

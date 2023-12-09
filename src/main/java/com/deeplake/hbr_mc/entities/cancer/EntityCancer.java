@@ -53,6 +53,7 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
                 {
                     //stun
                     addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 5));
+                    world.playSound(null, posX, posY, posZ, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.HOSTILE, 1.0f, 1.0f);
                     //todo: special AI task
                 }
             }

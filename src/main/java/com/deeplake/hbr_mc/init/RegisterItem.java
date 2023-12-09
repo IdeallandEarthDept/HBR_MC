@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc.init;
 
+import com.deeplake.hbr_mc.items.seraph.ItemBraveBlue;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -17,7 +18,7 @@ import java.util.List;
 @Mod.EventBusSubscriber
 public class RegisterItem {
     public static final List<Item> ITEM_LIST = new ArrayList<>();
-    public static final Item BOW_1 = new ItemSeraphBase("test_seraph");
+    public static final Item BRAVE_BLUE = new ItemBraveBlue("brave_blue");
 
     @SubscribeEvent
     public static void handleItem(RegistryEvent.Register<Item> event)

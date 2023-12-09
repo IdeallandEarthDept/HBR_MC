@@ -16,7 +16,8 @@ public class RegisterBlocks {
 
     public static final List<Block> BLOCK_LIST = new ArrayList<>();
 
-    public static final Block BLOCK_1 = new BlockHealStash("heal_stash", Material.ROCK, 5);
+    public static final Block HEAL_STASH = new BlockHealStash("heal_stash", Material.ROCK, 5);
+    public static final Block HEAL_STASH_PERMA = new BlockHealStash("heal_stash_perma", Material.ROCK, 99).setOneUse(false);
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)
