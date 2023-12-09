@@ -192,7 +192,7 @@ public class ItemSeraphBase extends ItemSword {
             addToMap(multimap, RegisterAttr.LUC, stack);
         }
 
-        return super.getAttributeModifiers(slot, stack);
+        return multimap;
     }
 
     private void addToMap(Multimap<String, AttributeModifier> multimap, IAttribute str, ItemStack stack) {

@@ -5,5 +5,16 @@ itemGroup.hbr_mc.tab1=Heaven Burns Red
 
 #items
 item.test3.name=Test Item
+item.brave_blue.name=BraveBlue
 
+
+attribute.name.hbr_mc.attr.str=Strength
+attribute.name.hbr_mc.attr.dex=Dexterity
+attribute.name.hbr_mc.attr.end=Endurance
+attribute.name.hbr_mc.attr.men=Mental
+attribute.name.hbr_mc.attr.int=Intelligence
+attribute.name.hbr_mc.attr.luc=Lucky
+
+
+#entity
 entity.c_marionette.name=Marionette

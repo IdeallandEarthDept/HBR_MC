@@ -74,7 +74,7 @@ public class RegisterAttr {
 
     public static IAttribute getNewAttrNonPercent(String name, double defaultVal)
     {
-        IAttribute attribute = new RangedAttribute(null, getAttrName(name), defaultVal, MIN, MAX).setDescription(name).setShouldWatch(false);
+        IAttribute attribute = new RangedAttribute(null, getAttrName(name), defaultVal, MIN, MAX).setDescription(name).setShouldWatch(true);
         allNewAttrs.add(attribute);
         return attribute;
     }

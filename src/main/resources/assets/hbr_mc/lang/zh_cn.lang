@@ -5,6 +5,15 @@ itemGroup.hbr_mc.tab1=Heaven Burns Red
 
 #items
 item.test3.name=Test Item
+item.brave_blue.name=BraveBlue(电路的爆裂闪光)
+
+
+attribute.name.hbr_mc.attr.str=力量
+attribute.name.hbr_mc.attr.dex=灵巧
+attribute.name.hbr_mc.attr.end=耐力
+attribute.name.hbr_mc.attr.men=精神
+attribute.name.hbr_mc.attr.int=智力
+attribute.name.hbr_mc.attr.luc=幸运
 
 #entity
 entity.c_marionette.name=Marionette
