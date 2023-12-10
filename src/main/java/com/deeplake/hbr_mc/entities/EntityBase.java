@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc.entities;
 
+import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -56,5 +57,21 @@ public class EntityBase extends EntityCreature {
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(attack * modifier);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(armor * modifier);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(hp * modifier);
+    }
+
+    public void set6Attr(float value)
+    {
+        this.getEntityAttribute(RegisterAttr.STR).setBaseValue(value);
+        this.getEntityAttribute(RegisterAttr.DEX).setBaseValue(value);
+        this.getEntityAttribute(RegisterAttr.END).setBaseValue(value);
+        this.getEntityAttribute(RegisterAttr.MEN).setBaseValue(value);
+        this.getEntityAttribute(RegisterAttr.INT).setBaseValue(value);
+        this.getEntityAttribute(RegisterAttr.LUC).setBaseValue(value);
+    }
+
+    public void setDPMax(float value)
+    {
+        this.setAbsorptionAmount(value);
+        this.getEntityAttribute(RegisterAttr.DP_MAX).setBaseValue(value);
     }
 }

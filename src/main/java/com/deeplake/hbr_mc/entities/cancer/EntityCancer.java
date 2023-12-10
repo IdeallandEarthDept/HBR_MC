@@ -1,13 +1,16 @@
 package com.deeplake.hbr_mc.entities.cancer;
 
 import com.deeplake.hbr_mc.entities.EntityBase;
+import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -38,7 +41,7 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
     @Override
     public void onFirstTickInLife() {
         super.onFirstTickInLife();
-        setAbsorptionAmount(getInitShield());
+        //setAbsorptionAmount(getInitShield());
     }
 
     //when there is still shield, takes no damage to HP even if damage is overkill for shield
@@ -61,6 +64,7 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
                     //stun
                     addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 5));
                     world.playSound(null, posX, posY, posZ, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.HOSTILE, 1.0f, 1.0f);
+                    world.spawnParticle(net.minecraft.util.EnumParticleTypes.BLOCK_CRACK, posX, posY, posZ, 0.0D, 1.0D, 0.0D, Block.getStateId(Blocks.BLUE_GLAZED_TERRACOTTA.getDefaultState()));
                     //todo: special AI task
                 }
             }
@@ -74,6 +78,7 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
                     this.setAbsorptionAmount(this.getAbsorptionAmount() - damageAmount);
                 }
             }
+            DShieldUtil.syncDPStatus(this);
         }
     }
 

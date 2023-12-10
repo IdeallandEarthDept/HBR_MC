@@ -7,6 +7,8 @@ itemGroup.hbr_mc.tab1=Heaven Burns Red
 item.test3.name=Test Item
 item.brave_blue.name=BraveBlue
 
+tile.heal_stash.name=Heal Stash
+tile.heal_stash_perma.name=Heal Stash Perma
 
 attribute.name.hbr_mc.attr.str=Strength
 attribute.name.hbr_mc.attr.dex=Dexterity
@@ -18,3 +20,4 @@ attribute.name.hbr_mc.attr.luc=Lucky
 
 #entity
 entity.c_marionette.name=Marionette
+entity.c_doll.name=Doll

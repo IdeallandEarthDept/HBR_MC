@@ -5,21 +5,26 @@ import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.RegisterUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
+import com.deeplake.hbr_mc.items.ItemBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.stats.StatList;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -29,14 +34,15 @@ import net.minecraftforge.common.IRarity;
 
 import java.util.UUID;
 
-public class ItemSeraphBase extends ItemSword {
+public class ItemSeraphBase extends ItemBase {
     public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
     UUID uuid = UUID.fromString("7cf25a1c-6768-4836-8d24-ec64ed2a4ef7");
     UUID uuidPer = UUID.fromString("c73c33a5-9de0-4619-81bf-6009a3a84c02");
     public ItemSeraphBase(String name) {
-        super(ToolMaterial.DIAMOND);
-        RegisterUtil.initItem(this, name);
-        setCreativeTab(ModTabs.TAB1);
+//        super(ToolMaterial.DIAMOND);
+        super(name);
+//        RegisterUtil.initItem(this, name);
+//        setCreativeTab(ModTabs.TAB1);
         setMaxStackSize(1);
     }
 
@@ -63,6 +69,12 @@ public class ItemSeraphBase extends ItemSword {
     @Override
     public IRarity getForgeRarity(ItemStack stack) {
         return EnumRarity.EPIC;
+    }
+
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
+    {
+        //don't drop durability
+        return true;
     }
 
     //    public boolean canDisableShield(ItemStack stack, ItemStack shield, EntityLivingBase entity, EntityLivingBase attacker)
@@ -175,6 +187,8 @@ public class ItemSeraphBase extends ItemSword {
 //    }
 
 
+
+
     @Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
         Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
@@ -202,5 +216,49 @@ public class ItemSeraphBase extends ItemSword {
     public float getAttrValue(ItemStack stack, IAttribute attr)
     {
         return SeraphUtil.getLevel(stack) + 3;
+    }
+
+
+    //Cast Skill
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
+    {
+        if (entityLiving instanceof EntityPlayer)
+        {
+
+        }
+        return stack;
+    }
+
+    public int getMaxItemUseDuration(ItemStack stack)
+    {
+        return 32;
+    }
+
+    /**
+     * returns the action that specifies what animation to play when the items is being used
+     */
+    public EnumAction getItemUseAction(ItemStack stack)
+    {
+        return EnumAction.BOW;
+    }
+
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    {
+        ItemStack itemstack = playerIn.getHeldItem(handIn);
+
+        if (SeraphUtil.isBroken(itemstack))
+        {
+            return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
+        }
+        else
+        {
+            playerIn.setActiveHand(handIn);
+            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+        }
+    }
+
+    @Override
+    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
+        super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
     }
 }

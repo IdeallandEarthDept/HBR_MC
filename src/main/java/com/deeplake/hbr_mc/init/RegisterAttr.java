@@ -26,6 +26,8 @@ public class RegisterAttr {
     public static final IAttribute MEN = getNewAttrNonPercent("men", 5);
     public static final IAttribute INT = getNewAttrNonPercent("int", 5);
     public static final IAttribute LUC = getNewAttrNonPercent("luc", 5);
+    public static final IAttribute DP_MAX = getNewAttrNonPercent("dpmax", 0);
+    public static final IAttribute DP_SYNC = getNewAttrNonPercent("dpsync", 0);
 
     @SubscribeEvent
     public static void onConstruct(EntityEvent.EntityConstructing entityConstructing)
@@ -79,8 +81,24 @@ public class RegisterAttr {
         return attribute;
     }
 
+    public static IAttribute getNewAttrNonPercentNoWatch(String name, double defaultVal)
+    {
+        IAttribute attribute = new RangedAttribute(null, getAttrName(name), defaultVal, MIN, MAX).setDescription(name).setShouldWatch(false);
+        allNewAttrs.add(attribute);
+        return attribute;
+    }
+
     static final String MID_NAME = ".attr.";
     static String getAttrName(String name){
         return Main.MODID + MID_NAME + name;
+    }
+
+    public static double getAttrValue(EntityLivingBase livingBase, IAttribute attribute)
+    {
+        if (livingBase.getEntityAttribute(attribute) == null)
+        {
+            return 0;
+        }
+        return livingBase.getEntityAttribute(attribute).getAttributeValue();
     }
 }

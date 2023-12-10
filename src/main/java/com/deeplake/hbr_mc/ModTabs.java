@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc;
 
+import com.deeplake.hbr_mc.init.RegisterItem;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -12,7 +13,7 @@ public class ModTabs {
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem()
         {
-            return new ItemStack(Items.BED);
+            return new ItemStack(RegisterItem.BRAVE_BLUE);
         }
     };
 }

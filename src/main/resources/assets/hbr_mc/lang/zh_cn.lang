@@ -1,7 +1,12 @@
 #PARSE_ESCAPES
 
 #tabs
-itemGroup.hbr_mc.tab1=Heaven Burns Red
+itemGroup.hbr_mc.tab1=绯染天空
+
+#tiles
+tile.heal_stash.name=补给箱（一次性）
+tile.heal_stash_perma.name=补给箱(无限)
+
 
 #items
 item.test3.name=Test Item
