@@ -218,7 +218,7 @@ public class ItemSeraphBase extends ItemBase {
 
     public float getAttrValue(ItemStack stack, IAttribute attr)
     {
-        return SeraphUtil.getLevel(stack) + 3;
+        return SeraphUtil.getLevel(stack) + 7;
     }
 
 

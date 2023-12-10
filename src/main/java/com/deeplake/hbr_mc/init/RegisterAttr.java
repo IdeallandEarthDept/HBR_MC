@@ -20,12 +20,12 @@ public class RegisterAttr {
 
     public static final HashSet<IAttribute> allNewAttrs = new HashSet<>();
 
-    public static final IAttribute STR = getNewAttrNonPercentNonNegative("str", 5);
-    public static final IAttribute DEX = getNewAttrNonPercentNonNegative("dex", 5);
-    public static final IAttribute END = getNewAttrNonPercentNonNegative("end", 5);
-    public static final IAttribute MEN = getNewAttrNonPercentNonNegative("men", 5);
-    public static final IAttribute INT = getNewAttrNonPercentNonNegative("int", 5);
-    public static final IAttribute LUC = getNewAttrNonPercentNonNegative("luc", 5);
+    public static final IAttribute STR = getNewAttrNonPercentNonNegative("str", 0);
+    public static final IAttribute DEX = getNewAttrNonPercentNonNegative("dex", 0);
+    public static final IAttribute END = getNewAttrNonPercentNonNegative("end", 0);
+    public static final IAttribute MEN = getNewAttrNonPercentNonNegative("men", 0);
+    public static final IAttribute INT = getNewAttrNonPercentNonNegative("int", 0);
+    public static final IAttribute LUC = getNewAttrNonPercentNonNegative("luc", 0);
     public static final IAttribute DP_MAX = getNewAttrNonPercentNonNegative("dpmax", 0);
     public static final IAttribute DP_SYNC = getNewAttrNonPercentNonNegative("dpsync", 0);
 
