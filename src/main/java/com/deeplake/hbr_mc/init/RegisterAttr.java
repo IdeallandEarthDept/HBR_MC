@@ -102,7 +102,7 @@ public class RegisterAttr {
 
     public static double getAttrValue(EntityLivingBase livingBase, IAttribute attribute)
     {
-        if (livingBase.getEntityAttribute(attribute) == null)
+        if (livingBase == null || livingBase.getEntityAttribute(attribute) == null)
         {
             return 0;
         }

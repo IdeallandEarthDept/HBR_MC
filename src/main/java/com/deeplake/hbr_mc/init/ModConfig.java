@@ -31,6 +31,13 @@ public class ModConfig {
         public boolean BAN_HEAL = true;
     }
 
+    public static CombatConf COMBAT = new CombatConf();
+
+    public static class CombatConf {
+        public float NORMAL_ATK_POWER = 10f;
+        public float NORMAL_ATK_CAP = 150;
+    }
+
     public static final GUIConf GUI_CONF = new GUIConf();
 
     public static class GUIConf {

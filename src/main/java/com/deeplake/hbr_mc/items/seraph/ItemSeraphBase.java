@@ -77,6 +77,9 @@ public class ItemSeraphBase extends ItemBase {
         return true;
     }
 
+    // As actual melee normal attack damage is dealt in EntityPlayer::attackTargetEntityWithCurrentItem
+    //which calls attackEntityFrom, we really can not help with it much directly. Events are needed.
+
     //    public boolean canDisableShield(ItemStack stack, ItemStack shield, EntityLivingBase entity, EntityLivingBase attacker)
 //    {
 //        return this instanceof ItemAxe;

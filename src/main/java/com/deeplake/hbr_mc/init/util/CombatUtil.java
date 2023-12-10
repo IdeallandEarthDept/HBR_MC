@@ -1,11 +1,18 @@
 package com.deeplake.hbr_mc.init.util;
 
+import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 
 public class CombatUtil {
+    static boolean isHBRAttackProcess = false;
+
+    public static boolean isIsHBRAttackProcess() {
+        return isHBRAttackProcess;
+    }
+
     public enum EnumAttrType {
         STANDARD,
         STR_FOCUS,
@@ -29,6 +36,7 @@ public class CombatUtil {
         if (target == null || target.isDead || target.getHealth() <= 0) {
             return;
         }
+        isHBRAttackProcess = true;
 
         double refAttr = 0;
         switch (atkType)
@@ -104,8 +112,17 @@ public class CombatUtil {
             damage *= (target.getRNG().nextFloat() * 0.2f + 0.9f);
         }
 
+        if(isCritical)
+        {
+            Main.Log("CrtDMG=%2f:[%s]->[%s]",damage,attacker==null ? "NULL" :attacker.getName(),target.getName());
+        }
+        else {
+            Main.Log("Damage=%2f:[%s]->[%s]",damage,attacker==null ? "NULL" :attacker.getName(),target.getName());
+        }
+
         target.attackEntityFrom(EntityUtil.attack(attacker), damage);
         target.hurtResistantTime = 0;
+        isHBRAttackProcess = false;
     }
 
     public static boolean checkCritical(EntityLivingBase attacker)
