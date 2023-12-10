@@ -20,14 +20,14 @@ public class RegisterAttr {
 
     public static final HashSet<IAttribute> allNewAttrs = new HashSet<>();
 
-    public static final IAttribute STR = getNewAttrNonPercent("str", 5);
-    public static final IAttribute DEX = getNewAttrNonPercent("dex", 5);
-    public static final IAttribute END = getNewAttrNonPercent("end", 5);
-    public static final IAttribute MEN = getNewAttrNonPercent("men", 5);
-    public static final IAttribute INT = getNewAttrNonPercent("int", 5);
-    public static final IAttribute LUC = getNewAttrNonPercent("luc", 5);
-    public static final IAttribute DP_MAX = getNewAttrNonPercent("dpmax", 0);
-    public static final IAttribute DP_SYNC = getNewAttrNonPercent("dpsync", 0);
+    public static final IAttribute STR = getNewAttrNonPercentNonNegative("str", 5);
+    public static final IAttribute DEX = getNewAttrNonPercentNonNegative("dex", 5);
+    public static final IAttribute END = getNewAttrNonPercentNonNegative("end", 5);
+    public static final IAttribute MEN = getNewAttrNonPercentNonNegative("men", 5);
+    public static final IAttribute INT = getNewAttrNonPercentNonNegative("int", 5);
+    public static final IAttribute LUC = getNewAttrNonPercentNonNegative("luc", 5);
+    public static final IAttribute DP_MAX = getNewAttrNonPercentNonNegative("dpmax", 0);
+    public static final IAttribute DP_SYNC = getNewAttrNonPercentNonNegative("dpsync", 0);
 
     @SubscribeEvent
     public static void onConstruct(EntityEvent.EntityConstructing entityConstructing)
@@ -77,6 +77,13 @@ public class RegisterAttr {
     public static IAttribute getNewAttrNonPercent(String name, double defaultVal)
     {
         IAttribute attribute = new RangedAttribute(null, getAttrName(name), defaultVal, MIN, MAX).setDescription(name).setShouldWatch(true);
+        allNewAttrs.add(attribute);
+        return attribute;
+    }
+
+    public static IAttribute getNewAttrNonPercentNonNegative(String name, double defaultVal)
+    {
+        IAttribute attribute = new RangedAttribute(null, getAttrName(name), defaultVal, 0, MAX).setDescription(name).setShouldWatch(true);
         allNewAttrs.add(attribute);
         return attribute;
     }

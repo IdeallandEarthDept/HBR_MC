@@ -176,4 +176,9 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
             world.playSound(null, posX, posY, posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.HOSTILE, 1.0f, 1.0f);
         }
     }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entityIn) {
+        return super.attackEntityAsMob(entityIn);
+    }
 }
