@@ -2,15 +2,32 @@ package com.deeplake.hbr_mc.init.util;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntitySelectors;
+import net.minecraft.world.World;
+
+import java.util.List;
 
 public class CombatUtil {
     static boolean isHBRAttackProcess = false;
 
     public static boolean isIsHBRAttackProcess() {
         return isHBRAttackProcess;
+    }
+
+    public static void areaHeal(World worldIn, EntityPlayer caster, float minHeal, float cap) {
+        List<EntityPlayer> players = EntityUtil.getEntitiesWithinAABB(
+                worldIn,EntityPlayer.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
+        );
+        float maxHeal = minHeal * 3;
+        float intelligence = (float) RegisterAttr.getAttrValue(caster, RegisterAttr.INT);
+        float healAmount = Math.min(intelligence, cap) / cap * (maxHeal - minHeal) + minHeal;
+        for (EntityPlayer player :
+                players) {
+            SeraphUtil.cureSeraph(SeraphUtil.getFirstSeraphNonBrokenInHand(player), healAmount);
+        }
     }
 
     public enum EnumAttrType {
@@ -29,10 +46,10 @@ public class CombatUtil {
     static final float MAX_EXTRA = 4f;
 
     public static void attackAsHBR(EntityLivingBase attacker, EntityLivingBase target, float cap, float lowDamage) {
-        attackAsHBR(attacker, target, EnumAttrType.STANDARD, EnumDefType.END, cap, lowDamage);
+        attackAsHBR(attacker, target, EnumAttrType.STANDARD, EnumDefType.END, lowDamage, cap);
     }
 
-    public static void attackAsHBR(EntityLivingBase attacker, EntityLivingBase target, EnumAttrType atkType, EnumDefType defType, float cap, float lowDamage) {
+    public static void attackAsHBR(EntityLivingBase attacker, EntityLivingBase target, EnumAttrType atkType, EnumDefType defType, float lowDamage, float cap) {
         if (target == null || target.isDead || target.getHealth() <= 0) {
             return;
         }

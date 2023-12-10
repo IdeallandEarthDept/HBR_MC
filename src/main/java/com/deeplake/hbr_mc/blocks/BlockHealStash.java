@@ -50,9 +50,9 @@ public class BlockHealStash extends BlockBase{
             worldIn.playSound(null, pos, net.minecraft.init.SoundEvents.ENTITY_PLAYER_LEVELUP, net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
             playerIn.heal(healAmount);
             ItemStack stack = SeraphUtil.getFirstSeraphInHand(playerIn);
-            if (stack != null)
+            if (!stack.isEmpty())
             {
-                SeraphUtil.repairSeraph(stack);
+                SeraphUtil.repairSeraphFully(stack);
                 playerIn.getCooldownTracker().setCooldown(stack.getItem(), 200);
             }
             if (oneUse)

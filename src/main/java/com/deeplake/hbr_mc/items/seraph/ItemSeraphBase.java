@@ -1,6 +1,8 @@
 package com.deeplake.hbr_mc.items.seraph;
 
+import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.ModTabs;
+import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.RegisterUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
@@ -9,12 +11,11 @@ import com.deeplake.hbr_mc.items.ItemBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
@@ -30,10 +31,16 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootContext;
 import net.minecraftforge.common.IRarity;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.UUID;
 
+@Mod.EventBusSubscriber(modid = Main.MODID)
 public class ItemSeraphBase extends ItemBase {
     public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
     UUID uuid = UUID.fromString("7cf25a1c-6768-4836-8d24-ec64ed2a4ef7");
@@ -102,7 +109,7 @@ public class ItemSeraphBase extends ItemBase {
         boolean success = false;
         Vec3d startPos = player.getPositionVector();
         ItemStack stack = player.getHeldItem(hand);
-        if (SeraphUtil.isBroken(stack))
+        if (SeraphUtil.isBroken(stack) || player.getCooldownTracker().hasCooldown(this))
         {
             return EnumActionResult.FAIL;
         }
@@ -227,14 +234,57 @@ public class ItemSeraphBase extends ItemBase {
     {
         if (entityLiving instanceof EntityPlayer)
         {
-
+            if (entityLiving.isSneaking())
+            {
+                castSkillSneak(stack, worldIn, (EntityPlayer) entityLiving);
+            }
+            else {
+                castSkillNonSneak(stack, worldIn, (EntityPlayer) entityLiving);
+            }
         }
         return stack;
     }
 
+    public void castSkillNonSneak(ItemStack stack, World worldIn, EntityPlayer player)
+    {
+
+    }
+
+    public void castSkillSneak(ItemStack stack, World worldIn, EntityPlayer player)
+    {
+
+    }
+
+    @Override
+    public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
+        if (SeraphUtil.isBroken(stack) || playerIn.getCooldownTracker().hasCooldown(this))
+        {
+            return false;
+        }
+        if (target instanceof EntityPlayer)
+        {
+            castSkillFriend(stack, playerIn.getEntityWorld(), playerIn, target);
+        }
+        else if (target instanceof EntityMob || target instanceof EntityCancer){
+            castSkillEnemy(stack, playerIn.getEntityWorld(), playerIn, target);
+        }
+        //don't do anything on boats, sheep etc
+        return super.itemInteractionForEntity(stack, playerIn, target, hand);
+    }
+
+    public boolean castSkillFriend(ItemStack stack, World worldIn, EntityPlayer player, EntityLivingBase target)
+    {
+        return false;
+    }
+
+    public boolean castSkillEnemy(ItemStack stack, World worldIn, EntityPlayer player, EntityLivingBase target)
+    {
+        return false;
+    }
+
     public int getMaxItemUseDuration(ItemStack stack)
     {
-        return 32;
+        return 20;
     }
 
     /**
@@ -249,7 +299,7 @@ public class ItemSeraphBase extends ItemBase {
     {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
 
-        if (SeraphUtil.isBroken(itemstack))
+        if (SeraphUtil.isBroken(itemstack) || playerIn.getCooldownTracker().hasCooldown(this))
         {
             return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
         }
@@ -263,5 +313,27 @@ public class ItemSeraphBase extends ItemBase {
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
         super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
+    }
+
+    public void setCoolDown(EntityPlayer caster, int ticks) {
+        caster.getCooldownTracker().setCooldown(this, ticks);
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onHit(LivingHurtEvent event)
+    {
+        EntityLivingBase entityLivingBase = event.getEntityLiving();
+        if (entityLivingBase instanceof EntityPlayer)
+        {
+            //offhand buff won't take place, so if it works, it will take huge damage
+//            ItemStack stack = SeraphUtil.getFirstSeraphNonBrokenInHand((EntityPlayer) entityLivingBase);
+            ItemStack stack = entityLivingBase.getHeldItemMainhand();
+            if (stack.getItem() instanceof ItemSeraphBase)
+            {
+                float amount = event.getAmount();
+                event.setAmount(0);
+                stack.setItemDamage((int) (stack.getItemDamage() + amount));
+            }
+        }
     }
 }

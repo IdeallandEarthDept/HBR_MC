@@ -135,7 +135,7 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
     public void onDeath(DamageSource cause) {
         super.onDeath(cause);
         if (net.minecraftforge.common.ForgeHooks.onLivingDeath(this, cause)) return;
-        if (!this.dead)
+        //if (!this.dead)
         {
             //add xp to seraph if killed by player, and seraph is in hand
             if (cause.getTrueSource() instanceof EntityPlayer)

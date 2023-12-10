@@ -17,6 +17,12 @@ attribute.name.hbr_mc.attr.men=Mental
 attribute.name.hbr_mc.attr.int=Intelligence
 attribute.name.hbr_mc.attr.luc=Lucky
 
+desc.hbr_mc.seraph.broken=[Broken]
+desc.hbr_mc.seraph.dura_format=DP: %s/%s
+desc.hbr_mc.seraph.level_format=Lv.%s (%s/%s)
+desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
+
+msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 
 #entity
 entity.c_marionette.name=Marionette

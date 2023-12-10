@@ -1,24 +1,28 @@
-#PARSE_ESCAPES
 
-#tabs
+# tabs
 itemGroup.hbr_mc.tab1=绯染天空
 
-#tiles
-tile.heal_stash.name=补给箱（一次性）
-tile.heal_stash_perma.name=补给箱(无限)
-
-
-#items
+# items
 item.test3.name=Test Item
 item.brave_blue.name=BraveBlue(电路的爆裂闪光)
 
+# tiles
+tile.heal_stash.name=补给箱（一次性）
+tile.heal_stash_perma.name=补给箱(无限)
 
 attribute.name.hbr_mc.attr.str=力量
 attribute.name.hbr_mc.attr.dex=灵巧
-attribute.name.hbr_mc.attr.end=耐力
+attribute.name.hbr_mc.attr.end=体力
 attribute.name.hbr_mc.attr.men=精神
 attribute.name.hbr_mc.attr.int=智力
 attribute.name.hbr_mc.attr.luc=幸运
 
-#entity
+desc.hbr_mc.seraph.broken=!!BREAK!!
+desc.hbr_mc.seraph.dura_format=DP: %s/%s
+desc.hbr_mc.seraph.level_format=Lv.%s (%s/%s)
+desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
+
+msg.hbr_mc.level_up=等级提升！ Lv.%s -> Lv.%s
+
+entity.c_doll.name=Doll
 entity.c_marionette.name=Marionette

@@ -9,6 +9,11 @@ public class EntityDoll extends EntityWalkerCancerBase{
     }
 
     @Override
+    public int getLevel() {
+        return 3;
+    }
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         setAttr(32,0.25f,3,0,5);

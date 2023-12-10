@@ -16,7 +16,7 @@ public class SeraphUtil {
     }
     static int clampedLevel(int level, ItemStack stack)
     {
-        return Math.max(0, Math.min(level, getMaxLevel(stack)));
+        return Math.max(1, Math.min(level, getMaxLevel(stack)));
     }
 
     public static int getLevel(ItemStack stack) {
@@ -76,10 +76,32 @@ public class SeraphUtil {
         return IDLNBTUtil.GetBoolean(stack, IDLNBTDef.KEY_BROKEN);
     }
 
-    public static void repairSeraph(ItemStack stack)
+    public static void repairSeraphFully(ItemStack stack)
     {
+        if (stack.isEmpty())
+        {
+            return;
+        }
         stack.setItemDamage(0);
         IDLNBTUtil.SetBoolean(stack, IDLNBTDef.KEY_BROKEN, false);
+    }
+
+    public static void cureSeraph(ItemStack stack, float amount)
+    {
+        if (!stack.isEmpty() && !isBroken(stack))
+        {
+            stack.setItemDamage((int) (stack.getItemDamage() - amount));
+        }
+    }
+
+    public static void reviveSeraph(ItemStack stack, float amount)
+    {
+        if (stack.isEmpty())
+        {
+            return;
+        }
+        IDLNBTUtil.SetBoolean(stack, IDLNBTDef.KEY_BROKEN, false);
+        stack.setItemDamage((int) (stack.getItemDamage() - amount));
     }
 
     public static ItemStack getFirstSeraphInHand(EntityPlayer player)
@@ -90,7 +112,22 @@ public class SeraphUtil {
             stack = player.getHeldItemOffhand();
             if (!SeraphUtil.isSeraph(stack))
             {
-                return null;
+                return ItemStack.EMPTY;
+            }
+        }
+
+        return stack;
+    }
+
+    public static ItemStack getFirstSeraphNonBrokenInHand(EntityPlayer player)
+    {
+        ItemStack stack = player.getHeldItemMainhand();
+        if (!isFunctioningSeraph(stack))
+        {
+            stack = player.getHeldItemOffhand();
+            if (!isFunctioningSeraph(stack))
+            {
+                return ItemStack.EMPTY;
             }
         }
 
@@ -100,10 +137,10 @@ public class SeraphUtil {
     public static boolean canAttackWithMainHandSeraph(EntityLivingBase livingBase)
     {
         ItemStack stack = livingBase.getHeldItemMainhand();
-        if (SeraphUtil.isSeraph(stack) && !SeraphUtil.isBroken(stack))
-        {
-            return true;
-        }
-        return false;
+        return isFunctioningSeraph(stack);
+    }
+
+    private static boolean isFunctioningSeraph(ItemStack stack) {
+        return SeraphUtil.isSeraph(stack) && !SeraphUtil.isBroken(stack);
     }
 }
