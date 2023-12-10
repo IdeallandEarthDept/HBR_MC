@@ -37,6 +37,7 @@ public class CombatUtil {
             return;
         }
         isHBRAttackProcess = true;
+        target.hurtResistantTime = 0;
 
         double refAttr = 0;
         switch (atkType)
@@ -120,8 +121,9 @@ public class CombatUtil {
             Main.Log("Damage=%2f:[%s]->[%s]",damage,attacker==null ? "NULL" :attacker.getName(),target.getName());
         }
 
+        Main.Log("(%2f,%2f)=DP,HP",target.getAbsorptionAmount(),target.getHealth());
         target.attackEntityFrom(EntityUtil.attack(attacker), damage);
-        target.hurtResistantTime = 0;
+
         isHBRAttackProcess = false;
     }
 

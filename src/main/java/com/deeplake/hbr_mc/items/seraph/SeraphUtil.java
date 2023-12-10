@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.items.seraph;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
@@ -94,5 +95,15 @@ public class SeraphUtil {
         }
 
         return stack;
+    }
+
+    public static boolean canAttackWithMainHandSeraph(EntityLivingBase livingBase)
+    {
+        ItemStack stack = livingBase.getHeldItemMainhand();
+        if (SeraphUtil.isSeraph(stack) && !SeraphUtil.isBroken(stack))
+        {
+            return true;
+        }
+        return false;
     }
 }

@@ -3,7 +3,10 @@ package com.deeplake.hbr_mc.events;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
+import com.deeplake.hbr_mc.init.util.EntityUtil;
+import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -23,10 +26,19 @@ public class DesignPlayerDamageRework {
         Entity trueSource = event.getSource().getTrueSource();
         if (trueSource instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) trueSource;
-            event.setCanceled(true);
+            if (SeraphUtil.canAttackWithMainHandSeraph(player))
+            {
+                EntityLivingBase target = event.getEntityLiving();
+                event.setCanceled(true);
 
-            CombatUtil.attackAsHBR(player, event.getEntityLiving(), ModConfig.COMBAT.NORMAL_ATK_CAP, ModConfig.COMBAT.NORMAL_ATK_POWER);
-
+                float fullPower = ModConfig.COMBAT.NORMAL_ATK_POWER;
+                float normal_atk_cap = ModConfig.COMBAT.NORMAL_ATK_CAP;
+                int hits = 3;
+                float powerPerHit = fullPower / hits;
+                for (int i = 0; i < hits; i++) {
+                    CombatUtil.attackAsHBR(player, target, normal_atk_cap, powerPerHit);
+                }
+            }
         }
     }
 }
