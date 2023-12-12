@@ -31,12 +31,19 @@ public class ItemBraveBlue extends ItemSeraphBase{
     public void castSkillSneak(ItemStack stack, World worldIn, EntityPlayer caster) {
         if (!worldIn.isRemote)
         {
+            if (!canUseSkill(stack, HEAL_INDEX))
+            {
+                return;
+            }
+
             float minHeal = 305;
             float cap = 200;
 
             CombatUtil.areaHeal(worldIn, caster, minHeal, cap);
             worldIn.playSound(null, caster.getPosition(), SoundEvents.ENTITY_GENERIC_DRINK,SoundCategory.PLAYERS, 1f,1.5f);
             setCoolDown(caster, CommonDef.TICK_PER_SECOND * 5);
+
+            skillUseMark(stack, HEAL_INDEX);
         }
     }
 
@@ -46,9 +53,17 @@ public class ItemBraveBlue extends ItemSeraphBase{
         return true;
     }
 
+    final int ULTIMATE_INDEX = 1;
+    final int HEAL_INDEX = 0;
+
     @Override
     public boolean castSkillEnemy(ItemStack stack, World worldIn, EntityPlayer player, EntityLivingBase target) {
         //original: 12SP, 138 cap, 1602-8010 potency
+        if (!canUseSkill(stack, ULTIMATE_INDEX))
+        {
+            return false;
+        }
+
         if (!worldIn.isRemote)
         {
             float minPotency = 160;
@@ -69,11 +84,25 @@ public class ItemBraveBlue extends ItemSeraphBase{
                     extra ? minPotency * 0.5f * bonusRate : minPotency * 0.5f, cap);
             setCoolDown(player, CommonDef.TICK_PER_SECOND * 12);
             worldIn.playSound(null, player.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE,SoundCategory.PLAYERS, 1f,1.5f);
+            skillUseMark(stack, ULTIMATE_INDEX);
         }
         else {
             worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, player.posX,player.posY,player.posZ,0,0,0);
         }
 
         return true;
+    }
+
+    @Override
+    public int getSkillLimit(ItemStack stack, int slot) {
+        switch (slot)
+        {
+            case 0:
+                return 5;
+            case  1:
+                return 2;
+            default:
+                throw new IllegalStateException("Unexpected value: " + slot);
+        }
     }
 }

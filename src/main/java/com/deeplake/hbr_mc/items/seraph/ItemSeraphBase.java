@@ -336,4 +336,31 @@ public class ItemSeraphBase extends ItemBase {
             }
         }
     }
+
+    public int getSkillLimit(ItemStack stack, int slot)
+    {
+        return -1;
+    }
+
+    public static final String[] USAGE = {"usage_1","usage_2","usage_3"};
+
+    public int getSkillLeft(ItemStack stack, int slot)
+    {
+        return getSkillLimit(stack, slot) - IDLNBTUtil.GetInt(stack, USAGE[slot]);
+    }
+
+    public boolean canUseSkill(ItemStack stack, int slot)
+    {
+        return getSkillLimit(stack, slot) > 0 && getSkillLeft(stack, slot) > 0;
+    }
+
+    public int getMaxSkillSlot(ItemStack stack)
+    {
+        return 2;
+    }
+
+    public void skillUseMark(ItemStack stack, int slot)
+    {
+        IDLNBTUtil.addInt(stack, USAGE[slot],1);
+    }
 }

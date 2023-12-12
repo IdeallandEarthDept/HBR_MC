@@ -6,6 +6,8 @@ itemGroup.hbr_mc.tab1=Heaven Burns Red
 #items
 item.test3.name=Test Item
 item.brave_blue.name=BraveBlue
+item.brave_blue.skill.0=[Sneak RMB]Repair nearby seraph (%d/%d)
+item.brave_blue.skill.1=[Interact Enemy]Strong ST attack, to HP+30% (%d/%d)
 
 tile.heal_stash.name=Heal Stash
 tile.heal_stash_perma.name=Heal Stash Perma

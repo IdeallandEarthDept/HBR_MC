@@ -26,6 +26,10 @@ public class BlockHealStash extends BlockBase{
 
     public Block setOneUse(boolean oneUse) {
         this.oneUse = oneUse;
+        if (!oneUse)
+        {
+            setBlockUnbreakable();
+        }
         return this;
     }
 

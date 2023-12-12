@@ -1,7 +1,9 @@
 package com.deeplake.hbr_mc.client;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -26,6 +28,8 @@ public class DescForSeraph {
         {
             if (SeraphUtil.isSeraph(stack))
             {
+                //todo: type check
+                ItemSeraphBase item = (ItemSeraphBase) stack.getItem();
                 int level = SeraphUtil.getLevel(stack);
                 int lvMax = SeraphUtil.getMaxLevel(stack);
                 if (level == lvMax)
@@ -43,8 +47,19 @@ public class DescForSeraph {
                 else {
                     strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.dura_format", stack.getMaxDamage() - stack.getItemDamage(), stack.getMaxDamage()));
                 }
+
+                for (int i = item.getMaxSkillSlot(stack)-1; i >= 0; i--) {
+                    strings.add(1, net.minecraft.client.resources.I18n.format(item.getUnlocalizedName(stack)+".skill."+i,
+                            item.getSkillLeft(stack,i),
+                            item.getSkillLimit(stack,i)));
+                }
             }
         }
     }
 
+    static final String[] SKILL_DESC =
+            {
+                    "hbr_mc.seraph.skill.desc.0",
+                    "hbr_mc.seraph.skill.desc.1",
+            };
 }

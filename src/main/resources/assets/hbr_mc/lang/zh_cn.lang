@@ -5,6 +5,8 @@ itemGroup.hbr_mc.tab1=绯染天空
 # items
 item.test3.name=Test Item
 item.brave_blue.name=BraveBlue(电路的爆裂闪光)
+item.brave_blue.skill.0=潜行右键：修复-群体小治疗 (%d/%d)
+item.brave_blue.skill.1=右键敌人：梦幻泡影-单体力击 (%d/%d)
 
 # tiles
 tile.heal_stash.name=补给箱（一次性）
