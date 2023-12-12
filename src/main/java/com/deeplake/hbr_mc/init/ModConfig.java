@@ -45,7 +45,7 @@ public class ModConfig {
         public boolean RENDER_DP = true;
 
         @Config.Comment("The Y position of the GUI")
-        public int GUI_Y = 0;
+        public float GUI_Y = 0.5f;
 
         public float MAX_RENDER_HUD_DISTANCE = 64.0f;
         public float RENDER_HUD_SIZE = 5f;

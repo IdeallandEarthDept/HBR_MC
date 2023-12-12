@@ -4,6 +4,7 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.DShieldUtil;
+import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -14,6 +15,8 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -49,7 +52,7 @@ public class RenderDP {
        List<Entity> entities = mc.world.loadedEntityList;
 
         for(Entity entity : entities)
-            if(entity != null && entity instanceof EntityLivingBase && entity != mc.player && entity.isInRangeToRender3d(renderingVector.getX(), renderingVector.getY(), renderingVector.getZ()) && (entity.ignoreFrustumCheck || frustum.isBoundingBoxInFrustum(entity.getEntityBoundingBox())) && entity.isEntityAlive() && entity.getRecursivePassengers().isEmpty())
+            if(entity != null && entity instanceof EntityLivingBase  && entity.isInRangeToRender3d(renderingVector.getX(), renderingVector.getY(), renderingVector.getZ()) && (entity.ignoreFrustumCheck || frustum.isBoundingBoxInFrustum(entity.getEntityBoundingBox())) && entity.isEntityAlive() && entity.getRecursivePassengers().isEmpty())
                 renderDP((EntityLivingBase) entity, partialTicks, cameraEntity);
     }
 
@@ -84,7 +87,7 @@ public class RenderDP {
                 double z = passedEntity.lastTickPosZ + (passedEntity.posZ - passedEntity.lastTickPosZ) * partialTicks;
 
                 float scale = 0.026666672F;
-                float maxDP = (float) RegisterAttr.getAttrValue(entity, RegisterAttr.DP_MAX);
+                float maxDP = getDPMax(entity);
                 float remainDP = (float) DShieldUtil.getRemainDP(entity);
 
                 if(maxDP <= 0)
@@ -192,5 +195,21 @@ public class RenderDP {
 //                pastTranslate -= bgHeight + barHeight + padding;
             }
         }
+    }
+
+    private static float getDPMax(EntityLivingBase entityLivingBase) {
+        if (entityLivingBase instanceof EntityPlayer)
+        {
+            ItemStack stack = entityLivingBase.getHeldItemMainhand();
+            if (SeraphUtil.isSeraph(stack))
+            {
+                return stack.getMaxDamage();
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        return (float) RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_MAX);
     }
 }

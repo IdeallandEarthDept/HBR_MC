@@ -1,9 +1,12 @@
 package com.deeplake.hbr_mc.init.util;
 
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 
 import java.util.UUID;
 
@@ -34,6 +37,19 @@ public class DShieldUtil {
     }
 
     public static double getRemainDP(EntityLivingBase entityLivingBase) {
+        if (entityLivingBase instanceof EntityPlayer)
+        {
+            ItemStack stack = entityLivingBase.getHeldItemMainhand();
+            if (SeraphUtil.isSeraph(stack))
+            {
+                return stack.getMaxDamage() - stack.getItemDamage() + entityLivingBase.getAbsorptionAmount();
+            }
+            else
+            {
+                return entityLivingBase.getAbsorptionAmount();
+            }
+        }
+
         return RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_MAX)
                 -RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_SYNC);
     }
