@@ -1,38 +1,29 @@
 package com.deeplake.hbr_mc.items.seraph;
 
 import com.deeplake.hbr_mc.Main;
-import com.deeplake.hbr_mc.ModTabs;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.RegisterAttr;
-import com.deeplake.hbr_mc.init.RegisterUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import com.deeplake.hbr_mc.items.ItemBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
-import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootContext;
 import net.minecraftforge.common.IRarity;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -349,21 +340,6 @@ public class ItemSeraphBase extends ItemBase {
     public int getSkillLevel(ItemStack stack, int slot)
     {
         return IDLNBTUtil.GetInt(stack, SKILL_LEVEL[slot], 1);
-    }
-
-    public void skillLevelUp(ItemStack stack, int slot)
-    {
-        int level = getSkillLevel(stack, slot);
-        if (level < 0)
-        {
-            IDLNBTUtil.setInt(stack, SKILL_LEVEL[slot], 1);
-            level = 1;
-        }
-
-        if (level < getSkillLevelMax(stack, slot))
-        {
-            IDLNBTUtil.addInt(stack, SKILL_LEVEL[slot], 1);
-        }
     }
 
     public int getSkillLevelMax(ItemStack stack, int slot)

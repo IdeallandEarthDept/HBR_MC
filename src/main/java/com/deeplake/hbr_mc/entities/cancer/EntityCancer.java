@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.entities.cancer;
 
 import com.deeplake.hbr_mc.entities.EntityBase;
+import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
@@ -154,6 +155,16 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
                     }
 
                     SeraphUtil.addXP(stack, getXPWorth(), player);
+                    if (rand.nextFloat() < ModConfig.COMBAT.SKILL_UP_CHANCE)
+                    {
+                        Item item = stack.getItem();
+                        if (item instanceof ItemSeraphBase)
+                        {
+                            int skillCount = ((ItemSeraphBase) item).getMaxSkillSlot(stack);
+                            int skillIndex = rand.nextInt(skillCount);
+                            SeraphUtil.skillLevelUp((ItemSeraphBase) item, stack, skillIndex);
+                        }
+                    }
                 }
             }
         }

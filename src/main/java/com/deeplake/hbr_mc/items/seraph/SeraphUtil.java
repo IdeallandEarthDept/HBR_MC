@@ -143,4 +143,19 @@ public class SeraphUtil {
     private static boolean isFunctioningSeraph(ItemStack stack) {
         return SeraphUtil.isSeraph(stack) && !SeraphUtil.isBroken(stack);
     }
+
+    public static void skillLevelUp(ItemSeraphBase itemSeraphBase, ItemStack stack, int slot)
+    {
+        int level = itemSeraphBase.getSkillLevel(stack, slot);
+        if (level < 0)
+        {
+            IDLNBTUtil.setInt(stack, ItemSeraphBase.SKILL_LEVEL[slot], 1);
+            level = 1;
+        }
+
+        if (level < itemSeraphBase.getSkillLevelMax(stack, slot))
+        {
+            IDLNBTUtil.addInt(stack, ItemSeraphBase.SKILL_LEVEL[slot], 1);
+        }
+    }
 }

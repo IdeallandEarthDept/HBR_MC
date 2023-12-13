@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.items.seraph.ItemBraveBlue;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
+import com.deeplake.hbr_mc.items.seraph.a31.ItemRapidFire;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -19,6 +20,7 @@ import java.util.List;
 public class RegisterItem {
     public static final List<Item> ITEM_LIST = new ArrayList<>();
     public static final Item BRAVE_BLUE = new ItemBraveBlue("brave_blue");
+    public static final Item RAPID_FIRE = new ItemRapidFire("rapid_fire");
 
     @SubscribeEvent
     public static void handleItem(RegistryEvent.Register<Item> event)
