@@ -1,8 +1,10 @@
 package com.deeplake.hbr_mc.items.seraph;
 
+import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
+import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,8 +38,8 @@ public class ItemBraveBlue extends ItemSeraphBase{
                 return;
             }
 
-            float minHeal = 305;
-            float cap = 200;
+            float minHeal = ModConfig.COMBAT.BRAVE_BLUE_HEAL.MIN_POTENCY;
+            float cap = ModConfig.COMBAT.BRAVE_BLUE_HEAL.CAP;
 
             CombatUtil.areaHeal(worldIn, caster, minHeal, cap);
             worldIn.playSound(null, caster.getPosition(), SoundEvents.ENTITY_GENERIC_DRINK,SoundCategory.PLAYERS, 1f,1.5f);
@@ -66,22 +68,12 @@ public class ItemBraveBlue extends ItemSeraphBase{
 
         if (!worldIn.isRemote)
         {
-            float minPotency = 160;
-            float cap = 138;
+            float minPotency = ModConfig.COMBAT.BRAVE_BLUE_ULTI.MIN_POTENCY;
+            float cap = ModConfig.COMBAT.BRAVE_BLUE_ULTI.CAP;
             float bonusRate = 1.3f;
 
-            boolean extra = target.getAbsorptionAmount() > 0;
-            CombatUtil.attackAsHBR(player, target, CombatUtil.EnumAttrType.STR_FOCUS, CombatUtil.EnumDefType.END,
-                    extra ? minPotency * 0.15f * bonusRate : minPotency * 0.15f, cap);
+            CombatUtil.HPAttackGroup(player, target, minPotency,new float[]{0.15f,0.05f,0.05f,0.05f,0.05f,0.05f,0.05f,0.5f}, cap, bonusRate);
 
-            for (int i = 0; i < 6; i++) {
-                extra = target.getAbsorptionAmount() > 0;
-                CombatUtil.attackAsHBR(player, target, CombatUtil.EnumAttrType.STR_FOCUS, CombatUtil.EnumDefType.END,
-                        extra ? minPotency * 0.05f * bonusRate : minPotency * 0.05f, cap);
-            }
-            extra = target.getAbsorptionAmount() > 0;
-            CombatUtil.attackAsHBR(player, target, CombatUtil.EnumAttrType.STR_FOCUS, CombatUtil.EnumDefType.END,
-                    extra ? minPotency * 0.5f * bonusRate : minPotency * 0.5f, cap);
             setCoolDown(player, CommonDef.TICK_PER_SECOND * 12);
             worldIn.playSound(null, player.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE,SoundCategory.PLAYERS, 1f,1.5f);
             skillUseMark(stack, ULTIMATE_INDEX);
@@ -93,14 +85,15 @@ public class ItemBraveBlue extends ItemSeraphBase{
         return true;
     }
 
+
     @Override
     public int getSkillLimit(ItemStack stack, int slot) {
         switch (slot)
         {
             case 0:
-                return 5;
+                return 5 + CommonFunctions.clamp( getSkillLevel(stack, slot) - 1,0,5);
             case  1:
-                return 2;
+                return 2 + CommonFunctions.clamp( getSkillLevel(stack, slot) - 1,0,2);
             default:
                 throw new IllegalStateException("Unexpected value: " + slot);
         }

@@ -49,9 +49,21 @@ public class DescForSeraph {
                 }
 
                 for (int i = item.getMaxSkillSlot(stack)-1; i >= 0; i--) {
-                    strings.add(1, net.minecraft.client.resources.I18n.format(item.getUnlocalizedName(stack)+".skill."+i,
-                            item.getSkillLeft(stack,i),
-                            item.getSkillLimit(stack,i)));
+                    StringBuilder s = new StringBuilder(net.minecraft.client.resources.I18n.format(item.getUnlocalizedName(stack) + ".skill." + i,
+                            item.getSkillLeft(stack, i),
+                            item.getSkillLimit(stack, i)));
+                    int lv = item.getSkillLevel(stack, i);
+                    while (lv >= 5)
+                    {
+                        s.insert(0,"*");
+                        lv -= 5;
+                    }
+                    while (lv >= 2)
+                    {
+                        s.insert(0,"+");
+                        lv -= 1;
+                    }
+                    strings.add(1, s.toString());
                 }
             }
         }

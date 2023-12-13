@@ -11,6 +11,7 @@ import com.deeplake.hbr_mc.items.ItemBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -343,6 +344,32 @@ public class ItemSeraphBase extends ItemBase {
     }
 
     public static final String[] USAGE = {"usage_1","usage_2","usage_3"};
+    public static final String[] SKILL_LEVEL = {"sLv_1","sLv_2","sLv_3"};
+
+    public int getSkillLevel(ItemStack stack, int slot)
+    {
+        return IDLNBTUtil.GetInt(stack, SKILL_LEVEL[slot], 1);
+    }
+
+    public void skillLevelUp(ItemStack stack, int slot)
+    {
+        int level = getSkillLevel(stack, slot);
+        if (level < 0)
+        {
+            IDLNBTUtil.setInt(stack, SKILL_LEVEL[slot], 1);
+            level = 1;
+        }
+
+        if (level < getSkillLevelMax(stack, slot))
+        {
+            IDLNBTUtil.addInt(stack, SKILL_LEVEL[slot], 1);
+        }
+    }
+
+    public int getSkillLevelMax(ItemStack stack, int slot)
+    {
+        return 10;
+    }
 
     public int getSkillLeft(ItemStack stack, int slot)
     {
@@ -363,4 +390,24 @@ public class ItemSeraphBase extends ItemBase {
     {
         IDLNBTUtil.addInt(stack, USAGE[slot],1);
     }
+
+    @Override
+    public boolean getHasSubtypes() {
+        return true;
+    }
+
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+    {
+        if (this.isInCreativeTab(tab))
+        {
+            items.add(new ItemStack(this));
+            ItemStack stack = new ItemStack(this);
+            for (int i = 0; i < getMaxSkillSlot(stack); i++) {
+                IDLNBTUtil.setInt(stack, SKILL_LEVEL[i], getSkillLevelMax(stack, i));
+            }
+            SeraphUtil.setLevel(stack, SeraphUtil.getMaxLevel(stack));
+            items.add(stack);
+        }
+    }
+
 }

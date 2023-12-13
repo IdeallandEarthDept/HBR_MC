@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class CombatUtil {
+    public static final float DEFAULT_HEAL_CAP = 200;
     static boolean isHBRAttackProcess = false;
 
     public static boolean isIsHBRAttackProcess() {
@@ -28,6 +29,20 @@ public class CombatUtil {
                 players) {
             SeraphUtil.cureSeraph(SeraphUtil.getFirstSeraphNonBrokenInHand(player), healAmount);
         }
+    }
+
+    public static void HPAttackGroup(EntityPlayer player, EntityLivingBase target, float minPotency, float[] group, float cap, float bonusRate)
+    {
+        for (float ratio: group
+             ) {
+            HPAttack(player, target, minPotency * ratio, cap, bonusRate);
+        }
+    }
+
+    public static void HPAttack(EntityPlayer player, EntityLivingBase target, float minPotency, float cap, float bonusRate) {
+        boolean extra = target.getAbsorptionAmount() > 0;
+        attackAsHBR(player, target, EnumAttrType.STR_FOCUS, EnumDefType.END,
+                extra ? minPotency * bonusRate : minPotency, cap);
     }
 
     public enum EnumAttrType {

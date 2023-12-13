@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.init.util.CombatUtil;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -31,11 +32,30 @@ public class ModConfig {
         public boolean BAN_HEAL = true;
     }
 
+    public static class SkillConf {
+        public SkillConf(float MIN_POTENCY, float CAP, int SP) {
+            this.MIN_POTENCY = MIN_POTENCY;
+            this.CAP = CAP;
+            this.SP = SP;
+        }
+
+        public float MIN_POTENCY = 10f;
+        public float CAP = 150;
+
+        public float SP = 0;
+    }
+
     public static CombatConf COMBAT = new CombatConf();
 
     public static class CombatConf {
         public float NORMAL_ATK_POWER = 10f;
         public float NORMAL_ATK_CAP = 150;
+
+        @Config.RangeDouble(min = 0f, max = 1f)
+        public float SKILL_UP_CHANCE = 0.01f;
+
+        public SkillConf BRAVE_BLUE_HEAL = new SkillConf(305F, CombatUtil.DEFAULT_HEAL_CAP,5);
+        public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160, 138,12);
     }
 
     public static final GUIConf GUI_CONF = new GUIConf();
