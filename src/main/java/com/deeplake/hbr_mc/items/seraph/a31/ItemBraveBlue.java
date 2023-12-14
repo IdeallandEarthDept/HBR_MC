@@ -1,10 +1,11 @@
-package com.deeplake.hbr_mc.items.seraph;
+package com.deeplake.hbr_mc.items.seraph.a31;
 
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 //Ruka Kayamori
-public class ItemBraveBlue extends ItemSeraphBase{
+public class ItemBraveBlue extends ItemSeraphBase {
     public ItemBraveBlue(String name) {
         super(name);
     }

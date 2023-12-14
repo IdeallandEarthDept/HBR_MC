@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -133,37 +134,32 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
     }
 
     @Override
-    public void onDeath(DamageSource cause) {
-        super.onDeath(cause);
-        if (net.minecraftforge.common.ForgeHooks.onLivingDeath(this, cause)) return;
-        //if (!this.dead)
+    protected void dropLoot(boolean wasRecentlyHit, int lootingModifier, DamageSource source) {
+        super.dropLoot(wasRecentlyHit, lootingModifier, source);
+        if (source.getTrueSource() instanceof EntityPlayer)
         {
-            //add xp to seraph if killed by player, and seraph is in hand
-            if (cause.getTrueSource() instanceof EntityPlayer)
-            {
-                List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, getEntityBoundingBox().grow(32));
-                for (EntityPlayer player: players
-                     ){
-                    ItemStack stack = player.getHeldItemMainhand();
+            List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, getEntityBoundingBox().grow(32));
+            for (EntityPlayer player: players
+            ){
+                ItemStack stack = player.getHeldItemMainhand();
+                if (!SeraphUtil.isSeraph(stack))
+                {
+                    stack = player.getHeldItemOffhand();
                     if (!SeraphUtil.isSeraph(stack))
                     {
-                        stack = player.getHeldItemOffhand();
-                        if (!SeraphUtil.isSeraph(stack))
-                        {
-                            continue;
-                        }
+                        continue;
                     }
+                }
 
-                    SeraphUtil.addXP(stack, getXPWorth(), player);
-                    if (rand.nextFloat() < ModConfig.COMBAT.SKILL_UP_CHANCE)
+                SeraphUtil.addXP(stack, getXPWorth(), player);
+                if (rand.nextFloat() < ModConfig.COMBAT.SKILL_UP_CHANCE)
+                {
+                    Item item = stack.getItem();
+                    if (item instanceof ItemSeraphBase)
                     {
-                        Item item = stack.getItem();
-                        if (item instanceof ItemSeraphBase)
-                        {
-                            int skillCount = ((ItemSeraphBase) item).getMaxSkillSlot(stack);
-                            int skillIndex = rand.nextInt(skillCount);
-                            SeraphUtil.skillLevelUp((ItemSeraphBase) item, stack, skillIndex);
-                        }
+                        int skillCount = ((ItemSeraphBase) item).getMaxSkillSlot(stack);
+                        int skillIndex = rand.nextInt(skillCount);
+                        SeraphUtil.skillLevelUp((ItemSeraphBase) item, stack, skillIndex);
                     }
                 }
             }

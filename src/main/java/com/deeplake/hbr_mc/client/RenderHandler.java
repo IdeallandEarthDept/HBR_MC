@@ -1,9 +1,13 @@
 package com.deeplake.hbr_mc.client;
 
+import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.client.renderer.RenderBullet;
 import com.deeplake.hbr_mc.client.renderer.cancer.RenderDoll;
 import com.deeplake.hbr_mc.client.renderer.cancer.RenderMarionette;
 import com.deeplake.hbr_mc.entities.cancer.EntityDoll;
 import com.deeplake.hbr_mc.entities.cancer.EntityMarionette;
+import com.deeplake.hbr_mc.entities.projectiles.EntityIdlProjectile;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -18,6 +22,9 @@ public class RenderHandler {
     public static void registerEntityRenders() {
         RenderingRegistry.registerEntityRenderingHandler(EntityMarionette.class, RenderMarionette::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDoll.class, RenderDoll::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityIdlProjectile.class, renderManager -> new RenderBullet<>(renderManager, new ResourceLocation(Main.MODID,
+                "textures/entity/projectiles/bullet_norm.png")));
+
     }
 
     @SideOnly(Side.CLIENT)

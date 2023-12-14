@@ -31,6 +31,9 @@ import java.util.Stack;
 @SideOnly(Side.CLIENT)
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class RenderDP {
+    //todo: there is a bug interacting with Neat.
+    //When neat is out of render distance and hides the bar, it will disable item render.
+    //this does not happen when my render system is turned off.
     @SubscribeEvent
     public static void onRenderWorldLast(RenderWorldLastEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
@@ -53,7 +56,13 @@ public class RenderDP {
 
         for(Entity entity : entities)
             if(entity != null && entity instanceof EntityLivingBase  && entity.isInRangeToRender3d(renderingVector.getX(), renderingVector.getY(), renderingVector.getZ()) && (entity.ignoreFrustumCheck || frustum.isBoundingBoxInFrustum(entity.getEntityBoundingBox())) && entity.isEntityAlive() && entity.getRecursivePassengers().isEmpty())
+            {
+                if (entity == mc.player && mc.gameSettings.thirdPersonView == 0)
+                {
+                    continue;
+                }
                 renderDP((EntityLivingBase) entity, partialTicks, cameraEntity);
+            }
     }
 
 
@@ -167,14 +176,6 @@ public class RenderDP {
                 buffer.pos(size + padding, barHeight + padding, 0.0D).color(0, 0, 0, 64).endVertex();
                 buffer.pos(size + padding, -bgHeight, 0.0D).color(0, 0, 0, 64).endVertex();
                 tessellator.draw();
-
-                // Gray Space
-//                buffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
-//                buffer.pos(-size, 0, 0.0D).color(127, 127, 127, 127).endVertex();
-//                buffer.pos(-size, barHeight, 0.0D).color(127, 127, 127, 127).endVertex();
-//                buffer.pos(size, barHeight, 0.0D).color(127, 127, 127, 127).endVertex();
-//                buffer.pos(size, 0, 0.0D).color(127, 127, 127, 127).endVertex();
-//                tessellator.draw();
 
                 // Health Bar
                 buffer.begin(7, DefaultVertexFormats.POSITION_COLOR);

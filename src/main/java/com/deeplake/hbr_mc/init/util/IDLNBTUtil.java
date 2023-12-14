@@ -144,6 +144,33 @@ public class IDLNBTUtil {
         return setInt(stack, STATE_2, value);
     }
 
+	public static boolean setLong(ItemStack stack, String key, long value)
+	{
+		NBTTagCompound nbt = getNBT(stack);
+		nbt.setLong(key, value);
+		return true;
+	}
+
+	public static boolean setLong(Entity entity, String key, long value)
+	{
+		NBTTagCompound nbt = getNBT(entity);
+		nbt.setLong(key, value);
+		return true;
+	}
+
+	public static long GetLong(Entity entity, String key, long defaultVal)
+	{
+		if (EntityHasKey(entity, key))
+		{
+			NBTTagCompound nbt = getNBT(entity);
+			return nbt.getLong(key);
+		}
+		else
+		{
+			return defaultVal;
+		}
+	}
+
     public static boolean setInt(ItemStack stack, String key, int value)
 	{
 		NBTTagCompound nbt = getNBT(stack);

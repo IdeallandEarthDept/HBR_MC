@@ -1,7 +1,6 @@
 package com.deeplake.hbr_mc.init;
 
-import com.deeplake.hbr_mc.items.seraph.ItemBraveBlue;
-import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
+import com.deeplake.hbr_mc.items.seraph.a31.ItemBraveBlue;
 import com.deeplake.hbr_mc.items.seraph.a31.ItemRapidFire;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
