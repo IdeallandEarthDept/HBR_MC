@@ -54,8 +54,8 @@ public class ModConfig {
         @Config.RangeDouble(min = 0f, max = 1f)
         public float SKILL_UP_CHANCE = 0.01f;
 
-        public SkillConf BRAVE_BLUE_HEAL = new SkillConf(305F, CombatUtil.DEFAULT_HEAL_CAP,5);
-        public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160, 138,12);
+        public SkillConf BRAVE_BLUE_HEAL = new SkillConf(305F, CombatUtil.DEFAULT_HEAL_CAP, 5);
+        public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160, 138, 12);
     }
 
     public static final GUIConf GUI_CONF = new GUIConf();
@@ -69,5 +69,24 @@ public class ModConfig {
 
         public float MAX_RENDER_HUD_DISTANCE = 64.0f;
         public float RENDER_HUD_SIZE = 5f;
+    }
+
+    @Config.LangKey("configgui.idealland.category.Menu0.SpawnConf")
+    @Config.Comment("Spawning")
+    public static final SpawnConf SPAWN_CONF = new SpawnConf();
+
+    public static class SpawnConf {
+        @Config.LangKey("conf.spawn.enabled")
+        @Config.Comment("Spawn mod creatures")
+        @Config.RequiresMcRestart
+        public boolean SPAWN = true;
+
+        @Config.LangKey("entity.c_marionette.name")
+        @Config.RequiresMcRestart
+        public int SPAWN_MARIONETTE = 30;
+
+        @Config.LangKey("entity.c_doll.name")
+        @Config.RequiresMcRestart
+        public int SPAWN_DOLL = 30;
     }
 }

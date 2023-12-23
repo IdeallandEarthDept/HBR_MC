@@ -4,6 +4,8 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import com.deeplake.hbr_mc.entities.projectiles.ProjectileArgs;
 import com.deeplake.hbr_mc.init.ModConfig;
+import com.deeplake.hbr_mc.init.util.CommonDef;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityEgg;
@@ -85,4 +87,13 @@ public class ItemSeraphCannonBase extends ItemSeraphBase{
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
     }
 
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
+        return false;
+    }
+
+    @Override
+    public int getMaxItemUseDuration(ItemStack stack) {
+        return 3 * CommonDef.TICK_PER_SECOND;
+    }
 }

@@ -33,3 +33,5 @@ msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 #entity
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
+
+configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration

@@ -4,10 +4,12 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphCannonBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -30,6 +32,12 @@ public class DesignPlayerDamageRework {
             {
                 EntityLivingBase target = event.getEntityLiving();
                 event.setCanceled(true);
+
+                Item item = player.getHeldItemMainhand().getItem();
+                if (item instanceof ItemSeraphCannonBase)
+                {
+                    return;
+                }
 
                 float fullPower = ModConfig.COMBAT.NORMAL_ATK_POWER;
                 float normal_atk_cap = ModConfig.COMBAT.NORMAL_ATK_CAP;
