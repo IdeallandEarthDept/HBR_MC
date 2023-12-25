@@ -8,6 +8,16 @@ item.brave_blue.name=BraveBlue(电路的爆裂闪光)
 item.brave_blue.skill.0=潜行右键：修复-群体小治疗 (%d/%d)
 item.brave_blue.skill.1=右键敌人：梦幻泡影-单体力击 (%d/%d)
 
+item.rapid_fire.name=RapidFire
+item.rapid_fire.skill.0=[Sneak RMB]Repair nearby seraph (%d/%d)
+item.rapid_fire.skill.1=[Interact Enemy]Strong ST attack, to HP+30% (%d/%d)
+
+item.cancer_shell.name=壳石
+item.cancer_helmet.name=星癌体头盔
+item.cancer_chestplate.name=星癌体胸甲
+item.cancer_leggings.name=星癌体护腿
+item.cancer_boots.name=星癌体靴子
+
 # tiles
 tile.heal_stash.name=补给箱（一次性）
 tile.heal_stash_perma.name=补给箱(无限)
@@ -28,3 +38,5 @@ msg.hbr_mc.level_up=等级提升！ Lv.%s -> Lv.%s
 
 entity.c_doll.name=Doll
 entity.c_marionette.name=Marionette
+
+configgui.idealland.category.Menu0.SpawnConf=生成设定

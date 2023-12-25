@@ -13,6 +13,12 @@ item.rapid_fire.name=RapidFire
 item.rapid_fire.skill.0=[Sneak RMB]Repair nearby seraph (%d/%d)
 item.rapid_fire.skill.1=[Interact Enemy]Strong ST attack, to HP+30% (%d/%d)
 
+item.cancer_shell.name=Shell Fragment
+item.cancer_helmet.name=Cancer Helmet
+item.cancer_chestplate.name=Cancer Chestplate
+item.cancer_leggings.name=Cancer Leggings
+item.cancer_boots.name=Cancer Boots
+
 tile.heal_stash.name=Heal Stash
 tile.heal_stash_perma.name=Heal Stash Perma
 
