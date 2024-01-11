@@ -26,7 +26,7 @@ public class RenderSmallHopper extends RenderLiving<EntitySmallHopper> {
     @Override
     protected void preRenderCallback(EntitySmallHopper entitylivingbaseIn, float partialTickTime) {
         super.preRenderCallback(entitylivingbaseIn, partialTickTime);
-        float size = 2f;
+        float size = 1.8f;
         GlStateManager.scale(size, size, size);
     }
 }
