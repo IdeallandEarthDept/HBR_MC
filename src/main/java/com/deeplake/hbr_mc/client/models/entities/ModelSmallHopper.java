@@ -1,7 +1,16 @@
 // Made with Blockbench 4.9.3
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
+package com.deeplake.hbr_mc.client.models.entities;// Made with Blockbench 4.8.3
+// Exported for Minecraft version 1.7 - 1.12
+// Paste this class into your mod and generate all required imports
 
+
+import com.deeplake.hbr_mc.init.util.CommonDef;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBox;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
 
 public class ModelSmallHopper extends ModelBase {
 	private final ModelRenderer base;
