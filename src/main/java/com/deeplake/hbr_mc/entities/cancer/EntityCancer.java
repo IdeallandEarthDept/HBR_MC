@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.entities.cancer;
 
 import com.deeplake.hbr_mc.entities.EntityBase;
 import com.deeplake.hbr_mc.init.ModConfig;
+import com.deeplake.hbr_mc.init.RegisterItem;
 import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
@@ -133,6 +134,14 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
         return false;
     }
 
+    public void handleCancerDrop(boolean wasRecentlyHit, int lootingModifier, DamageSource source)
+    {
+        if (rand.nextFloat() < (1f+lootingModifier)/(2+lootingModifier))
+        {
+            dropItem(RegisterItem.CANCER_SHELL, 1);
+        }
+    }
+
     @Override
     protected void dropLoot(boolean wasRecentlyHit, int lootingModifier, DamageSource source) {
         super.dropLoot(wasRecentlyHit, lootingModifier, source);
@@ -158,12 +167,16 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
                     if (item instanceof ItemSeraphBase)
                     {
                         int skillCount = ((ItemSeraphBase) item).getMaxSkillSlot(stack);
-                        int skillIndex = rand.nextInt(skillCount);
-                        SeraphUtil.skillLevelUp((ItemSeraphBase) item, stack, skillIndex);
+                        if (skillCount > 0)
+                        {
+                            int skillIndex = rand.nextInt(skillCount);
+                            SeraphUtil.skillLevelUp((ItemSeraphBase) item, stack, skillIndex);
+                        }
                     }
                 }
             }
         }
+        handleCancerDrop(wasRecentlyHit, lootingModifier, source);
     }
 
     @Override
@@ -172,6 +185,10 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
         if (fallDistance > 20)
         {
             setFire(10);
+        }
+        if (this instanceof EntitySmallHopper && onGround && getAttackTarget() != null)
+        {
+            jump();
         }
     }
 

@@ -45,6 +45,8 @@ public class ItemArmorCancer extends ItemArmorBase {
         LUC(NBT_LUC, RegisterAttr.LUC),
         INT(NBT_INT, RegisterAttr.INT);
 
+        //todo: maybe we should add HP_MAX here
+        //and crit chance perhaps?
         final String name;
         final IAttribute attribute;
 

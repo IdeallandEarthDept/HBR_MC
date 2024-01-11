@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "I I",
+        "III",
+        "III"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "hbr_mc:cancer_shell"
+        }
+    },
+    
+    "result":
+    {
+        "item": "hbr_mc:cancer_chestplate",
+        "count": 1
+    }
+}

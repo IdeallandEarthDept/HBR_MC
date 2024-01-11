@@ -4,6 +4,7 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.entities.cancer.EntityDoll;
 import com.deeplake.hbr_mc.entities.cancer.EntityMarionette;
+import com.deeplake.hbr_mc.entities.cancer.EntitySmallHopper;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -15,8 +16,9 @@ public class RegisterEntities {
     {
 
         registerEntity("cancer_test", EntityCancer.class);
-        registerEntity("c_marionette", EntityMarionette.class, 64, 0x000000, 0xcccc00);
-        registerEntity("c_doll", EntityDoll.class, 64, 0x000000, 0xcccc00);
+        registerEntity("c_marionette", EntityMarionette.class, 64, 0x000000, 0xcccccc);
+        registerEntity("c_doll", EntityDoll.class, 64, 0x000000, 0xcccccc);
+        registerEntity("c_small_hopper", EntitySmallHopper.class, 64, 0x000000, 0xcccccc);
         registerEntityNoEgg("bullet", EntityHBRProjectile.class);
 
         //Assign Dungeons
