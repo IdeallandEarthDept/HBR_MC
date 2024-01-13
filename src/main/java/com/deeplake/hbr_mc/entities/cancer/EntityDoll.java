@@ -5,7 +5,7 @@ import net.minecraft.world.World;
 public class EntityDoll extends EntityWalkerCancerBase{
     public EntityDoll(World worldIn) {
         super(worldIn);
-        setSize(0.6f, 1.4f);
+        setSize(0.8f, 1.4f);
     }
 
     @Override

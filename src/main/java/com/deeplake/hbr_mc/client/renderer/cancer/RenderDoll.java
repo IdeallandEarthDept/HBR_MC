@@ -20,7 +20,8 @@ public class RenderDoll extends RenderLiving<EntityDoll> {
     @Override
     protected void preRenderCallback(EntityDoll entitylivingbaseIn, float partialTickTime) {
         super.preRenderCallback(entitylivingbaseIn, partialTickTime);
-        GlStateManager.scale(1.5f, 1.5f, 1.5f);
+        float size = 1.7f;
+        GlStateManager.scale(size, size, size);
     }
 
     @Nullable

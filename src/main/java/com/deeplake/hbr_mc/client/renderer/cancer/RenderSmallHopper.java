@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public class RenderSmallHopper extends RenderLiving<EntitySmallHopper> {
     public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/models/cancer/small_hopper.png");
     public RenderSmallHopper(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelSmallHopper(), 1f);
+        super(rendermanagerIn, new ModelSmallHopper(), 1.6f);
     }
 
     @Nullable

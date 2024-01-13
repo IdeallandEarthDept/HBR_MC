@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 public class EntityMarionette extends EntityWalkerCancerBase{
     public EntityMarionette(World worldIn) {
         super(worldIn);
-        setSize(0.4f, 0.9f);
+        setSize(0.6f, 1.2f);
     }
 
     @Override

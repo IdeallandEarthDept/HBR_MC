@@ -110,9 +110,29 @@ public class ModelSmallHopper extends ModelBase {
 		base.render(f5);
 	}
 
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
+	@Override
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+		float legRaise = 0.1f;
+		float legOmega = 0.35f;
+		center.rotateAngleY = netHeadYaw * CommonDef.DEG_TO_RAD;
+		center.rotateAngleX = headPitch * CommonDef.DEG_TO_RAD;
+
+		if (entityIn.onGround)
+		{
+			float dy1 = (float) (legRaise * Math.sin(legOmega * ageInTicks));
+			float dy2 = (float) (legRaise * Math.sin(legOmega * ageInTicks+Math.PI));
+			leg.offsetY = dy1;
+			leg2.offsetY = dy2;
+			leg3.offsetY = dy1;
+			leg4.offsetY = dy2;
+		}
+		else {
+			leg.offsetY =  legRaise;
+			leg2.offsetY = legRaise;
+			leg3.offsetY = legRaise;
+			leg4.offsetY = legRaise;
+		}
+
 	}
+
 }
