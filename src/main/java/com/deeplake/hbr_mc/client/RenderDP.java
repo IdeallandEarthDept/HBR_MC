@@ -86,10 +86,11 @@ public class RenderDP {
 
             String entityID = EntityList.getEntityString(entity);
 
-            processing: {
+            handling: {
+                
                 float distance = passedEntity.getDistance(viewPoint);
                 if(distance > ModConfig.GUI_CONF.MAX_RENDER_HUD_DISTANCE || !passedEntity.canEntityBeSeen(viewPoint) || entity.isInvisible())
-                    break processing;
+                    break handling;
 
                 double x = passedEntity.lastTickPosX + (passedEntity.posX - passedEntity.lastTickPosX) * partialTicks;
                 double y = passedEntity.lastTickPosY + (passedEntity.posY - passedEntity.lastTickPosY) * partialTicks;
@@ -100,7 +101,7 @@ public class RenderDP {
                 float remainDP = (float) DShieldUtil.getRemainDP(entity);
 
                 if(maxDP <= 0)
-                    break processing;
+                    break handling;
 
                 RenderManager renderManager = Minecraft.getMinecraft().getRenderManager();
 
@@ -185,6 +186,7 @@ public class RenderDP {
                 buffer.pos(healthSize * 2 - size, 0, 0.0D).color(r, g, b, 127).endVertex();
                 tessellator.draw();
 
+                GlStateManager.enableTexture2D();
                 GlStateManager.disableBlend();
                 GlStateManager.enableDepth();
                 GlStateManager.depthMask(true);
