@@ -10,7 +10,7 @@ item.brave_blue.skill.0=[Sneak RMB]Repair nearby seraph (%d/%d)
 item.brave_blue.skill.1=[Interact Enemy]Strong ST attack, to HP+30% (%d/%d)
 
 item.rapid_fire.name=RapidFire
-item.rapid_fire.skill.0=[Sneak RMB]Repair nearby seraph (%d/%d)
+item.rapid_fire.skill.0=[RMB]Spreading Atk, to DP+30%
 item.rapid_fire.skill.1=[Interact Enemy]Strong ST attack, to HP+30% (%d/%d)
 
 item.cancer_shell.name=Shell Fragment
