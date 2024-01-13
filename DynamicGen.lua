@@ -1,8 +1,11 @@
 require "GenBlockJson"
 
-GenItem("misc","cancer_shell")
-GenItem("armor","cancer_helmet")
-GenItem("armor","cancer_chestplate")
-GenItem("armor","cancer_leggings")
-GenItem("armor","cancer_boots")
+GenItem("misc","gem_white")
+GenItem("misc","gem_black")
+GenItem("misc","gem_red")
+GenItem("misc","gem_blue")
+GenItem("misc","gem_yellow")
+GenItem("misc","gem_amber")
+GenItem("misc","gem_droplet")
+
 --GenBlock("heal_stash")

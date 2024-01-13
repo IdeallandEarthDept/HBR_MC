@@ -27,6 +27,14 @@ public class RegisterItem {
     public static final Item BRAVE_BLUE = new ItemBraveBlue("brave_blue");
     public static final Item RAPID_FIRE = new ItemRapidFire("rapid_fire");
 
+    public static final Item GEM_R =       new ItemBase("gem_red");
+    public static final Item GEM_Y =       new ItemBase("gem_yellow");
+    public static final Item GEM_U =       new ItemBase("gem_blue");
+    public static final Item GEM_W =       new ItemBase("gem_white");
+    public static final Item GEM_B =       new ItemBase("gem_black");
+    public static final Item GEM_AMBER =   new ItemBase("gem_amber");
+    public static final Item GEM_DROPLET = new ItemBase("gem_droplet");
+
     static ItemArmor.ArmorMaterial ARMOR_MATERIAL_CANCER = EnumHelper.addArmorMaterial("cancer", "hbr_mc:cancer", 9999, new int[]{3, 6, 8, 3}, 10, SoundEvents.BLOCK_ANVIL_PLACE, 0);
     public static final Item CANCER_SHELL = new ItemBase("cancer_shell");
     public static final Item CANCER_HELMET = new ItemArmorCancer("cancer_helmet", ARMOR_MATERIAL_CANCER, EntityEquipmentSlot.HEAD);

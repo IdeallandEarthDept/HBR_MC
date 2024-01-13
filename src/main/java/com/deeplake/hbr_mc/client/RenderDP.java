@@ -55,7 +55,7 @@ public class RenderDP {
        List<Entity> entities = mc.world.loadedEntityList;
 
         for(Entity entity : entities)
-            if(entity != null && entity instanceof EntityLivingBase  && entity.isInRangeToRender3d(renderingVector.getX(), renderingVector.getY(), renderingVector.getZ()) && (entity.ignoreFrustumCheck || frustum.isBoundingBoxInFrustum(entity.getEntityBoundingBox())) && entity.isEntityAlive() && entity.getRecursivePassengers().isEmpty())
+            if(entity != null && entity instanceof EntityLivingBase && entity.isInRangeToRender3d(renderingVector.getX(), renderingVector.getY(), renderingVector.getZ()) && (entity.ignoreFrustumCheck || frustum.isBoundingBoxInFrustum(entity.getEntityBoundingBox())) && entity.isEntityAlive() && entity.getRecursivePassengers().isEmpty())
             {
                 if (entity == mc.player && mc.gameSettings.thirdPersonView == 0)
                 {

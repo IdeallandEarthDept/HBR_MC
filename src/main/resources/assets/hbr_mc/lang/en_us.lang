@@ -18,6 +18,15 @@ item.cancer_helmet.name=Cancer Helmet
 item.cancer_chestplate.name=Cancer Chestplate
 item.cancer_leggings.name=Cancer Leggings
 item.cancer_boots.name=Cancer Boots
+item.gem_red.name=Ruby
+item.gem_yellow.name=Topaz
+item.gem_blue.name=Sapphire
+item.gem_white.name=Pearl
+item.gem_black.name=Onyx
+item.gem_amber.name=Jade Amber
+item.gem_droplet.name=Sol Droplet
+
+
 
 tile.heal_stash.name=Heal Stash
 tile.heal_stash_perma.name=Heal Stash Perma
@@ -39,5 +48,6 @@ msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 #entity
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
+entity.c_small_hopper.name=SmallHopper
 
 configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration
