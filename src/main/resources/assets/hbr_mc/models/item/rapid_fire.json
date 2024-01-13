@@ -1,1 +1,29 @@
-{"parent": "item/handheld","textures": {"layer0":"hbr_mc:items/seraph/rapid_fire"}}
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "hbr_mc:items/seraph/rapid_fire"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 24],
+			"translation": [-2, -9.75, 13.5],
+			"scale": [1.8, 1.8, 1.36]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -45],
+			"translation": [-2, -11.75, 6.75],
+			"scale": [1.8, 1.8, 1.36]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.3, 1.3, 1.3]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, 46],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.3, 1.3, 1.3]
+		}
+	}
+}
