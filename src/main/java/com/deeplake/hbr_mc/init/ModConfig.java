@@ -42,7 +42,7 @@ public class ModConfig {
         public float MIN_POTENCY = 10f;
         public float CAP = 150;
 
-        public float SP = 0;
+        public int SP = 0;
     }
 
     public static CombatConf COMBAT = new CombatConf();
@@ -58,7 +58,8 @@ public class ModConfig {
         public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160, 138, 12);
 
         public SkillConf RAPID_FIRE_4SP_AOE = new SkillConf(29, 117, 4);
-        public SkillConf KAZABANA_5SP_AOE = new SkillConf(37.5f, 120, 5);
+        public SkillConf SUPREME_EDGE_6SP_BUFF = new SkillConf(50/65f, 208, 6);
+        public SkillConf KAZABANA_5SP_AOE = new SkillConf(37.5f, 120, 5);//potency means success rate
     }
 
     public static final GUIConf GUI_CONF = new GUIConf();

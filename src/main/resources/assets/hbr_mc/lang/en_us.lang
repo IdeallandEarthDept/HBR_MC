@@ -46,6 +46,10 @@ desc.hbr_mc.armor.random_points=+%s random attribute point(s)
 
 msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 
+hbr_mc.potion.skill_atk_up_1=Skill Atk UP
+hbr_mc.potion.skill_atk_up_2=Skill Atk UP
+hbr_mc.potion.skill_atk_up_3=Skill Atk UP
+
 #entity
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll

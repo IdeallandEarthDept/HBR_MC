@@ -50,15 +50,11 @@ public class ItemKazabana extends ItemSeraphCannonBase {
                 spreadAttack(worldIn, playerIn, volley, spread, perAngle, minPotency, cap, attackType);
             }
 
-            playerIn.getCooldownTracker().setCooldown(this, 10);
             playerIn.swingArm(playerIn.getActiveHand());
             playerIn.addStat(StatList.getObjectUseStats(this));
 
-//            CombatUtil.areaHeal(worldIn, caster, minHeal, cap);
             worldIn.playSound(null, caster.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 1f, 1.5f);
-            setCoolDown(caster, CommonDef.TICK_PER_SECOND * 4);
-
-            //skillUseMark(stack, 0);
+            setCoolDown(caster, CommonDef.TICK_PER_SECOND * ModConfig.COMBAT.KAZABANA_5SP_AOE.SP);
         }
     }
 }

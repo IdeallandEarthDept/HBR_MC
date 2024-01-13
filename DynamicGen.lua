@@ -1,6 +1,6 @@
 require "GenBlockJson"
 
-GenItem("seraph","kazabana")
+GenItem("seraph","superme_edge")
 
 
 

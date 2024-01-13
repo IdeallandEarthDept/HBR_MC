@@ -14,7 +14,7 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class RegisterEffects {
     public static final List<Potion> INSTANCES = new ArrayList<Potion>();
-    public static final ModPotionBase SKILL_ATK_UP_LESSER = new ModPotionBase(false, 0x6abece, "skill_atk_up", 0);
+    public static final ModPotionBase SKILL_ATK_UP_LESSER = new ModPotionBase(false, 0x6abece, "skill_atk_up_1", 0);
     public static final ModPotionBase SKILL_ATK_UP = new ModPotionBase(false, 0x6abece, "skill_atk_up_2", 0);
     public static final ModPotionBase SKILL_ATK_UP_GREATER = new ModPotionBase(false, 0x6abece, "skill_atk_up_3", 0);
 

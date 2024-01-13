@@ -44,7 +44,7 @@ public class ItemBraveBlue extends ItemSeraphBase {
 
             CombatUtil.areaHeal(worldIn, caster, minHeal, cap);
             worldIn.playSound(null, caster.getPosition(), SoundEvents.ENTITY_GENERIC_DRINK,SoundCategory.PLAYERS, 1f,1.5f);
-            setCoolDown(caster, CommonDef.TICK_PER_SECOND * 5);
+            setCoolDown(caster, CommonDef.TICK_PER_SECOND * ModConfig.COMBAT.BRAVE_BLUE_HEAL.SP);
 
             skillUseMark(stack, HEAL_INDEX);
         }
@@ -75,7 +75,7 @@ public class ItemBraveBlue extends ItemSeraphBase {
 
             CombatUtil.HPAttackGroup(player, target, minPotency,new float[]{0.15f,0.05f,0.05f,0.05f,0.05f,0.05f,0.05f,0.5f}, cap, bonusRate);
 
-            setCoolDown(player, CommonDef.TICK_PER_SECOND * 12);
+            setCoolDown(player, CommonDef.TICK_PER_SECOND * ModConfig.COMBAT.BRAVE_BLUE_ULTI.SP);
             worldIn.playSound(null, player.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE,SoundCategory.PLAYERS, 1f,1.5f);
             skillUseMark(stack, ULTIMATE_INDEX);
         }
