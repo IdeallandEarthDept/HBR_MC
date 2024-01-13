@@ -42,6 +42,7 @@ desc.hbr_mc.seraph.broken=[Broken]
 desc.hbr_mc.seraph.dura_format=DP: %s/%s
 desc.hbr_mc.seraph.level_format=Lv.%s (%s/%s)
 desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
+desc.hbr_mc.armor.random_points=+%s random attribute point(s)
 
 msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 

@@ -297,7 +297,8 @@ public class IDLNBTDef {
     public static final String KEY_NOT_NEW_PLAYER = "not_newbie";//first login
 
 	//HBR
-    public static final String KEY_BROKEN = "is_broken";//first login
+    public static final String KEY_BROKEN = "is_broken";
+    public static final String KEY_BREAK_THRU = "stack_count";
 
     public enum SPAWNER_TYPE{
 		NONE,

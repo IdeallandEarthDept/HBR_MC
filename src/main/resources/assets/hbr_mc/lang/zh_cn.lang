@@ -40,6 +40,7 @@ desc.hbr_mc.seraph.broken=!!BREAK!!
 desc.hbr_mc.seraph.dura_format=DP: %s/%s
 desc.hbr_mc.seraph.level_format=Lv.%s (%s/%s)
 desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
+desc.hbr_mc.armor.random_points=+%s 随机属性点
 
 msg.hbr_mc.level_up=等级提升！ Lv.%s -> Lv.%s
 

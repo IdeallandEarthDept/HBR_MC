@@ -6,6 +6,7 @@ import com.deeplake.hbr_mc.init.RegisterUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -15,7 +16,7 @@ import net.minecraft.world.World;
 
 import java.util.UUID;
 
-public class ItemArmorCancer extends ItemArmorBase {
+public class ItemArmorCancer extends ItemArmorBase implements IHasRandomAttr {
 
     static final UUID[] ARMOR_MODIFIERS_VANILLA = new UUID[] {UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
     static final UUID ARMOR_BASE_MODIFY = UUID.fromString("5B0E382C-0AC1-4CFA-9748-5EBA6FAF4653");
@@ -37,18 +38,26 @@ public class ItemArmorCancer extends ItemArmorBase {
     public static final String NBT_DEX = "dex_up";
     public static final String NBT_LUC = "luc_up";
     public static final String NBT_INT = "int_up";
-    enum EnumBonusAttr{
+    public static final String NBT_HPM = "hpm_up";
+
+    @Override
+    public int getMaxAttr(ItemStack stack) {
+        return 3;
+    }
+
+    public enum EnumBonusAttr{
         MEN(NBT_MEN, RegisterAttr.MEN),
         END(NBT_END, RegisterAttr.END),
         STR(NBT_STR, RegisterAttr.STR),
         DEX(NBT_DEX, RegisterAttr.DEX),
         LUC(NBT_LUC, RegisterAttr.LUC),
-        INT(NBT_INT, RegisterAttr.INT);
+        INT(NBT_INT, RegisterAttr.INT),
+        HP_MAX(NBT_HPM, SharedMonsterAttributes.MAX_HEALTH);
 
         //todo: maybe we should add HP_MAX here
         //and crit chance perhaps?
-        final String name;
-        final IAttribute attribute;
+        public final String name;
+        public final IAttribute attribute;
 
         EnumBonusAttr(String name, IAttribute attribute) {
             this.name = name;
@@ -56,9 +65,10 @@ public class ItemArmorCancer extends ItemArmorBase {
         }
     }
 
+
     void distributeAttr(ItemStack stack)
     {
-        int total = 3;
+        int total = getMaxAttr(stack);
         int[] attr = new int[EnumBonusAttr.values().length];
 
         while (total > 0)

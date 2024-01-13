@@ -58,6 +58,7 @@ public class ModConfig {
         public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160, 138, 12);
 
         public SkillConf RAPID_FIRE_4SP_AOE = new SkillConf(29, 117, 4);
+        public SkillConf KAZABANA_5SP_AOE = new SkillConf(37.5f, 120, 5);
     }
 
     public static final GUIConf GUI_CONF = new GUIConf();

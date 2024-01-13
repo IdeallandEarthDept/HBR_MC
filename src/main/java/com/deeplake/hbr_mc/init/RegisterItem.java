@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.init;
 import com.deeplake.hbr_mc.items.ItemArmorCancer;
 import com.deeplake.hbr_mc.items.ItemBase;
 import com.deeplake.hbr_mc.items.seraph.a31.ItemBraveBlue;
+import com.deeplake.hbr_mc.items.seraph.g30.ItemKazabana;
 import com.deeplake.hbr_mc.items.seraph.a31.ItemRapidFire;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.SoundEvents;
@@ -24,8 +25,12 @@ import java.util.List;
 @Mod.EventBusSubscriber
 public class RegisterItem {
     public static final List<Item> ITEM_LIST = new ArrayList<>();
+    //31A
     public static final Item BRAVE_BLUE = new ItemBraveBlue("brave_blue");
     public static final Item RAPID_FIRE = new ItemRapidFire("rapid_fire");
+
+    //30G
+    public static final Item KAZABANA = new ItemKazabana("kazabana");
 
     public static final Item GEM_R =       new ItemBase("gem_red");
     public static final Item GEM_Y =       new ItemBase("gem_yellow");

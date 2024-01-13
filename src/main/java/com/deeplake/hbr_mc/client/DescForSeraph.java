@@ -18,7 +18,6 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class DescForSeraph {
 
-
     @SubscribeEvent
     public static void onDesc(ItemTooltipEvent event)
     {
