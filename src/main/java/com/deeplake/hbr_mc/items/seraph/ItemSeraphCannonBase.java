@@ -4,6 +4,7 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import com.deeplake.hbr_mc.entities.projectiles.ProjectileArgs;
 import com.deeplake.hbr_mc.init.ModConfig;
+import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,6 +23,30 @@ import net.minecraft.world.World;
 public class ItemSeraphCannonBase extends ItemSeraphBase{
     public ItemSeraphCannonBase(String name) {
         super(name);
+    }
+
+    public static void spreadAttack(World worldIn, EntityPlayer playerIn, int volley, int spread, float perAngle, float potency, float cap, CombatUtil.EnumAttrType type) {
+        for (int i = 0; i < volley; i++) {
+            Vec3d lookVec = playerIn.getLookVec();
+            lookVec = rotate(lookVec, -perAngle * (spread / 2f -0.5f));
+
+            for (int r = 0; r < spread; r++) {
+                EntityHBRProjectile bullet =
+                        new EntityHBRProjectile(worldIn);
+                bullet.shootingEntity = playerIn;
+                bullet.shoot(lookVec.x, lookVec.y*(1+0.4*i), lookVec.z, 1.8f + i * 0.2f, 1f);
+
+                bullet.setPositionAndUpdate(
+                        playerIn.posX + lookVec.x,
+                        playerIn.posY + playerIn.getEyeHeight() + lookVec.y,
+                        playerIn.posZ + lookVec.z);
+                worldIn.spawnEntity(bullet);
+                bullet.minPotency = potency;
+                bullet.cap = cap;
+                bullet.attackType = type;
+                lookVec = rotate(lookVec, perAngle);
+            }
+        }
     }
 
     @Override
@@ -95,5 +120,11 @@ public class ItemSeraphCannonBase extends ItemSeraphBase{
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
         return 3 * CommonDef.TICK_PER_SECOND;
+    }
+
+    public static Vec3d rotate(Vec3d vec3d, float deg)
+    {
+        float rad = deg * CommonDef.DEG_TO_RAD;
+        return new Vec3d(vec3d.x * Math.cos(rad) - vec3d.z * Math.sin(rad), vec3d.y, vec3d.x * Math.sin(rad) + vec3d.z * Math.cos(rad));
     }
 }

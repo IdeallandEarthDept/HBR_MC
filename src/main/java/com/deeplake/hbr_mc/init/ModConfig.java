@@ -56,6 +56,8 @@ public class ModConfig {
 
         public SkillConf BRAVE_BLUE_HEAL = new SkillConf(305F, CombatUtil.DEFAULT_HEAL_CAP, 5);
         public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160, 138, 12);
+
+        public SkillConf RAPID_FIRE_4SP_AOE = new SkillConf(29, 117, 4);
     }
 
     public static final GUIConf GUI_CONF = new GUIConf();
