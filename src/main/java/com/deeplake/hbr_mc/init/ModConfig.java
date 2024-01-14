@@ -53,9 +53,11 @@ public class ModConfig {
 
         @Config.RangeDouble(min = 0f, max = 1f)
         public float SKILL_UP_CHANCE = 0.01f;
+        public float BONUS_DAMAGE_RATE = 1.3f;
 
+        public SkillConf BRAVE_BLUE_A = new SkillConf(58.2F, 123, 6);
         public SkillConf BRAVE_BLUE_HEAL = new SkillConf(305F, CombatUtil.DEFAULT_HEAL_CAP, 5);
-        public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160, 138, 12);
+        public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160.2f, 138, 12);
 
         public SkillConf RAPID_FIRE_4SP_AOE = new SkillConf(29, 117, 4);
         public SkillConf SUPREME_EDGE_6SP_BUFF = new SkillConf(50/65f, 208, 6);

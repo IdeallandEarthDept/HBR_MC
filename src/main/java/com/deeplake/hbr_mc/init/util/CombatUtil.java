@@ -31,7 +31,7 @@ public class CombatUtil {
         }
     }
 
-    public static void HPAttackGroup(EntityPlayer player, EntityLivingBase target, float minPotency, float[] group, float cap, float bonusRate)
+    public static void HPAttackGroup(EntityLivingBase player, EntityLivingBase target, float minPotency, float[] group, float cap, float bonusRate)
     {
         for (float ratio: group
              ) {
@@ -39,9 +39,15 @@ public class CombatUtil {
         }
     }
 
-    public static void HPAttack(EntityPlayer player, EntityLivingBase target, float minPotency, float cap, float bonusRate) {
+    public static void HPAttack(EntityLivingBase player, EntityLivingBase target, float minPotency, float cap, float bonusRate) {
         boolean extra = target.getAbsorptionAmount() > 0;
         attackAsHBR(player, target, EnumAttrType.STR_FOCUS, EnumDefType.END,
+                extra ? minPotency * bonusRate : minPotency, cap);
+    }
+
+    public static void DPAttack(EntityLivingBase player, EntityLivingBase target, float minPotency, float cap, float bonusRate) {
+        boolean extra = target.getAbsorptionAmount() <= 0;
+        attackAsHBR(player, target, EnumAttrType.DEX_FOCUS, EnumDefType.END,
                 extra ? minPotency * bonusRate : minPotency, cap);
     }
 

@@ -1,7 +1,9 @@
 package com.deeplake.hbr_mc.entities.projectiles;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
+import com.deeplake.hbr_mc.init.util.CommonDef;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
@@ -40,7 +42,19 @@ public class EntityHBRProjectile extends EntityIdlProjectile{
             {
                 if (shootingEntity != null && target instanceof EntityLivingBase && target != shootingEntity)
                 {
-                    CombatUtil.attackAsHBR(shootingEntity, (EntityLivingBase) target, attackType, defType, minPotency,cap);
+                    float bonusRate = ModConfig.COMBAT.BONUS_DAMAGE_RATE;
+                    switch (attackType)
+                    {
+                        case STR_FOCUS:
+                            CombatUtil.HPAttack(shootingEntity, (EntityLivingBase) target,minPotency,cap,bonusRate);
+                            break;
+                        case DEX_FOCUS:
+                            CombatUtil.DPAttack(shootingEntity, (EntityLivingBase) target,minPotency,cap,bonusRate);
+                            break;
+                        default:
+                            CombatUtil.attackAsHBR(shootingEntity, (EntityLivingBase) target, attackType, defType, minPotency,cap);
+                            break;
+                    }
                 }
             }
             this.setDead();

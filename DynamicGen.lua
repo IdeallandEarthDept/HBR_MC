@@ -1,6 +1,7 @@
 require "GenBlockJson"
 
-GenItem("seraph","superme_edge")
+GenItem("seraph","glitter_shadow")
+GenItem("seraph","glitter_shadow_ss")
 
 
 
