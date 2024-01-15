@@ -1,8 +1,8 @@
 require "GenBlockJson"
 
-GenItem("seraph","phantom_weaver")
-GenItem("seraph","phantom_weaver_ss")
-
+GenItem("seraph","clavis")
+GenItem("seraph","clavis_ss")
+GenItem("seraph","superme_edge_ss")
 
 
 --GenBlock("heal_stash")

@@ -56,3 +56,5 @@ entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper
 
 configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration
+
+idealland.shared.wip.desc=Work in Progress

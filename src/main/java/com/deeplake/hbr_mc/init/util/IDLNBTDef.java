@@ -92,8 +92,8 @@ public class IDLNBTDef {
 	public static final String TOOLTIP_HIDDEN = ".hidden";
 	public static final String TOOLTIP_DAMAGE = ".damage_desc";
 
-	public static final String NAME_OFF= "idealland.shared.off";
-	public static final String NAME_ON= "idealland.shared.on";
+	public static final String NAME_OFF= "hbr_mc.shared.off";
+	public static final String NAME_ON= "hbr_mc.shared.on";
 	
 	public static final String TRUENAME_TO_REVEAL = ".true_name_reveal";
 	public static final String MANUAL_PAGE_COUNT = ".manual_page_count";
@@ -141,10 +141,10 @@ public class IDLNBTDef {
 	public static final String BUILD_ARG_2 = "build_arg_2";
 
 	//gua socket
-	public static final String GUA_NO_FREE_SOCKET_DESC = "idealland.gua_enhance_no_free.desc";
-	public static final String GUA_FREE_SOCKET_DESC = "idealland.gua_enhance_free.desc";
-	public static final String GUA_TOTAL_SOCKET_DESC = "idealland.gua_enhance_total.desc";
-	public static final String GUA_N_A_DESC = "idealland.gua_not_applicable.desc";
+	public static final String GUA_NO_FREE_SOCKET_DESC = "hbr_mc.gua_enhance_no_free.desc";
+	public static final String GUA_FREE_SOCKET_DESC = "hbr_mc.gua_enhance_free.desc";
+	public static final String GUA_TOTAL_SOCKET_DESC = "hbr_mc.gua_enhance_total.desc";
+	public static final String GUA_N_A_DESC = "hbr_mc.gua_not_applicable.desc";
 
 	public static final String GUA_FREE_SOCKET = "gua_free_socket";
 	public static final String GUA_ENHANCE = "gua_enhance";
@@ -193,7 +193,7 @@ public class IDLNBTDef {
 
 	//nonsense
 	public static final String KILL_COUNT_ITEM = "kill_count";//marked on items, not players
-	public static final String KILL_COUNT_DESC = "idealland.kill_count.desc";
+	public static final String KILL_COUNT_DESC = "hbr_mc.kill_count.desc";
 
 	public static final String MARKING_POS_A = "marking_pos_a";
 	public static final String MARKING_POS_B = "marking_pos_b";
@@ -215,45 +215,45 @@ public class IDLNBTDef {
     public static final String SPELL_KEY = "selfSp_";
     public static final String OWNER_UUID = "own_uu";
     public static final String OWNER_NAME = "own_nm";
-    public static final String OWNER_DESC = "idealland.owner.desc";
+    public static final String OWNER_DESC = "hbr_mc.owner.desc";
    // public static final String INIT_DONE = "inited";
 
 	//prefix
 	public static final String MSG_PREFIX = Main.MODID + ".msg.";
 
-	public static final String ARTIFACT_KEY = "idealland.item.artifact.desc";
+	public static final String ARTIFACT_KEY = "hbr_mc.item.artifact.desc";
 
 	//socket
-	public static final String JADE_SOCKET_KEY = "idealland.item.jade_socket.desc";
-	public static final String JADE_SOCKET_KEY_2 = "idealland.item.jade_socket.desc.2";
-	public static final String JADE_SOCKET_KEY_4 = "idealland.item.jade_socket.desc.4";
+	public static final String JADE_SOCKET_KEY = "hbr_mc.item.jade_socket.desc";
+	public static final String JADE_SOCKET_KEY_2 = "hbr_mc.item.jade_socket.desc.2";
+	public static final String JADE_SOCKET_KEY_4 = "hbr_mc.item.jade_socket.desc.4";
 
-	public static final String CYCLE_SOCKET_KEY = "idealland.item.cycle_socket.desc";
+	public static final String CYCLE_SOCKET_KEY = "hbr_mc.item.cycle_socket.desc";
 	public static final String CYCLE_SOCKET_KEY_2 = CYCLE_SOCKET_KEY+".2";
 	public static final String CYCLE_SOCKET_KEY_4 = CYCLE_SOCKET_KEY+".4";
 
-	public static final String FLESH_SOCKET_KEY = "idealland.item.flesh_socket.desc";
+	public static final String FLESH_SOCKET_KEY = "hbr_mc.item.flesh_socket.desc";
 	public static final String FLESH_SOCKET_KEY_2 = FLESH_SOCKET_KEY+".2";
 	public static final String FLESH_SOCKET_KEY_4 = FLESH_SOCKET_KEY+".4";
 
 	//Egypt
 	public static final String EGYPT_KEY = "idealand.egypt.curse";
-	public static final String UNKNOWN = "idealland.shared.unknown_desc";
+	public static final String UNKNOWN = "hbr_mc.shared.unknown_desc";
 	//tooltip
-	public static final String TIP_SKILL = "idealland.shared.skill.desc";
-	public static final String TIP_SKILL_EYE = "idealland.shared.skill.gaze.desc";
-	public static final String OFFHAND_CAST = "idealland.shared.skill.desc.offhand";
-	public static final String MAINHAND_CAST = "idealland.shared.skill.desc.mainhand";
-	public static final String PASSIVE = "idealland.shared.skill.desc.passive";
-	public static final String SKILL_CLASS_CORE = "idealland.shared.skill.desc.class_core";
-	public static final String SKILL_CLASS_SPEC = "idealland.shared.skill.desc.class_specific";
-	public static final String SKILL_CLASS_PREFIX = "idealland.skill.class.";
+	public static final String TIP_SKILL = "hbr_mc.shared.skill.desc";
+	public static final String TIP_SKILL_EYE = "hbr_mc.shared.skill.gaze.desc";
+	public static final String OFFHAND_CAST = "hbr_mc.shared.skill.desc.offhand";
+	public static final String MAINHAND_CAST = "hbr_mc.shared.skill.desc.mainhand";
+	public static final String PASSIVE = "hbr_mc.shared.skill.desc.passive";
+	public static final String SKILL_CLASS_CORE = "hbr_mc.shared.skill.desc.class_core";
+	public static final String SKILL_CLASS_SPEC = "hbr_mc.shared.skill.desc.class_specific";
+	public static final String SKILL_CLASS_PREFIX = "hbr_mc.skill.class.";
 
-	public static final String XP_GAUGE = "idealland.shared.skill.desc.xp_gauge";
-	public static final String MAX = "idealland.shared.skill.desc.max";
+	public static final String XP_GAUGE = "hbr_mc.shared.skill.desc.xp_gauge";
+	public static final String MAX = "hbr_mc.shared.skill.desc.max";
     public static final String CUSTOM_NAME = "CustomName";
 
-    public static final String WIP_DESC = "idealland.shared.wip.desc";
+    public static final String WIP_DESC = "hbr_mc.shared.wip.desc";
 
     //Spawner
 	public static final String VINDICATOR_STRING = "{RequiredPlayerRange:8,SpawnRange:8,SpawnCount:1,MaxNearbyEntities:5,SpawnData:{CustomName:\"V\",CanPickUpLoot:1b,HandItems:[{id:\"minecraft:diamond_axe\",Count:1b,Damage:0s,tag:{ench:[{id:32,lvl:3}]}},{id:\"minecraft:shield\",Count:1b,Damage:0s,tag:{BlockEntityTag:{Base:7,Patterns:[{Pattern:bri,Color:13},{Pattern:sku,Color:15},{Pattern:bts,Color:1},{Pattern:tts,Color:1}]}}}],ArmorItems:[{id:\"minecraft:leather_boots\",Count:1b,Damage:0s,tag:{Unbreakable:1,display:{color:13369530}}},{},{},{}],id:\"minecraft:vindication_illager\"},SpawnPotentials:[{Weight:1,Entity:{CustomName:\"V\",CanPickUpLoot:1b,HandItems:[{id:\"minecraft:diamond_axe\",Count:1b,Damage:0s,tag:{ench:[{id:32,lvl:3}]}},{id:\"minecraft:shield\",Count:1b,Damage:0s,tag:{BlockEntityTag:{Base:7,Patterns:[{Pattern:bri,Color:13},{Pattern:sku,Color:15},{Pattern:bts,Color:1},{Pattern:tts,Color:1}]}}}],ArmorItems:[{id:\"minecraft:leather_boots\",Count:1b,Damage:0s,tag:{Unbreakable:1,display:{color:13369530}}},{},{},{}],id:\"minecraft:vindication_illager\"}}]}";
