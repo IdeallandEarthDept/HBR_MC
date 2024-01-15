@@ -29,10 +29,17 @@ public class RegisterItem {
     //31A
     public static final Item BRAVE_BLUE = new ItemBraveBlue("brave_blue");
     public static final Item BRAVE_BLUE_SS = new ItemBraveBlue("brave_blue_ss");
+
     public static final Item RAPID_FIRE = new ItemRapidFire("rapid_fire");
     public static final Item RAPID_FIRE_SS = new ItemRapidFire("rapid_fire_ss");
+
     public static final Item SUPERME_EDGE = new ItemSupremeEdge("superme_edge");
+
     public static final Item GLITTER_SHADOW = new ItemBraveBlue("glitter_shadow");
+    public static final Item GLITTER_SHADOW_SS = new ItemBraveBlue("glitter_shadow_ss");
+
+    public static final Item PHANTOM_WEAVER = new ItemBraveBlue("phantom_weaver");
+    public static final Item PHANTOM_WEAVER_SS = new ItemBraveBlue("phantom_weaver_ss");
 
     //30G
     public static final Item KAZABANA = new ItemKazabana("kazabana");
