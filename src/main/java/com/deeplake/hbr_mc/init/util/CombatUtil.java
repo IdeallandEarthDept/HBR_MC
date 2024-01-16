@@ -1,8 +1,10 @@
 package com.deeplake.hbr_mc.init.util;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EntitySelectors;
@@ -28,6 +30,41 @@ public class CombatUtil {
         for (EntityPlayer player :
                 players) {
             SeraphUtil.cureSeraph(SeraphUtil.getFirstSeraphNonBrokenInHand(player), healAmount);
+        }
+    }
+
+    public static void areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate) {
+        List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
+                worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec()).scale(dist), radius, EntitySelectors.IS_ALIVE
+        );
+
+        for (EntityLiving target :
+                targets) {
+            generalAttack(atkType, player, minPotency, cap, bonusRate, target);
+        }
+    }
+
+    public static void generalAttack(EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate, EntityLiving target) {
+        switch (atkType){
+            case STANDARD:
+            case INT_FOCUS:
+                attackAsHBR(player, target, atkType,EnumDefType.MEN, minPotency, cap);
+                break;
+            case STR_FOCUS:
+                HPAttack(player, target, minPotency, cap, bonusRate);
+                break;
+            case DEX_FOCUS:
+                DPAttack(player, target, minPotency, cap, bonusRate);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + atkType);
+        }
+    }
+
+    public static void areaAttackGroup(float[] group, World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate) {
+        for (float ratio: group
+             ) {
+            areaAttack(worldIn, caster, dist, radius, atkType, player, minPotency * ratio, cap, bonusRate);
         }
     }
 

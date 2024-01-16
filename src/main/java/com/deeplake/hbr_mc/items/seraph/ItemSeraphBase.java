@@ -35,6 +35,7 @@ import java.util.UUID;
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class ItemSeraphBase extends ItemBase {
     public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
+    public EnumSeraphRarity seraphRarity = EnumSeraphRarity.A;
     UUID uuid = UUID.fromString("7cf25a1c-6768-4836-8d24-ec64ed2a4ef7");
     UUID uuidPer = UUID.fromString("c73c33a5-9de0-4619-81bf-6009a3a84c02");
     public ItemSeraphBase(String name) {
@@ -43,6 +44,10 @@ public class ItemSeraphBase extends ItemBase {
 //        RegisterUtil.initItem(this, name);
 //        setCreativeTab(ModTabs.TAB1);
         setMaxStackSize(1);
+    }
+
+    public void setSeraphRarity(EnumSeraphRarity seraphRarity) {
+        this.seraphRarity = seraphRarity;
     }
 
     @Override

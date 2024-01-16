@@ -33,16 +33,36 @@ public class ModConfig {
     }
 
     public static class SkillConf {
+        public SkillConf(float MIN_POTENCY, float CAP, int SP, float destruction) {
+            this.MIN_POTENCY = MIN_POTENCY;
+            this.CAP = CAP;
+            this.SP = SP;
+            this.DR = destruction;
+        }
+
         public SkillConf(float MIN_POTENCY, float CAP, int SP) {
             this.MIN_POTENCY = MIN_POTENCY;
             this.CAP = CAP;
             this.SP = SP;
         }
 
+        public SkillConf setUses(int uses, int usesMax)
+        {
+            this.uses = uses;
+            this.usesGrowth = usesMax;
+            return this;
+        }
+
         public float MIN_POTENCY = 10f;
         public float CAP = 150;
 
         public int SP = 0;
+
+        //Destruction Rate
+        public float DR = 1;
+
+        public int uses = -1;
+        public int usesGrowth = 0;
     }
 
     public static CombatConf COMBAT = new CombatConf();
@@ -54,14 +74,20 @@ public class ModConfig {
         @Config.RangeDouble(min = 0f, max = 1f)
         public float SKILL_UP_CHANCE = 0.01f;
         public float BONUS_DAMAGE_RATE = 1.3f;
+        public float AOE_DISTANCE = 32f;
+        public float AOE_RADIUS = 32f;
 
-        public SkillConf BRAVE_BLUE_A = new SkillConf(58.2F, 123, 6);
+        public SkillConf BRAVE_BLUE_A = new SkillConf(58.2F, 123, 6,1.5f);
         public SkillConf BRAVE_BLUE_HEAL = new SkillConf(305F, CombatUtil.DEFAULT_HEAL_CAP, 5);
-        public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160.2f, 138, 12);
+        public SkillConf BRAVE_BLUE_ULTI = new SkillConf(160.2f, 138, 12,2.75f);
 
-        public SkillConf RAPID_FIRE_4SP_AOE = new SkillConf(29, 117, 4);
+        public SkillConf RAPID_FIRE_4SP_AOE = new SkillConf(29, 117, 4,0.8f);
+        //ブレイクカノン,3hit DP+30
+        public SkillConf RAPID_FIRE_7SP_ST = new SkillConf(73, 126, 7,1.75f);
+        //流星, 1hit non-plus ver， 2uses
+        public SkillConf RAPID_FIRE_11SP_AOE = new SkillConf(167f, 144, 11,2.6f).setUses(2,2);
         public SkillConf SUPREME_EDGE_6SP_BUFF = new SkillConf(50/65f, 208, 6);
-        public SkillConf KAZABANA_5SP_AOE = new SkillConf(37.5f, 120, 5);//potency means success rate
+        public SkillConf KAZABANA_5SP_AOE = new SkillConf(37.5f, 120, 5,1f);//potency means success rate
     }
 
     public static final GUIConf GUI_CONF = new GUIConf();

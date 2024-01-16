@@ -3,10 +3,8 @@ package com.deeplake.hbr_mc.init;
 import com.deeplake.hbr_mc.items.ItemArmorCancer;
 import com.deeplake.hbr_mc.items.ItemBase;
 import com.deeplake.hbr_mc.items.ItemWIP;
-import com.deeplake.hbr_mc.items.seraph.a31.ItemBraveBlue;
-import com.deeplake.hbr_mc.items.seraph.a31.ItemSupremeEdge;
+import com.deeplake.hbr_mc.items.seraph.a31.*;
 import com.deeplake.hbr_mc.items.seraph.g30.ItemKazabana;
-import com.deeplake.hbr_mc.items.seraph.a31.ItemRapidFire;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -28,11 +26,11 @@ import java.util.List;
 public class RegisterItem {
     public static final List<Item> ITEM_LIST = new ArrayList<>();
     //31A
-    public static final Item BRAVE_BLUE = new ItemWIP("brave_blue");
-    public static final Item BRAVE_BLUE_SS = new ItemBraveBlue("brave_blue_ss");
+    public static final Item BRAVE_BLUE = new ItemBraveBlue("brave_blue");
+    public static final Item BRAVE_BLUE_SS = new ItemBraveBlueSS("brave_blue_ss");
 
     public static final Item RAPID_FIRE = new ItemRapidFire("rapid_fire");
-    public static final Item RAPID_FIRE_SS = new ItemWIP("rapid_fire_ss");
+    public static final Item RAPID_FIRE_SS = new ItemRapidFireSS("rapid_fire_ss");
 
     public static final Item CLAVIS = new ItemWIP("clavis");
     public static final Item CLAVIS_SS = new ItemWIP("clavis_ss");
@@ -45,6 +43,10 @@ public class RegisterItem {
 
     public static final Item PHANTOM_WEAVER = new ItemWIP("phantom_weaver");
     public static final Item PHANTOM_WEAVER_SS = new ItemWIP("phantom_weaver_ss");
+
+    //31C
+    public static final Item SCARLET_VALET = new ItemWIP("scarlet_valet");
+    public static final Item SCARLET_VALET_SS = new ItemWIP("scarlet_valet_ss");
 
     //30G
     public static final Item KAZABANA = new ItemKazabana("kazabana");
