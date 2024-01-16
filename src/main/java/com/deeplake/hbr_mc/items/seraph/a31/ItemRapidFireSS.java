@@ -11,6 +11,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 //Yuki Izumi
@@ -29,27 +30,9 @@ public class ItemRapidFireSS extends ItemSeraphCannonBase {
     @Override
     public void castSkillNonSneak(ItemStack stack, World worldIn, EntityPlayer caster) {
         if (!worldIn.isRemote) {
-            if (!canUseSkill(stack, 0))
-            {
-                return;
-            }
-
-            worldIn.playSound(null, caster.posX, caster.posY, caster.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-
-            if (!worldIn.isRemote) {
-                int volley = 3;
-                int spread = 10;
-                float perAngle = 5f;
-                float minPotency = ModConfig.COMBAT.RAPID_FIRE_4SP_AOE.MIN_POTENCY / volley;
-                float cap = ModConfig.COMBAT.RAPID_FIRE_4SP_AOE.CAP;
-                CombatUtil.EnumAttrType attackType = CombatUtil.EnumAttrType.DEX_FOCUS;
-                spreadAttack(worldIn, caster, volley, spread, perAngle, minPotency, cap, attackType);
-            }
-
-            caster.swingArm(caster.getActiveHand());
-            caster.addStat(StatList.getObjectUseStats(this));
-            worldIn.playSound(null, caster.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 1f, 1.5f);
-            setCoolDown(caster, CommonDef.TICK_PER_SECOND * ModConfig.COMBAT.RAPID_FIRE_4SP_AOE.SP);
+            volleyAttack(worldIn, caster, 3,
+                    ModConfig.COMBAT.RAPID_FIRE_7SP_ST);
+            castSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_7SP_ST, SoundEvents.ENTITY_BLAZE_SHOOT);
         }
     }
 
@@ -62,26 +45,22 @@ public class ItemRapidFireSS extends ItemSeraphCannonBase {
                 return;
             }
 
-            EntityPlayer playerIn = caster;
+            worldIn.playSound(null, caster.posX, caster.posY, caster.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
-            worldIn.playSound(null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+            ModConfig.SkillConf skill = ModConfig.COMBAT.RAPID_FIRE_11SP_AOE;
+            CombatUtil.areaAttack(worldIn,caster,
+                    ModConfig.COMBAT.AOE_DISTANCE,
+                    ModConfig.COMBAT.AOE_RADIUS,
+                    CombatUtil.EnumAttrType.DEX_FOCUS,
+                    skill.MIN_POTENCY,
+                    skill.CAP,
+                    ModConfig.COMBAT.BONUS_DAMAGE_RATE);
 
-            if (!worldIn.isRemote) {
-                int volley = 3;
-                int spread = 10;
-                float perAngle = 5f;
-                float minPotency = ModConfig.COMBAT.RAPID_FIRE_4SP_AOE.MIN_POTENCY / volley;
-                float cap = ModConfig.COMBAT.RAPID_FIRE_4SP_AOE.CAP;
-                CombatUtil.EnumAttrType attackType = CombatUtil.EnumAttrType.DEX_FOCUS;
-                spreadAttack(worldIn, playerIn, volley, spread, perAngle, minPotency, cap, attackType);
-            }
-
-            playerIn.swingArm(playerIn.getActiveHand());
-            playerIn.addStat(StatList.getObjectUseStats(this));
-            worldIn.playSound(null, caster.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 1f, 1.5f);
-            setCoolDown(caster, CommonDef.TICK_PER_SECOND * ModConfig.COMBAT.RAPID_FIRE_4SP_AOE.SP);
+            castSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_11SP_AOE, SoundEvents.ENTITY_GENERIC_EXPLODE);
         }
     }
+
+
 
     @Override
     public int getSkillLimit(ItemStack stack, int slot) {

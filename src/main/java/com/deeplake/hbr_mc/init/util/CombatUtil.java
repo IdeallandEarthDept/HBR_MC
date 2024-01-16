@@ -33,14 +33,14 @@ public class CombatUtil {
         }
     }
 
-    public static void areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate) {
+    public static void areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
         List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec()).scale(dist), radius, EntitySelectors.IS_ALIVE
         );
 
         for (EntityLiving target :
                 targets) {
-            generalAttack(atkType, player, minPotency, cap, bonusRate, target);
+            generalAttack(atkType, caster, minPotency, cap, bonusRate, target);
         }
     }
 
@@ -64,7 +64,7 @@ public class CombatUtil {
     public static void areaAttackGroup(float[] group, World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate) {
         for (float ratio: group
              ) {
-            areaAttack(worldIn, caster, dist, radius, atkType, player, minPotency * ratio, cap, bonusRate);
+            areaAttack(worldIn, caster, dist, radius, atkType, minPotency * ratio, cap, bonusRate);
         }
     }
 

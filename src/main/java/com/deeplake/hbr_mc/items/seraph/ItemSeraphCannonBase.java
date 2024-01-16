@@ -1,15 +1,12 @@
 package com.deeplake.hbr_mc.items.seraph;
 
-import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
-import com.deeplake.hbr_mc.entities.projectiles.ProjectileArgs;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityEgg;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
@@ -61,26 +58,38 @@ public class ItemSeraphCannonBase extends ItemSeraphBase{
             if (!worldIn.isRemote)
             {
                 int volley = 3;
-                for (int i = 0; i < volley; i++) {
-                    EntityHBRProjectile bullet =
-                            new EntityHBRProjectile(worldIn);
-
-                    Vec3d lookVec = playerIn.getLookVec();
-                    bullet.shootingEntity = playerIn;
-                    bullet.shoot(lookVec.x, lookVec.y, lookVec.z, 1.8f + i * 0.2f, 1f);
-                    bullet.setPositionAndUpdate(
-                            playerIn.posX+lookVec.x,
-                            playerIn.posY+playerIn.getEyeHeight()+lookVec.y,
-                            playerIn.posZ+lookVec.z);
-                    worldIn.spawnEntity(bullet);
-                    bullet.minPotency = ModConfig.COMBAT.NORMAL_ATK_POWER / volley;
-                    bullet.cap = ModConfig.COMBAT.NORMAL_ATK_CAP;
-                }
+                volleyAttack(worldIn, playerIn, volley,
+                        ModConfig.COMBAT.NORMAL_ATK_POWER, ModConfig.COMBAT.NORMAL_ATK_CAP);
             }
 
             playerIn.getCooldownTracker().setCooldown(this,10);
             playerIn.swingArm(playerIn.getActiveHand());
             playerIn.addStat(StatList.getObjectUseStats(this));
+        }
+    }
+
+    protected void volleyAttack(World worldIn, EntityPlayer playerIn, int volley, ModConfig.SkillConf skillConf) {
+        volleyAttack(worldIn, playerIn, volley, skillConf.MIN_POTENCY, skillConf.CAP, CombatUtil.EnumAttrType.STANDARD);
+    }
+    protected void volleyAttack(World worldIn, EntityPlayer playerIn, int volley, float minPotency, float cap) {
+        volleyAttack(worldIn, playerIn, volley, minPotency, cap, CombatUtil.EnumAttrType.STANDARD);
+    }
+    protected void volleyAttack(World worldIn, EntityPlayer playerIn, int volley, float minPotency, float cap, CombatUtil.EnumAttrType atkType) {
+        for (int i = 0; i < volley; i++) {
+            EntityHBRProjectile bullet =
+                    new EntityHBRProjectile(worldIn);
+
+            Vec3d lookVec = playerIn.getLookVec();
+            bullet.shootingEntity = playerIn;
+            bullet.shoot(lookVec.x, lookVec.y, lookVec.z, 1.8f + i * 0.2f, 1f);
+            bullet.setPositionAndUpdate(
+                    playerIn.posX+lookVec.x,
+                    playerIn.posY+ playerIn.getEyeHeight()+lookVec.y,
+                    playerIn.posZ+lookVec.z);
+            worldIn.spawnEntity(bullet);
+            bullet.minPotency = minPotency/volley;
+            bullet.cap = cap;
+            bullet.attackType = atkType;
         }
     }
 

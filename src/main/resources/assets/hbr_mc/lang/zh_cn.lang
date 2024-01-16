@@ -4,13 +4,21 @@ itemGroup.hbr_mc.tab1=绯染天空
 
 # items
 item.test3.name=Test Item
-item.brave_blue.name=BraveBlue(电路的爆裂闪光)
-item.brave_blue.skill.0=潜行右键：修复-群体小治疗 (%d/%d)
-item.brave_blue.skill.1=右键敌人：梦幻泡影-单体力击 (%d/%d)
+
+item.brave_blue.name=BraveBlue(Attack or Music)
+item.brave_blue.skill.0=右键敌人：单体攻击，对HP+30%
+
+item.brave_blue_ss.name=BraveBlue SS(电路的爆裂闪光)
+item.brave_blue_ss.skill.0=潜行右键：修复附近的DP (%d/%d)
+item.brave_blue_ss.skill.1=与敌右键：强力单体攻击，对HP+30%% (%d/%d)
 
 item.rapid_fire.name=RapidFire(Attack or March)
 item.rapid_fire.skill.0=长按右键：毁灭爆裂炮-范围迅击
-item.rapid_fire.skill.1=[Interact Enemy]Strong ST attack, to HP+30% (%d/%d)
+
+item.rapid_fire_ss.name=RapidFire(終いのSpitfire)
+item.rapid_fire_ss.skill.0=长按右键:对单体迅击，对DP+30%%
+item.rapid_fire_ss.skill.1=潜行右键:流星-广范围迅击，对DP+30%% (%d/%d)
+
 
 item.cancer_shell.name=壳石
 item.cancer_helmet.name=星癌体头盔
@@ -48,4 +56,8 @@ entity.c_doll.name=Doll
 entity.c_marionette.name=Marionette
 entity.c_small_hopper.name=SmallHopper
 
+hbr_mc.potion.skill_atk_up_1=Skill Atk UP
+hbr_mc.potion.skill_atk_up_2=Skill Atk UP
+hbr_mc.potion.skill_atk_up_3=Skill Atk UP
+hbr_mc.shared.wip.desc=研究中，敬请期待！
 configgui.idealland.category.Menu0.SpawnConf=生成设定

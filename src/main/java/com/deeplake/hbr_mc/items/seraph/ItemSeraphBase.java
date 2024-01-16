@@ -2,7 +2,9 @@ package com.deeplake.hbr_mc.items.seraph;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
+import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import com.deeplake.hbr_mc.items.ItemBase;
@@ -18,6 +20,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -391,4 +394,10 @@ public class ItemSeraphBase extends ItemBase {
         }
     }
 
+    protected void castSkill(EntityPlayer caster, World worldIn, ModConfig.SkillConf COMBAT, SoundEvent event) {
+        caster.swingArm(caster.getActiveHand());
+        caster.addStat(StatList.getObjectUseStats(this));
+        worldIn.playSound(null, caster.getPosition(), event, SoundCategory.PLAYERS, 1f, 1f);
+        setCoolDown(caster, CommonDef.TICK_PER_SECOND * COMBAT.SP);
+    }
 }
