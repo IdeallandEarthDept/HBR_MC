@@ -4,7 +4,9 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.CommonDef;
+import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import com.deeplake.hbr_mc.items.ItemBase;
@@ -299,7 +301,7 @@ public class ItemSeraphBase extends ItemBase {
     {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
 
-        if (SeraphUtil.isBroken(itemstack) || playerIn.getCooldownTracker().hasCooldown(this))
+        if (!canUseSkills(playerIn) || SeraphUtil.isBroken(itemstack) || playerIn.getCooldownTracker().hasCooldown(this))
         {
             return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
         }
@@ -399,5 +401,9 @@ public class ItemSeraphBase extends ItemBase {
         caster.addStat(StatList.getObjectUseStats(this));
         worldIn.playSound(null, caster.getPosition(), event, SoundCategory.PLAYERS, 1f, 1f);
         setCoolDown(caster, CommonDef.TICK_PER_SECOND * COMBAT.SP);
+    }
+
+    public static boolean canUseSkills(EntityLivingBase entityLiving) {
+        return EntityUtil.getBuffLevelIDL(entityLiving, RegisterEffects.SELF_RECOIL) == 0;
     }
 }

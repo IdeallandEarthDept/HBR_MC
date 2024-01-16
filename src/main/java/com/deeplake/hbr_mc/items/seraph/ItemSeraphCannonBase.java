@@ -49,7 +49,7 @@ public class ItemSeraphCannonBase extends ItemSeraphBase{
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
         super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
-        if (timeLeft > 0)
+        if (timeLeft > 0 && canUseSkills(entityLiving))
         {
             EntityPlayer playerIn = (EntityPlayer) entityLiving;
 

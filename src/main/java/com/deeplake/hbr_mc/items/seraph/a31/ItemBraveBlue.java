@@ -39,7 +39,7 @@ public class ItemBraveBlue extends ItemSeraphBase {
     @Override
     public boolean castSkillEnemy(ItemStack stack, World worldIn, EntityPlayer player, EntityLivingBase target) {
         //
-        if (!canUseSkill(stack, 0))
+        if (!canUseSkill(stack, 0) || !canUseSkills(player))
         {
             return false;
         }

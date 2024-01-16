@@ -36,7 +36,7 @@ public class ItemBraveBlueSS extends ItemSeraphBase {
     public void castSkillSneak(ItemStack stack, World worldIn, EntityPlayer caster) {
         if (!worldIn.isRemote)
         {
-            if (!canUseSkill(stack, HEAL_INDEX))
+            if (!canUseSkill(stack, HEAL_INDEX) || !canUseSkills(caster))
             {
                 return;
             }
@@ -64,7 +64,7 @@ public class ItemBraveBlueSS extends ItemSeraphBase {
     @Override
     public boolean castSkillEnemy(ItemStack stack, World worldIn, EntityPlayer player, EntityLivingBase target) {
         //original: 12SP, 138 cap, 1602-8010 potency
-        if (!canUseSkill(stack, ULTIMATE_INDEX))
+        if (!canUseSkill(stack, ULTIMATE_INDEX) || !canUseSkills(player))
         {
             return false;
         }

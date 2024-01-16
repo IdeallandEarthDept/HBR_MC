@@ -33,15 +33,17 @@ public class CombatUtil {
         }
     }
 
-    public static void areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
+    public static List<EntityLiving> areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
         List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
-                worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec()).scale(dist), radius, EntitySelectors.IS_ALIVE
+                worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec().scale(dist)), radius, EntitySelectors.IS_ALIVE
         );
 
         for (EntityLiving target :
                 targets) {
             generalAttack(atkType, caster, minPotency, cap, bonusRate, target);
         }
+
+        return targets;
     }
 
     public static void generalAttack(EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate, EntityLiving target) {
@@ -134,8 +136,8 @@ public class CombatUtil {
         }
 
         double enemyAttr = 0;
-        double men = RegisterAttr.getAttrValue(attacker, RegisterAttr.MEN);
-        double end = RegisterAttr.getAttrValue(attacker, RegisterAttr.END);
+        double men = RegisterAttr.getAttrValue(target, RegisterAttr.MEN);
+        double end = RegisterAttr.getAttrValue(target, RegisterAttr.END);
         switch (defType)
         {
             case MEN:
