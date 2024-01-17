@@ -4,21 +4,49 @@ itemGroup.hbr_mc.tab1=绯染天空
 
 # items
 item.test3.name=Test Item
-
 item.brave_blue.name=BraveBlue(Attack or Music)
-item.brave_blue.skill.0=右键敌人：单体攻击，对HP+30%
+item.brave_blue.skill.0=右键敌人：十字斩~单体力击，对HP+30%%
 
 item.brave_blue_ss.name=BraveBlue SS(电路的爆裂闪光)
-item.brave_blue_ss.skill.0=潜行右键：修复附近的DP (%d/%d)
-item.brave_blue_ss.skill.1=与敌右键：强力单体攻击，对HP+30%% (%d/%d)
+item.brave_blue_ss.skill.0=潜行右键：回复~修复附近的DP (%d/%d)
+item.brave_blue_ss.skill.1=与敌右键：梦幻泡影~强力单体攻击，对HP+30%% (%d/%d)
 
 item.rapid_fire.name=RapidFire(Attack or March)
-item.rapid_fire.skill.0=长按右键：毁灭爆裂炮-范围迅击
+item.rapid_fire.skill.0=长按右键：毁灭爆裂炮~范围迅击，对DP+30%%
 
-item.rapid_fire_ss.name=RapidFire(終いのSpitfire)
-item.rapid_fire_ss.skill.0=长按右键:对单体迅击，对DP+30%%
-item.rapid_fire_ss.skill.1=潜行右键:流星-广范围迅击，对DP+30%% (%d/%d)
+item.rapid_fire_ss.name=RapidFire(终焉Spitfire)
+item.rapid_fire_ss.skill.0=长按右键:毁灭加农炮~对单体迅击，对DP+30%%
+item.rapid_fire_ss.skill.1=潜行右键:流星~广范围迅击，对DP+30%% (%d/%d)
 
+item.supreme_edge.name=RapidFire(Attack or March)
+item.supreme_edge.skill.0=长按右键：增强~提升附近技能攻击力
+
+item.supreme_edge_ss.name=SupremeEdge(SS)
+item.supreme_edge_ss.skill.0=??
+item.supreme_edge_ss.skill.1=??
+
+item.clavis.name=Clavis(Plain or Wild)
+item.clavis.skill.0=昏厥硬刃
+
+item.clavis_ss.name=Clavis(Ikki Burst Strike)
+item.clavis_ss.skill.0=全力猛挥
+item.clavis_ss.skill.1=极限冲击
+
+item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
+item.phantom_weaver.skill.0=回复
+
+item.phantom_weaver_ss.name=Phantom Weaver(天使舰长的气势一闪)
+item.phantom_weaver_ss.skill.0=斗气斩
+item.phantom_weaver_ss.skill.1=复苏之光
+
+item.glitter_shadow.name=Glitter Shadow(Laugh or Cry)
+item.glitter_shadow.skill.0=乱舞
+
+item.glitter_shadow_ss.name=Glitter Shadow(红莲月华Killrazor)
+item.glitter_shadow_ss.skill.0=狂野投掷
+item.glitter_shadow_ss.skill.1=血腥之舞
+
+configgui.idealland.category.Menu0.SpawnConf=生成设置
 
 item.cancer_shell.name=壳石
 item.cancer_helmet.name=星癌体头盔
@@ -32,6 +60,8 @@ item.gem_white.name=珍珠
 item.gem_black.name=玛瑙
 item.gem_amber.name=碧琥珀
 item.gem_droplet.name=阳石水滴
+
+
 
 # tiles
 tile.heal_stash.name=补给箱（一次性）
@@ -52,12 +82,13 @@ desc.hbr_mc.armor.random_points=+%s 随机属性点
 
 msg.hbr_mc.level_up=等级提升！ Lv.%s -> Lv.%s
 
-entity.c_doll.name=Doll
-entity.c_marionette.name=Marionette
-entity.c_small_hopper.name=SmallHopper
-
 hbr_mc.potion.skill_atk_up_1=Skill Atk UP
 hbr_mc.potion.skill_atk_up_2=Skill Atk UP
 hbr_mc.potion.skill_atk_up_3=Skill Atk UP
+
+entity.c_marionette.name=Marionette
+entity.c_doll.name=Doll
+entity.c_small_hopper.name=SmallHopper
+
+
 hbr_mc.shared.wip.desc=研究中，敬请期待！
-configgui.idealland.category.Menu0.SpawnConf=生成设定

@@ -6,7 +6,7 @@ itemGroup.hbr_mc.tab1=Heaven Burns Red
 #items
 item.test3.name=Test Item
 item.brave_blue.name=BraveBlue
-item.brave_blue.skill.0=[Interact Enemy]ST ttack, to HP+30%%
+item.brave_blue.skill.0=[Interact Enemy]ST attack, to HP+30%%
 
 item.brave_blue_ss.name=BraveBlue SS
 item.brave_blue_ss.skill.0=[Sneak RMB]Repair nearby seraph (%d/%d)
@@ -18,6 +18,34 @@ item.rapid_fire.skill.0=[RMB]Spreading Atk, to DP+30%%
 item.rapid_fire_ss.name=RapidFire 終いのSpitfire
 item.rapid_fire_ss.skill.0=[RMB]Spreading Atk, to DP+30%%
 item.rapid_fire_ss.skill.1=[Interact Enemy]Strong ST attack, to HP+30%% (%d/%d)
+
+item.supreme_edge.name=SupremeEdge(Serious or Stupid)
+item.supreme_edge.skill.0=[RMB]Nearby frontline skill atk up
+
+item.supreme_edge_ss.name=SupremeEdge(SS)
+item.supreme_edge_ss.skill.0=??
+item.supreme_edge_ss.skill.1=??
+
+item.clavis.name=Clavis(Plain or Wild)
+item.clavis.skill.0=??
+
+item.clavis_ss.name=Clavis(SS)
+item.clavis_ss.skill.0=??
+item.clavis_ss.skill.1=??
+
+item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
+item.phantom_weaver.skill.0=
+
+item.phantom_weaver_ss.name=Phantom Weaver(SS)
+item.phantom_weaver_ss.skill.0=??
+item.phantom_weaver_ss.skill.1=??
+
+item.glitter_shadow.name=Glitter Shadow(Laugh or Cry)
+item.glitter_shadow.skill.0=
+
+item.glitter_shadow_ss.name=Glitter Shadow(SS)
+item.glitter_shadow_ss.skill.0=??
+item.glitter_shadow_ss.skill.1=??
 
 item.cancer_shell.name=Shell Fragment
 item.cancer_helmet.name=Cancer Helmet
