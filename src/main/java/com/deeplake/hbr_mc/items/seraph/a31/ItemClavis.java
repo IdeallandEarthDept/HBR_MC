@@ -4,6 +4,8 @@ import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
+import com.deeplake.hbr_mc.init.util.CommonFunctions;
+import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -15,25 +17,14 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-//Ruka Kayamori
-//[A] Attack or Music
-public class ItemBraveBlue extends ItemSeraphBase {
-    public ItemBraveBlue(String name) {
+public class ItemClavis extends ItemSeraphBase {
+    public ItemClavis(String name) {
         super(name);
     }
 
     @Override
     public int getMaxSkillSlot(ItemStack stack) {
         return 1;
-    }
-
-    public float getAttrValue(ItemStack stack, IAttribute attr)
-    {
-        if (attr == RegisterAttr.STR)
-        {
-            return super.getAttrValue(stack, attr) + 1;
-        }
-        return super.getAttrValue(stack, attr);
     }
 
     @Override
@@ -46,15 +37,26 @@ public class ItemBraveBlue extends ItemSeraphBase {
 
         if (!worldIn.isRemote)
         {
-            float minPotency = ModConfig.COMBAT.BRAVE_BLUE_A.MIN_POTENCY;
-            float cap = ModConfig.COMBAT.BRAVE_BLUE_A.CAP;
-            float bonusRate = ModConfig.COMBAT.BONUS_DAMAGE_RATE;;
+            float minPotency = ModConfig.COMBAT.CLAVIS_A.MIN_POTENCY;
+            float cap = ModConfig.COMBAT.CLAVIS_A.CAP;
 
-            CombatUtil.HPAttackGroup(player, target, minPotency,new float[]{0.5f,0.5f}, cap, bonusRate);
-            player.swingArm(EnumHand.OFF_HAND);
-            player.swingArm(EnumHand.MAIN_HAND);
-            setCoolDown(player, CommonDef.TICK_PER_SECOND * ModConfig.COMBAT.BRAVE_BLUE_A.SP);
-            worldIn.playSound(null, player.getPosition(), SoundEvents.BLOCK_ANVIL_USE,SoundCategory.PLAYERS, 1f,1.5f);
+            CombatUtil.generalAttack(CombatUtil.EnumAttrType.STANDARD, player, minPotency*0.5f, cap, 0, target);
+            CombatUtil.generalAttack(CombatUtil.EnumAttrType.STANDARD, player, minPotency*0.5f, cap, 0, target);
+
+            //apply debuff
+            float pwr = (float) ((EntityUtil.getAttr(player, RegisterAttr.INT) + 2 * EntityUtil.getAttr(player, RegisterAttr.LUC))/3f);
+            float enemyBorder = (float) EntityUtil.getAttr(player, RegisterAttr.MEN);
+
+            float ratio = (pwr - enemyBorder)/cap;
+            ratio = CommonFunctions.clamp(ratio,0,1);
+
+            float chance = (float) (0.3 + 0.55 * ratio);
+            if (player.getRNG().nextFloat() < chance)
+            {
+                //todo: apply stun here
+            }
+
+            afterCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_A, SoundEvents.BLOCK_ANVIL_FALL);
         }
         else {
             worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, player.posX,player.posY,player.posZ,0,0,0);

@@ -3,7 +3,6 @@ package com.deeplake.hbr_mc.items.seraph.a31;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
-import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
@@ -13,9 +12,7 @@ import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -41,7 +38,7 @@ public class ItemRapidFireSS extends ItemSeraphCannonBase {
         if (!worldIn.isRemote) {
             volleyAttack(worldIn, caster, 3,
                     ModConfig.COMBAT.RAPID_FIRE_7SP_ST);
-            castSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_7SP_ST, SoundEvents.ENTITY_BLAZE_SHOOT);
+            afterCastSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_7SP_ST, SoundEvents.ENTITY_BLAZE_SHOOT);
         }
     }
 
@@ -71,7 +68,7 @@ public class ItemRapidFireSS extends ItemSeraphCannonBase {
             }
             EntityUtil.ApplyBuff(caster, RegisterEffects.SELF_RECOIL, 0, 2);
             skillUseMark(stack, SLOT_ULTI);
-            castSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_11SP_AOE, SoundEvents.ENTITY_GENERIC_EXPLODE);
+            afterCastSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_11SP_AOE, SoundEvents.ENTITY_GENERIC_EXPLODE);
         }
     }
 

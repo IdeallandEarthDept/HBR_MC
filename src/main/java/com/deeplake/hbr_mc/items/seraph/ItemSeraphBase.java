@@ -396,7 +396,7 @@ public class ItemSeraphBase extends ItemBase {
         }
     }
 
-    protected void castSkill(EntityPlayer caster, World worldIn, ModConfig.SkillConf COMBAT, SoundEvent event) {
+    protected void afterCastSkill(EntityPlayer caster, World worldIn, ModConfig.SkillConf COMBAT, SoundEvent event) {
         caster.swingArm(caster.getActiveHand());
         caster.addStat(StatList.getObjectUseStats(this));
         worldIn.playSound(null, caster.getPosition(), event, SoundCategory.PLAYERS, 1f, 1f);

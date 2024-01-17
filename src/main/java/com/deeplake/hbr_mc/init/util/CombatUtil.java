@@ -46,7 +46,7 @@ public class CombatUtil {
         return targets;
     }
 
-    public static void generalAttack(EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate, EntityLiving target) {
+    public static void generalAttack(EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate, EntityLivingBase target) {
         switch (atkType){
             case STANDARD:
             case INT_FOCUS:

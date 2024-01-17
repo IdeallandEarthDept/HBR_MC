@@ -24,8 +24,8 @@ public class RegisterAttr {
     public static final IAttribute DEX = getNewAttrNonPercentNonNegative("dex", 0);
     public static final IAttribute END = getNewAttrNonPercentNonNegative("end", 0);
     public static final IAttribute MEN = getNewAttrNonPercentNonNegative("men", 0);
-    public static final IAttribute INT = getNewAttrNonPercentNonNegative("int", 0);
-    public static final IAttribute LUC = getNewAttrNonPercentNonNegative("luc", 0);
+    public static final IAttribute INT = getNewAttrNonPercentNonNegative("int", 0);//WIS
+    public static final IAttribute LUC = getNewAttrNonPercentNonNegative("luc", 0);//LUK
     public static final IAttribute DP_MAX = getNewAttrNonPercentNonNegative("dpmax", 0);
     public static final IAttribute DP_SYNC = getNewAttrNonPercentNonNegative("dpsync", 0);
 

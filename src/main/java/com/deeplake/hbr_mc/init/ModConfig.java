@@ -87,6 +87,7 @@ public class ModConfig {
         //流星, 1hit non-plus ver， 2uses
         public SkillConf RAPID_FIRE_11SP_AOE = new SkillConf(167f, 144, 11,2.6f).setUses(2,2);
         public SkillConf SUPREME_EDGE_6SP_BUFF = new SkillConf(50/65f, 208, 6);
+        public SkillConf CLAVIS_A = new SkillConf(45f, 120, 5,1.25f);
         public SkillConf KAZABANA_5SP_AOE = new SkillConf(37.5f, 120, 5,1f);//potency means success rate
     }
 
