@@ -33,7 +33,7 @@ public class RegisterItem {
     public static final Item RAPID_FIRE_SS = new ItemRapidFireSS("rapid_fire_ss");
 
     public static final Item CLAVIS = new ItemClavis("clavis");
-    public static final Item CLAVIS_SS = new ItemWIP("clavis_ss");
+    public static final Item CLAVIS_SS = new ItemClavisSS("clavis_ss");
     
     public static final Item SUPERME_EDGE = new ItemSupremeEdge("superme_edge");
     public static final Item SUPERME_EDGE_SS = new ItemWIP("superme_edge_ss");

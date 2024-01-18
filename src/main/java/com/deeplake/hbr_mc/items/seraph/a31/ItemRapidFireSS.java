@@ -21,8 +21,6 @@ import java.util.List;
 //終いのSpitfire
 public class ItemRapidFireSS extends ItemSeraphCannonBase {
 
-    public static final int SLOT_ULTI = 1;
-
     public ItemRapidFireSS(String name) {
         super(name);
         setSeraphRarity(EnumSeraphRarity.SS);
@@ -80,9 +78,9 @@ public class ItemRapidFireSS extends ItemSeraphCannonBase {
         {
             case SLOT_ULTI:
                 ModConfig.SkillConf conf = ModConfig.COMBAT.RAPID_FIRE_11SP_AOE;
-                return conf.uses + CommonFunctions.clamp( getSkillLevel(stack, slot) - SLOT_ULTI,0,conf.usesGrowth);
+                return conf.uses + CommonFunctions.clamp( getSkillLevel(stack, slot) - 1,0,conf.usesGrowth);
             default:
-                return -SLOT_ULTI;
+                return -1;
         }
     }
 }

@@ -35,12 +35,15 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class ItemSeraphBase extends ItemBase {
     public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
+    public static final int SLOT_ULTI = 1;
     public EnumSeraphRarity seraphRarity = EnumSeraphRarity.A;
     UUID uuid = UUID.fromString("7cf25a1c-6768-4836-8d24-ec64ed2a4ef7");
     UUID uuidPer = UUID.fromString("c73c33a5-9de0-4619-81bf-6009a3a84c02");
@@ -407,4 +410,11 @@ public class ItemSeraphBase extends ItemBase {
     public static boolean canUseSkills(EntityLivingBase entityLiving) {
         return EntityUtil.getBuffLevelIDL(entityLiving, RegisterEffects.SELF_RECOIL) == 0;
     }
+
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack stack)
+    {
+        return stack.isItemEnchanted() || seraphRarity == EnumSeraphRarity.SS;
+    }
+
 }

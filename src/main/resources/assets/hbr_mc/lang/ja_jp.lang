@@ -1,9 +1,6 @@
-#PARSE_ESCAPES
 
-#tabs
 itemGroup.hbr_mc.tab1=Heaven Burns Red
 
-#items
 item.test3.name=Test Item
 item.brave_blue.name=BraveBlue
 item.brave_blue.skill.0=[Interact Enemy]ST attack, to HP+30%%
@@ -27,11 +24,11 @@ item.supreme_edge_ss.skill.0=??
 item.supreme_edge_ss.skill.1=??
 
 item.clavis.name=Clavis(Plain or Wild)
-item.clavis.skill.0=ST+Stun
+item.clavis.skill.0=スタンブレード
 
-item.clavis_ss.name=Clavis(SS)
-item.clavis_ss.skill.0=[Interact/RMB]AoE+Stun
-item.clavis_ss.skill.1=[SneakInteract]ST+Stun(%d/%d)
+item.clavis_ss.name=Clavis(Ikki Burst Strike)
+item.clavis_ss.skill.0=フルスイング
+item.clavis_ss.skill.1=リミット・インパクト(%d/%d)
 
 item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
 item.phantom_weaver.skill.0=
@@ -84,7 +81,6 @@ hbr_mc.potion.skill_atk_up_1=Skill Atk UP
 hbr_mc.potion.skill_atk_up_2=Skill Atk UP
 hbr_mc.potion.skill_atk_up_3=Skill Atk UP
 
-#entity
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper

@@ -29,8 +29,8 @@ item.clavis.name=Clavis(Plain or Wild)
 item.clavis.skill.0=昏厥硬刃
 
 item.clavis_ss.name=Clavis(Ikki Burst Strike)
-item.clavis_ss.skill.0=全力猛挥
-item.clavis_ss.skill.1=极限冲击
+item.clavis_ss.skill.0=[交互/右键]：全力猛挥~AoE并概率眩晕
+item.clavis_ss.skill.1=[潜行交互]：极限冲击~单体攻击并高概率眩晕(%d/%d)
 
 item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
 item.phantom_weaver.skill.0=回复
