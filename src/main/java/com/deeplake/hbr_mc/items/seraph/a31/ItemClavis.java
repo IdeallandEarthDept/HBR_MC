@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.items.seraph.a31;
 
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
@@ -12,6 +13,7 @@ import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
@@ -30,7 +32,7 @@ public class ItemClavis extends ItemSeraphBase {
     @Override
     public boolean castSkillEnemy(ItemStack stack, World worldIn, EntityPlayer player, EntityLivingBase target) {
         //
-        if (!canUseSkill(stack, 0) || !canUseSkills(player))
+        if (!canUseSkills(player))
         {
             return false;
         }
@@ -53,7 +55,7 @@ public class ItemClavis extends ItemSeraphBase {
             float chance = (float) (0.3 + 0.55 * ratio);
             if (player.getRNG().nextFloat() < chance)
             {
-                //todo: apply stun here
+                target.addPotionEffect(new PotionEffect(RegisterEffects.STUNNED,ModConfig.COMBAT.STUN_TICK_PER_TURN,0));
             }
 
             afterCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_A, SoundEvents.BLOCK_ANVIL_FALL);

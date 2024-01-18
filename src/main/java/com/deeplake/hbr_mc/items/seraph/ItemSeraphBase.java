@@ -17,6 +17,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
@@ -267,7 +268,7 @@ public class ItemSeraphBase extends ItemBase {
         {
             castSkillFriend(stack, playerIn.getEntityWorld(), playerIn, target);
         }
-        else if (target instanceof EntityMob || target instanceof EntityCancer){
+        else if (target instanceof IMob || target instanceof EntityCancer){
             castSkillEnemy(stack, playerIn.getEntityWorld(), playerIn, target);
         }
         //don't do anything on boats, sheep etc
