@@ -16,13 +16,13 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
@@ -400,12 +400,50 @@ public class ItemSeraphBase extends ItemBase {
         }
     }
 
-    protected void afterCastSkill(EntityPlayer caster, World worldIn, ModConfig.SkillConf COMBAT, SoundEvent event) {
+    protected void postCastSkill(EntityPlayer caster, World worldIn, ModConfig.SkillConf COMBAT, SoundEvent event) {
+        currentBuffRateTotal = 0f;//reset, regardless of used or not
         caster.swingArm(caster.getActiveHand());
         caster.addStat(StatList.getObjectUseStats(this));
         worldIn.playSound(null, caster.getPosition(), event, SoundCategory.PLAYERS, 1f, 1f);
         setCoolDown(caster, CommonDef.TICK_PER_SECOND * COMBAT.SP);
     }
+
+    public static float currentBuffRateTotal = 0f;
+    protected static void calcAtkBuffSkill(EntityPlayer caster) {
+        int maxCost = 2;
+        int removed = 0;
+        //normal-90%,65%,50%(Yamawaki)
+        //elem-?,80%(Date),55%(Kula)
+        Potion buff = RegisterEffects.SKILL_ATK_UP_GREATER;
+        removed += spendBuff(caster, buff, maxCost);
+        currentBuffRateTotal += removed * 0.90f;
+        if (removed < maxCost)
+        {
+            maxCost -= removed;
+            removed = spendBuff(caster, RegisterEffects.SKILL_ATK_UP, maxCost);
+            currentBuffRateTotal += removed * 0.65f;
+            if (removed < maxCost)
+            {
+                maxCost -= removed;
+                removed = spendBuff(caster, RegisterEffects.SKILL_ATK_UP_LESSER, maxCost);
+                currentBuffRateTotal += removed * 0.50f;
+            }
+        }
+    }
+
+    private static int spendBuff(EntityPlayer caster, Potion buff, int cost) {
+        int lastBuffLv = EntityUtil.getBuffLevelIDL(caster, buff);//starts with 1
+        EntityUtil.TryRemoveGivenBuff(caster, buff);
+        if (lastBuffLv > cost)
+        {
+            EntityUtil.ApplyBuff(caster, buff,lastBuffLv-2,ModConfig.COMBAT.BUFF_TIME);
+            return cost;
+        }
+        else {
+            return lastBuffLv;
+        }
+    }
+
 
     public static boolean canUseSkills(EntityLivingBase entityLiving) {
         return EntityUtil.getBuffLevelIDL(entityLiving, RegisterEffects.SELF_RECOIL) == 0;

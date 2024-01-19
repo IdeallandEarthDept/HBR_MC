@@ -21,6 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -204,5 +205,10 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {
         return super.attackEntityAsMob(entityIn);
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return super.getCanSpawnHere() && this.world.canSeeSky(new BlockPos(this).up());
     }
 }

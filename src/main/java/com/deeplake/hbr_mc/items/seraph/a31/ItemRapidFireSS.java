@@ -34,9 +34,10 @@ public class ItemRapidFireSS extends ItemSeraphCannonBase {
     @Override
     public void castSkillNonSneak(ItemStack stack, World worldIn, EntityPlayer caster) {
         if (!worldIn.isRemote) {
+            calcAtkBuffSkill(caster);
             volleyAttack(worldIn, caster, 3,
                     ModConfig.COMBAT.RAPID_FIRE_7SP_ST);
-            afterCastSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_7SP_ST, SoundEvents.ENTITY_BLAZE_SHOOT);
+            postCastSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_7SP_ST, SoundEvents.ENTITY_BLAZE_SHOOT);
         }
     }
 
@@ -52,6 +53,7 @@ public class ItemRapidFireSS extends ItemSeraphCannonBase {
             worldIn.playSound(null, caster.posX, caster.posY, caster.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
             ModConfig.SkillConf skill = ModConfig.COMBAT.RAPID_FIRE_11SP_AOE;
+            calcAtkBuffSkill(caster);
             List<EntityLiving> targets = CombatUtil.areaAttack(worldIn,caster,
                     ModConfig.COMBAT.AOE_DISTANCE,
                     ModConfig.COMBAT.AOE_RADIUS,
@@ -66,7 +68,7 @@ public class ItemRapidFireSS extends ItemSeraphCannonBase {
             }
             EntityUtil.ApplyBuff(caster, RegisterEffects.SELF_RECOIL, 0, 2);
             skillUseMark(stack, SLOT_ULTI);
-            afterCastSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_11SP_AOE, SoundEvents.ENTITY_GENERIC_EXPLODE);
+            postCastSkill(caster, worldIn, ModConfig.COMBAT.RAPID_FIRE_11SP_AOE, SoundEvents.ENTITY_GENERIC_EXPLODE);
         }
     }
 

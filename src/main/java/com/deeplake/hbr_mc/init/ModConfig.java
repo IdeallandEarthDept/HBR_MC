@@ -77,6 +77,7 @@ public class ModConfig {
         public float AOE_DISTANCE = 32f;
         public float AOE_RADIUS = 32f;
         public int STUN_TICK_PER_TURN = 50;
+        public int BUFF_TIME = 20 * 60;
 
         public SkillConf BRAVE_BLUE_A = new SkillConf(58.2F, 123, 6,1.5f);
         public SkillConf BRAVE_BLUE_HEAL = new SkillConf(305F, CombatUtil.DEFAULT_HEAL_CAP, 5);

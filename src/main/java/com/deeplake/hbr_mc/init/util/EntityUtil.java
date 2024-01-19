@@ -176,8 +176,10 @@ public class EntityUtil {
     public static boolean TryRemoveGivenBuff(EntityLivingBase livingBase, Potion potion) {
         //washes away debuff
         Collection<PotionEffect> activePotionEffects = livingBase.getActivePotionEffects();
-        for (int i = 0; i < activePotionEffects.size(); i++) {
-            PotionEffect buff = (PotionEffect) activePotionEffects.toArray()[i];
+//        for (int i = 0; i < activePotionEffects.size(); i++) {
+        Iterator it = activePotionEffects.iterator();
+        while (it.hasNext()) {
+            PotionEffect buff = (PotionEffect) it.next();
             if (buff.getPotion() == potion) {
                 livingBase.removePotionEffect(buff.getPotion());
                 return true;
@@ -189,7 +191,7 @@ public class EntityUtil {
 
     //0 = buff I, 1 = buff II
     public static boolean ApplyBuff(Entity entity, Potion potion, int level, float seconds) {
-        if (entity instanceof EntityLivingBase)
+        if (entity instanceof EntityLivingBase && level >= 0)
         {
             EntityLivingBase livingBase = (EntityLivingBase) entity;
             if (potion == null) {

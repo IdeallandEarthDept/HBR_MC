@@ -4,6 +4,7 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
@@ -20,6 +21,7 @@ public class EntityHBRProjectile extends EntityIdlProjectile{
     public CombatUtil.EnumDefType defType = CombatUtil.EnumDefType.END;
     public float minPotency = 100f;
     public float cap = 150;
+    float atkUpRate = 0f;
 
     long debugTimeCreated = System.currentTimeMillis();
 
@@ -27,6 +29,8 @@ public class EntityHBRProjectile extends EntityIdlProjectile{
         super(worldIn);
         setSize(0.1f,0.1f);
         Main.Log("Created bullet"+this.toString());
+        //save it
+        atkUpRate = ItemSeraphBase.currentBuffRateTotal;
     }
 
     public EntityHBRProjectile(World worldIn, ProjectileArgs args, EntityLivingBase shooter, double accelX, double accelY, double accelZ, float acceleration) {
@@ -43,6 +47,8 @@ public class EntityHBRProjectile extends EntityIdlProjectile{
                 if (shootingEntity != null && target instanceof EntityLivingBase && target != shootingEntity)
                 {
                     float bonusRate = ModConfig.COMBAT.BONUS_DAMAGE_RATE;
+                    float lastRate = ItemSeraphBase.currentBuffRateTotal;
+                    ItemSeraphBase.currentBuffRateTotal = atkUpRate;
                     switch (attackType)
                     {
                         case STR_FOCUS:
@@ -55,6 +61,7 @@ public class EntityHBRProjectile extends EntityIdlProjectile{
                             CombatUtil.attackAsHBR(shootingEntity, (EntityLivingBase) target, attackType, defType, minPotency,cap);
                             break;
                     }
+                    ItemSeraphBase.currentBuffRateTotal = lastRate;
                 }
             }
             this.setDead();

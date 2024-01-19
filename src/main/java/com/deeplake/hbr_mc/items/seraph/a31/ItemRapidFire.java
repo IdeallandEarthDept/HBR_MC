@@ -46,6 +46,7 @@ public class ItemRapidFire extends ItemSeraphCannonBase {
                 float perAngle = 5f;
                 float minPotency = ModConfig.COMBAT.RAPID_FIRE_4SP_AOE.MIN_POTENCY / volley;
                 float cap = ModConfig.COMBAT.RAPID_FIRE_4SP_AOE.CAP;
+                calcAtkBuffSkill(caster);
                 CombatUtil.EnumAttrType attackType = CombatUtil.EnumAttrType.DEX_FOCUS;
                 spreadAttack(worldIn, playerIn, volley, spread, perAngle, minPotency, cap, attackType);
             }

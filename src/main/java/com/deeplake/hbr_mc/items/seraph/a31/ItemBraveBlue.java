@@ -49,12 +49,9 @@ public class ItemBraveBlue extends ItemSeraphBase {
             float minPotency = ModConfig.COMBAT.BRAVE_BLUE_A.MIN_POTENCY;
             float cap = ModConfig.COMBAT.BRAVE_BLUE_A.CAP;
             float bonusRate = ModConfig.COMBAT.BONUS_DAMAGE_RATE;;
-
+            calcAtkBuffSkill(player);
             CombatUtil.HPAttackGroup(player, target, minPotency,new float[]{0.5f,0.5f}, cap, bonusRate);
-            player.swingArm(EnumHand.OFF_HAND);
-            player.swingArm(EnumHand.MAIN_HAND);
-            setCoolDown(player, CommonDef.TICK_PER_SECOND * ModConfig.COMBAT.BRAVE_BLUE_A.SP);
-            worldIn.playSound(null, player.getPosition(), SoundEvents.BLOCK_ANVIL_USE,SoundCategory.PLAYERS, 1f,1.5f);
+            postCastSkill(player,worldIn,ModConfig.COMBAT.BRAVE_BLUE_A,SoundEvents.BLOCK_ANVIL_USE);
         }
         else {
             worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, player.posX,player.posY,player.posZ,0,0,0);

@@ -63,7 +63,7 @@ public class ItemSupremeEdge extends ItemSeraphCannonBase {
                     {
                         Potion buff = RegisterEffects.SKILL_ATK_UP;
                         int level = EntityUtil.getBuffLevelIDL(player, buff);
-                        EntityUtil.ApplyBuff(player, buff, level, 3600);
+                        EntityUtil.ApplyBuff(player, buff, level, ModConfig.COMBAT.BUFF_TIME);
                     }
                 }
             }

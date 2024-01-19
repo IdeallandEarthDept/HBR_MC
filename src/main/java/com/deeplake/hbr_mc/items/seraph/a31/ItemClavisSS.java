@@ -42,7 +42,7 @@ public class ItemClavisSS extends ItemSeraphBase {
         {
             float minPotency = ModConfig.COMBAT.CLAVIS_SS_10SP_STUN.MIN_POTENCY;
             float cap = ModConfig.COMBAT.CLAVIS_SS_10SP_STUN.CAP;
-
+            calcAtkBuffSkill(player);
             List<EntityLiving> livings = CombatUtil.areaAttack(worldIn, player, ModConfig.COMBAT.AOE_DISTANCE,ModConfig.COMBAT.AOE_RADIUS, CombatUtil.EnumAttrType.STANDARD, minPotency, cap, 0);
 
             for (EntityLiving living :
@@ -55,7 +55,7 @@ public class ItemClavisSS extends ItemSeraphBase {
                 }
             }
 
-            afterCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_SS_10SP_STUN, SoundEvents.BLOCK_ANVIL_FALL);
+            postCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_SS_10SP_STUN, SoundEvents.BLOCK_ANVIL_FALL);
         }
     }
 
@@ -78,7 +78,7 @@ public class ItemClavisSS extends ItemSeraphBase {
 
                 float minPotency = ModConfig.COMBAT.CLAVIS_SS_14SP_ULTI.MIN_POTENCY;
                 float cap = ModConfig.COMBAT.CLAVIS_SS_14SP_ULTI.CAP;
-
+                calcAtkBuffSkill(player);
                 CombatUtil.generalAttack(CombatUtil.EnumAttrType.STANDARD, player, minPotency, cap, 0, target);
 
                 //apply debuff
@@ -88,7 +88,7 @@ public class ItemClavisSS extends ItemSeraphBase {
                     target.addPotionEffect(new PotionEffect(RegisterEffects.STUNNED,ModConfig.COMBAT.STUN_TICK_PER_TURN,0));
                 }
                 skillUseMark(stack,SLOT_ULTI);
-                afterCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_SS_14SP_ULTI, SoundEvents.BLOCK_ANVIL_FALL);
+                postCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_SS_14SP_ULTI, SoundEvents.BLOCK_ANVIL_FALL);
             }
             else {
                 float minPotency = ModConfig.COMBAT.CLAVIS_SS_10SP_STUN.MIN_POTENCY;
@@ -106,7 +106,7 @@ public class ItemClavisSS extends ItemSeraphBase {
                     }
                 }
 
-                afterCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_SS_10SP_STUN, SoundEvents.BLOCK_ANVIL_FALL);
+                postCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_SS_10SP_STUN, SoundEvents.BLOCK_ANVIL_FALL);
             }
         }
         else {

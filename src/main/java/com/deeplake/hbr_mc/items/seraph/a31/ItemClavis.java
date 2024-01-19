@@ -4,19 +4,15 @@ import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
-import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class ItemClavis extends ItemSeraphBase {
@@ -41,7 +37,7 @@ public class ItemClavis extends ItemSeraphBase {
         {
             float minPotency = ModConfig.COMBAT.CLAVIS_A.MIN_POTENCY;
             float cap = ModConfig.COMBAT.CLAVIS_A.CAP;
-
+            calcAtkBuffSkill(player);
             CombatUtil.generalAttack(CombatUtil.EnumAttrType.STANDARD, player, minPotency*0.5f, cap, 0, target);
             CombatUtil.generalAttack(CombatUtil.EnumAttrType.STANDARD, player, minPotency*0.5f, cap, 0, target);
 
@@ -58,7 +54,7 @@ public class ItemClavis extends ItemSeraphBase {
                 target.addPotionEffect(new PotionEffect(RegisterEffects.STUNNED,ModConfig.COMBAT.STUN_TICK_PER_TURN,0));
             }
 
-            afterCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_A, SoundEvents.BLOCK_ANVIL_FALL);
+            postCastSkill(player, worldIn, ModConfig.COMBAT.CLAVIS_A, SoundEvents.BLOCK_ANVIL_FALL);
         }
         else {
             worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, player.posX,player.posY,player.posZ,0,0,0);
