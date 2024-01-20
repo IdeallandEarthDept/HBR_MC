@@ -6,6 +6,7 @@ import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphCannonBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -24,7 +25,7 @@ import java.util.List;
 //Serious or Stupid
 public class ItemSupremeEdge extends ItemSeraphCannonBase {
     public ItemSupremeEdge(String name) {
-        super(name);
+        super(name, EnumSeraphType.GUN);
     }
 
     @Override

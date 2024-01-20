@@ -1,10 +1,7 @@
 package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.Main;
-import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
-import com.deeplake.hbr_mc.entities.cancer.EntityDoll;
-import com.deeplake.hbr_mc.entities.cancer.EntityMarionette;
-import com.deeplake.hbr_mc.entities.cancer.EntitySmallHopper;
+import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -14,8 +11,9 @@ public class RegisterEntities {
     private static int ENTITY_NEXT_ID = 1;
     public static void registerEntities()
     {
-
-        registerEntity("cancer_test", EntityCancer.class);
+        registerEntity("cancer_test", EntityDummyCancer.class);
+        registerEntity("cancer_test_50", EntityDummy50.class);
+        registerEntity("cancer_test_100", EntityDummy100.class);
         registerEntity("c_marionette", EntityMarionette.class, 64, 0x000000, 0xcccccc);
         registerEntity("c_doll", EntityDoll.class, 64, 0x000000, 0xcccccc);
         registerEntity("c_small_hopper", EntitySmallHopper.class, 64, 0x000000, 0xcccccc);

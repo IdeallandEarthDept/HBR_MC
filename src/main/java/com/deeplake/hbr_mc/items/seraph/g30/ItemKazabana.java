@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.items.seraph.g30;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphCannonBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -15,7 +16,7 @@ import net.minecraft.world.World;
 //仄かに揺らぐファイア
 public class ItemKazabana extends ItemSeraphCannonBase {
     public ItemKazabana(String name) {
-        super(name);
+        super(name, EnumSeraphType.GUN);
     }
 
     @Override

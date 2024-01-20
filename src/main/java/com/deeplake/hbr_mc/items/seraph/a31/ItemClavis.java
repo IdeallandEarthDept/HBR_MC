@@ -6,6 +6,7 @@ import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +18,7 @@ import net.minecraft.world.World;
 
 public class ItemClavis extends ItemSeraphBase {
     public ItemClavis(String name) {
-        super(name);
+        super(name, EnumSeraphType.LARGE_SWORD);
     }
 
     @Override

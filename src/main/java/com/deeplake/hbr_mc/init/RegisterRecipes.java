@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.items.ItemWIP;
 import com.deeplake.hbr_mc.recipes.DropletRefinery;
 import com.deeplake.hbr_mc.recipes.SeraphRankUp;
 import net.minecraft.item.Item;
@@ -36,6 +37,10 @@ public class RegisterRecipes {
     }
 
     private static void getRegister(IForgeRegistry<IRecipe> r, Item a, Item ss) {
+        if (ss instanceof ItemWIP)
+        {
+            return;
+        }
         r.register(new SeraphRankUp(a, ss).setRegistryName(ss.getRegistryName()));
     }
 

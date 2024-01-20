@@ -7,6 +7,7 @@ import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,8 +23,7 @@ import java.util.List;
 //Ikki Burst Strike
 public class ItemClavisSS extends ItemSeraphBase {
     public ItemClavisSS(String name) {
-        super(name);
-        setSeraphRarity(EnumSeraphRarity.SS);
+        super(name, EnumSeraphType.LARGE_SWORD,EnumSeraphRarity.SS);
     }
 
     @Override

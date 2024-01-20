@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.items.seraph.a31;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphCannonBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -15,7 +16,7 @@ import net.minecraft.world.World;
 //Attack or March
 public class ItemRapidFire extends ItemSeraphCannonBase {
     public ItemRapidFire(String name) {
-        super(name);
+        super(name, EnumSeraphType.CANNON);
     }
 
     @Override

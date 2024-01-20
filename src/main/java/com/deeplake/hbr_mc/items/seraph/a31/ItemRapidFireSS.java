@@ -6,6 +6,7 @@ import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphCannonBase;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -22,8 +23,7 @@ import java.util.List;
 public class ItemRapidFireSS extends ItemSeraphCannonBase {
 
     public ItemRapidFireSS(String name) {
-        super(name);
-        setSeraphRarity(EnumSeraphRarity.SS);
+        super(name, EnumSeraphType.CANNON,EnumSeraphRarity.SS);
     }
 
     @Override

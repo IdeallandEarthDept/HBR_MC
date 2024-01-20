@@ -4,6 +4,7 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphCannonBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.Entity;
@@ -41,7 +42,7 @@ public class DesignPlayerDamageRework {
 
                 float fullPower = ModConfig.COMBAT.NORMAL_ATK_POWER;
                 float normal_atk_cap = ModConfig.COMBAT.NORMAL_ATK_CAP;
-                int hits = 3;
+                int hits = ((ItemSeraphBase)item).type.hitCount;
                 float powerPerHit = fullPower / hits;
                 for (int i = 0; i < hits; i++) {
                     CombatUtil.attackAsHBR(player, target, normal_atk_cap, powerPerHit);

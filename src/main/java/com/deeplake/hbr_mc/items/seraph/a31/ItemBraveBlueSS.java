@@ -6,6 +6,7 @@ import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -19,8 +20,7 @@ import net.minecraft.world.World;
 //Ruka Kayamori
 public class ItemBraveBlueSS extends ItemSeraphBase {
     public ItemBraveBlueSS(String name) {
-        super(name);
-        setSeraphRarity(EnumSeraphRarity.SS);
+        super(name, EnumSeraphType.DOUBLE_SWORD,EnumSeraphRarity.SS);
     }
 
     public float getAttrValue(ItemStack stack, IAttribute attr)

@@ -4,6 +4,7 @@ import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -19,7 +20,7 @@ import net.minecraft.world.World;
 //[A] Attack or Music
 public class ItemBraveBlue extends ItemSeraphBase {
     public ItemBraveBlue(String name) {
-        super(name);
+        super(name, EnumSeraphType.DOUBLE_SWORD);
     }
 
     @Override

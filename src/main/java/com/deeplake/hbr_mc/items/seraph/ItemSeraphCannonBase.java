@@ -18,8 +18,12 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class ItemSeraphCannonBase extends ItemSeraphBase{
-    public ItemSeraphCannonBase(String name) {
-        super(name);
+    public ItemSeraphCannonBase(String name, EnumSeraphType type) {
+        super(name, type);
+    }
+
+    public ItemSeraphCannonBase(String name, EnumSeraphType type, EnumSeraphRarity rarity) {
+        super(name, type, rarity);
     }
 
     public static void spreadAttack(World worldIn, EntityPlayer playerIn, int volley, int spread, float perAngle, float potency, float cap, CombatUtil.EnumAttrType type) {

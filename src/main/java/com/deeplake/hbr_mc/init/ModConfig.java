@@ -23,13 +23,16 @@ public class ModConfig {
             }
         }
     }
-
+    @Config.LangKey("configgui.hbr_mc.category.Menu0.GeneralConf")
     public static final GeneralConf CONFIG = new GeneralConf();
 
     public static class GeneralConf {
         public boolean LOG_ON = false;
 
         public boolean BAN_HEAL = true;
+        @Config.RangeDouble(min=0f,max = 1f)
+        @Config.LangKey("configgui.hbr_mc.category.Menu0.CombatConf.SSChance")
+        public float SS_CHANCE = 0.1f;
     }
 
     public static class SkillConf {
@@ -64,7 +67,7 @@ public class ModConfig {
         public int uses = -1;
         public int usesGrowth = 0;
     }
-
+    @Config.LangKey("configgui.hbr_mc.category.Menu0.CombatConf")
     public static CombatConf COMBAT = new CombatConf();
 
     public static class CombatConf {

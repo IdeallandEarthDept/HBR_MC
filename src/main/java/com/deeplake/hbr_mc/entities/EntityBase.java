@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.entities;
 
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -65,6 +66,7 @@ public class EntityBase extends EntityCreature {
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(attack * modifier);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(armor * modifier);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(hp * modifier);
+        setHealth(getMaxHealth());
     }
 
     public void set6Attr(float value)
@@ -75,6 +77,11 @@ public class EntityBase extends EntityCreature {
         this.getEntityAttribute(RegisterAttr.MEN).setBaseValue(value);
         this.getEntityAttribute(RegisterAttr.INT).setBaseValue(value);
         this.getEntityAttribute(RegisterAttr.LUC).setBaseValue(value);
+    }
+
+    public float getAttr()
+    {
+        return (float) this.getEntityAttribute(RegisterAttr.MEN).getAttributeValue();
     }
 
     public void setDPMax(float value)

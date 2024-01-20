@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.items.ItemArmorCancer;
 import com.deeplake.hbr_mc.items.ItemBase;
+import com.deeplake.hbr_mc.items.ItemLottery;
 import com.deeplake.hbr_mc.items.ItemWIP;
 import com.deeplake.hbr_mc.items.seraph.a31.*;
 import com.deeplake.hbr_mc.items.seraph.g30.ItemKazabana;
@@ -35,8 +36,8 @@ public class RegisterItem {
     public static final Item CLAVIS = new ItemClavis("clavis");
     public static final Item CLAVIS_SS = new ItemClavisSS("clavis_ss");
     
-    public static final Item SUPERME_EDGE = new ItemSupremeEdge("superme_edge");
-    public static final Item SUPERME_EDGE_SS = new ItemWIP("superme_edge_ss");
+    public static final Item SUPERME_EDGE = new ItemSupremeEdge("supreme_edge");
+    public static final Item SUPERME_EDGE_SS = new ItemWIP("supreme_edge_ss");
 
     public static final Item GLITTER_SHADOW = new ItemWIP("glitter_shadow");
     public static final Item GLITTER_SHADOW_SS = new ItemWIP("glitter_shadow_ss");
@@ -59,6 +60,7 @@ public class RegisterItem {
     public static final Item GEM_AMBER =   new ItemBase("gem_amber");
     public static final Item GEM_DROPLET = new ItemBase("gem_droplet");
     public static final Item SHARD_SS = new ItemBase("shard_ss");
+    public static final Item LOTTERY = new ItemLottery("lottery");
 
     static ItemArmor.ArmorMaterial ARMOR_MATERIAL_CANCER = EnumHelper.addArmorMaterial("cancer", "hbr_mc:cancer", 9999, new int[]{3, 6, 8, 3}, 10, SoundEvents.BLOCK_ANVIL_PLACE, 0);
     public static final Item CANCER_SHELL = new ItemBase("cancer_shell");

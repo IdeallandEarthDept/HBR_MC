@@ -8,8 +8,8 @@ import javax.annotation.Nullable;
 import java.util.Set;
 
 public class ItemSeraphBlaster extends ItemSeraphBase{
-    public ItemSeraphBlaster(String name) {
-        super(name);
+    public ItemSeraphBlaster(String name, EnumSeraphType seraphType) {
+        super(name, seraphType);
     }
 
     @Override

@@ -10,6 +10,7 @@ import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import com.deeplake.hbr_mc.items.ItemBase;
+import com.deeplake.hbr_mc.items.ItemLottery;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.creativetab.CreativeTabs;
@@ -45,14 +46,31 @@ public class ItemSeraphBase extends ItemBase {
     public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
     public static final int SLOT_ULTI = 1;
     public EnumSeraphRarity seraphRarity = EnumSeraphRarity.A;
+    public final EnumSeraphType type;
+
     UUID uuid = UUID.fromString("7cf25a1c-6768-4836-8d24-ec64ed2a4ef7");
     UUID uuidPer = UUID.fromString("c73c33a5-9de0-4619-81bf-6009a3a84c02");
-    public ItemSeraphBase(String name) {
-//        super(ToolMaterial.DIAMOND);
+    public ItemSeraphBase(String name, EnumSeraphType type) {
+        this(name,type,EnumSeraphRarity.A);
+    }
+
+    public ItemSeraphBase(String name, EnumSeraphType type, EnumSeraphRarity rarity) {
         super(name);
-//        RegisterUtil.initItem(this, name);
-//        setCreativeTab(ModTabs.TAB1);
+        this.type = type;
+        setSeraphRarity(rarity);
         setMaxStackSize(1);
+        switch (rarity) {
+            case SS:
+                ItemLottery.addSS(this);
+                break;
+            case S:
+                break;
+            case A:
+                ItemLottery.addA(this);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + rarity);
+        }
     }
 
     public void setSeraphRarity(EnumSeraphRarity seraphRarity) {
