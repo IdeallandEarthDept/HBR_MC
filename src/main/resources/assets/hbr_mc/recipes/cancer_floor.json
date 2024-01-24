@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "II"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "hbr_mc:cancer_shell"
+        }
+    },
+    
+    "result":
+    {
+        "item": "hbr_mc:cancer_floor",
+        "count": 64
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "II",
+        "II",
+        "II"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "hbr_mc:crystal_lottery"
+        }
+    },
+    
+    "result":
+    {
+        "item": "hbr_mc:lottery",
+        "count": 1
+    }
+}

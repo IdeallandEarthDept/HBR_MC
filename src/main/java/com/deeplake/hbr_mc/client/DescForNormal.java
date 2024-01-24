@@ -1,10 +1,12 @@
 package com.deeplake.hbr_mc.client;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.blocks.BlockBase;
 import com.deeplake.hbr_mc.items.ItemBase;
 import com.deeplake.hbr_mc.items.ItemWIP;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.RenderTooltipEvent;
@@ -25,13 +27,12 @@ public class DescForNormal {
     static void onToolTip(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
-        if (item instanceof ItemBase) {
+        if (item instanceof ItemBase || (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof BlockBase)) {
             String key = item.getUnlocalizedNameInefficiently(stack)+".desc";
             if (I18n.hasKey(key))
             {
                 event.getToolTip().add(1, I18n.format(key));
             }
-
         }
     }
 }

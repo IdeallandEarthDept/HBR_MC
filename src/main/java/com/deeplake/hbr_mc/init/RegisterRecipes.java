@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.init;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.items.ItemWIP;
 import com.deeplake.hbr_mc.recipes.DropletRefinery;
+import com.deeplake.hbr_mc.recipes.SeraphDecomp;
 import com.deeplake.hbr_mc.recipes.SeraphRankUp;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,6 +11,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -36,12 +38,16 @@ public class RegisterRecipes {
         getRegister(r, RegisterItem.SCARLET_VALET, RegisterItem.SCARLET_VALET_SS);
     }
 
+    static int id = 0;
     private static void getRegister(IForgeRegistry<IRecipe> r, Item a, Item ss) {
         if (ss instanceof ItemWIP)
         {
             return;
         }
-        r.register(new SeraphRankUp(a, ss).setRegistryName(ss.getRegistryName()));
+        id++;
+        r.register(new SeraphRankUp(a, ss).setRegistryName(new ResourceLocation(Main.MODID,"up_"+id)));
+        r.register(new SeraphDecomp(a, 1).setRegistryName(a.getRegistryName()));
+        r.register(new SeraphDecomp(ss, 4).setRegistryName(ss.getRegistryName()));
     }
 
     private static ShapelessRecipes craftArmor(Item armor) {

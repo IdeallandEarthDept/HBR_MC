@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.worldgen;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterBlocks;
 import com.deeplake.hbr_mc.init.util.CommonDef;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
@@ -27,8 +28,17 @@ public class SpawnCrystal implements IWorldGenerator {
                 int yRange = yREF - yMin;
                 if (yRange > 0)
                 {
-                    int y = yMin + random.nextInt(yRange);
-                    world.setBlockState(new BlockPos(x,y,z), RegisterBlocks.CRYSTAL_ORE.getDefaultState());
+                    BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x,0,z);
+                    for(int trial = 9; trial>0; trial--)
+                    {
+                        int y = yMin + random.nextInt(yRange);
+                        pos.setY(y);
+                        if (world.getBlockState(pos).getBlock()== Blocks.STONE)
+                        {
+                            world.setBlockState(new BlockPos(x,y,z), RegisterBlocks.CRYSTAL_ORE.getDefaultState());
+                            break;
+                        }
+                    }
                 }
             }
         }

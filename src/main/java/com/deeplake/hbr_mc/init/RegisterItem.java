@@ -64,6 +64,7 @@ public class RegisterItem {
     public static final Item GEM_AMBER =   new ItemBase("gem_amber");
     public static final Item GEM_DROPLET = new ItemBase("gem_droplet");
     public static final Item SHARD_SS = new ItemBase("shard_ss");
+    public static final Item GEM_LOTTERY = new ItemBase("crystal_lottery");
     public static final Item LOTTERY = new ItemLottery("lottery");
 
     static ItemArmor.ArmorMaterial ARMOR_MATERIAL_CANCER = EnumHelper.addArmorMaterial("cancer", "hbr_mc:cancer", 9999, new int[]{3, 6, 8, 3}, 10, SoundEvents.BLOCK_ANVIL_PLACE, 0);

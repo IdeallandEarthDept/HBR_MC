@@ -1,0 +1,7 @@
+{
+    "parent": "block/carpet",
+    "textures": {
+        "particle": "hbr_mc:blocks/cancer_carpet",
+        "wool": "hbr_mc:blocks/cancer_carpet"
+    }
+}

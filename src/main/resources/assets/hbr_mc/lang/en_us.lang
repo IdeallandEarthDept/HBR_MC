@@ -66,13 +66,23 @@ item.gem_black.name=Onyx
 item.gem_amber.name=Jade Amber
 item.gem_droplet.name=Sol Droplet
 
+item.shard_ss.name=SS Universal Shard
+item.shard_ss.desc=Shard + A = SS, stat preserved
+
 item.lottery.name=Lottery Ticket
 item.lottery.desc=Consume to get random Seraph.
+
+item.crystal_lottery.name=Free Crystal
+item.crystal_lottery.desc=Combine 3x2 to get a lottery ticket.
 
 hbr_mc.msg.dummy_hurt=Damage: %s to [uid%s]Attr=%s
 
 tile.heal_stash.name=Heal Stash
 tile.heal_stash_perma.name=Heal Stash Perma
+tile.energy_ore.name=Energy Ore
+tile.crystal_ore.name=Free Crystal Ore
+tile.cancer_carpet.name=Cancer Carpet
+tile.cancer_carpet.desc=Cheap carpet. Used to disable mob spawning, especially cancers.
 
 attribute.name.hbr_mc.attr.str=Strength
 attribute.name.hbr_mc.attr.dex=Dexterity

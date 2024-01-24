@@ -101,17 +101,15 @@ public class ModConfig {
     public static final GUIConf GUI_CONF = new GUIConf();
 
     public static class GUIConf {
-        @Config.Comment("The Y position of the GUI")
         public boolean RENDER_DP = true;
 
-        @Config.Comment("The Y position of the GUI")
         public float GUI_Y = 0.5f;
 
         public float MAX_RENDER_HUD_DISTANCE = 64.0f;
-        public float RENDER_HUD_SIZE = 5f;
+        public float RENDER_HUD_SIZE = 20f;
     }
 
-    @Config.LangKey("configgui.idealland.category.Menu0.SpawnConf")
+    @Config.LangKey("configgui.hbr_mc.category.Menu0.SpawnConf")
     @Config.Comment("Spawning")
     public static final SpawnConf SPAWN_CONF = new SpawnConf();
 
@@ -130,7 +128,7 @@ public class ModConfig {
         public int SPAWN_DOLL = 30;
     }
 
-    @Config.LangKey("configgui.idealland.category.Menu0.WorldConf")
+    @Config.LangKey("configgui.hbr_mc.category.Menu0.WorldConf")
     @Config.Comment("World Spawn")
     public static final WorldConf WORLD_CONF = new WorldConf();
 
@@ -139,5 +137,15 @@ public class ModConfig {
         public int CRYSTAL_PER_CHUNK = 2;
         @Config.RangeInt(min = 1, max = 255)
         public int CRYSTAL_MIN_Y = 12;
+
+        @Config.LangKey("hbr_mc.conf.worldGen.spawn_clear_distance")
+        @Config.Comment("Within in this range(in chunks) from world spawn, no structure will be spawned other than rail.")
+        @Config.RangeInt(min = 0)
+        public int SPAWN_CLEAR_DISTANCE = 4;
+
+        @Config.LangKey("hbr_mc.conf.worldGen.clock_tower")
+        @Config.Comment("Generate clock tower chance. 1 = 100% per chunk")
+        @Config.RangeDouble(min = 0,max = 1)
+        public float SPINE_CHANCE = 0.005f;
     }
 }
