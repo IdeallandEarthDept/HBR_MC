@@ -21,7 +21,7 @@ item.rapid_fire_ss.skill.0=长按右键:毁灭加农炮~对单体迅击，对DP+
 item.rapid_fire_ss.skill.1=潜行右键:流星~广范围迅击，对DP+30%% (%d/%d)
 
 item.supreme_edge.name=SupremeEdge(Serious or Stupid)
-item.supreme_edge.skill.0=长按右键：增强~提升附近技能攻击力
+item.supreme_edge.skill.0=长按右键：增强~提升附近玩家技能攻击力
 
 item.supreme_edge_ss.name=SupremeEdge(SS)
 item.supreme_edge_ss.toast=真相并不只有一个！
@@ -29,7 +29,7 @@ item.supreme_edge_ss.skill.0=??
 item.supreme_edge_ss.skill.1=??
 
 item.clavis.name=Clavis(Plain or Wild)
-item.clavis.skill.0=昏厥硬刃
+item.clavis.skill.0=[交互]：昏厥硬刃~单体攻击，概率眩晕
 
 hbr_mc.msg.dummy_hurt=%s伤害造成至%s号测试机，防御属性%s
 
@@ -108,3 +108,5 @@ configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS抽取概率
 configgui.hbr_mc.category.Menu0.CombatConf=战斗设置
 msg.hbr_mc.apply failed=MISS
 hbr_mc.shared.wip.desc=开发中
+
+hbr_mc.msg.starter_kit_given=[七濑七海]我一直在等你来，请收下这个。

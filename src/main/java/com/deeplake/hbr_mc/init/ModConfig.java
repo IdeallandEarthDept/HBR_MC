@@ -129,4 +129,15 @@ public class ModConfig {
         @Config.RequiresMcRestart
         public int SPAWN_DOLL = 30;
     }
+
+    @Config.LangKey("configgui.idealland.category.Menu0.WorldConf")
+    @Config.Comment("World Spawn")
+    public static final WorldConf WORLD_CONF = new WorldConf();
+
+    public static class WorldConf{
+        @Config.RangeInt(min = 0, max = 99)
+        public int CRYSTAL_PER_CHUNK = 2;
+        @Config.RangeInt(min = 1, max = 255)
+        public int CRYSTAL_MIN_Y = 12;
+    }
 }

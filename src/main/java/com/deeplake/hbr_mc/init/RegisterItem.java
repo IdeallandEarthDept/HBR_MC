@@ -45,12 +45,16 @@ public class RegisterItem {
     public static final Item PHANTOM_WEAVER = new ItemWIP("phantom_weaver");
     public static final Item PHANTOM_WEAVER_SS = new ItemWIP("phantom_weaver_ss");
 
+    //31B
+    public static final Item FATAL_NULL = new ItemWIP("fatal_null");
+    public static final Item FATAL_NULL_SS = new ItemWIP("fatal_null_ss");
+
     //31C
     public static final Item SCARLET_VALET = new ItemWIP("scarlet_valet");
     public static final Item SCARLET_VALET_SS = new ItemWIP("scarlet_valet_ss");
 
     //30G
-    public static final Item KAZABANA = new ItemKazabana("kazabana");
+    public static final Item KAZABANA = new ItemWIP("kazabana");
 
     public static final Item GEM_R =       new ItemBase("gem_red");
     public static final Item GEM_Y =       new ItemBase("gem_yellow");

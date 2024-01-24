@@ -110,3 +110,4 @@ configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS Lottery Chance
 configgui.hbr_mc.category.Menu0.CombatConf=Combat Config
 
 hbr_mc.shared.wip.desc=Work in Progress
+hbr_mc.msg.starter_kit_given=I have been waiting for you. Please take this.

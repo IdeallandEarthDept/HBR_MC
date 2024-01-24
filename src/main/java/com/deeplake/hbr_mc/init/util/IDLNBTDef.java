@@ -5,7 +5,7 @@ import com.deeplake.hbr_mc.Main;
 
 public class IDLNBTDef {
 	//GENERAL:
-	public static final String IDEALLAND = "idealland_nbt";
+	public static final String PLAYER_NBT_PARENT = "hbrmc_nbt";
 
 	//Seal
 	public static final String SEAL = "seal_claimed";

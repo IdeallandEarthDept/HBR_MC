@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.entities.cancer;
 
 import com.deeplake.hbr_mc.entities.EntityBase;
 import com.deeplake.hbr_mc.init.ModConfig;
+import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.RegisterItem;
 import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
@@ -66,10 +67,9 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
                 if (getAbsorptionAmount() <= 0)
                 {
                     //stun
-                    addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 5));
+                    addPotionEffect(new PotionEffect(RegisterEffects.SELF_RECOIL, 20, 0));
                     world.playSound(null, posX, posY, posZ, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.HOSTILE, 1.0f, 1.0f);
                     world.spawnParticle(net.minecraft.util.EnumParticleTypes.BLOCK_CRACK, posX, posY, posZ, 0.0D, 1.0D, 0.0D, Block.getStateId(Blocks.BLUE_GLAZED_TERRACOTTA.getDefaultState()));
-                    //todo: special AI task
                 }
             }
             else {

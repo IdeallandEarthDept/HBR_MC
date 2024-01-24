@@ -491,7 +491,7 @@ public class IDLNBTUtil {
     public static NBTTagCompound getPlyrIdlTagSafe(EntityPlayer player) {
         NBTTagCompound playerData = player.getEntityData();
         NBTTagCompound data = getTagSafe(playerData, EntityPlayer.PERSISTED_NBT_TAG);
-        NBTTagCompound idl_data = getTagSafe(data, IDEALLAND);
+        NBTTagCompound idl_data = getTagSafe(data, PLAYER_NBT_PARENT);
 
         return idl_data;
     }
@@ -535,7 +535,7 @@ public class IDLNBTUtil {
 
         idl_data.setInteger(key, value);
 
-        data.setTag(IDEALLAND, idl_data);
+        data.setTag(PLAYER_NBT_PARENT, idl_data);
         playerData.setTag(EntityPlayer.PERSISTED_NBT_TAG, data);
     }
 
@@ -546,7 +546,7 @@ public class IDLNBTUtil {
 
         idl_data.setIntArray(key, value);
 
-        data.setTag(IDEALLAND, idl_data);
+        data.setTag(PLAYER_NBT_PARENT, idl_data);
         playerData.setTag(EntityPlayer.PERSISTED_NBT_TAG, data);
     }
 
@@ -557,7 +557,7 @@ public class IDLNBTUtil {
 
         idl_data.setDouble(key, value);
 
-        data.setTag(IDEALLAND, idl_data);
+        data.setTag(PLAYER_NBT_PARENT, idl_data);
         playerData.setTag(EntityPlayer.PERSISTED_NBT_TAG, data);
     }
 
@@ -568,7 +568,7 @@ public class IDLNBTUtil {
 
         idl_data.setLong(key, value);
 
-        data.setTag(IDEALLAND, idl_data);
+        data.setTag(PLAYER_NBT_PARENT, idl_data);
         playerData.setTag(EntityPlayer.PERSISTED_NBT_TAG, data);
     }
 
@@ -579,7 +579,7 @@ public class IDLNBTUtil {
 
         idl_data.setBoolean(key, value);
 
-        data.setTag(IDEALLAND, idl_data);
+        data.setTag(PLAYER_NBT_PARENT, idl_data);
         playerData.setTag(EntityPlayer.PERSISTED_NBT_TAG, data);
     }
 
@@ -590,7 +590,7 @@ public class IDLNBTUtil {
 
         idl_data.setString(key, value);
 
-        data.setTag(IDEALLAND, idl_data);
+        data.setTag(PLAYER_NBT_PARENT, idl_data);
         playerData.setTag(EntityPlayer.PERSISTED_NBT_TAG, data);
     }
 }

@@ -1,6 +1,7 @@
 require "GenBlockJson"
 
-GenItem("misc","lottery")
+GenItem("seraph","fatal_null")
+GenItem("seraph","fatal_null_ss")
 
 
 
