@@ -16,7 +16,6 @@ import java.util.Random;
 
 public class IDFGenStructure extends WorldGenerator{
 
-    WorldServer worldServer = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(0);
     int yOffset = 0;
     int xOffset = 7;
     int zOffset = 7;

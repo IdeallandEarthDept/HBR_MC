@@ -2,14 +2,17 @@ package com.deeplake.hbr_mc.entities.cancer;
 
 import com.deeplake.hbr_mc.entities.EntityBase;
 import com.deeplake.hbr_mc.init.ModConfig;
+import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.RegisterItem;
 import com.deeplake.hbr_mc.init.util.DShieldUtil;
+import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.IMob;
@@ -23,11 +26,27 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 
+import javax.annotation.Nullable;
 import java.util.List;
+import java.util.UUID;
 
 public class EntityCancer extends EntityBase implements IMob, ICancer {
+//    b9d86352-2564-4848-9e90-04e8c3ea3519
+//    cf1d7390-9122-4b1d-82f0-73459592687a
+//1a2e2e5f-a2f7-431c-adab-b0d5fc3bbeb9
+//    ca9c4dff-3942-48fe-90b9-0780d2d2938e
+//            8e92cda3-ebca-42bc-b34b-53877d661407
+//            6444f1f6-36a5-4e4e-a6dc-98de10d4b895
+//55294859-291b-433d-8eb2-f5b97a0ba25f
+//    ce9d3c6e-26ce-49e3-8518-dc37c70807ba
+//6b589caa-7069-4af1-be1e-1c3987d56262
+//    cdb2ec2f-febe-4ca9-a5be-df87bdc25997
+    UUID biomeDiff = UUID.fromString("b9d86352-2564-4848-9e90-04e8c3ea3519");
     public EntityCancer(World worldIn) {
         super(worldIn);
     }
@@ -41,6 +60,30 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
     {
         super.applyEntityAttributes();
         this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+    }
+
+    public void boost6Attr(float value)
+    {
+        EntityUtil.boostAttr(this, RegisterAttr.STR ,value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.DEX ,value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.END ,value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.MEN ,value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.INT ,value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.LUC ,value, biomeDiff);
+    }
+
+    @Nullable
+    @Override
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
+        Biome biome = world.getBiome(getPosition());
+        if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SNOWY))
+        {
+            boost6Attr(ModConfig.SPAWN_CONF.SNOWY_EXTRA_DIFFICULTY);
+        } else if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SANDY))
+        {
+            boost6Attr(ModConfig.SPAWN_CONF.DESERT_EXTRA_DIFFICULTY);
+        }
+        return super.onInitialSpawn(difficulty, livingdata);
     }
 
     @Override
@@ -161,7 +204,7 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
                     }
                 }
 
-                SeraphUtil.addXP(stack, getXPWorth(), player);
+                SeraphUtil.addXP(stack, (int) (getXPWorth() + 5 * EntityUtil.getAttr(this, RegisterAttr.STR)), player);
                 if (rand.nextFloat() < ModConfig.COMBAT.SKILL_UP_CHANCE)
                 {
                     Item item = stack.getItem();

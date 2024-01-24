@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc.entities.cancer;
 
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public class EntitySmallHopper extends EntityWalkerCancerBase{
@@ -20,6 +21,4 @@ public class EntitySmallHopper extends EntityWalkerCancerBase{
         set6Attr(20);
         setDPMax(20);
     }
-
-
 }

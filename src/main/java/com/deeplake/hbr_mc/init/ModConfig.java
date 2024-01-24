@@ -126,6 +126,9 @@ public class ModConfig {
         @Config.LangKey("entity.c_doll.name")
         @Config.RequiresMcRestart
         public int SPAWN_DOLL = 30;
+
+        public float SNOWY_EXTRA_DIFFICULTY = 200;
+        public float DESERT_EXTRA_DIFFICULTY = 100;
     }
 
     @Config.LangKey("configgui.hbr_mc.category.Menu0.WorldConf")
@@ -146,6 +149,6 @@ public class ModConfig {
         @Config.LangKey("hbr_mc.conf.worldGen.clock_tower")
         @Config.Comment("Generate clock tower chance. 1 = 100% per chunk")
         @Config.RangeDouble(min = 0,max = 1)
-        public float SPINE_CHANCE = 0.005f;
+        public float CLOCK_TOWER_CHANCE = 0.005f;
     }
 }
