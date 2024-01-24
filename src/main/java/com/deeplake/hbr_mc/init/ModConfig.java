@@ -127,7 +127,7 @@ public class ModConfig {
         @Config.RequiresMcRestart
         public int SPAWN_DOLL = 30;
 
-        public float SNOWY_EXTRA_DIFFICULTY = 200;
+        public float SNOWY_EXTRA_DIFFICULTY = 180;
         public float DESERT_EXTRA_DIFFICULTY = 100;
     }
 
