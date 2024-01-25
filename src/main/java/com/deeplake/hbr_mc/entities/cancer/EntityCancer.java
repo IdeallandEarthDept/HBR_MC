@@ -130,13 +130,17 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
     }
 
     @Override
+    public boolean canBreatheUnderwater() {
+        return true;
+    }
+
+    @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
         if (getAbsorptionAmount() > 0 && !canAttackCancer(source))
         {
-            if (!world.isRemote)
+            if (!world.isRemote && source.getTrueSource() != null)
             {
                 world.playSound(null, posX, posY, posZ, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.HOSTILE, 1.0f, 1.0f);
-//                world.playSound(null, posX, posY, posZ, SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.HOSTILE, 1.0f, 1.0f);
             }
         }
         return super.attackEntityFrom(source, amount);
