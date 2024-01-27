@@ -53,6 +53,18 @@ item.glitter_shadow_ss.toast=I will crush you like a bug!
 item.glitter_shadow_ss.skill.0=??
 item.glitter_shadow_ss.skill.1=??
 
+item.kazabana.name=Kazabana
+item.kazabana.skill.0=
+
+item.fatal_null.name=Fatal Null
+item.fatal_null.skill.0=
+
+item.fatal_null_ss.name=Fatal Null(SS)
+item.fatal_null_ss.skill.0=
+
+item.scarlet_valet.name=Scarlet Valet
+item.scarlet_valet.skill.0=
+
 item.cancer_shell.name=Shell Fragment
 item.cancer_helmet.name=Cancer Helmet
 item.cancer_chestplate.name=Cancer Chestplate
