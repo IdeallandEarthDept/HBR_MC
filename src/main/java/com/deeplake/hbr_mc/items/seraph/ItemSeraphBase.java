@@ -352,7 +352,7 @@ public class ItemSeraphBase extends ItemBase {
             //offhand buff won't take place, so if it works, it will take huge damage
 //            ItemStack stack = SeraphUtil.getFirstSeraphNonBrokenInHand((EntityPlayer) entityLivingBase);
             ItemStack stack = entityLivingBase.getHeldItemMainhand();
-            if (stack.getItem() instanceof ItemSeraphBase)
+            if (stack.getItem() instanceof ItemSeraphBase && !SeraphUtil.isBroken(stack))
             {
                 float amount = event.getAmount();
                 event.setAmount(0);
