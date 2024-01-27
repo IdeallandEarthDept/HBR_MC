@@ -1,9 +1,6 @@
 package com.deeplake.hbr_mc.init;
 
-import com.deeplake.hbr_mc.items.ItemArmorCancer;
-import com.deeplake.hbr_mc.items.ItemBase;
-import com.deeplake.hbr_mc.items.ItemLottery;
-import com.deeplake.hbr_mc.items.ItemWIP;
+import com.deeplake.hbr_mc.items.*;
 import com.deeplake.hbr_mc.items.seraph.a31.*;
 import com.deeplake.hbr_mc.items.seraph.g30.ItemKazabana;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -66,6 +63,8 @@ public class RegisterItem {
     public static final Item SHARD_SS = new ItemBase("shard_ss");
     public static final Item GEM_LOTTERY = new ItemBase("crystal_lottery");
     public static final Item LOTTERY = new ItemLottery("lottery");
+    public static final Item XP_ITEM_1 = new ItemXpBook("xp_item_1",500);
+    public static final Item XP_ITEM_2 = new ItemXpBook("xp_item_2",2000);
 
     static ItemArmor.ArmorMaterial ARMOR_MATERIAL_CANCER = EnumHelper.addArmorMaterial("cancer", "hbr_mc:cancer", 9999, new int[]{3, 6, 8, 3}, 10, SoundEvents.BLOCK_ANVIL_PLACE, 0);
     public static final Item CANCER_SHELL = new ItemBase("cancer_shell");
@@ -78,6 +77,7 @@ public class RegisterItem {
     public static void handleItem(RegistryEvent.Register<Item> event)
     {
         event.getRegistry().registerAll(ITEM_LIST.toArray(new Item[0]));
+        RegisterRecipes.registerOreDict();
     }
 
     @SideOnly(Side.CLIENT)

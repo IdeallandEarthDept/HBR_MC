@@ -78,6 +78,12 @@ item.gem_black.name=Onyx
 item.gem_amber.name=Jade Amber
 item.gem_droplet.name=Sol Droplet
 
+item.xp_item_1.name=Exp Book
+item.xp_item_1.desc=Craft with Seraph to give it xp.
+
+item.xp_item_2.name=Exp Book
+item.xp_item_2.desc=Craft with Seraph to give it xp.
+
 item.shard_ss.name=SS Universal Shard
 item.shard_ss.desc=Shard + A = SS, stat preserved
 

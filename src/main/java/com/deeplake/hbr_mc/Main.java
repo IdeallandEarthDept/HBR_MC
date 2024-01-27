@@ -1,9 +1,6 @@
 package com.deeplake.hbr_mc;
 
-import com.deeplake.hbr_mc.init.ModConfig;
-import com.deeplake.hbr_mc.init.RegisterEntities;
-import com.deeplake.hbr_mc.init.RegisterSpawn;
-import com.deeplake.hbr_mc.init.RegisterWorldGen;
+import com.deeplake.hbr_mc.init.*;
 import com.deeplake.hbr_mc.recipes.FurnaceRecipes;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
