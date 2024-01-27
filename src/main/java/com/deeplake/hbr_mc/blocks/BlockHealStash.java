@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc.blocks;
 
+import com.deeplake.hbr_mc.events.DesignBanHeal;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -51,8 +52,10 @@ public class BlockHealStash extends BlockBase{
             return true;
         }
         else {
+            DesignBanHeal.setHealAllowed(true);
             worldIn.playSound(null, pos, net.minecraft.init.SoundEvents.ENTITY_PLAYER_LEVELUP, net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
             playerIn.heal(healAmount);
+            DesignBanHeal.setHealAllowed(false);
             ItemStack stack = SeraphUtil.getFirstSeraphInHand(playerIn);
             if (!stack.isEmpty())
             {

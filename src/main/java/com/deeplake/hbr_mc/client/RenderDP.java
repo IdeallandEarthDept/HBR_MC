@@ -28,12 +28,10 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 import java.util.Stack;
 
-@SideOnly(Side.CLIENT)
+
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class RenderDP {
-    //todo: there is a bug interacting with Neat.
-    //When neat is out of render distance and hides the bar, it will disable item render.
-    //this does not happen when my render system is turned off.
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onRenderWorldLast(RenderWorldLastEvent event) {
         Minecraft mc = Minecraft.getMinecraft();

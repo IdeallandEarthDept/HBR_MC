@@ -46,7 +46,14 @@ public class DShieldUtil {
             }
             else
             {
-                return entityLivingBase.getAbsorptionAmount();
+                if (entityLivingBase.world.isRemote)
+                {
+                    return entityLivingBase.getEntityAttribute(RegisterAttr.DP_SYNC).getAttributeValue();
+                }
+                else {
+                    return entityLivingBase.getAbsorptionAmount();
+                }
+
             }
         }
 

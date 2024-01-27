@@ -14,10 +14,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-@SideOnly(Side.CLIENT)
+
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class DescForSeraph {
-
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onDesc(ItemTooltipEvent event)
     {
