@@ -13,6 +13,8 @@ import com.deeplake.hbr_mc.items.ItemBase;
 import com.deeplake.hbr_mc.items.ItemLottery;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -137,6 +139,12 @@ public class ItemSeraphBase extends ItemBase {
         {
             return EnumActionResult.FAIL;
         }
+        IBlockState state = worldIn.getBlockState(pos);
+        if (state.getBlockFaceShape(worldIn,pos,facing) == BlockFaceShape.UNDEFINED)
+        {
+            return EnumActionResult.PASS;
+        }
+
         if (facing.getAxis() == EnumFacing.Axis.Y)
         {
             //teleport forward if player is not sneaking, otherwise teleport backward
