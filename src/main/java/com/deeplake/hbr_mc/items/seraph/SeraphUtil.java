@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.items.seraph;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -157,5 +158,16 @@ public class SeraphUtil {
         {
             IDLNBTUtil.addInt(stack, ItemSeraphBase.SKILL_LEVEL[slot], 1);
         }
+    }
+
+    public static boolean isUsingSeraph(Entity livingBase)
+    {
+        if (livingBase instanceof EntityLivingBase)
+        {
+            ItemStack stack = ((EntityLivingBase) livingBase).getHeldItemMainhand();
+            return isSeraph(stack) && !isBroken(stack);
+        }
+
+        return false;
     }
 }

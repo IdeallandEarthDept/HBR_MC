@@ -24,14 +24,6 @@ public class EntityNabiSlime extends EntitySlime {
         return null;
     }
 
-
-    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
-    {
-        IEntityLivingData result = super.onInitialSpawn(difficulty, livingdata);
-        this.setSlimeSize(1, true);
-        return result;
-    }
-
     protected void initEntityAI()
     {
         super.initEntityAI();

@@ -33,7 +33,7 @@ public class ItemCirclet extends ItemBase {
         {
             case OFFHAND:
             case HEAD:
-                addToMap(hashmap, ARMOR_MODIFIERS_VANILLA[slot.getSlotIndex()], SharedMonsterAttributes.LUCK, 1f);
+                addToMap(hashmap, ARMOR_MODIFIERS_VANILLA[slot.getIndex()], SharedMonsterAttributes.LUCK, 1f);
                 break;
             default:
                 break;

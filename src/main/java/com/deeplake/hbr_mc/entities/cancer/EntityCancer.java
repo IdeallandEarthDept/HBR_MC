@@ -11,14 +11,10 @@ import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -56,20 +52,14 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
         return 20;
     }
 
-    protected void applyEntityAttributes()
-    {
-        super.applyEntityAttributes();
-        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-    }
-
     public void boost6Attr(float value)
     {
-        EntityUtil.boostAttr(this, RegisterAttr.STR ,value, biomeDiff);
-        EntityUtil.boostAttr(this, RegisterAttr.DEX ,value, biomeDiff);
-        EntityUtil.boostAttr(this, RegisterAttr.END ,value, biomeDiff);
-        EntityUtil.boostAttr(this, RegisterAttr.MEN ,value, biomeDiff);
-        EntityUtil.boostAttr(this, RegisterAttr.INT ,value, biomeDiff);
-        EntityUtil.boostAttr(this, RegisterAttr.LUC ,value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.STR, value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.DEX, value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.END, value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.MEN, value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.INT, value, biomeDiff);
+        EntityUtil.boostAttr(this, RegisterAttr.LUC, value, biomeDiff);
     }
 
     @Nullable
@@ -132,54 +122,6 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
     @Override
     public boolean canBreatheUnderwater() {
         return true;
-    }
-
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
-        if (getAbsorptionAmount() > 0 && !canAttackCancer(source))
-        {
-            if (!world.isRemote && source.getTrueSource() != null)
-            {
-                world.playSound(null, posX, posY, posZ, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.HOSTILE, 1.0f, 1.0f);
-            }
-        }
-        return super.attackEntityFrom(source, amount);
-    }
-
-    //Cannot be attacked when it still has shell
-    @Override
-    public boolean isEntityInvulnerable(DamageSource source) {
-        if (getAbsorptionAmount() > 0 && !canAttackCancer(source))
-        {
-            return true;
-        }
-        return super.isEntityInvulnerable(source);
-    }
-
-    public static boolean canAttackCancer(DamageSource source)
-    {
-        if (source == DamageSource.OUT_OF_WORLD)
-        {
-            return true;
-        }
-
-        if (isUsingSeraph(source.getTrueSource()))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    public static boolean isUsingSeraph(Entity livingBase)
-    {
-        if (livingBase instanceof EntityLivingBase)
-        {
-            ItemStack stack = ((EntityLivingBase) livingBase).getHeldItemMainhand();
-            return SeraphUtil.isSeraph(stack) && !SeraphUtil.isBroken(stack);
-        }
-
-        return false;
     }
 
     public void handleCancerDrop(boolean wasRecentlyHit, int lootingModifier, DamageSource source)

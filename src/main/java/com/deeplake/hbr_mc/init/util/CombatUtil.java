@@ -7,10 +7,13 @@ import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.world.World;
 
 import java.util.List;
+
+import static com.deeplake.hbr_mc.items.seraph.SeraphUtil.isUsingSeraph;
 
 public class CombatUtil {
     public static final float DEFAULT_HEAL_CAP = 200;
@@ -88,6 +91,21 @@ public class CombatUtil {
         boolean extra = target.getAbsorptionAmount() <= 0;
         attackAsHBR(player, target, EnumAttrType.DEX_FOCUS, EnumDefType.END,
                 extra ? minPotency * bonusRate : minPotency, cap);
+    }
+
+    public static boolean canBreakShield(DamageSource source)
+    {
+        if (source == DamageSource.OUT_OF_WORLD)
+        {
+            return true;
+        }
+
+        if (isUsingSeraph(source.getTrueSource()))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public enum EnumAttrType {
