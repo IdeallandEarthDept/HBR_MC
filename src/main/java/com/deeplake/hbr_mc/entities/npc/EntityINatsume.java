@@ -2,6 +2,8 @@ package com.deeplake.hbr_mc.entities.npc;
 
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.init.util.CommonFunctions;
+import com.deeplake.hbr_mc.init.util.EntityUtil;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -11,12 +13,15 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EntitySelectors;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class EntityINatsume extends EntityNPC{
     public EntityINatsume(World worldIn) {
@@ -50,7 +55,21 @@ public class EntityINatsume extends EntityNPC{
         this.getEntityAttribute(RegisterAttr.MEN).setBaseValue(357);
         this.getEntityAttribute(RegisterAttr.INT).setBaseValue(346);
         this.getEntityAttribute(RegisterAttr.LUC).setBaseValue(328);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(393.5f);
         return super.onInitialSpawn(difficulty, livingdata);
+    }
+
+    @Override
+    protected void updateAITasks() {
+        super.updateAITasks();
+        if (CommonFunctions.isSecondTick(world))
+        {
+            List<EntityPlayer> players = EntityUtil.getEntitiesWithinAABB(world, EntityPlayer.class, getPositionVector(), 16f, EntitySelectors.NOT_SPECTATING);
+            for (EntityPlayer player :
+                    players) {
+                EntityUtil.ApplyBuff(player, MobEffects.MINING_FATIGUE, 0,3);
+            }
+        }
     }
 
     @Override
