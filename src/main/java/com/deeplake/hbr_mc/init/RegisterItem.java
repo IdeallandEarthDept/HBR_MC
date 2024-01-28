@@ -65,6 +65,7 @@ public class RegisterItem {
     public static final Item LOTTERY = new ItemLottery("lottery");
     public static final Item XP_ITEM_1 = new ItemXpBook("xp_item_1",500);
     public static final Item XP_ITEM_2 = new ItemXpBook("xp_item_2",2000);
+    public static final Item leaf_circlet = new ItemCirclet("leaf_circlet");
 
     static ItemArmor.ArmorMaterial ARMOR_MATERIAL_CANCER = EnumHelper.addArmorMaterial("cancer", "hbr_mc:cancer", 9999, new int[]{3, 6, 8, 3}, 10, SoundEvents.BLOCK_ANVIL_PLACE, 0);
     public static final Item CANCER_SHELL = new ItemBase("cancer_shell");
