@@ -35,6 +35,11 @@ public class ModConfig {
         @Config.RangeDouble(min=0f,max = 1f)
         @Config.LangKey("configgui.hbr_mc.category.Menu0.CombatConf.SSChance")
         public float SS_CHANCE = 0.1f;
+
+        public int CRYSTAL_PER_TASK = 0;
+        public int CRYSTAL_PER_GOAL = 0;
+        public int CRYSTAL_PER_CHALL = 6;
+        public boolean ALLOW_SPOILERS = false;
     }
 
     public static class SkillConf {

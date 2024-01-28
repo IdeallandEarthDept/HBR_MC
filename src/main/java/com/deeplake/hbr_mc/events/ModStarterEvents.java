@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.events;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterItem;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
@@ -40,7 +41,11 @@ public class ModStarterEvents {
 				player.addItemStackToInventory(starter);
 
 				if (player instanceof EntityPlayerMP) {
-				  CommonFunctions.SendMsgToPlayerStyled((EntityPlayerMP)player, "hbr_mc.msg.starter_kit_given", TextFormatting.AQUA);
+					CommonFunctions.SendMsgToPlayerStyled((EntityPlayerMP)player, "hbr_mc.msg.starter_kit_given", TextFormatting.AQUA);
+					if (!ModConfig.CONFIG.ALLOW_SPOILERS)
+					{
+						CommonFunctions.SendMsgToPlayerStyled((EntityPlayerMP)player, "hbr_mc.msg.spoiler_disabled", TextFormatting.YELLOW);
+					}
 				}
 				Main.Log(String.format("Given starter items to player %s, ver %d", player.getDisplayNameString(), CUR_STARTER_KIT_VERSION));
 			}

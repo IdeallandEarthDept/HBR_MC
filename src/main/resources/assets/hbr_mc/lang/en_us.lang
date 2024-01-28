@@ -138,4 +138,7 @@ configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS Lottery Chance
 configgui.hbr_mc.category.Menu0.CombatConf=Combat Config
 
 hbr_mc.shared.wip.desc=Work in Progress
-hbr_mc.msg.starter_kit_given=I have been waiting for you. Please take this.
+hbr_mc.msg.starter_kit_given=[Nanami Nanase]I have been waiting for you. Please take this.
+hbr_mc.msg.bonus_for_advancements=Obtained %s crystal(s)
+hbr_mc.msg.spoiler_disabled=The world have spoilers DISABLED. If you want full experience, set config ALLOW_SPOILERS = true.
+hbr_mc.msg.spoiler_enabled=The world have spoilers ENABLED. If you want no spoilers, set config ALLOW_SPOILERS = false (at server side on servers).
