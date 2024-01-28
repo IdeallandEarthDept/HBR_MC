@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.events;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.entities.EntityNabiSlime;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterItem;
 import net.minecraft.entity.EntityLivingBase;
@@ -25,7 +26,7 @@ public class EventsDropHandler {
 
         if (ModConfig.CONFIG.ALLOW_SPOILERS)
         {
-            if (living instanceof EntitySlime)
+            if (living instanceof EntitySlime && !(living instanceof EntityNabiSlime))
             {
                 if (living.getRNG().nextFloat() < 0.1f)
                 {

@@ -84,6 +84,9 @@ item.xp_item_1.desc=Craft with Seraph to give it xp.
 item.xp_item_2.name=Exp Book
 item.xp_item_2.desc=Craft with Seraph to give it xp.
 
+item.leaf_circlet.name=Leaf Circlet
+item.leaf_circlet.desc=If you die while this is on your offhand...
+
 item.shard_ss.name=SS Universal Shard
 item.shard_ss.desc=Shard + A = SS, stat preserved
 

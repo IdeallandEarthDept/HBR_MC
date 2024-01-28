@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.entities.EntityNabiSlime;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import net.minecraft.entity.Entity;
@@ -12,6 +13,7 @@ public class RegisterEntities {
     public static void registerEntities()
     {
         registerEntity("cancer_test", EntityDummyCancer.class);
+        registerEntity("nabi", EntityNabiSlime.class);
         registerEntity("cancer_test_50", EntityDummy50.class);
         registerEntity("cancer_test_100", EntityDummy100.class);
         registerEntity("c_marionette", EntityMarionette.class, 64, 0x000000, 0xcccccc);
