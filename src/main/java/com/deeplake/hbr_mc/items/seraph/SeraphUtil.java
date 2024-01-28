@@ -8,6 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 
+import static com.deeplake.hbr_mc.items.seraph.ItemSeraphBase.USAGE;
+
 public class SeraphUtil {
 
     public static boolean isSeraph(ItemStack stack)
@@ -84,6 +86,19 @@ public class SeraphUtil {
         }
         stack.setItemDamage(0);
         IDLNBTUtil.SetBoolean(stack, IDLNBTDef.KEY_BROKEN, false);
+    }
+
+    public static void recoverSeraphSkill(ItemStack stack)
+    {
+        if (stack.isEmpty())
+        {
+            return;
+        }
+        stack.setItemDamage(0);
+        IDLNBTUtil.SetBoolean(stack, IDLNBTDef.KEY_BROKEN, false);
+        for (int i = 0; i < USAGE.length; i++) {
+            IDLNBTUtil.setInt(stack, USAGE[i], 0);
+        }
     }
 
     public static void cureSeraph(ItemStack stack, float amount)

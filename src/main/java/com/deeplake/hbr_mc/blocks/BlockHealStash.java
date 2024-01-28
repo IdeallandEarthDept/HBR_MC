@@ -60,6 +60,7 @@ public class BlockHealStash extends BlockBase{
             if (!stack.isEmpty())
             {
                 SeraphUtil.repairSeraphFully(stack);
+                SeraphUtil.recoverSeraphSkill(stack);
                 playerIn.getCooldownTracker().setCooldown(stack.getItem(), 200);
             }
             if (oneUse)
