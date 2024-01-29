@@ -88,7 +88,7 @@ public class ItemPhantomWeaverSS extends ItemSeraphBase {
             skillUseMark(stack, SLOT_ULTI);
         }
     }
-    
+
     @Override
     public int getSkillLimit(ItemStack stack, int slot) {
         switch (slot)

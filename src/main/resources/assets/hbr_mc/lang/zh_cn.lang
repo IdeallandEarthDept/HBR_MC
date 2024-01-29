@@ -124,7 +124,7 @@ hbr_mc.shared.wip.desc=开发中
 
 hbr_mc.msg.starter_kit_given=[七濑七海]我一直在等你来，请收下这个。
 hbr_mc.msg.bonus_for_advancements=获得了%s免费石英
-hbr_mc.msg.spoiler_disabled=本世界启用了防剧透模式。如果您希望完整体验，请在配置文件中将ALLOW_SPOILERS设为true。
+hbr_mc.msg.spoiler_disabled=本世界启用了防剧透模式。如果您希望完整体验，请在配置文件中将ALLOW_SPOILERS设为true。（服务器需要在服务端设置）
 hbr_mc.msg.spoiler_enabled=本世界含有剧透。如果您希望防止剧透，请在配置文件中将ALLOW_SPOILERS设为false。（服务器需要在服务端设置）
 
 item.kazabana.name=Kazabana

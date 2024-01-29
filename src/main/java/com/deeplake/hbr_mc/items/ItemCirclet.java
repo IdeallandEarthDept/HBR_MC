@@ -14,7 +14,7 @@ import java.util.UUID;
 
 import static com.deeplake.hbr_mc.items.ItemArmorCancer.ARMOR_MODIFIERS_VANILLA;
 
-public class ItemCirclet extends ItemBase {
+public class ItemCirclet extends ItemBase implements ISpoiler{
     public ItemCirclet(String name) {
         super(name);
     }

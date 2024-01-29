@@ -46,6 +46,9 @@ public class ModStarterEvents {
 					{
 						CommonFunctions.SendMsgToPlayerStyled((EntityPlayerMP)player, "hbr_mc.msg.spoiler_disabled", TextFormatting.YELLOW);
 					}
+					else {
+						CommonFunctions.SendMsgToPlayerStyled((EntityPlayerMP)player, "hbr_mc.msg.spoiler_enabled", TextFormatting.YELLOW);
+					}
 				}
 				Main.Log(String.format("Given starter items to player %s, ver %d", player.getDisplayNameString(), CUR_STARTER_KIT_VERSION));
 			}
