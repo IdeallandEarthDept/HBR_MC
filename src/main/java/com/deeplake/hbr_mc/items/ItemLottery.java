@@ -12,10 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketTitle;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextComponentUtils;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.*;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -81,7 +78,7 @@ public class ItemLottery extends ItemBase{
                 String toast = I18n.translateToLocal(result.getUnlocalizedNameInefficiently(stack1) + ".toast").trim();
 
                 ITextComponent itextcomponent = new TextComponentTranslation(toast);
-
+                itextcomponent.setStyle(new Style().setColor(TextFormatting.LIGHT_PURPLE));
                 SPacketTitle spackettitle1 = new SPacketTitle(SPacketTitle.Type.TITLE, itextcomponent);
                 ((EntityPlayerMP)player).connection.sendPacket(spackettitle1);
             }

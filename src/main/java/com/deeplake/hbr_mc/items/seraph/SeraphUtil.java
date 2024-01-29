@@ -95,14 +95,20 @@ public class SeraphUtil {
         }
     }
 
-    public static void reviveSeraph(ItemStack stack, float amount)
+    public static boolean reviveSeraph(ItemStack stack, float amount)
     {
+        boolean result = false;
         if (stack.isEmpty())
         {
-            return;
+            return false;
+        }
+        if (IDLNBTUtil.GetBoolean(stack,IDLNBTDef.KEY_BROKEN))
+        {
+            result = true;
         }
         IDLNBTUtil.SetBoolean(stack, IDLNBTDef.KEY_BROKEN, false);
         stack.setItemDamage((int) (stack.getItemDamage() - amount));
+        return result;
     }
 
     public static ItemStack getFirstSeraphInHand(EntityPlayer player)

@@ -23,7 +23,7 @@ public class CombatUtil {
         return isHBRAttackProcess;
     }
 
-    public static void areaHeal(World worldIn, EntityPlayer caster, float minHeal, float cap) {
+    public static List<EntityPlayer> areaHeal(World worldIn, EntityPlayer caster, float minHeal, float cap) {
         List<EntityPlayer> players = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityPlayer.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
         );
@@ -34,6 +34,21 @@ public class CombatUtil {
                 players) {
             SeraphUtil.cureSeraph(SeraphUtil.getFirstSeraphNonBrokenInHand(player), healAmount);
         }
+        return players;
+    }
+
+    public static List<EntityPlayer> areaRevive(World worldIn, EntityPlayer caster) {
+        List<EntityPlayer> players = EntityUtil.getEntitiesWithinAABB(
+                worldIn,EntityPlayer.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
+        );
+        for (EntityPlayer player :
+                players) {
+            if (SeraphUtil.reviveSeraph(SeraphUtil.getFirstSeraphInHand(player), 1))
+            {
+                CommonFunctions.SafeSendMsgToPlayer(player, "msg.hbr_mc.apply_revive");
+            }
+        }
+        return players;
     }
 
     public static List<EntityLiving> areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {

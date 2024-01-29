@@ -38,8 +38,8 @@ public class RegisterItem {
     public static final Item GLITTER_SHADOW = new ItemWIP("glitter_shadow");
     public static final Item GLITTER_SHADOW_SS = new ItemWIP("glitter_shadow_ss");
 
-    public static final Item PHANTOM_WEAVER = new ItemWIP("phantom_weaver");
-    public static final Item PHANTOM_WEAVER_SS = new ItemWIP("phantom_weaver_ss");
+    public static final Item PHANTOM_WEAVER = new ItemPhantomWeaver("phantom_weaver");
+    public static final Item PHANTOM_WEAVER_SS = new ItemPhantomWeaverSS("phantom_weaver_ss");
 
     //31B
     public static final Item FATAL_NULL = new ItemWIP("fatal_null");

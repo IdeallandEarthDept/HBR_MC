@@ -289,7 +289,7 @@ public class ItemSeraphBase extends ItemBase {
 
     @Override
     public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
-        if (SeraphUtil.isBroken(stack) || playerIn.getCooldownTracker().hasCooldown(this))
+        if (playerIn.getCooldownTracker().hasCooldown(this))
         {
             return false;
         }
@@ -331,7 +331,7 @@ public class ItemSeraphBase extends ItemBase {
     {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
 
-        if (!canUseSkills(playerIn) || SeraphUtil.isBroken(itemstack) || playerIn.getCooldownTracker().hasCooldown(this))
+        if (!canUseSkills(playerIn) || playerIn.getCooldownTracker().hasCooldown(this))
         {
             return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
         }
@@ -360,7 +360,7 @@ public class ItemSeraphBase extends ItemBase {
             //offhand buff won't take place, so if it works, it will take huge damage
 //            ItemStack stack = SeraphUtil.getFirstSeraphNonBrokenInHand((EntityPlayer) entityLivingBase);
             ItemStack stack = entityLivingBase.getHeldItemMainhand();
-            if (stack.getItem() instanceof ItemSeraphBase && !SeraphUtil.isBroken(stack))
+            if (stack.getItem() instanceof ItemSeraphBase)
             {
                 float amount = event.getAmount();
                 event.setAmount(0);
@@ -399,6 +399,17 @@ public class ItemSeraphBase extends ItemBase {
 
     public int getMaxSkillSlot(ItemStack stack)
     {
+        switch (seraphRarity)
+        {
+            case SS:
+                return 2;
+            case S:
+                break;
+            case A:
+                return 1;
+            default:
+                throw new IllegalStateException("Unexpected value: " + seraphRarity);
+        }
         return 2;
     }
 

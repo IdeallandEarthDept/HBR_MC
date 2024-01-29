@@ -39,12 +39,12 @@ item.clavis_ss.skill.0=[交互/右键]：全力猛挥~AoE并概率眩晕
 item.clavis_ss.skill.1=[潜行交互]：极限冲击~单体攻击并高概率眩晕(%d/%d)
 
 item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
-item.phantom_weaver.skill.0=回复
+item.phantom_weaver.skill.0=[交互友方/右键]：回复~修复附近的DP (%d/%d)
 
 item.phantom_weaver_ss.name=Phantom Weaver(天使舰长的气势一闪)
 item.phantom_weaver_ss.toast=天下一品！
-item.phantom_weaver_ss.skill.0=斗气斩
-item.phantom_weaver_ss.skill.1=复苏之光
+item.phantom_weaver_ss.skill.0=[交互/右键]斗气斩~有概率减小冷却，以斗气狂砍范围内敌人
+item.phantom_weaver_ss.skill.1=[潜行右键]复苏之光~复活附近玩家的DP，并大量回复(%d/%d)
 
 item.glitter_shadow.name=Glitter Shadow(Laugh or Cry)
 item.glitter_shadow.skill.0=乱舞
@@ -93,7 +93,7 @@ attribute.name.hbr_mc.attr.men=精神
 attribute.name.hbr_mc.attr.int=智力
 attribute.name.hbr_mc.attr.luc=幸运
 
-desc.hbr_mc.seraph.broken=!!BREAK!!
+desc.hbr_mc.seraph.broken=§l§d!!BREAK!!
 desc.hbr_mc.seraph.dura_format=DP: %s/%s
 desc.hbr_mc.seraph.level_format=Lv.%s (%s/%s)
 desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
@@ -119,6 +119,7 @@ configgui.hbr_mc.category.Menu0.GeneralConf=通用设置
 configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS抽取概率
 configgui.hbr_mc.category.Menu0.CombatConf=战斗设置
 msg.hbr_mc.apply failed=MISS
+msg.hbr_mc.apply_revive=DP已复活
 hbr_mc.shared.wip.desc=开发中
 
 hbr_mc.msg.starter_kit_given=[七濑七海]我一直在等你来，请收下这个。
@@ -134,7 +135,12 @@ item.fatal_null_ss.name=Fatal Null(SS)
 item.fatal_null_ss.skill.0=
 item.scarlet_valet.name=Scarlet Valet
 item.scarlet_valet.skill.0=
-item.xp_item_1.name=Exp Book
-item.xp_item_1.desc=Craft with Seraph to give it xp.
-item.xp_item_2.name=Exp Book
-item.xp_item_2.desc=Craft with Seraph to give it xp.
+item.xp_item_1.name=战斗报告书 I
+item.xp_item_1.desc=与炽天使合成，可提升少量经验值的道具。
+item.xp_item_2.name=战斗报告书 II
+item.xp_item_2.desc=与炽天使合成，可提升不少经验值的道具。
+item.xp_item_3.name=战斗报告书 III
+item.xp_item_3.desc=与炽天使合成，可提升大量经验值的道具。
+
+item.leaf_circlet.name=花环
+item.leaf_circlet.desc=若你在副手佩戴花环时不幸牺牲……

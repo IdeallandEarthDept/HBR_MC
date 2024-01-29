@@ -56,10 +56,10 @@ public class ModConfig {
             this.SP = SP;
         }
 
-        public SkillConf setUses(int uses, int usesMax)
+        public SkillConf setUses(int uses, int usesGrowth)
         {
             this.uses = uses;
-            this.usesGrowth = usesMax;
+            this.usesGrowth = usesGrowth;
             return this;
         }
 
@@ -102,6 +102,9 @@ public class ModConfig {
         public SkillConf CLAVIS_A = new SkillConf(45f, 120, 5,1.25f);
         public SkillConf CLAVIS_SS_10SP_STUN = new SkillConf(105f, 135, 10,2f);
         public SkillConf CLAVIS_SS_14SP_ULTI = new SkillConf(250f, 147, 14,3.5f).setUses(2,2);
+        public SkillConf PHANTOM_WEAVER_HEAL_A = new SkillConf(305F, CombatUtil.DEFAULT_HEAL_CAP, 5).setUses(5,5);
+        public SkillConf PHANTOM_WEAVER_7SP_AOE = new SkillConf(59.1f, 126, 7,1.4f);
+        public SkillConf PHANTOM_WEAVER_13SP_REVIVAL = new SkillConf(1169, 248, 13).setUses(2,2);
         public SkillConf KAZABANA_5SP_AOE = new SkillConf(37.5f, 120, 5,1f);//potency means success rate
     }
 

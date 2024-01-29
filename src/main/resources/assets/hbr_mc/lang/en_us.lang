@@ -81,8 +81,12 @@ item.gem_droplet.name=Sol Droplet
 item.xp_item_1.name=Exp Book
 item.xp_item_1.desc=Craft with Seraph to give it xp.
 
-item.xp_item_2.name=Exp Book
+item.xp_item_2.name=Exp Book II
 item.xp_item_2.desc=Craft with Seraph to give it xp.
+
+item.xp_item_3.name=Exp Book III
+item.xp_item_3.desc=Craft with Seraph to give it xp.
+
 
 item.leaf_circlet.name=Leaf Circlet
 item.leaf_circlet.desc=If you die while this is on your offhand...
@@ -107,10 +111,10 @@ tile.cancer_carpet.desc=Cheap carpet. Used to disable mob spawning, especially c
 
 attribute.name.hbr_mc.attr.str=Strength
 attribute.name.hbr_mc.attr.dex=Dexterity
-attribute.name.hbr_mc.attr.end=Endurance
-attribute.name.hbr_mc.attr.men=Mental
-attribute.name.hbr_mc.attr.int=Intelligence
-attribute.name.hbr_mc.attr.luc=Lucky
+attribute.name.hbr_mc.attr.end=Constitution
+attribute.name.hbr_mc.attr.men=Spirit
+attribute.name.hbr_mc.attr.int=Wisdom
+attribute.name.hbr_mc.attr.luc=Luck
 
 desc.hbr_mc.seraph.broken=[Broken]
 desc.hbr_mc.seraph.dura_format=DP: %s/%s
@@ -120,6 +124,7 @@ desc.hbr_mc.armor.random_points=+%s random attribute point(s)
 
 msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 msg.hbr_mc.apply failed=MISS
+msg.hbr_mc.apply_revive=REVIVED
 
 hbr_mc.potion.skill_atk_up_1=Skill Atk UP
 hbr_mc.potion.skill_atk_up_2=Skill Atk UP
