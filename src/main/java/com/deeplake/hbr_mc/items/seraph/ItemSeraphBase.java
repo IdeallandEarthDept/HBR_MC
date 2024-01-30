@@ -236,6 +236,9 @@ public class ItemSeraphBase extends ItemBase {
             worldIn.playSound(null,player.getPosition(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1f, 1f);
             return EnumActionResult.SUCCESS;
         }
+        else {
+            worldIn.playSound(null,player.getPosition(), SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.PLAYERS, 1f, 1f);
+        }
         return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
     }
 
