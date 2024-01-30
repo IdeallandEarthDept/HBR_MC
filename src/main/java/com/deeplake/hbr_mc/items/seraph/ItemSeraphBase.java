@@ -21,6 +21,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
@@ -31,6 +32,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
@@ -43,8 +45,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.UUID;
 
+import static com.deeplake.hbr_mc.designs.SeraphTeleportControl.SERAPH_TELEPORT;
+
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class ItemSeraphBase extends ItemBase {
+    static boolean need_teleport_hint = true;
     public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
     public static final int SLOT_ULTI = 1;
     public EnumSeraphRarity seraphRarity = EnumSeraphRarity.A;
@@ -132,16 +137,38 @@ public class ItemSeraphBase extends ItemBase {
     //onItemUseFirst?
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        //only server will know about NBTs
+        if (!worldIn.isRemote)
+        {
+            boolean canTeleport = IDLNBTUtil.getPlayerIdeallandBoolSafe(player, SERAPH_TELEPORT);
+            if (!canTeleport)
+            {
+                return EnumActionResult.PASS;
+            }
+        }
+        else {
+            //A simple hint that shows once per session.
+            if (need_teleport_hint)
+            {
+                player.sendMessage(new TextComponentTranslation("hbr_mc.msg.teleport_command"));
+                need_teleport_hint = false;
+            }
+            return EnumActionResult.PASS;
+        }
+
         boolean success = false;
         Vec3d startPos = player.getPositionVector();
         ItemStack stack = player.getHeldItem(hand);
+
         if (SeraphUtil.isBroken(stack) || player.getCooldownTracker().hasCooldown(this))
         {
             return EnumActionResult.FAIL;
         }
+
         IBlockState state = worldIn.getBlockState(pos);
-        if (state.getBlockFaceShape(worldIn,pos,facing) == BlockFaceShape.UNDEFINED)
+        if (facing == EnumFacing.DOWN || state.getBlockFaceShape(worldIn, pos, facing) == BlockFaceShape.UNDEFINED)
         {
+            //todo: the top of half bricks, and carpets are undefined.
             return EnumActionResult.PASS;
         }
 
@@ -164,10 +191,11 @@ public class ItemSeraphBase extends ItemBase {
             //If right clicked on the side of a wall, teleport onto the top of it if possible
             //Max Y movement is 10 blocks
             BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos(pos);
-            for (int dy = 0; dy <= 10; dy++)
+            int yTouch = pos.getY();
+            int yPlayer = player.getPosition().getY();
+            for (int y = yTouch; y <= yPlayer + 10; y++)
             {
-                int y = player.getPosition().getY();
-                mutableBlockPos.setY(y + dy);
+                mutableBlockPos.setY(y);
                 if (worldIn.isAirBlock(mutableBlockPos))
                 {
                     if (player.attemptTeleport(mutableBlockPos.getX()+0.5f, mutableBlockPos.getY(), mutableBlockPos.getZ()+0.5f))
@@ -175,19 +203,16 @@ public class ItemSeraphBase extends ItemBase {
                         success = true;
                         break;
                     }
-
                 }
             }
         }
 
         if (success)
         {
-            if (!worldIn.isRemote)
-            {
-                player.getCooldownTracker().setCooldown(this, 5);
-                int distance = (int) startPos.distanceTo(player.getPositionVector());
-                stack.damageItem(distance, player);
-            }
+            player.getCooldownTracker().setCooldown(this, 5);
+            int distance = (int) startPos.distanceTo(player.getPositionVector());
+            stack.damageItem(distance, player);
+            worldIn.playSound(null,player.getPosition(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1f, 1f);
             return EnumActionResult.SUCCESS;
         }
         return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);

@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
@@ -29,6 +30,11 @@ public class Main
     }
 
     @EventHandler
+    public static void serverInit(FMLServerStartingEvent event) {
+        RegisterHandler.serverRegistries(event);
+    }
+
+    @EventHandler
     public void init(FMLInitializationEvent event)
     {
         FurnaceRecipes.registerFurnaceRecipes();
@@ -41,6 +47,8 @@ public class Main
         if (ModConfig.SPAWN_CONF.SPAWN) {
             RegisterSpawn.registerSpawnList();
         }
+
+
     }
 
     public static void LogWarning(String str, Object...args)

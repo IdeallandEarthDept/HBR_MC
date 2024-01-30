@@ -144,9 +144,18 @@ configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration
 configgui.hbr_mc.category.Menu0.GeneralConf=General Config
 configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS Lottery Chance
 configgui.hbr_mc.category.Menu0.CombatConf=Combat Config
+configgui.hbr_mc.category.Menu0.OperationConf=Operation Config
+conf.operation.teleport_enable=Enable Teleport
+conf.operation.teleport_enable_side=Teleport at Side Click on Blocks
+conf.operation.teleport_enable_top=Teleport at Top Click on Blocks
+conf.operation.teleport_at_rough_surface=Teleport at Rough Surface
 
 hbr_mc.shared.wip.desc=Work in Progress
 hbr_mc.msg.starter_kit_given=[Nanami Nanase]I have been waiting for you. Please take this.
 hbr_mc.msg.bonus_for_advancements=Obtained %s crystal(s)
 hbr_mc.msg.spoiler_disabled=The world have spoilers DISABLED. If you want full experience, set config ALLOW_SPOILERS = true.
 hbr_mc.msg.spoiler_enabled=The world have spoilers ENABLED. If you want no spoilers, set config ALLOW_SPOILERS = false (at server side on servers).
+hbr_mc.msg.teleport_allow=Seraph Teleportation is now ALLOWED.
+hbr_mc.msg.teleport_deny=Seraph Teleportation is now DENIED.
+hbr_mc.msg.teleport_command=Use /srtp to toggle Seraph teleportation.
+

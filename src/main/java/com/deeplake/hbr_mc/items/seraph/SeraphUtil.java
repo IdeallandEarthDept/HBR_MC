@@ -15,6 +15,11 @@ public class SeraphUtil {
     {
         return stack.getItem() instanceof ItemSeraphBase;
     }
+    public static boolean isIntactSeraph(ItemStack stack)
+    {
+        return isSeraph(stack) && !isBroken(stack);
+    }
+
     static int clampedLevel(int level, ItemStack stack)
     {
         return Math.max(1, Math.min(level, getMaxLevel(stack)));
