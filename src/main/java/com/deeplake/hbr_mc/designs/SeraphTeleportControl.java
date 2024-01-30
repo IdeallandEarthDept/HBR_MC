@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class SeraphTeleportControl {
     public static final String SERAPH_TELEPORT = "srph_tp";
+    public static final String SERAPH_TELEPORT_ROUGH = "srph_tp_r";
 
     public static boolean canTeleport(EntityPlayer player)
     {

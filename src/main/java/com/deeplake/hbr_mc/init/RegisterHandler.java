@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.client.RenderHandler;
 import com.deeplake.hbr_mc.commands.CommandSeraphTP;
+import com.deeplake.hbr_mc.commands.CommandSeraphTPRough;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
@@ -20,5 +21,6 @@ public class RegisterHandler {
 
     public static void serverRegistries(FMLServerStartingEvent event) {
         event.registerServerCommand(new CommandSeraphTP());
+        event.registerServerCommand(new CommandSeraphTPRough());
     }
 }

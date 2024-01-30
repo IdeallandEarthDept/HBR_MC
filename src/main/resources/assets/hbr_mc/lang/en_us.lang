@@ -158,4 +158,5 @@ hbr_mc.msg.spoiler_enabled=The world have spoilers ENABLED. If you want no spoil
 hbr_mc.msg.teleport_allow=Seraph Teleportation is now ALLOWED.
 hbr_mc.msg.teleport_deny=Seraph Teleportation is now DENIED.
 hbr_mc.msg.teleport_command=Use /srtp to toggle Seraph teleportation.
+hbr_mc.msg.teleport_command_rough=Use /srtpr to toggle Seraph teleportation at rough block faces click.
 

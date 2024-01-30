@@ -134,6 +134,7 @@ hbr_mc.msg.spoiler_enabled=本世界含有剧透。如果您希望防止剧透�
 hbr_mc.msg.teleport_allow=炽天使传送已启用
 hbr_mc.msg.teleport_deny=炽天使传送已禁用
 hbr_mc.msg.teleport_command=[七濑七海]可以使用 /srtp 来开启或关闭炽天使传送。
+hbr_mc.msg.teleport_command_rough=可以使用 /srtpr 来开启或关闭在右键方块不规则表面时的炽天使传送。
 
 item.kazabana.name=Kazabana
 item.kazabana.skill.0=

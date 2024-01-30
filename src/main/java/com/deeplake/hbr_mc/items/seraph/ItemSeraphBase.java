@@ -46,10 +46,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.UUID;
 
 import static com.deeplake.hbr_mc.designs.SeraphTeleportControl.SERAPH_TELEPORT;
+import static com.deeplake.hbr_mc.designs.SeraphTeleportControl.SERAPH_TELEPORT_ROUGH;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class ItemSeraphBase extends ItemBase {
     static boolean need_teleport_hint = true;
+    static boolean need_teleport_hint_rough = true;
     public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
     public static final int SLOT_ULTI = 1;
     public EnumSeraphRarity seraphRarity = EnumSeraphRarity.A;
@@ -137,6 +139,8 @@ public class ItemSeraphBase extends ItemBase {
     //onItemUseFirst?
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        IBlockState state = worldIn.getBlockState(pos);
+
         //only server will know about NBTs
         if (!worldIn.isRemote)
         {
@@ -153,6 +157,11 @@ public class ItemSeraphBase extends ItemBase {
                 player.sendMessage(new TextComponentTranslation("hbr_mc.msg.teleport_command"));
                 need_teleport_hint = false;
             }
+            if (state.getBlockFaceShape(worldIn, pos, facing) == BlockFaceShape.UNDEFINED && need_teleport_hint_rough)
+            {
+                player.sendMessage(new TextComponentTranslation("hbr_mc.msg.teleport_command_rough"));
+                need_teleport_hint_rough = false;
+            }
             return EnumActionResult.PASS;
         }
 
@@ -165,10 +174,15 @@ public class ItemSeraphBase extends ItemBase {
             return EnumActionResult.FAIL;
         }
 
-        IBlockState state = worldIn.getBlockState(pos);
-        if (facing == EnumFacing.DOWN || state.getBlockFaceShape(worldIn, pos, facing) == BlockFaceShape.UNDEFINED)
+        if (facing == EnumFacing.DOWN)
         {
             //todo: the top of half bricks, and carpets are undefined.
+            return EnumActionResult.PASS;
+        }
+
+        if (!IDLNBTUtil.getPlayerIdeallandBoolSafe(player, SERAPH_TELEPORT_ROUGH) &&
+                state.getBlockFaceShape(worldIn, pos, facing) == BlockFaceShape.UNDEFINED)
+        {
             return EnumActionResult.PASS;
         }
 
@@ -179,11 +193,18 @@ public class ItemSeraphBase extends ItemBase {
             Vec3d lookVecXZ = new Vec3d(player.getLookVec().x, 0, player.getLookVec().z).normalize();
             if (!player.isSneaking())
             {
-                success = player.attemptTeleport(player.posX + lookVecXZ.x * distance, player.posY + 1, player.posZ + lookVecXZ.z * distance);
+                while (!success && distance > 3)
+                {
+                    success = player.attemptTeleport(player.posX + lookVecXZ.x * distance, player.posY + 1, player.posZ + lookVecXZ.z * distance);
+                    distance--;
+                }
             }
             else
             {
-                success = player.attemptTeleport(player.posX - lookVecXZ.x * distance, player.posY + 1, player.posZ - lookVecXZ.z * distance);
+                while (!success && distance > 3) {
+                    success = player.attemptTeleport(player.posX - lookVecXZ.x * distance, player.posY + 1, player.posZ - lookVecXZ.z * distance);
+                    distance--;
+                }
             }
 
         }
