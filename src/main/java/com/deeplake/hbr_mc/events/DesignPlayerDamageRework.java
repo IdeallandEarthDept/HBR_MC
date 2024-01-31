@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.events;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.ModConfig;
+import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
@@ -32,20 +33,24 @@ public class DesignPlayerDamageRework {
             if (SeraphUtil.canAttackWithMainHandSeraph(player))
             {
                 EntityLivingBase target = event.getEntityLiving();
-                event.setCanceled(true);
 
-                Item item = player.getHeldItemMainhand().getItem();
-                if (item instanceof ItemSeraphCannonBase)
+                if (target instanceof EntityPlayer || EntityUtil.getAttr(target, RegisterAttr.DP_MAX) > 0)
                 {
-                    return;
-                }
+                    event.setCanceled(true);
 
-                float fullPower = ModConfig.COMBAT.NORMAL_ATK_POWER;
-                float normal_atk_cap = ModConfig.COMBAT.NORMAL_ATK_CAP;
-                int hits = ((ItemSeraphBase)item).type.hitCount;
-                float powerPerHit = fullPower / hits;
-                for (int i = 0; i < hits; i++) {
-                    CombatUtil.attackAsHBR(player, target, normal_atk_cap, powerPerHit);
+                    Item item = player.getHeldItemMainhand().getItem();
+                    if (item instanceof ItemSeraphCannonBase)
+                    {
+                        return;
+                    }
+
+                    float fullPower = ModConfig.COMBAT.NORMAL_ATK_POWER;
+                    float normal_atk_cap = ModConfig.COMBAT.NORMAL_ATK_CAP;
+                    int hits = ((ItemSeraphBase)item).type.hitCount;
+                    float powerPerHit = fullPower / hits;
+                    for (int i = 0; i < hits; i++) {
+                        CombatUtil.attackAsHBR(player, target, normal_atk_cap, powerPerHit);
+                    }
                 }
             }
         }

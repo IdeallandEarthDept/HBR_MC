@@ -13,12 +13,15 @@ import com.deeplake.hbr_mc.items.ItemBase;
 import com.deeplake.hbr_mc.items.ItemLottery;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
@@ -29,6 +32,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
@@ -41,8 +45,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.UUID;
 
+import static com.deeplake.hbr_mc.designs.SeraphTeleportControl.SERAPH_TELEPORT;
+import static com.deeplake.hbr_mc.designs.SeraphTeleportControl.SERAPH_TELEPORT_ROUGH;
+
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class ItemSeraphBase extends ItemBase {
+    static boolean need_teleport_hint = true;
+    static boolean need_teleport_hint_rough = true;
     public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
     public static final int SLOT_ULTI = 1;
     public EnumSeraphRarity seraphRarity = EnumSeraphRarity.A;
@@ -130,13 +139,53 @@ public class ItemSeraphBase extends ItemBase {
     //onItemUseFirst?
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        IBlockState state = worldIn.getBlockState(pos);
+
+        //only server will know about NBTs
+        if (!worldIn.isRemote)
+        {
+            boolean canTeleport = IDLNBTUtil.getPlayerIdeallandBoolSafe(player, SERAPH_TELEPORT);
+            if (!canTeleport)
+            {
+                return EnumActionResult.PASS;
+            }
+        }
+        else {
+            //A simple hint that shows once per session.
+            if (need_teleport_hint)
+            {
+                player.sendMessage(new TextComponentTranslation("hbr_mc.msg.teleport_command"));
+                need_teleport_hint = false;
+            }
+            if (state.getBlockFaceShape(worldIn, pos, facing) == BlockFaceShape.UNDEFINED && need_teleport_hint_rough)
+            {
+                player.sendMessage(new TextComponentTranslation("hbr_mc.msg.teleport_command_rough"));
+                need_teleport_hint_rough = false;
+            }
+            return EnumActionResult.PASS;
+        }
+
         boolean success = false;
         Vec3d startPos = player.getPositionVector();
         ItemStack stack = player.getHeldItem(hand);
+
         if (SeraphUtil.isBroken(stack) || player.getCooldownTracker().hasCooldown(this))
         {
             return EnumActionResult.FAIL;
         }
+
+        if (facing == EnumFacing.DOWN)
+        {
+            //todo: the top of half bricks, and carpets are undefined.
+            return EnumActionResult.PASS;
+        }
+
+        if (!IDLNBTUtil.getPlayerIdeallandBoolSafe(player, SERAPH_TELEPORT_ROUGH) &&
+                state.getBlockFaceShape(worldIn, pos, facing) == BlockFaceShape.UNDEFINED)
+        {
+            return EnumActionResult.PASS;
+        }
+
         if (facing.getAxis() == EnumFacing.Axis.Y)
         {
             //teleport forward if player is not sneaking, otherwise teleport backward
@@ -144,11 +193,18 @@ public class ItemSeraphBase extends ItemBase {
             Vec3d lookVecXZ = new Vec3d(player.getLookVec().x, 0, player.getLookVec().z).normalize();
             if (!player.isSneaking())
             {
-                success = player.attemptTeleport(player.posX + lookVecXZ.x * distance, player.posY + 1, player.posZ + lookVecXZ.z * distance);
+                while (!success && distance > 3)
+                {
+                    success = player.attemptTeleport(player.posX + lookVecXZ.x * distance, player.posY + 1, player.posZ + lookVecXZ.z * distance);
+                    distance--;
+                }
             }
             else
             {
-                success = player.attemptTeleport(player.posX - lookVecXZ.x * distance, player.posY + 1, player.posZ - lookVecXZ.z * distance);
+                while (!success && distance > 3) {
+                    success = player.attemptTeleport(player.posX - lookVecXZ.x * distance, player.posY + 1, player.posZ - lookVecXZ.z * distance);
+                    distance--;
+                }
             }
 
         }
@@ -156,10 +212,11 @@ public class ItemSeraphBase extends ItemBase {
             //If right clicked on the side of a wall, teleport onto the top of it if possible
             //Max Y movement is 10 blocks
             BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos(pos);
-            for (int dy = 0; dy <= 10; dy++)
+            int yTouch = pos.getY();
+            int yPlayer = player.getPosition().getY();
+            for (int y = yTouch; y <= yPlayer + 10; y++)
             {
-                int y = player.getPosition().getY();
-                mutableBlockPos.setY(y + dy);
+                mutableBlockPos.setY(y);
                 if (worldIn.isAirBlock(mutableBlockPos))
                 {
                     if (player.attemptTeleport(mutableBlockPos.getX()+0.5f, mutableBlockPos.getY(), mutableBlockPos.getZ()+0.5f))
@@ -167,20 +224,20 @@ public class ItemSeraphBase extends ItemBase {
                         success = true;
                         break;
                     }
-
                 }
             }
         }
 
         if (success)
         {
-            if (!worldIn.isRemote)
-            {
-                player.getCooldownTracker().setCooldown(this, 5);
-                int distance = (int) startPos.distanceTo(player.getPositionVector());
-                stack.damageItem(distance, player);
-            }
+            player.getCooldownTracker().setCooldown(this, 5);
+            int distance = (int) startPos.distanceTo(player.getPositionVector());
+            stack.damageItem(distance, player);
+            worldIn.playSound(null,player.getPosition(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1f, 1f);
             return EnumActionResult.SUCCESS;
+        }
+        else {
+            worldIn.playSound(null,player.getPosition(), SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.PLAYERS, 1f, 1f);
         }
         return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
     }
@@ -281,7 +338,7 @@ public class ItemSeraphBase extends ItemBase {
 
     @Override
     public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
-        if (SeraphUtil.isBroken(stack) || playerIn.getCooldownTracker().hasCooldown(this))
+        if (playerIn.getCooldownTracker().hasCooldown(this))
         {
             return false;
         }
@@ -323,7 +380,7 @@ public class ItemSeraphBase extends ItemBase {
     {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
 
-        if (!canUseSkills(playerIn) || SeraphUtil.isBroken(itemstack) || playerIn.getCooldownTracker().hasCooldown(this))
+        if (!canUseSkills(playerIn) || playerIn.getCooldownTracker().hasCooldown(this))
         {
             return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
         }
@@ -352,7 +409,7 @@ public class ItemSeraphBase extends ItemBase {
             //offhand buff won't take place, so if it works, it will take huge damage
 //            ItemStack stack = SeraphUtil.getFirstSeraphNonBrokenInHand((EntityPlayer) entityLivingBase);
             ItemStack stack = entityLivingBase.getHeldItemMainhand();
-            if (stack.getItem() instanceof ItemSeraphBase && !SeraphUtil.isBroken(stack))
+            if (stack.getItem() instanceof ItemSeraphBase)
             {
                 float amount = event.getAmount();
                 event.setAmount(0);
@@ -391,6 +448,17 @@ public class ItemSeraphBase extends ItemBase {
 
     public int getMaxSkillSlot(ItemStack stack)
     {
+        switch (seraphRarity)
+        {
+            case SS:
+                return 2;
+            case S:
+                break;
+            case A:
+                return 1;
+            default:
+                throw new IllegalStateException("Unexpected value: " + seraphRarity);
+        }
         return 2;
     }
 

@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.items.seraph;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,6 +17,11 @@ public class SeraphUtil {
     {
         return stack.getItem() instanceof ItemSeraphBase;
     }
+    public static boolean isIntactSeraph(ItemStack stack)
+    {
+        return isSeraph(stack) && !isBroken(stack);
+    }
+
     static int clampedLevel(int level, ItemStack stack)
     {
         return Math.max(1, Math.min(level, getMaxLevel(stack)));
@@ -109,14 +115,20 @@ public class SeraphUtil {
         }
     }
 
-    public static void reviveSeraph(ItemStack stack, float amount)
+    public static boolean reviveSeraph(ItemStack stack, float amount)
     {
+        boolean result = false;
         if (stack.isEmpty())
         {
-            return;
+            return false;
+        }
+        if (IDLNBTUtil.GetBoolean(stack,IDLNBTDef.KEY_BROKEN))
+        {
+            result = true;
         }
         IDLNBTUtil.SetBoolean(stack, IDLNBTDef.KEY_BROKEN, false);
         stack.setItemDamage((int) (stack.getItemDamage() - amount));
+        return result;
     }
 
     public static ItemStack getFirstSeraphInHand(EntityPlayer player)
@@ -172,5 +184,16 @@ public class SeraphUtil {
         {
             IDLNBTUtil.addInt(stack, ItemSeraphBase.SKILL_LEVEL[slot], 1);
         }
+    }
+
+    public static boolean isUsingSeraph(Entity livingBase)
+    {
+        if (livingBase instanceof EntityLivingBase)
+        {
+            ItemStack stack = ((EntityLivingBase) livingBase).getHeldItemMainhand();
+            return isSeraph(stack) && !isBroken(stack);
+        }
+
+        return false;
     }
 }

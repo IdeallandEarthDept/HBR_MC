@@ -1,8 +1,11 @@
 package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.client.RenderHandler;
+import com.deeplake.hbr_mc.commands.CommandSeraphTP;
+import com.deeplake.hbr_mc.commands.CommandSeraphTPRough;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -14,5 +17,10 @@ public class RegisterHandler {
     public static void onModelRegister(ModelRegistryEvent event)
     {
         RenderHandler.registerEntityRenders();
+    }
+
+    public static void serverRegistries(FMLServerStartingEvent event) {
+        event.registerServerCommand(new CommandSeraphTP());
+        event.registerServerCommand(new CommandSeraphTPRough());
     }
 }

@@ -2,6 +2,8 @@ package com.deeplake.hbr_mc.client;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.blocks.BlockBase;
+import com.deeplake.hbr_mc.init.ModConfig;
+import com.deeplake.hbr_mc.items.ISpoiler;
 import com.deeplake.hbr_mc.items.ItemBase;
 import com.deeplake.hbr_mc.items.ItemWIP;
 import net.minecraft.client.resources.I18n;
@@ -24,7 +26,7 @@ public class DescForNormal {
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent(priority = EventPriority.HIGHEST)
-    static void onToolTip(ItemTooltipEvent event) {
+    public static void onToolTip(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
         if (item instanceof ItemBase || (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof BlockBase)) {
@@ -32,6 +34,24 @@ public class DescForNormal {
             if (I18n.hasKey(key))
             {
                 event.getToolTip().add(1, I18n.format(key));
+            }
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onSpoilerHandle(ItemTooltipEvent event) {
+        if (ModConfig.CONFIG.ALLOW_SPOILERS)
+        {
+            return;
+        }
+        ItemStack stack = event.getItemStack();
+        Item item = stack.getItem();
+        if (item instanceof ISpoiler) {
+            //add “§k” before all tool tips
+            for (int i = 0; i < event.getToolTip().size(); i++) {
+                event.getToolTip().set(i, TextFormatting.OBFUSCATED + "AAAA");
+                //event.getToolTip().add(i, TextFormatting.OBFUSCATED + "AA"+ event.getToolTip().get(i));
             }
         }
     }

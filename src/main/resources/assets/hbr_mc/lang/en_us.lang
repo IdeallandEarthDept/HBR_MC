@@ -78,6 +78,19 @@ item.gem_black.name=Onyx
 item.gem_amber.name=Jade Amber
 item.gem_droplet.name=Sol Droplet
 
+item.xp_item_1.name=Exp Book
+item.xp_item_1.desc=Craft with Seraph to give it xp.
+
+item.xp_item_2.name=Exp Book II
+item.xp_item_2.desc=Craft with Seraph to give it xp.
+
+item.xp_item_3.name=Exp Book III
+item.xp_item_3.desc=Craft with Seraph to give it xp.
+
+
+item.leaf_circlet.name=Leaf Circlet
+item.leaf_circlet.desc=If you die while this is on your offhand...
+
 item.shard_ss.name=SS Universal Shard
 item.shard_ss.desc=Shard + A = SS, stat preserved
 
@@ -98,10 +111,10 @@ tile.cancer_carpet.desc=Cheap carpet. Used to disable mob spawning, especially c
 
 attribute.name.hbr_mc.attr.str=Strength
 attribute.name.hbr_mc.attr.dex=Dexterity
-attribute.name.hbr_mc.attr.end=Endurance
-attribute.name.hbr_mc.attr.men=Mental
-attribute.name.hbr_mc.attr.int=Intelligence
-attribute.name.hbr_mc.attr.luc=Lucky
+attribute.name.hbr_mc.attr.end=Constitution
+attribute.name.hbr_mc.attr.men=Spirit
+attribute.name.hbr_mc.attr.int=Wisdom
+attribute.name.hbr_mc.attr.luc=Luck
 
 desc.hbr_mc.seraph.broken=[Broken]
 desc.hbr_mc.seraph.dura_format=DP: %s/%s
@@ -111,6 +124,7 @@ desc.hbr_mc.armor.random_points=+%s random attribute point(s)
 
 msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 msg.hbr_mc.apply failed=MISS
+msg.hbr_mc.apply_revive=REVIVED
 
 hbr_mc.potion.skill_atk_up_1=Skill Atk UP
 hbr_mc.potion.skill_atk_up_2=Skill Atk UP
@@ -130,6 +144,19 @@ configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration
 configgui.hbr_mc.category.Menu0.GeneralConf=General Config
 configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS Lottery Chance
 configgui.hbr_mc.category.Menu0.CombatConf=Combat Config
+configgui.hbr_mc.category.Menu0.OperationConf=Operation Config
+conf.operation.teleport_enable=Enable Teleport
+conf.operation.teleport_enable_side=Teleport at Side Click on Blocks
+conf.operation.teleport_enable_top=Teleport at Top Click on Blocks
+conf.operation.teleport_at_rough_surface=Teleport at Rough Surface
 
 hbr_mc.shared.wip.desc=Work in Progress
-hbr_mc.msg.starter_kit_given=I have been waiting for you. Please take this.
+hbr_mc.msg.starter_kit_given=[Nanami Nanase]I have been waiting for you. Please take this.
+hbr_mc.msg.bonus_for_advancements=Obtained %s crystal(s)
+hbr_mc.msg.spoiler_disabled=The world have spoilers DISABLED. If you want full experience, set config ALLOW_SPOILERS = true.
+hbr_mc.msg.spoiler_enabled=The world have spoilers ENABLED. If you want no spoilers, set config ALLOW_SPOILERS = false (at server side on servers).
+hbr_mc.msg.teleport_allow=Seraph Teleportation is now ALLOWED.
+hbr_mc.msg.teleport_deny=Seraph Teleportation is now DENIED.
+hbr_mc.msg.teleport_command=Use /srtp to toggle Seraph teleportation.
+hbr_mc.msg.teleport_command_rough=Use /srtpr to toggle Seraph teleportation at rough block faces click.
+

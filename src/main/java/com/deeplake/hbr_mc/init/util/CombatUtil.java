@@ -7,10 +7,13 @@ import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.world.World;
 
 import java.util.List;
+
+import static com.deeplake.hbr_mc.items.seraph.SeraphUtil.isUsingSeraph;
 
 public class CombatUtil {
     public static final float DEFAULT_HEAL_CAP = 200;
@@ -20,7 +23,7 @@ public class CombatUtil {
         return isHBRAttackProcess;
     }
 
-    public static void areaHeal(World worldIn, EntityPlayer caster, float minHeal, float cap) {
+    public static List<EntityPlayer> areaHeal(World worldIn, EntityPlayer caster, float minHeal, float cap) {
         List<EntityPlayer> players = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityPlayer.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
         );
@@ -31,6 +34,21 @@ public class CombatUtil {
                 players) {
             SeraphUtil.cureSeraph(SeraphUtil.getFirstSeraphNonBrokenInHand(player), healAmount);
         }
+        return players;
+    }
+
+    public static List<EntityPlayer> areaRevive(World worldIn, EntityPlayer caster) {
+        List<EntityPlayer> players = EntityUtil.getEntitiesWithinAABB(
+                worldIn,EntityPlayer.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
+        );
+        for (EntityPlayer player :
+                players) {
+            if (SeraphUtil.reviveSeraph(SeraphUtil.getFirstSeraphInHand(player), 1))
+            {
+                CommonFunctions.SafeSendMsgToPlayer(player, "msg.hbr_mc.apply_revive");
+            }
+        }
+        return players;
     }
 
     public static List<EntityLiving> areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
@@ -88,6 +106,21 @@ public class CombatUtil {
         boolean extra = target.getAbsorptionAmount() <= 0;
         attackAsHBR(player, target, EnumAttrType.DEX_FOCUS, EnumDefType.END,
                 extra ? minPotency * bonusRate : minPotency, cap);
+    }
+
+    public static boolean canBreakShield(DamageSource source)
+    {
+        if (source == DamageSource.OUT_OF_WORLD)
+        {
+            return true;
+        }
+
+        if (isUsingSeraph(source.getTrueSource()))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public enum EnumAttrType {

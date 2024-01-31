@@ -1,7 +1,6 @@
 package com.deeplake.hbr_mc.entities;
 
 import com.deeplake.hbr_mc.init.RegisterAttr;
-import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -10,9 +9,11 @@ import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
@@ -150,5 +151,44 @@ public class EntityBase extends EntityCreature {
             CombatUtil.attackAsHBR(this, (EntityLivingBase) target, 150, damage);
         }
         return target.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
+    }
+
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+    }
+
+    public boolean hasDP()
+    {
+        return false;
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        if (hasDP())
+        {
+            if (getAbsorptionAmount() > 0 && !CombatUtil.canBreakShield(source))
+            {
+                if (!world.isRemote && source.getTrueSource() != null)
+                {
+                    world.playSound(null, posX, posY, posZ, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.HOSTILE, 1.0f, 1.0f);
+                }
+            }
+        }
+        return super.attackEntityFrom(source, amount);
+    }
+
+    //Cannot be attacked when it still has shell
+    @Override
+    public boolean isEntityInvulnerable(DamageSource source) {
+        if (hasDP())
+        {
+            if (getAbsorptionAmount() > 0 && !CombatUtil.canBreakShield(source))
+            {
+                return true;
+            }
+        }
+        return super.isEntityInvulnerable(source);
     }
 }
