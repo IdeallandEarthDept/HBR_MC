@@ -6,6 +6,7 @@ item.brave_blue.name=BraveBlue
 item.brave_blue.skill.0=[Interact Enemy]ST attack, to HP+30%%
 
 item.brave_blue_ss.name=BraveBlue SS
+item.brave_blue_ss.toast=My legends unfold at here at once!
 item.brave_blue_ss.skill.0=[Sneak RMB]Repair nearby seraph (%d/%d)
 item.brave_blue_ss.skill.1=[Interact Enemy]Strong ST attack, to HP+30%% (%d/%d)
 
@@ -13,6 +14,7 @@ item.rapid_fire.name=RapidFire
 item.rapid_fire.skill.0=[RMB]Spreading Atk, to DP+30%%
 
 item.rapid_fire_ss.name=RapidFire 終いのSpitfire
+item.rapid_fire_ss.toast=Hello world!
 item.rapid_fire_ss.skill.0=[RMB]Spreading Atk, to DP+30%%
 item.rapid_fire_ss.skill.1=[Interact Enemy]Strong ST attack, to HP+30%% (%d/%d)
 
@@ -20,6 +22,7 @@ item.supreme_edge.name=SupremeEdge(Serious or Stupid)
 item.supreme_edge.skill.0=[RMB]Nearby frontline skill atk up
 
 item.supreme_edge_ss.name=SupremeEdge(SS)
+item.supreme_edge_ss.toast=More than one truth prevails!
 item.supreme_edge_ss.skill.0=??
 item.supreme_edge_ss.skill.1=??
 
@@ -27,6 +30,7 @@ item.clavis.name=Clavis(Plain or Wild)
 item.clavis.skill.0=スタンブレード
 
 item.clavis_ss.name=Clavis(Ikki Burst Strike)
+item.clavis_ss.toast=Presenting the Savior!
 item.clavis_ss.skill.0=フルスイング
 item.clavis_ss.skill.1=リミット・インパクト(%d/%d)
 
@@ -34,6 +38,7 @@ item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
 item.phantom_weaver.skill.0=
 
 item.phantom_weaver_ss.name=Phantom Weaver(SS)
+item.phantom_weaver_ss.toast=Worldwide top class!
 item.phantom_weaver_ss.skill.0=??
 item.phantom_weaver_ss.skill.1=??
 
@@ -41,8 +46,21 @@ item.glitter_shadow.name=Glitter Shadow(Laugh or Cry)
 item.glitter_shadow.skill.0=
 
 item.glitter_shadow_ss.name=Glitter Shadow(SS)
+item.glitter_shadow_ss.toast=I will crush you like a bug!
 item.glitter_shadow_ss.skill.0=??
 item.glitter_shadow_ss.skill.1=??
+
+item.kazabana.name=Kazabana
+item.kazabana.skill.0=
+
+item.fatal_null.name=Fatal Null
+item.fatal_null.skill.0=
+
+item.fatal_null_ss.name=Fatal Null(SS)
+item.fatal_null_ss.skill.0=
+
+item.scarlet_valet.name=Scarlet Valet
+item.scarlet_valet.skill.0=
 
 item.cancer_shell.name=Shell Fragment
 item.cancer_helmet.name=Cancer Helmet
@@ -57,10 +75,36 @@ item.gem_black.name=Onyx
 item.gem_amber.name=Jade Amber
 item.gem_droplet.name=Sol Droplet
 
+item.xp_item_1.name=Exp Book
+item.xp_item_1.desc=Craft with Seraph to give it xp.
 
+item.xp_item_2.name=Exp Book II
+item.xp_item_2.desc=Craft with Seraph to give it xp.
+
+item.xp_item_3.name=Exp Book III
+item.xp_item_3.desc=Craft with Seraph to give it xp.
+
+
+item.leaf_circlet.name=Leaf Circlet
+item.leaf_circlet.desc=If you die while this is on your offhand...
+
+item.shard_ss.name=SS Universal Shard
+item.shard_ss.desc=Shard + A 
+
+item.lottery.name=Lottery Ticket
+item.lottery.desc=Consume to get random Seraph.
+
+item.crystal_lottery.name=Free Crystal
+item.crystal_lottery.desc=Combine 3x2 to get a lottery ticket.
+
+hbr_mc.msg.dummy_hurt=Damage: %s to [uid%s]Attr
 
 tile.heal_stash.name=Heal Stash
 tile.heal_stash_perma.name=Heal Stash Perma
+tile.energy_ore.name=Energy Ore
+tile.crystal_ore.name=Free Crystal Ore
+tile.cancer_carpet.name=Cancer Carpet
+tile.cancer_carpet.desc=Cheap carpet. Used to disable mob spawning, especially cancers.
 
 attribute.name.hbr_mc.attr.str=Strength
 attribute.name.hbr_mc.attr.dex=Dexterity
@@ -76,15 +120,38 @@ desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
 desc.hbr_mc.armor.random_points=+%s random attribute point(s)
 
 msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
+msg.hbr_mc.apply failed=MISS
+msg.hbr_mc.apply_revive=REVIVED
 
 hbr_mc.potion.skill_atk_up_1=Skill Atk UP
 hbr_mc.potion.skill_atk_up_2=Skill Atk UP
 hbr_mc.potion.skill_atk_up_3=Skill Atk UP
+hbr_mc.potion.self_recoil=SELF RECOIL
+hbr_mc.potion.stunned=STUNNED
 
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper
+entity.cancer_test.name=VR Cancer
+entity.cancer_test_50.name=VR Cancer (50)
+entity.cancer_test_100.name=VR Cancer (100)
 
 configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration
+configgui.hbr_mc.category.Menu0.GeneralConf=General Config
+configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS Lottery Chance
+configgui.hbr_mc.category.Menu0.CombatConf=Combat Config
+configgui.hbr_mc.category.Menu0.OperationConf=Operation Config
+conf.operation.teleport_enable=Enable Teleport
+conf.operation.teleport_enable_side=Teleport at Side Click on Blocks
+conf.operation.teleport_enable_top=Teleport at Top Click on Blocks
+conf.operation.teleport_at_rough_surface=Teleport at Rough Surface
 
-hbr_mc.shared.wip.desc=Work in Progress
+hbr_mc.msg.starter_kit_given=[Nanami Nanase]I have been waiting for you. Please take this.
+hbr_mc.msg.bonus_for_advancements=Obtained %s crystal(s)
+hbr_mc.msg.spoiler_disabled=The world have spoilers DISABLED. If you want full experience, set config ALLOW_SPOILERS 
+hbr_mc.msg.spoiler_enabled=The world have spoilers ENABLED. If you want no spoilers, set config ALLOW_SPOILERS 
+hbr_mc.msg.teleport_allow=Seraph Teleportation is now ALLOWED.
+hbr_mc.msg.teleport_deny=Seraph Teleportation is now DENIED.
+hbr_mc.msg.teleport_command=Use /srtp to toggle Seraph teleportation.
+hbr_mc.msg.teleport_command_rough=Use /srtpr to toggle Seraph teleportation at rough block faces click.
+hbr_mc.shared.wip.desc=WIP
