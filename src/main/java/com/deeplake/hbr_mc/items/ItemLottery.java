@@ -75,7 +75,7 @@ public class ItemLottery extends ItemBase{
                 world.playSound(null,player.getPosition(),SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.PLAYERS, 1.5f, 1f);
                 world.playSound(null,player.getPosition(),SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, SoundCategory.PLAYERS, 1.5f, 1f);
 
-                String toast = I18n.translateToLocal(result.getUnlocalizedNameInefficiently(stack1) + ".toast").trim();
+                String toast = result.getUnlocalizedNameInefficiently(stack1) + ".toast";
 
                 ITextComponent itextcomponent = new TextComponentTranslation(toast);
                 itextcomponent.setStyle(new Style().setColor(TextFormatting.LIGHT_PURPLE));
