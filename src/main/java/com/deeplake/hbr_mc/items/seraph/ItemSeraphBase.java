@@ -27,6 +27,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
@@ -137,6 +138,12 @@ public class ItemSeraphBase extends ItemBase {
 //    {
 //        return stack.getItem() == Items.SHIELD;
 //    }
+
+    public static void eraseAttrDesc(ItemStack stack)
+    {
+        IDLNBTUtil.setInt(stack,"HideFlags",
+                IDLNBTUtil.GetInt(stack, "HideFlags") | 2);
+    }
 
     //onItemUseFirst?
     @Override
@@ -506,8 +513,11 @@ public class ItemSeraphBase extends ItemBase {
     {
         if (this.isInCreativeTab(tab))
         {
-            items.add(new ItemStack(this));
             ItemStack stack = new ItemStack(this);
+            eraseAttrDesc(stack);
+            items.add(stack);
+
+            stack = stack.copy();
             for (int i = 0; i < getMaxSkillSlot(stack); i++) {
                 IDLNBTUtil.setInt(stack, SKILL_LEVEL[i], getSkillLevelMax(stack, i));
             }

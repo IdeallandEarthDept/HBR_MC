@@ -89,6 +89,7 @@ public class ItemLottery extends ItemBase{
             }
 
             CommonFunctions.SafeSendMsgToPlayer(TextFormatting.ITALIC, player, stack1.getDisplayName());
+            ItemSeraphBase.eraseAttrDesc(stack1);
             player.addItemStackToInventory(stack1);
            ;
             //player.addExperience(10);
