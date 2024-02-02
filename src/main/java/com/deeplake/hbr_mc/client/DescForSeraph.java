@@ -1,10 +1,14 @@
 package com.deeplake.hbr_mc.client;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,6 +33,7 @@ public class DescForSeraph {
             {
                 //todo: type check
                 ItemSeraphBase item = (ItemSeraphBase) stack.getItem();
+                int offset = 0;
                 int level = SeraphUtil.getLevel(stack);
                 int lvMax = SeraphUtil.getMaxLevel(stack);
                 if (level == lvMax)
@@ -64,8 +69,41 @@ public class DescForSeraph {
                     }
                     strings.add(1, s.toString());
                 }
+
+                if (event.getFlags().isAdvanced())
+                {
+                    if (stack.isItemDamaged())
+                    {
+                        offset += 1;
+                    }
+
+                    offset += 1;
+
+                    if (stack.hasTagCompound())
+                    {
+                        offset += 1;
+                    }
+                }
+
+                addDesc(strings, RegisterAttr.STR, item, stack, offset);
+                addDesc(strings, RegisterAttr.DEX, item, stack, offset);
+                addDesc(strings, RegisterAttr.END, item, stack, offset);
+                addDesc(strings, RegisterAttr.MEN, item, stack, offset);
+                addDesc(strings, RegisterAttr.INT, item, stack, offset);
+                addDesc(strings, RegisterAttr.LUC, item, stack, offset);
+
             }
         }
+    }
+
+    private static void addDesc(List<String> strings, IAttribute attr, ItemSeraphBase seraphBase, ItemStack stack, int offset) {
+        //
+        strings.add(strings.size() - offset,
+                I18n.translateToLocalFormatted(
+                        "desc.hbr_mc.seraph.attr_desc",
+                        I18n.translateToLocal("attribute.name." +attr.getName()),
+                        String.format("%.0f",seraphBase.getAttrValue(stack, attr)),
+                        String.format("%.0f",seraphBase.getAttrValuePercent(stack, attr)*100)));
     }
 
     static final String[] SKILL_DESC =

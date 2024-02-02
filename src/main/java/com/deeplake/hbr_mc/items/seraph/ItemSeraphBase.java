@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.items.seraph;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.designs.SeraphAttrData;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
@@ -26,6 +27,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
@@ -55,6 +57,7 @@ public class ItemSeraphBase extends ItemBase {
     public static final String SERAPH_MODIFIER_BASE = "Seraph modifier base";
     public static final int SLOT_ULTI = 1;
     public EnumSeraphRarity seraphRarity = EnumSeraphRarity.A;
+    public EnumSeraphClass seraphClass = EnumSeraphClass.FIGHTER;
     public final EnumSeraphType type;
 
     UUID uuid = UUID.fromString("7cf25a1c-6768-4836-8d24-ec64ed2a4ef7");
@@ -136,6 +139,12 @@ public class ItemSeraphBase extends ItemBase {
 //        return stack.getItem() == Items.SHIELD;
 //    }
 
+    public static void eraseAttrDesc(ItemStack stack)
+    {
+        IDLNBTUtil.setInt(stack,"HideFlags",
+                IDLNBTUtil.GetInt(stack, "HideFlags") | 2);
+    }
+
     //onItemUseFirst?
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
@@ -145,6 +154,7 @@ public class ItemSeraphBase extends ItemBase {
         if (!worldIn.isRemote)
         {
             boolean canTeleport = IDLNBTUtil.getPlayerIdeallandBoolSafe(player, SERAPH_TELEPORT);
+            //canTeleport &= player.isSprinting();
             if (!canTeleport)
             {
                 return EnumActionResult.PASS;
@@ -244,7 +254,18 @@ public class ItemSeraphBase extends ItemBase {
 
     @Override
     public int getMaxDamage(ItemStack stack) {
-        return 1024;
+        int level = SeraphUtil.getLevel(stack);
+        int base = 600 + 7 * level;
+        switch (seraphRarity) {
+            case SS:
+                return (int) (base*1.7f+200);
+            case S:
+                return (int) (base*1.5f+50);
+            case A:
+                return (int) (base*1.3f);
+            default:
+                throw new IllegalStateException("Unexpected value: " + seraphRarity);
+        }
     }
 
     @Override
@@ -300,15 +321,31 @@ public class ItemSeraphBase extends ItemBase {
         return multimap;
     }
 
-    private void addToMap(Multimap<String, AttributeModifier> multimap, IAttribute str, ItemStack stack) {
-        multimap.put(str.getName(), new AttributeModifier(uuid, SERAPH_MODIFIER_BASE, getAttrValue(stack, str), 0));
+    private void addToMap(Multimap<String, AttributeModifier> multimap, IAttribute attr, ItemStack stack) {
+        multimap.put(attr.getName(), new AttributeModifier(uuid, SERAPH_MODIFIER_BASE, getAttrValue(stack, attr), 0));
+        multimap.put(attr.getName(), new AttributeModifier(uuidPer, SERAPH_MODIFIER_BASE, getAttrValuePercent(stack, attr), 1));
     }
 
     public float getAttrValue(ItemStack stack, IAttribute attr)
     {
-        return SeraphUtil.getLevel(stack) + 7;
+        int base = SeraphUtil.getLevel(stack) + 7;
+        switch (seraphRarity)
+        {
+            case SS:
+                return base+15;
+            case S:
+                return base+5;
+            case A:
+                return base;
+            default:
+                throw new IllegalStateException("Unexpected value: " + seraphRarity);
+        }
     }
 
+    public float getAttrValuePercent(ItemStack stack, IAttribute attr)
+    {
+        return SeraphAttrData.getData(seraphRarity, seraphClass).get(attr);
+    }
 
     //Cast Skill
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
@@ -476,8 +513,11 @@ public class ItemSeraphBase extends ItemBase {
     {
         if (this.isInCreativeTab(tab))
         {
-            items.add(new ItemStack(this));
             ItemStack stack = new ItemStack(this);
+            eraseAttrDesc(stack);
+            items.add(stack);
+
+            stack = stack.copy();
             for (int i = 0; i < getMaxSkillSlot(stack); i++) {
                 IDLNBTUtil.setInt(stack, SKILL_LEVEL[i], getSkillLevelMax(stack, i));
             }
