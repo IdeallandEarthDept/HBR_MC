@@ -147,6 +147,7 @@ public class ItemSeraphBase extends ItemBase {
         if (!worldIn.isRemote)
         {
             boolean canTeleport = IDLNBTUtil.getPlayerIdeallandBoolSafe(player, SERAPH_TELEPORT);
+            //canTeleport &= player.isSprinting();
             if (!canTeleport)
             {
                 return EnumActionResult.PASS;
@@ -313,9 +314,9 @@ public class ItemSeraphBase extends ItemBase {
         return multimap;
     }
 
-    private void addToMap(Multimap<String, AttributeModifier> multimap, IAttribute str, ItemStack stack) {
-        multimap.put(str.getName(), new AttributeModifier(uuid, SERAPH_MODIFIER_BASE, getAttrValue(stack, str), 0));
-        multimap.put(str.getName(), new AttributeModifier(uuidPer, SERAPH_MODIFIER_BASE, getAttrValuePercent(stack, str), 1));
+    private void addToMap(Multimap<String, AttributeModifier> multimap, IAttribute attr, ItemStack stack) {
+        multimap.put(attr.getName(), new AttributeModifier(uuid, SERAPH_MODIFIER_BASE, getAttrValue(stack, attr), 0));
+        multimap.put(attr.getName(), new AttributeModifier(uuidPer, SERAPH_MODIFIER_BASE, getAttrValuePercent(stack, attr), 1));
     }
 
     public float getAttrValue(ItemStack stack, IAttribute attr)

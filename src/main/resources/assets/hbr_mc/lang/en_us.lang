@@ -121,6 +121,7 @@ desc.hbr_mc.seraph.dura_format=DP: %s/%s
 desc.hbr_mc.seraph.level_format=Lv.%s (%s/%s)
 desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
 desc.hbr_mc.armor.random_points=+%s random attribute point(s)
+desc.hbr_mc.seraph.attr_desc=§d%s §b+%s +%s%%
 
 msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 msg.hbr_mc.apply failed=MISS
@@ -159,4 +160,3 @@ hbr_mc.msg.teleport_allow=Seraph Teleportation is now ALLOWED.
 hbr_mc.msg.teleport_deny=Seraph Teleportation is now DENIED.
 hbr_mc.msg.teleport_command=Use /srtp to toggle Seraph teleportation.
 hbr_mc.msg.teleport_command_rough=Use /srtpr to toggle Seraph teleportation at rough block faces click.
-

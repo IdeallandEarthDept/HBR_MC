@@ -1,8 +1,10 @@
 package com.deeplake.hbr_mc.client;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
@@ -64,8 +66,26 @@ public class DescForSeraph {
                     }
                     strings.add(1, s.toString());
                 }
+
+                addDesc(strings, RegisterAttr.STR, item, stack);
+                addDesc(strings, RegisterAttr.DEX, item, stack);
+                addDesc(strings, RegisterAttr.END, item, stack);
+                addDesc(strings, RegisterAttr.MEN, item, stack);
+                addDesc(strings, RegisterAttr.INT, item, stack);
+                addDesc(strings, RegisterAttr.LUC, item, stack);
+
             }
         }
+    }
+
+    private static void addDesc(List<String> strings, IAttribute attr, ItemSeraphBase seraphBase, ItemStack stack) {
+        //
+        strings.add(strings.size() - 1,
+                I18n.translateToLocalFormatted(
+                        "desc.hbr_mc.seraph.attr_desc",
+                        I18n.translateToLocal("attribute.name." +attr.getName()),
+                        String.format("%.0f",seraphBase.getAttrValue(stack, attr)),
+                        String.format("%.0f",seraphBase.getAttrValuePercent(stack, attr)*100)));
     }
 
     static final String[] SKILL_DESC =
