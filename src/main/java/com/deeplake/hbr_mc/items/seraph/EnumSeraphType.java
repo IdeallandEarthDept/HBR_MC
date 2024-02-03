@@ -7,6 +7,7 @@ public enum EnumSeraphType {
     LARGE_SWORD(EnumSeraphAtkMode.SMASH,1),
     GUN(EnumSeraphAtkMode.SHOOT,3),
     SWORD(EnumSeraphAtkMode.SLASH,3),
+    SCYTHE(EnumSeraphAtkMode.SLASH,3),
     ;
 
     EnumSeraphType(EnumSeraphAtkMode mode, int hitCount) {

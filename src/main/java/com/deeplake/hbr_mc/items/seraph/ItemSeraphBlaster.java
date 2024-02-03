@@ -12,14 +12,16 @@ public class ItemSeraphBlaster extends ItemSeraphBase{
         super(name, seraphType);
     }
 
+    Set<String> toolSet = com.google.common.collect.ImmutableSet.of("pickaxe","axe","shovel");
+
     @Override
     public float getDestroySpeed(ItemStack stack, IBlockState state) {
-        return 3.0F;
+        return 80.0F;
     }
 
     @Override
     public int getHarvestLevel(ItemStack stack, String toolClass, @Nullable EntityPlayer player, @Nullable IBlockState blockState) {
-        return 0;
+        return -1;
     }
 
     @Override

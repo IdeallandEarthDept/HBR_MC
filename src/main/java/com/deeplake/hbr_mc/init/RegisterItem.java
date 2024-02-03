@@ -1,6 +1,8 @@
 package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.items.*;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphBlaster;
 import com.deeplake.hbr_mc.items.seraph.a31.*;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.SoundEvents;
@@ -35,7 +37,7 @@ public class RegisterItem {
     public static final Item SUPERME_EDGE = new ItemSupremeEdge("supreme_edge");
     public static final Item SUPERME_EDGE_SS = new ItemWIP("supreme_edge_ss");
 
-    public static final Item GLITTER_SHADOW = new ItemWIP("glitter_shadow");
+    public static final Item GLITTER_SHADOW = new ItemSeraphBlaster("glitter_shadow", EnumSeraphType.SCYTHE);
     public static final Item GLITTER_SHADOW_SS = new ItemWIP("glitter_shadow_ss");
 
     public static final Item PHANTOM_WEAVER = new ItemPhantomWeaver("phantom_weaver");
