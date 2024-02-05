@@ -141,6 +141,14 @@ entity.cancer_test.name=VR Cancer
 entity.cancer_test_50.name=VR Cancer (50)
 entity.cancer_test_100.name=VR Cancer (100)
 
+entity.i_natsume.name=Natsume
+entity.l_kayamori.name=Kayamori
+entity.y_izumi.name=Izumi
+entity.m_aikawa.name=Aikawa
+entity.t_tsukasa.name=Tsukasa
+entity.k_asakura.name=Asakura
+entity.t_kunimi.name=Kunimi
+
 configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration
 configgui.hbr_mc.category.Menu0.GeneralConf=General Config
 configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS Lottery Chance
@@ -160,3 +168,4 @@ hbr_mc.msg.teleport_allow=Seraph Teleportation is now ALLOWED.
 hbr_mc.msg.teleport_deny=Seraph Teleportation is now DENIED.
 hbr_mc.msg.teleport_command=Use /srtp to toggle Seraph teleportation.
 hbr_mc.msg.teleport_command_rough=Use /srtpr to toggle Seraph teleportation at rough block faces click.
+

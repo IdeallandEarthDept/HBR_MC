@@ -4,6 +4,7 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.EntityNabiSlime;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.EntityINatsume;
+import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -20,6 +21,16 @@ public class RegisterEntities {
         registerEntity("c_marionette", EntityMarionette.class, 64, 0x000000, 0xcccccc);
         registerEntity("c_doll", EntityDoll.class, 64, 0x000000, 0xcccccc);
         registerEntity("c_small_hopper", EntitySmallHopper.class, 64, 0x000000, 0xcccccc);
+
+        //31a
+        registerEntity("l_kayamori", EntityLKayamori.class, 64, 0x4b7fdc, 0xe0c385);
+        registerEntity("y_izumi", EntityYIzumi.class, 64, 0x4b7fdc, 0xe0c385);
+        registerEntity("m_aikawa", EntityMAikawa.class, 64, 0x4b7fdc, 0xe0c385);
+        registerEntity("t_tsukasa", EntityTTsukasa.class, 64, 0x4b7fdc, 0xe0c385);
+        registerEntity("k_asakura", EntityKAsakura.class, 64, 0x4b7fdc, 0xe0c385);
+        registerEntity("t_kunimi", EntityTKunimi.class, 64, 0x4b7fdc, 0xe0c385);
+
+        //31f
         registerEntity("i_nastume", EntityINatsume.class, 64, 0x2a2b2c, 0xc03d3d);
         registerEntityNoEgg("bullet", EntityHBRProjectile.class);
 

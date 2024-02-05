@@ -114,6 +114,14 @@ entity.cancer_test.name=训练机
 entity.cancer_test_50.name=训练机 (50)
 entity.cancer_test_100.name=训练机 (100)
 
+entity.i_natsume.name=夏目 祈
+entity.l_kayamori.name=茅森 月歌
+entity.y_izumi.name=和泉 由希
+entity.m_aikawa.name=逢川 惠
+entity.t_tsukasa.name=东城 司
+entity.k_asakura.name=朝仓 可怜
+entity.t_kunimi.name=国见 玉
+
 configgui.idealland.category.Menu0.SpawnConf=生成设置
 configgui.hbr_mc.category.Menu0.GeneralConf=通用设置
 configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS抽取概率
@@ -153,3 +161,5 @@ item.xp_item_3.desc=与炽天使合成，可提升大量经验值的道具。
 
 item.leaf_circlet.name=花环
 item.leaf_circlet.desc=若你在副手佩戴花环时不幸牺牲……
+
+desc.hbr_mc.seraph.attr_desc=§d%s §b+%s +%s%%

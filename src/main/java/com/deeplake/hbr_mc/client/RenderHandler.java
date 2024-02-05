@@ -10,6 +10,7 @@ import com.deeplake.hbr_mc.entities.cancer.EntityDoll;
 import com.deeplake.hbr_mc.entities.cancer.EntityMarionette;
 import com.deeplake.hbr_mc.entities.cancer.EntitySmallHopper;
 import com.deeplake.hbr_mc.entities.npc.EntityINatsume;
+import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityIdlProjectile;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -17,6 +18,20 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class RenderHandler {
     public static void registerEntityRenders() {
+        //31A
+        RenderingRegistry.registerEntityRenderingHandler(EntityLKayamori.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/luka_kayamori/luka"));
+        RenderingRegistry.registerEntityRenderingHandler(EntityYIzumi.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/yuki_izumi/yuki"));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMAikawa.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/megumi_aikawa/megumi"));
+        RenderingRegistry.registerEntityRenderingHandler(EntityTTsukasa.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/tojo_tsukasa/tojo"));
+        RenderingRegistry.registerEntityRenderingHandler(EntityKAsakura.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/karen_asakura/karen"));
+        RenderingRegistry.registerEntityRenderingHandler(EntityTKunimi.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/tama_kunimi/tama"));
+
         RenderingRegistry.registerEntityRenderingHandler(EntityINatsume.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/inori_natsume/inori_natsume"));
         RenderingRegistry.registerEntityRenderingHandler(EntityMarionette.class, RenderMarionette::new);
