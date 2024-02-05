@@ -8,6 +8,8 @@ item.test3.name=Test Item
 item.brave_blue.name=BraveBlue
 item.brave_blue.skill.0=[Interact Enemy]ST attack, to HP+30%%
 
+item.brave_blue_s.name=BraveBlue S
+
 item.brave_blue_ss.name=BraveBlue SS
 item.brave_blue_ss.toast=My legends unfold at here at once!
 item.brave_blue_ss.skill.0=[Sneak RMB]Repair nearby seraph (%d/%d)
@@ -15,6 +17,8 @@ item.brave_blue_ss.skill.1=[Interact Enemy]Strong ST attack, to HP+30%% (%d/%d)
 
 item.rapid_fire.name=RapidFire
 item.rapid_fire.skill.0=[RMB]Spreading Atk, to DP+30%%
+
+item.rapid_fire_s.name=RapidFire S
 
 item.rapid_fire_ss.name=RapidFire 終いのSpitfire
 item.rapid_fire_ss.toast=Hello world!

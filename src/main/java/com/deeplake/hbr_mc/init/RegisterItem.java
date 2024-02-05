@@ -26,21 +26,27 @@ public class RegisterItem {
     public static final List<Item> ITEM_LIST = new ArrayList<>();
     //31A
     public static final Item BRAVE_BLUE = new ItemBraveBlue("brave_blue");
+    public static final Item BRAVE_BLUE_S = new ItemWIP("brave_blue_s");
     public static final Item BRAVE_BLUE_SS = new ItemBraveBlueSS("brave_blue_ss");
 
     public static final Item RAPID_FIRE = new ItemRapidFire("rapid_fire");
+    public static final Item RAPID_FIRE_S = new ItemWIP("rapid_fire_s");
     public static final Item RAPID_FIRE_SS = new ItemRapidFireSS("rapid_fire_ss");
 
     public static final Item CLAVIS = new ItemClavis("clavis");
+    public static final Item CLAVIS_S = new ItemWIP("clavis_s");
     public static final Item CLAVIS_SS = new ItemClavisSS("clavis_ss");
     
     public static final Item SUPERME_EDGE = new ItemSupremeEdge("supreme_edge");
+    public static final Item SUPERME_EDGE_S = new ItemWIP("supreme_edge_s");
     public static final Item SUPERME_EDGE_SS = new ItemWIP("supreme_edge_ss");
 
     public static final Item GLITTER_SHADOW = new ItemSeraphBlaster("glitter_shadow", EnumSeraphType.SCYTHE);
+    public static final Item GLITTER_SHADOW_S = new ItemWIP("glitter_shadow_s");
     public static final Item GLITTER_SHADOW_SS = new ItemWIP("glitter_shadow_ss");
 
     public static final Item PHANTOM_WEAVER = new ItemPhantomWeaver("phantom_weaver");
+    public static final Item PHANTOM_WEAVER_S = new ItemWIP("phantom_weaver_s");
     public static final Item PHANTOM_WEAVER_SS = new ItemPhantomWeaverSS("phantom_weaver_ss");
 
     //31B
@@ -49,10 +55,14 @@ public class RegisterItem {
 
     //31C
     public static final Item SCARLET_VALET = new ItemWIP("scarlet_valet");
+    public static final Item SCARLET_VALET_S = new ItemWIP("scarlet_valet_s");
     public static final Item SCARLET_VALET_SS = new ItemWIP("scarlet_valet_ss");
 
     //30G
     public static final Item KAZABANA = new ItemWIP("kazabana");
+
+    //31F
+    public static final Item REN = new ItemWIP("ren");
 
     public static final Item GEM_R =       new ItemBase("gem_red");
     public static final Item GEM_Y =       new ItemBase("gem_yellow");
