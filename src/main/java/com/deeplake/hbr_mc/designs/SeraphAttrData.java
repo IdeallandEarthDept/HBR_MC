@@ -57,65 +57,95 @@ public class SeraphAttrData {
         float aBuff = 0.2f;
         HashMap<IAttribute, Float> buffRatio = new HashMap<>();
         //DP +30%+0
-        buffRatio.put(RegisterAttr.STR,0.4f  - aBuff);
-        buffRatio.put(RegisterAttr.DEX,0.2f  - aBuff);
-        buffRatio.put(RegisterAttr.END,0.4f  - aBuff);
-        buffRatio.put(RegisterAttr.MEN,0.35f - aBuff);
-        buffRatio.put(RegisterAttr.INT,0.2f  - aBuff);
-        buffRatio.put(RegisterAttr.LUC,0.35f - aBuff);
-        fighterA = buffRatio;
-
-        buffRatio = new HashMap<>();
-        buffRatio.put(RegisterAttr.STR,0.20f  - aBuff);
-        buffRatio.put(RegisterAttr.DEX,0.40f  - aBuff);
-        buffRatio.put(RegisterAttr.END,0.35f - aBuff);
-        buffRatio.put(RegisterAttr.MEN,0.20f - aBuff);
-        buffRatio.put(RegisterAttr.INT,0.35f  - aBuff);
-        buffRatio.put(RegisterAttr.LUC,0.40f - aBuff);
-        rangerA = buffRatio;
-
-        buffRatio = new HashMap<>();
-        buffRatio.put(RegisterAttr.STR,0.35f  - aBuff);
-        buffRatio.put(RegisterAttr.DEX,0.35f  - aBuff);
-        buffRatio.put(RegisterAttr.END,0.20f - aBuff);
-        buffRatio.put(RegisterAttr.MEN,0.40f - aBuff);
-        buffRatio.put(RegisterAttr.INT,0.40f  - aBuff);
-        buffRatio.put(RegisterAttr.LUC,0.20f - aBuff);
-        wizardA = buffRatio;
-
-        //DP+70%+200
-        //All+15
-        buffRatio = new HashMap<>();
-        buffRatio.put(RegisterAttr.STR,0.35f);
-        buffRatio.put(RegisterAttr.DEX,0.35f);
-        buffRatio.put(RegisterAttr.END,0.30f);//A+0.1
-        buffRatio.put(RegisterAttr.MEN,0.40f);
-        buffRatio.put(RegisterAttr.INT,0.40f);
-        buffRatio.put(RegisterAttr.LUC,0.30f);//A+0.1
-        wizardSS = buffRatio;
-
-        //DP+70%+200
-        //All+15
-        buffRatio = new HashMap<>();
-        buffRatio.put(RegisterAttr.STR,0.40f);
-        buffRatio.put(RegisterAttr.DEX,0.30f);
-        buffRatio.put(RegisterAttr.END,0.40f);
-        buffRatio.put(RegisterAttr.MEN,0.35f);
-        buffRatio.put(RegisterAttr.INT,0.30f);
-        buffRatio.put(RegisterAttr.LUC,0.35f);
-        fighterSS = buffRatio;
-
-        buffRatio = new HashMap<>();
-        buffRatio.put(RegisterAttr.STR,0.30f);
-        buffRatio.put(RegisterAttr.DEX,0.40f);
-        buffRatio.put(RegisterAttr.END,0.35f);
-        buffRatio.put(RegisterAttr.MEN,0.30f);
-        buffRatio.put(RegisterAttr.INT,0.35f);
-        buffRatio.put(RegisterAttr.LUC,0.40f);
-        rangerSS = buffRatio;
+        initA(aBuff, buffRatio);
+        initSS();
 
         //STR
         List<List<SeraphBoostUnit>> totalList = new ArrayList<>();
+        SSBoostSTR(totalList);
+        fighterBoostSS = totalList;
+
+    }
+
+    private static void SSBoostDEX(List<List<SeraphBoostUnit>> totalList) {
+        List<SeraphBoostUnit> unitList = new ArrayList<>();
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 0.1f, EnumBoostType.PERCENT));
+        totalList.add(unitList);
+
+        //group 2
+        unitList = new ArrayList<>();
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END,2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
+        //hit combo +1%
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 1));//global
+        totalList.add(unitList);
+
+        //group 3
+        unitList = new ArrayList<>();
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END,2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END,2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
+        //hit combo +1%
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));//global
+        totalList.add(unitList);
+
+        //group 4
+        unitList = new ArrayList<>();
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));
+        //hit combo +1%
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        //hit combo +1%
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));//global
+        totalList.add(unitList);
+    }
+
+    private static void SSBoostSTR(List<List<SeraphBoostUnit>> totalList) {
         List<SeraphBoostUnit> unitList = new ArrayList<>();
         unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
         unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
@@ -188,9 +218,68 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));//global
         totalList.add(unitList);
-        fighterBoostSS = totalList;
+    }
 
-        unitList = new ArrayList<>();
+    private static void initA(float aBuff, HashMap<IAttribute, Float> buffRatio) {
+        buffRatio.put(RegisterAttr.STR,0.4f  - aBuff);
+        buffRatio.put(RegisterAttr.DEX,0.2f  - aBuff);
+        buffRatio.put(RegisterAttr.END,0.4f  - aBuff);
+        buffRatio.put(RegisterAttr.MEN,0.35f - aBuff);
+        buffRatio.put(RegisterAttr.INT,0.2f  - aBuff);
+        buffRatio.put(RegisterAttr.LUC,0.35f - aBuff);
+        fighterA = buffRatio;
+
+        buffRatio = new HashMap<>();
+        buffRatio.put(RegisterAttr.STR,0.20f  - aBuff);
+        buffRatio.put(RegisterAttr.DEX,0.40f  - aBuff);
+        buffRatio.put(RegisterAttr.END,0.35f - aBuff);
+        buffRatio.put(RegisterAttr.MEN,0.20f - aBuff);
+        buffRatio.put(RegisterAttr.INT,0.35f  - aBuff);
+        buffRatio.put(RegisterAttr.LUC,0.40f - aBuff);
+        rangerA = buffRatio;
+
+        buffRatio = new HashMap<>();
+        buffRatio.put(RegisterAttr.STR,0.35f  - aBuff);
+        buffRatio.put(RegisterAttr.DEX,0.35f  - aBuff);
+        buffRatio.put(RegisterAttr.END,0.20f - aBuff);
+        buffRatio.put(RegisterAttr.MEN,0.40f - aBuff);
+        buffRatio.put(RegisterAttr.INT,0.40f  - aBuff);
+        buffRatio.put(RegisterAttr.LUC,0.20f - aBuff);
+        wizardA = buffRatio;
+    }
+
+    private static void initSS() {
+        HashMap<IAttribute, Float> buffRatio;
+        //DP+70%+200
+        //All+15
+        buffRatio = new HashMap<>();
+        buffRatio.put(RegisterAttr.STR,0.35f);
+        buffRatio.put(RegisterAttr.DEX,0.35f);
+        buffRatio.put(RegisterAttr.END,0.30f);//A+0.1
+        buffRatio.put(RegisterAttr.MEN,0.40f);
+        buffRatio.put(RegisterAttr.INT,0.40f);
+        buffRatio.put(RegisterAttr.LUC,0.30f);//A+0.1
+        wizardSS = buffRatio;
+
+        //DP+70%+200
+        //All+15
+        buffRatio = new HashMap<>();
+        buffRatio.put(RegisterAttr.STR,0.40f);
+        buffRatio.put(RegisterAttr.DEX,0.30f);
+        buffRatio.put(RegisterAttr.END,0.40f);
+        buffRatio.put(RegisterAttr.MEN,0.35f);
+        buffRatio.put(RegisterAttr.INT,0.30f);
+        buffRatio.put(RegisterAttr.LUC,0.35f);
+        fighterSS = buffRatio;
+
+        buffRatio = new HashMap<>();
+        buffRatio.put(RegisterAttr.STR,0.30f);
+        buffRatio.put(RegisterAttr.DEX,0.40f);
+        buffRatio.put(RegisterAttr.END,0.35f);
+        buffRatio.put(RegisterAttr.MEN,0.30f);
+        buffRatio.put(RegisterAttr.INT,0.35f);
+        buffRatio.put(RegisterAttr.LUC,0.40f);
+        rangerSS = buffRatio;
     }
 
 
