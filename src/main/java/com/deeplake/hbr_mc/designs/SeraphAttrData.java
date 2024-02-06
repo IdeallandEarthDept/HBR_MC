@@ -5,9 +5,7 @@ import com.deeplake.hbr_mc.items.seraph.EnumSeraphClass;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
 import net.minecraft.entity.ai.attributes.IAttribute;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class SeraphAttrData {
     public static HashMap<IAttribute, Float> fighterA;
@@ -21,6 +19,8 @@ public class SeraphAttrData {
     public static List<List<SeraphBoostUnit>> fighterBoostSS;
     public static List<List<SeraphBoostUnit>> rangerBoostSS;
     public static List<List<SeraphBoostUnit>> wizardBoostSS;
+
+    public static HashMap<EnumSeraphClass, List<List<SeraphBoostUnit>>> boostSS;
 
     public static HashMap<IAttribute, Float> getData(EnumSeraphRarity rarity, EnumSeraphClass enumSeraphClass)
     {
@@ -74,6 +74,11 @@ public class SeraphAttrData {
         totalList = new ArrayList<>();
         SSBoostWIS(totalList);
         wizardBoostSS = totalList;
+
+        boostSS = new HashMap<>();
+        boostSS.put(EnumSeraphClass.FIGHTER, fighterBoostSS);
+        boostSS.put(EnumSeraphClass.RANGER, rangerBoostSS);
+        boostSS.put(EnumSeraphClass.WIZARD, wizardBoostSS);
     }
 
     private static void SSBoostWIS(List<List<SeraphBoostUnit>> totalList) {
