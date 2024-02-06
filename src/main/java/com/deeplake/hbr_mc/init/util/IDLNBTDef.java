@@ -299,6 +299,7 @@ public class IDLNBTDef {
 	//HBR
     public static final String KEY_BROKEN = "is_broken";
     public static final String KEY_BREAK_THRU = "stack_count";
+    public static final String KEY_BOOST = "boost_lvl";
 
 	public static final String KEY_SERAPH_RETRIEVE = "hbrmc_srph_ret";
 	public static final String KEY_SERAPH_RETRIEVE_NBT = "hbrmc_srph_ret_nbt";

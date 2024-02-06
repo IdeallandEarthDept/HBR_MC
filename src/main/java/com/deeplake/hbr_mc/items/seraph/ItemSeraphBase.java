@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.items.seraph;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.designs.SeraphAttrData;
+import com.deeplake.hbr_mc.designs.SeraphBoostUnit;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
@@ -17,7 +18,8 @@ import com.google.common.collect.Multimap;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.monster.IMob;
@@ -27,7 +29,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
@@ -45,6 +46,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.List;
 import java.util.UUID;
 
 import static com.deeplake.hbr_mc.designs.SeraphTeleportControl.SERAPH_TELEPORT;
@@ -332,19 +334,49 @@ public class ItemSeraphBase extends ItemBase {
         switch (seraphRarity)
         {
             case SS:
-                return base+15;
+                base+=15;
             case S:
-                return base+5;
-            case A:
-                return base;
+                base+=5;
             default:
-                throw new IllegalStateException("Unexpected value: " + seraphRarity);
         }
+
+        int boostLevel = IDLNBTUtil.GetInt(stack, IDLNBTDef.KEY_BOOST);
+        List<SeraphBoostUnit> boostUnits = SeraphAttrData.boostSS.get(seraphClass);
+        for (int i = 0; i < boostLevel; i++) {
+            SeraphBoostUnit unit = boostUnits.get(i);
+            if (unit.attr == attr || unit.attr == null)
+            {
+                switch (unit.type)
+                {
+                    case FIXED:
+                        base += unit.value;
+                        break;
+                }
+            }
+        }
+
+        return base;
     }
 
     public float getAttrValuePercent(ItemStack stack, IAttribute attr)
     {
-        return SeraphAttrData.getData(seraphRarity, seraphClass).get(attr);
+        int boostLevel = IDLNBTUtil.GetInt(stack, IDLNBTDef.KEY_BOOST);
+        List<SeraphBoostUnit> boostUnits = SeraphAttrData.boostSS.get(seraphClass);
+        float base = SeraphAttrData.getData(seraphRarity, seraphClass).get(attr);
+        for (int i = 0; i < boostLevel; i++) {
+            SeraphBoostUnit unit = boostUnits.get(i);
+            if (unit.attr == attr || unit.attr == null)
+            {
+                switch (unit.type)
+                {
+                    case PERCENT:
+                        base += unit.value;
+                        break;
+                }
+            }
+        }
+
+        return base;
     }
 
     //Cast Skill

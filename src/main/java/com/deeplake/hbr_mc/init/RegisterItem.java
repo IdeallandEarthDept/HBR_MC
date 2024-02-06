@@ -70,6 +70,10 @@ public class RegisterItem {
     public static final Item GEM_W =       new ItemBase("gem_white");
     public static final Item GEM_B =       new ItemBase("gem_black");
     public static final Item GEM_AMBER =   new ItemBase("gem_amber");
+
+    public static final Item BOOST_1_A =   new ItemBase("boost_1_a");
+    public static final Item BOOST_1_B =   new ItemBase("boost_1_b");
+    public static final Item BOOST_1_C =   new ItemBase("boost_1_c");
     public static final Item GEM_DROPLET = new ItemBase("gem_droplet");
     public static final Item SHARD_SS = new ItemBase("shard_ss");
     public static final Item GEM_LOTTERY = new ItemBase("crystal_lottery");

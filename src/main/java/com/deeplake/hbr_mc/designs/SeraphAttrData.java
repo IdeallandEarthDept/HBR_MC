@@ -20,7 +20,7 @@ public class SeraphAttrData {
     public static List<List<SeraphBoostUnit>> rangerBoostSS;
     public static List<List<SeraphBoostUnit>> wizardBoostSS;
 
-    public static HashMap<EnumSeraphClass, List<List<SeraphBoostUnit>>> boostSS;
+    public static HashMap<EnumSeraphClass, List<SeraphBoostUnit>> boostSS;
 
     public static HashMap<IAttribute, Float> getData(EnumSeraphRarity rarity, EnumSeraphClass enumSeraphClass)
     {
@@ -62,6 +62,8 @@ public class SeraphAttrData {
         initA(aBuff, buffRatio);
         initSS();
 
+        boostSS = new HashMap<>();
+
         //STR
         List<List<SeraphBoostUnit>> totalList = new ArrayList<>();
         SSBoostSTR(totalList);
@@ -74,11 +76,6 @@ public class SeraphAttrData {
         totalList = new ArrayList<>();
         SSBoostWIS(totalList);
         wizardBoostSS = totalList;
-
-        boostSS = new HashMap<>();
-        boostSS.put(EnumSeraphClass.FIGHTER, fighterBoostSS);
-        boostSS.put(EnumSeraphClass.RANGER, rangerBoostSS);
-        boostSS.put(EnumSeraphClass.WIZARD, wizardBoostSS);
     }
 
     private static void SSBoostWIS(List<List<SeraphBoostUnit>> totalList) {
@@ -92,6 +89,7 @@ public class SeraphAttrData {
         unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
         unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 0.1f, EnumBoostType.PERCENT));
         totalList.add(unitList);
+        List<SeraphBoostUnit> flatList = new ArrayList<>(unitList);
 
         //group 2
         unitList = new ArrayList<>();
@@ -107,6 +105,7 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 1));//global
         totalList.add(unitList);
+        flatList.addAll(unitList);
 
         //group 3
         unitList = new ArrayList<>();
@@ -132,6 +131,7 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));//global
         totalList.add(unitList);
+        flatList.addAll(unitList);
 
         //group 4
         unitList = new ArrayList<>();
@@ -157,6 +157,8 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));//global
         totalList.add(unitList);
+        flatList.addAll(unitList);
+        boostSS.put(EnumSeraphClass.WIZARD, flatList);
     }
 
     private static void SSBoostDEX(List<List<SeraphBoostUnit>> totalList) {
@@ -170,6 +172,7 @@ public class SeraphAttrData {
         unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
         unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 0.1f, EnumBoostType.PERCENT));
         totalList.add(unitList);
+        List<SeraphBoostUnit> flatList = new ArrayList<>(unitList);
 
         //group 2
         unitList = new ArrayList<>();
@@ -185,6 +188,7 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 1));//global
         totalList.add(unitList);
+        flatList.addAll(unitList);
 
         //group 3
         unitList = new ArrayList<>();
@@ -210,6 +214,7 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));//global
         totalList.add(unitList);
+        flatList.addAll(unitList);
 
         //group 4
         unitList = new ArrayList<>();
@@ -235,6 +240,8 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));//global
         totalList.add(unitList);
+        flatList.addAll(unitList);
+        boostSS.put(EnumSeraphClass.RANGER, flatList);
     }
 
     private static void SSBoostSTR(List<List<SeraphBoostUnit>> totalList) {
@@ -248,6 +255,7 @@ public class SeraphAttrData {
         unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
         unitList.add(new SeraphBoostUnit(RegisterAttr.END, 0.1f, EnumBoostType.PERCENT));
         totalList.add(unitList);
+        List<SeraphBoostUnit> flatList = new ArrayList<>(unitList);
 
         unitList = new ArrayList<>();
         unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
@@ -262,6 +270,7 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 1));//global
         totalList.add(unitList);
+        flatList.addAll(unitList);
 
         unitList = new ArrayList<>();
         unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
@@ -286,6 +295,7 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));//global
         totalList.add(unitList);
+        flatList.addAll(unitList);
 
         unitList = new ArrayList<>();
         unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
@@ -310,6 +320,8 @@ public class SeraphAttrData {
         //hit combo +1%
         unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));//global
         totalList.add(unitList);
+        flatList.addAll(unitList);
+        boostSS.put(EnumSeraphClass.RANGER, flatList);
     }
 
     private static void initA(float aBuff, HashMap<IAttribute, Float> buffRatio) {
