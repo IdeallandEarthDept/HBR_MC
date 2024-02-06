@@ -3,8 +3,9 @@ package com.deeplake.hbr_mc.init;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.EntityNabiSlime;
 import com.deeplake.hbr_mc.entities.cancer.*;
-import com.deeplake.hbr_mc.entities.npc.EntityINatsume;
+import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
+import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -31,7 +32,9 @@ public class RegisterEntities {
         registerEntity("t_kunimi", EntityTKunimi.class, 64, 0x4b7fdc, 0xe0c385);
 
         //31f
+        registerEntity("k_maruyama", EntityKMaruyama.class, 64, 0x757a96, 0x3845bb);
         registerEntity("i_nastume", EntityINatsume.class, 64, 0x2a2b2c, 0xc03d3d);
+
         registerEntityNoEgg("bullet", EntityHBRProjectile.class);
 
         //Assign Dungeons

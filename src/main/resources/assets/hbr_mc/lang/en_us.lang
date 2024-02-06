@@ -126,6 +126,7 @@ desc.hbr_mc.seraph.level_format=Lv.%s (%s/%s)
 desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
 desc.hbr_mc.armor.random_points=+%s random attribute point(s)
 desc.hbr_mc.seraph.attr_desc=§d%s §b+%s +%s%%
+desc.hbr_mc.seraph.boost=Boost %s/%s
 
 msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 msg.hbr_mc.apply failed=MISS

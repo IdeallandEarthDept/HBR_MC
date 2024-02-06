@@ -2,10 +2,7 @@ package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.items.ItemWIP;
-import com.deeplake.hbr_mc.recipes.DropletRefinery;
-import com.deeplake.hbr_mc.recipes.RecipeXpBookUp;
-import com.deeplake.hbr_mc.recipes.SeraphDecomp;
-import com.deeplake.hbr_mc.recipes.SeraphRankUp;
+import com.deeplake.hbr_mc.recipes.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -22,6 +19,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class RegisterRecipes {
     public static final String OREDICT_XPBOOK = "hbr_xp_book";
+    public static final int MAX_BOOST_A = 8 + 10;
+    public static final int MAX_BOOST_SS = 8 + 10 + 20 + 19;
+
     public static void registerOreDict()
     {
         OreDictionary.registerOre(OREDICT_XPBOOK,RegisterItem.XP_ITEM_1);
@@ -44,6 +44,7 @@ public class RegisterRecipes {
         getRegister(r, RegisterItem.GLITTER_SHADOW, RegisterItem.GLITTER_SHADOW_SS);
         getRegister(r, RegisterItem.PHANTOM_WEAVER, RegisterItem.PHANTOM_WEAVER_SS);
         getRegister(r, RegisterItem.SCARLET_VALET, RegisterItem.SCARLET_VALET_SS);
+        getRegister(r, RegisterItem.FATAL_NULL, RegisterItem.FATAL_NULL_SS);
     }
 
     static int id = 0;
@@ -58,6 +59,9 @@ public class RegisterRecipes {
         r.register(new SeraphDecomp(ss, 4).setRegistryName(ss.getRegistryName()));
         r.register(new RecipeXpBookUp(a).setRegistryName(new ResourceLocation(Main.MODID,"xp_"+id)));
         r.register(new RecipeXpBookUp(ss).setRegistryName(new ResourceLocation(Main.MODID,"xp2_"+id)));
+
+        r.register(new RecipeSeraphBoost(a, MAX_BOOST_A).setRegistryName(new ResourceLocation(Main.MODID,"boost"+id)));
+        r.register(new RecipeSeraphBoost(ss, MAX_BOOST_SS).setRegistryName(new ResourceLocation(Main.MODID,"boost"+id)));
     }
 
     private static ShapelessRecipes craftArmor(Item armor) {

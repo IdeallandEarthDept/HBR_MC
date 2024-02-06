@@ -321,7 +321,7 @@ public class SeraphAttrData {
         unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));//global
         totalList.add(unitList);
         flatList.addAll(unitList);
-        boostSS.put(EnumSeraphClass.RANGER, flatList);
+        boostSS.put(EnumSeraphClass.FIGHTER, flatList);
     }
 
     private static void initA(float aBuff, HashMap<IAttribute, Float> buffRatio) {

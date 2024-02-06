@@ -98,14 +98,16 @@ desc.hbr_mc.seraph.dura_format=DP: %s/%s
 desc.hbr_mc.seraph.level_format=Lv.%s (%s/%s)
 desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
 desc.hbr_mc.armor.random_points=+%s 随机属性点
+desc.hbr_mc.seraph.attr_desc=§d%s §b+%s +%s%%
+desc.hbr_mc.seraph.boost=§d强化 §r%s/%s
 
 msg.hbr_mc.level_up=等级提升！ Lv.%s -> Lv.%s
 
 hbr_mc.potion.skill_atk_up_1=Skill Atk UP
 hbr_mc.potion.skill_atk_up_2=Skill Atk UP
 hbr_mc.potion.skill_atk_up_3=Skill Atk UP
-hbr_mc.potion.self_recoil=SELF RECOIL
-hbr_mc.potion.stunned=STUNNED
+hbr_mc.potion.self_recoil=反作用力
+hbr_mc.potion.stunned=晕眩
 
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
@@ -162,4 +164,5 @@ item.xp_item_3.desc=与炽天使合成，可提升大量经验值的道具。
 item.leaf_circlet.name=花环
 item.leaf_circlet.desc=若你在副手佩戴花环时不幸牺牲……
 
-desc.hbr_mc.seraph.attr_desc=§d%s §b+%s +%s%%
+item.brave_blue_s.name=BraveBlue S
+item.rapid_fire_s.name=RapidFire S

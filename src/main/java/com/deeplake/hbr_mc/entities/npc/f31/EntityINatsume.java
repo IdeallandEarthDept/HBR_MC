@@ -1,5 +1,6 @@
-package com.deeplake.hbr_mc.entities.npc;
+package com.deeplake.hbr_mc.entities.npc.f31;
 
+import com.deeplake.hbr_mc.entities.npc.EntityNpcMelee;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
@@ -19,7 +20,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class EntityINatsume extends EntityNpcMelee{
+public class EntityINatsume extends EntityNpcMelee {
     public EntityINatsume(World worldIn) {
         super(worldIn);
     }

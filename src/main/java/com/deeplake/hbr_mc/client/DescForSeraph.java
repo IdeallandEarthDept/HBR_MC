@@ -2,13 +2,13 @@ package com.deeplake.hbr_mc.client;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.init.util.IDLNBTDef;
+import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.ai.attributes.IAttribute;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,6 +17,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
+
+import static com.deeplake.hbr_mc.init.RegisterRecipes.MAX_BOOST_A;
+import static com.deeplake.hbr_mc.init.RegisterRecipes.MAX_BOOST_SS;
 
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
@@ -31,8 +34,8 @@ public class DescForSeraph {
         {
             if (SeraphUtil.isSeraph(stack))
             {
-                //todo: type check
                 ItemSeraphBase item = (ItemSeraphBase) stack.getItem();
+                EnumSeraphRarity rarity = item.seraphRarity;
                 int offset = 0;
                 int level = SeraphUtil.getLevel(stack);
                 int lvMax = SeraphUtil.getMaxLevel(stack);
@@ -49,8 +52,11 @@ public class DescForSeraph {
                     strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.broken"));
                 }
                 else {
-                    strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.dura_format", stack.getMaxDamage() - stack.getItemDamage(), stack.getMaxDamage()));
+                    strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.boost",
+                            IDLNBTUtil.GetInt(stack, IDLNBTDef.KEY_BOOST), rarity == EnumSeraphRarity.SS ? MAX_BOOST_SS : MAX_BOOST_A));
                 }
+
+                strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.dura_format", stack.getMaxDamage() - stack.getItemDamage(), stack.getMaxDamage()));
 
                 for (int i = item.getMaxSkillSlot(stack)-1; i >= 0; i--) {
                     StringBuilder s = new StringBuilder(net.minecraft.client.resources.I18n.format(item.getUnlocalizedName(stack) + ".skill." + i,
