@@ -19,6 +19,8 @@ public class SeraphAttrData {
     public static HashMap<IAttribute, Float> wizardSS;
 
     public static List<List<SeraphBoostUnit>> fighterBoostSS;
+    public static List<List<SeraphBoostUnit>> rangerBoostSS;
+    public static List<List<SeraphBoostUnit>> wizardBoostSS;
 
     public static HashMap<IAttribute, Float> getData(EnumSeraphRarity rarity, EnumSeraphClass enumSeraphClass)
     {
@@ -65,6 +67,91 @@ public class SeraphAttrData {
         SSBoostSTR(totalList);
         fighterBoostSS = totalList;
 
+        totalList = new ArrayList<>();
+        SSBoostDEX(totalList);
+        rangerBoostSS = totalList;
+
+        totalList = new ArrayList<>();
+        SSBoostWIS(totalList);
+        wizardBoostSS = totalList;
+    }
+
+    private static void SSBoostWIS(List<List<SeraphBoostUnit>> totalList) {
+        List<SeraphBoostUnit> unitList = new ArrayList<>();
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 0.1f, EnumBoostType.PERCENT));
+        totalList.add(unitList);
+
+        //group 2
+        unitList = new ArrayList<>();
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR,2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
+        //hit combo +1%
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 1));//global
+        totalList.add(unitList);
+
+        //group 3
+        unitList = new ArrayList<>();
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR,2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR,2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC,2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
+        //hit combo +1%
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));//global
+        totalList.add(unitList);
+
+        //group 4
+        unitList = new ArrayList<>();
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));
+        //hit combo +1%
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.END, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.LUC, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));
+        unitList.add(new SeraphBoostUnit(null,1));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.MEN, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.STR, 2));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 0.1f, EnumBoostType.PERCENT));
+        unitList.add(new SeraphBoostUnit(RegisterAttr.DEX, 2));
+        //hit combo +1%
+        unitList.add(new SeraphBoostUnit(RegisterAttr.INT, 2));//global
+        totalList.add(unitList);
     }
 
     private static void SSBoostDEX(List<List<SeraphBoostUnit>> totalList) {
