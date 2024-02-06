@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.entities;
 
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
+import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -190,5 +191,35 @@ public class EntityBase extends EntityCreature {
             }
         }
         return super.isEntityInvulnerable(source);
+    }
+
+    @Override
+    protected void damageEntity(DamageSource damageSrc, float damageAmount) {
+        super.damageEntity(damageSrc, damageAmount);
+        if (!this.isEntityInvulnerable(damageSrc))
+        {
+            damageAmount = net.minecraftforge.common.ForgeHooks.onLivingHurt(this, damageSrc, damageAmount);
+            if (damageAmount <= 0) return;
+            damageAmount = this.applyArmorCalculations(damageSrc, damageAmount);
+            damageAmount = this.applyPotionDamageCalculations(damageSrc, damageAmount);
+            float f = damageAmount;
+            damageAmount = Math.max(damageAmount - this.getAbsorptionAmount(), 0.0F);
+            if (getAbsorptionAmount() > 0)
+            {
+                this.setAbsorptionAmount(this.getAbsorptionAmount() - (f - damageAmount));
+                //no damage to HP, no stun on break
+            }
+            else {
+                damageAmount = net.minecraftforge.common.ForgeHooks.onLivingDamage(this, damageSrc, damageAmount);
+                if (damageAmount != 0.0F)
+                {
+                    float f1 = this.getHealth();
+                    this.getCombatTracker().trackDamage(damageSrc, f1, damageAmount);
+                    this.setHealth(f1 - damageAmount); // Forge: moved to fix MC-121048
+                    this.setAbsorptionAmount(this.getAbsorptionAmount() - damageAmount);
+                }
+            }
+            DShieldUtil.syncDPStatus(this);
+        }
     }
 }

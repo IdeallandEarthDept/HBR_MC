@@ -1,6 +1,8 @@
 package com.deeplake.hbr_mc.init.util;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.items.ItemWIPRanged;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -432,9 +434,25 @@ public class CommonFunctions {
         }
 
         Item item = stack.getItem();
-        if (item instanceof ItemBow)
+        if (item instanceof ItemBow || item instanceof ItemWIPRanged)
         {
             return true;
+        }
+
+        if (item instanceof ItemSeraphBase)
+        {
+            ItemSeraphBase seraphBase = (ItemSeraphBase) item;
+            switch (seraphBase.type)
+            {
+                case DOUBLE_SWORD:
+                case SWORD:
+                case LARGE_SWORD:
+                case SCYTHE:
+                    break;
+                case CANNON:
+                case GUN:
+                    return true;
+            }
         }
 
         return false;

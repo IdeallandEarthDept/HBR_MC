@@ -176,7 +176,7 @@ public class RenderDP {
                 buffer.pos(size + padding, -bgHeight, 0.0D).color(0, 0, 0, 64).endVertex();
                 tessellator.draw();
 
-                // Health Bar
+                // DP Bar
                 buffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
                 buffer.pos(-size, 0, 0.0D).color(r, g, b, 127).endVertex();
                 buffer.pos(-size, barHeight, 0.0D).color(r, g, b, 127).endVertex();

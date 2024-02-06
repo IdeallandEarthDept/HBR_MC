@@ -72,13 +72,13 @@ public class ItemSeraphCannonBase extends ItemSeraphBase{
         }
     }
 
-    protected void volleyAttack(World worldIn, EntityPlayer playerIn, int volley, ModConfig.SkillConf skillConf) {
+    public static void volleyAttack(World worldIn, EntityLivingBase playerIn, int volley, ModConfig.SkillConf skillConf) {
         volleyAttack(worldIn, playerIn, volley, skillConf.MIN_POTENCY, skillConf.CAP, CombatUtil.EnumAttrType.STANDARD);
     }
-    protected void volleyAttack(World worldIn, EntityPlayer playerIn, int volley, float minPotency, float cap) {
+    public static void volleyAttack(World worldIn, EntityLivingBase playerIn, int volley, float minPotency, float cap) {
         volleyAttack(worldIn, playerIn, volley, minPotency, cap, CombatUtil.EnumAttrType.STANDARD);
     }
-    protected void volleyAttack(World worldIn, EntityPlayer playerIn, int volley, float minPotency, float cap, CombatUtil.EnumAttrType atkType) {
+    public static void volleyAttack(World worldIn, EntityLivingBase playerIn, int volley, float minPotency, float cap, CombatUtil.EnumAttrType atkType) {
         for (int i = 0; i < volley; i++) {
             EntityHBRProjectile bullet =
                     new EntityHBRProjectile(worldIn);
