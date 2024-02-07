@@ -6,6 +6,7 @@ import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 
@@ -54,7 +55,21 @@ public class SeraphUtil {
 
     public static int getMaxLevel(ItemStack stack)
     {
-        return 100 + getBreakThrough(stack);
+        Item item = stack.getItem();
+        if (item instanceof ItemSeraphBase) {
+            ItemSeraphBase seraphBase = (ItemSeraphBase) item;
+            switch (seraphBase.seraphRarity) {
+                case SS:
+                    return 120 + getBreakThrough(stack)*10;
+                case S:
+                    return 110 + getBreakThrough(stack)*2;
+                case A:
+                    return 100 + getBreakThrough(stack);
+                default:
+                    throw new IllegalStateException("Unexpected value: " + seraphBase.seraphRarity);
+            }
+        }
+        return 100;
     }
 
     public static void addXP(ItemStack stack, int xp, EntityPlayer holder) {

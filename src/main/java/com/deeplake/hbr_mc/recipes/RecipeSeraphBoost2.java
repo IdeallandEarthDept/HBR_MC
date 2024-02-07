@@ -13,15 +13,31 @@ import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
-public class RecipeSeraphBoost extends ShapelessRecipes {
+public class RecipeSeraphBoost2 extends ShapelessRecipes {
 
     final int maxBoost;
-    public RecipeSeraphBoost(Item seraph, int maxBoost) {
+    public RecipeSeraphBoost2(Item seraph, int maxBoost) {
         super(Main.MODID, new ItemStack(seraph), NonNullList.create());
         recipeItems.add(Ingredient.fromItem(seraph));
-        for (int i = 0; i < 5; i++) {
-            recipeItems.add(Ingredient.fromItem(RegisterItem.CANCER_SHELL));
+        if (seraph instanceof ItemSeraphBase)
+        {
+            ItemSeraphBase seraphBase = (ItemSeraphBase)seraph;
+            switch (seraphBase.type.mode)
+            {
+                case SLASH:
+                    recipeItems.add(Ingredient.fromItem(RegisterItem.BOOST_1_A));
+                    break;
+                case SHOOT:
+                    recipeItems.add(Ingredient.fromItem(RegisterItem.BOOST_1_B));
+                    break;
+                case SMASH:
+                    recipeItems.add(Ingredient.fromItem(RegisterItem.BOOST_1_C));
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + seraphBase.type.mode);
+            }
         }
+
         this.maxBoost = maxBoost;
     }
 
@@ -41,7 +57,7 @@ public class RecipeSeraphBoost extends ShapelessRecipes {
         if (origin != ItemStack.EMPTY)
         {
             int cur = IDLNBTUtil.GetInt(origin, IDLNBTDef.KEY_BOOST, 0);
-            if (cur >= 8)
+            if (cur < 8)
             {
                 return false;
             }

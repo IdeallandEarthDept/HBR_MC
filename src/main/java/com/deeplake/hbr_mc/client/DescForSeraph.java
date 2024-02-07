@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.client;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.designs.SeraphBoostConst;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
@@ -17,9 +18,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
-
-import static com.deeplake.hbr_mc.init.RegisterRecipes.MAX_BOOST_A;
-import static com.deeplake.hbr_mc.init.RegisterRecipes.MAX_BOOST_SS;
 
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
@@ -52,11 +50,14 @@ public class DescForSeraph {
                     strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.broken"));
                 }
                 else {
-                    strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.boost",
-                            IDLNBTUtil.GetInt(stack, IDLNBTDef.KEY_BOOST), rarity == EnumSeraphRarity.SS ? MAX_BOOST_SS : MAX_BOOST_A));
+                    strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.dura_format", stack.getMaxDamage() - stack.getItemDamage(), stack.getMaxDamage()));
                 }
+                strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.breakthrough",
+                        IDLNBTUtil.GetInt(stack, IDLNBTDef.KEY_BREAK_THRU), SeraphBoostConst.getMaxBreakThrough(item)));
 
-                strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.dura_format", stack.getMaxDamage() - stack.getItemDamage(), stack.getMaxDamage()));
+                strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.boost",
+                        IDLNBTUtil.GetInt(stack, IDLNBTDef.KEY_BOOST), SeraphBoostConst.getMaxBoost(item)));
+
 
                 for (int i = item.getMaxSkillSlot(stack)-1; i >= 0; i--) {
                     StringBuilder s = new StringBuilder(net.minecraft.client.resources.I18n.format(item.getUnlocalizedName(stack) + ".skill." + i,

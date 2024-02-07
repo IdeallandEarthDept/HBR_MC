@@ -89,7 +89,7 @@ item.kazabana.skill.0=
 item.ren.name=Ren
 item.ren.skill.0=
 
-
+item.cancer_shell.desc=Shell of Cancer. Can be crafted into armor. Craft 5x with Seraph to boost it for the first 8 times.
 item.cancer_shell.name=Shell Fragment
 item.cancer_helmet.name=Cancer Helmet
 item.cancer_chestplate.name=Cancer Chestplate
@@ -103,14 +103,14 @@ item.gem_black.name=Onyx
 item.gem_amber.name=Jade Amber
 item.gem_droplet.name=Sol Droplet
 
-item.boost_1_a.name=Boost Material
-item.boost_1_a.desc=Craft with Seraph to give it boost.
+item.boost_1_a.name=Boost Material (Slash)
+item.boost_1_a.desc=Craft with Seraph to give it boost. Works only for boost 8th+.
 
-item.boost_1_b.name=Boost Material
-item.boost_1_b.desc=Craft with Seraph to give it boost.
+item.boost_1_b.name=Boost Material (Shoot)
+item.boost_1_b.desc=Craft with Seraph to give it boost. Works only for boost 8th+.
 
-item.boost_1_c.name=Boost Material
-item.boost_1_c.desc=Craft with Seraph to give it boost.
+item.boost_1_c.name=Boost Material (Smash)
+item.boost_1_c.desc=Craft with Seraph to give it boost. Works only for boost 8th+.
 
 item.xp_item_1.name=Exp Book
 item.xp_item_1.desc=Craft with Seraph to give it boost.
@@ -157,6 +157,7 @@ desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
 desc.hbr_mc.armor.random_points=+%s random attribute point(s)
 desc.hbr_mc.seraph.attr_desc=§d%s §b+%s +%s%%
 desc.hbr_mc.seraph.boost=Boost %s/%s
+desc.hbr_mc.seraph.breakthrough=Breakthrough %s/%s
 
 msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 msg.hbr_mc.apply failed=MISS

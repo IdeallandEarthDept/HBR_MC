@@ -1,7 +1,6 @@
 package com.deeplake.hbr_mc.recipes;
 
 import com.deeplake.hbr_mc.Main;
-import com.deeplake.hbr_mc.init.RegisterItem;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
@@ -9,20 +8,18 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapelessRecipes;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
-public class RecipeSeraphBoost extends ShapelessRecipes {
-
-    final int maxBoost;
-    public RecipeSeraphBoost(Item seraph, int maxBoost) {
-        super(Main.MODID, new ItemStack(seraph), NonNullList.create());
-        recipeItems.add(Ingredient.fromItem(seraph));
-        for (int i = 0; i < 5; i++) {
-            recipeItems.add(Ingredient.fromItem(RegisterItem.CANCER_SHELL));
-        }
-        this.maxBoost = maxBoost;
+public class SeraphBreakThroughBySame extends ShapedRecipes {
+    final int maxBreakThrough;
+    public SeraphBreakThroughBySame(Item seraphSS, int maxBreakThrough) {
+        super(Main.MODID, 2, 1, NonNullList.create(), new ItemStack(seraphSS));
+        recipeItems.add(Ingredient.fromItem(seraphSS));
+        recipeItems.add(Ingredient.fromItem(seraphSS));
+        this.maxBreakThrough = maxBreakThrough;
     }
 
     @Override
@@ -34,14 +31,24 @@ public class RecipeSeraphBoost extends ShapelessRecipes {
             Item item = stack.getItem();
             if (item instanceof ItemSeraphBase)
             {
-                origin = stack;
+                if (origin.isEmpty())
+                {
+                    origin = stack;
+                }
+                else {
+                    //Those already have breakthrough can't be used to breakthrough again
+                    if (IDLNBTUtil.GetInt(stack, IDLNBTDef.BREAKTHROUGH) > 0)
+                    {
+                        return false;
+                    }
+                }
             }
         }
 
         if (origin != ItemStack.EMPTY)
         {
-            int cur = IDLNBTUtil.GetInt(origin, IDLNBTDef.KEY_BOOST, 0);
-            if (cur >= 8)
+            int cur = IDLNBTUtil.GetInt(origin, IDLNBTDef.BREAKTHROUGH, 0);
+            if (cur >= maxBreakThrough)
             {
                 return false;
             }
@@ -53,7 +60,6 @@ public class RecipeSeraphBoost extends ShapelessRecipes {
     public ItemStack getCraftingResult(InventoryCrafting inv) {
         ItemStack result = super.getCraftingResult(inv);
         ItemStack origin = ItemStack.EMPTY;
-
         for (int i = 0; i < inv.getSizeInventory(); i++)
         {
             ItemStack stack = inv.getStackInSlot(i);
@@ -61,17 +67,20 @@ public class RecipeSeraphBoost extends ShapelessRecipes {
             if (item instanceof ItemSeraphBase)
             {
                 origin = stack;
+                break;
             }
         }
 
         if (origin != ItemStack.EMPTY)
         {
             result = origin.copy();
-            int cur = IDLNBTUtil.GetInt(result, IDLNBTDef.KEY_BOOST, 0);
-            if (cur < maxBoost)
+            NBTTagCompound compound = origin.getTagCompound();
+            if (compound == null)
             {
-                IDLNBTUtil.addInt(result, IDLNBTDef.KEY_BOOST, 1);
+                compound = new NBTTagCompound();
             }
+            result.setTagCompound(compound.copy());
+            IDLNBTUtil.addInt(result, IDLNBTDef.BREAKTHROUGH, 1);
         }
         return result;
     }

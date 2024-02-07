@@ -1,7 +1,9 @@
 package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.designs.SeraphBoostConst;
 import com.deeplake.hbr_mc.items.ItemWIP;
+import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
 import com.deeplake.hbr_mc.recipes.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -61,7 +63,14 @@ public class RegisterRecipes {
         r.register(new RecipeXpBookUp(ss).setRegistryName(new ResourceLocation(Main.MODID,"xp2_"+id)));
 
         r.register(new RecipeSeraphBoost(a, MAX_BOOST_A).setRegistryName(new ResourceLocation(Main.MODID,"boost"+id)));
-        r.register(new RecipeSeraphBoost(ss, MAX_BOOST_SS).setRegistryName(new ResourceLocation(Main.MODID,"boost"+id)));
+        r.register(new RecipeSeraphBoost2(a, MAX_BOOST_A).setRegistryName(new ResourceLocation(Main.MODID,"boost_2"+id)));
+        r.register(new SeraphBreakThroughBySame(a, SeraphBoostConst.getMaxBreakThrough(EnumSeraphRarity.A)).setRegistryName(new ResourceLocation(Main.MODID,"brkthru_a_same_"+id)));
+
+        r.register(new RecipeSeraphBoost(ss, MAX_BOOST_SS).setRegistryName(new ResourceLocation(Main.MODID,"boost_ss_"+id)));
+        r.register(new RecipeSeraphBoost2(ss, MAX_BOOST_SS).setRegistryName(new ResourceLocation(Main.MODID,"boost_ss_2_"+id)));
+        r.register(new SeraphBreakThroughByShard(ss, RegisterItem.SHARD_SS, 5).setRegistryName(new ResourceLocation(Main.MODID,"brkthru_ss_shard_"+id)));
+        r.register(new SeraphBreakThroughBySame(ss, SeraphBoostConst.getMaxBreakThrough(EnumSeraphRarity.SS)).setRegistryName(new ResourceLocation(Main.MODID,"brkthru_ss_same_"+id)));
+
     }
 
     private static ShapelessRecipes craftArmor(Item armor) {

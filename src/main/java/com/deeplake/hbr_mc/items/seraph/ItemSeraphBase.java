@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.items.seraph;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.designs.SeraphAttrData;
+import com.deeplake.hbr_mc.designs.SeraphBoostConst;
 import com.deeplake.hbr_mc.designs.SeraphBoostUnit;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.ModConfig;
@@ -553,6 +554,14 @@ public class ItemSeraphBase extends ItemBase {
             for (int i = 0; i < getMaxSkillSlot(stack); i++) {
                 IDLNBTUtil.setInt(stack, SKILL_LEVEL[i], getSkillLevelMax(stack, i));
             }
+            SeraphUtil.setLevel(stack, SeraphUtil.getMaxLevel(stack));
+            int maxBoost = SeraphBoostConst.getMaxBoost(seraphRarity);
+            IDLNBTUtil.setInt(stack, IDLNBTDef.KEY_BOOST, maxBoost);
+            items.add(stack);
+
+            //Max breakthrough
+            stack = stack.copy();
+            IDLNBTUtil.setInt(stack, IDLNBTDef.KEY_BREAK_THRU, SeraphBoostConst.getMaxBreakThrough(seraphRarity));
             SeraphUtil.setLevel(stack, SeraphUtil.getMaxLevel(stack));
             items.add(stack);
         }
