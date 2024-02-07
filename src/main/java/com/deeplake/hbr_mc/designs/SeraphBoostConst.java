@@ -43,11 +43,11 @@ public class SeraphBoostConst {
     {
         switch (seraphRarity) {
             case SS:
-                return 18;
+                return 57;
             case S:
                 return 38;
             case A:
-                return 57;
+                return 18;
             default:
                 throw new IllegalStateException("Unexpected value: " + seraphRarity);
         }

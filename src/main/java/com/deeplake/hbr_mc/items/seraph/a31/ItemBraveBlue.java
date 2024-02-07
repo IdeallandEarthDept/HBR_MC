@@ -1,19 +1,14 @@
 package com.deeplake.hbr_mc.items.seraph.a31;
 
 import com.deeplake.hbr_mc.init.ModConfig;
-import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
-import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 //Ruka Kayamori
@@ -26,15 +21,6 @@ public class ItemBraveBlue extends ItemSeraphBase {
     @Override
     public int getMaxSkillSlot(ItemStack stack) {
         return 1;
-    }
-
-    public float getAttrValue(ItemStack stack, IAttribute attr)
-    {
-        if (attr == RegisterAttr.STR)
-        {
-            return super.getAttrValue(stack, attr) + 1;
-        }
-        return super.getAttrValue(stack, attr);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.deeplake.hbr_mc.items.seraph.a31;
 
 import com.deeplake.hbr_mc.init.ModConfig;
-import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
@@ -9,7 +8,6 @@ import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -21,15 +19,6 @@ import net.minecraft.world.World;
 public class ItemBraveBlueSS extends ItemSeraphBase {
     public ItemBraveBlueSS(String name) {
         super(name, EnumSeraphType.DOUBLE_SWORD,EnumSeraphRarity.SS);
-    }
-
-    public float getAttrValue(ItemStack stack, IAttribute attr)
-    {
-        if (attr == RegisterAttr.STR)
-        {
-            return super.getAttrValue(stack, attr) + 1;
-        }
-        return super.getAttrValue(stack, attr);
     }
 
     @Override
