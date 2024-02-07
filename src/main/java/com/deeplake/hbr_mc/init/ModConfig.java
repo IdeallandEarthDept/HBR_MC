@@ -137,6 +137,10 @@ public class ModConfig {
         @Config.RequiresMcRestart
         public int SPAWN_DOLL = 30;
 
+        @Config.LangKey("entity.c_small_hopper.name")
+        @Config.RequiresMcRestart
+        public int SPAWN_SMALL_HOPPER = 30;
+
         public float SNOWY_EXTRA_DIFFICULTY = 180;
         public float DESERT_EXTRA_DIFFICULTY = 100;
     }
