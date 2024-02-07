@@ -32,7 +32,7 @@ public class RenderHandler {
                 renderManager -> new RenderHumanoid(renderManager, "skin/karen_asakura/karen"));
         RenderingRegistry.registerEntityRenderingHandler(EntityTKunimi.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/tama_kunimi/tama"));
-
+        //31F
         RenderingRegistry.registerEntityRenderingHandler(EntityKMaruyama.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/kanata_maruyama/kanata"));
         RenderingRegistry.registerEntityRenderingHandler(EntityINatsume.class,
