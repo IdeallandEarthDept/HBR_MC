@@ -8,6 +8,7 @@ import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.RegisterEffects;
+import com.deeplake.hbr_mc.init.RegisterItem;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
@@ -575,11 +576,15 @@ public class ItemSeraphBase extends ItemBase {
         worldIn.playSound(null, caster.getPosition(), event, SoundCategory.PLAYERS, 1f, 1f);
         ItemStack stack = caster.getHeldItemMainhand();
         int cd = CommonDef.TICK_PER_SECOND * COMBAT.SP;
-        if (seraphRarity == EnumSeraphRarity.SS && SeraphUtil.getBreakThrough(stack) > 0)
+        if (fasterCooldown(stack))
         {
             cd = (int) (cd * 0.67f);
         }
         setCoolDown(caster, cd);
+    }
+
+    public boolean fasterCooldown(ItemStack stack) {
+        return this != RegisterItem.BRAVE_BLUE_SS && seraphRarity == EnumSeraphRarity.SS && SeraphUtil.getBreakThrough(stack) > 0;
     }
 
     public static float currentBuffRateTotal = 0f;

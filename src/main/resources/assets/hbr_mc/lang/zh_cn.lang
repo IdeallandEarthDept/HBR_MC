@@ -153,6 +153,7 @@ desc.hbr_mc.armor.random_points=+%s 随机属性点
 desc.hbr_mc.seraph.attr_desc=§d%s §b+%s +%s%%
 desc.hbr_mc.seraph.boost=§d强化 §f%s/%s
 desc.hbr_mc.seraph.breakthrough=§d突破 §l§f%s/%s
+desc.hbr_mc.seraph.faster_cooldown=§d【闪光】冷却时间缩短
 
 msg.hbr_mc.level_up=等级提升！ Lv.%s -> Lv.%s
 msg.hbr_mc.apply failed=MISS

@@ -52,6 +52,11 @@ public class DescForSeraph {
                 else {
                     strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.dura_format", stack.getMaxDamage() - stack.getItemDamage(), stack.getMaxDamage()));
                 }
+                if (item.fasterCooldown(stack))
+                {
+                    strings.add(1,I18n.translateToLocal("desc.hbr_mc.seraph.faster_cooldown"));
+                }
+
                 strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.breakthrough",
                         SeraphUtil.getBreakThrough(stack), SeraphBoostConst.getMaxBreakThrough(item)));
 
