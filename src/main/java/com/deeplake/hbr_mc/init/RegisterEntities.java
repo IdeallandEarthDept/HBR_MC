@@ -5,7 +5,7 @@ import com.deeplake.hbr_mc.entities.EntityNabiSlime;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.EntitySHiguchi;
-import com.deeplake.hbr_mc.entities.npc.e31.EntityOshima1;
+import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
@@ -41,11 +41,11 @@ public class RegisterEntities {
         registerEntity("h_ogasahara", EntityHOgasahara.class, 64, 0x4e3c5a, 0x94312e);
 
         //30g
-        registerEntity("ohishima_1", EntityOshima1.class, 64, 0x404158, 0x37b2b1);
+        registerEntity("ohshima_1", EntityOhshima1.class, 64, 0x404158, 0x37b2b1);
 
         //31f
         registerEntity("k_maruyama", EntityKMaruyama.class, 64, 0x757a96, 0x3845bb);
-        registerEntity("i_nastume", EntityINatsume.class, 64, 0x2a2b2c, 0xc03d3d);
+        registerEntity("i_natsume", EntityINatsume.class, 64, 0x2a2b2c, 0xc03d3d);
 
         registerEntityNoEgg("bullet", EntityHBRProjectile.class);
 

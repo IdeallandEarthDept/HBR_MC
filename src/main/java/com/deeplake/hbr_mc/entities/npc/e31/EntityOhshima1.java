@@ -6,8 +6,8 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class EntityOshima1 extends EntityNpcMelee {
-    public EntityOshima1(World worldIn) {
+public class EntityOhshima1 extends EntityNpcMelee {
+    public EntityOhshima1(World worldIn) {
         super(worldIn);
     }
 

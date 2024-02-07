@@ -7,13 +7,17 @@ item.test3.name=Test Item
 item.brave_blue.name=BraveBlue(Attack or Music)
 item.brave_blue.skill.0=右键敌人：十字斩~单体力击，对HP+30%%
 
+item.brave_blue_s.name=BraveBlue S
+
 item.brave_blue_ss.name=BraveBlue SS(电路的爆裂闪光)
-item.brave_blue_ss.toast=我的传说现在开始！
+item.brave_blue_ss.toast=我的传说，从此开始！
 item.brave_blue_ss.skill.0=潜行右键：回复~修复附近的DP (%d/%d)
 item.brave_blue_ss.skill.1=与敌右键：梦幻泡影~强力单体攻击，对HP+30%% (%d/%d)
 
 item.rapid_fire.name=RapidFire(Attack or March)
 item.rapid_fire.skill.0=长按右键：毁灭爆裂炮~范围迅击，对DP+30%%
+
+item.rapid_fire_s.name=RapidFire S
 
 item.rapid_fire_ss.name=RapidFire(终焉Spitfire)
 item.rapid_fire_ss.toast=Hello world!
@@ -23,6 +27,8 @@ item.rapid_fire_ss.skill.1=潜行右键:流星~广范围迅击，对DP+30%% (%d/
 item.supreme_edge.name=SupremeEdge(Serious or Stupid)
 item.supreme_edge.skill.0=长按右键：增强~提升附近玩家技能攻击力
 
+item.supreme_edge_s.name=SupremeEdge S
+
 item.supreme_edge_ss.name=SupremeEdge(SS)
 item.supreme_edge_ss.toast=真相未必只有一个！
 item.supreme_edge_ss.skill.0=??
@@ -31,7 +37,7 @@ item.supreme_edge_ss.skill.1=??
 item.clavis.name=Clavis(Plain or Wild)
 item.clavis.skill.0=[交互]：昏厥硬刃~单体攻击，概率眩晕
 
-hbr_mc.msg.dummy_hurt=%s伤害造成至%s号测试机，防御属性%s
+item.clavis_s.name=Clavis(S)
 
 item.clavis_ss.name=Clavis(Ikki Burst Strike)
 item.clavis_ss.toast=救世主大人登场！
@@ -49,10 +55,33 @@ item.phantom_weaver_ss.skill.1=[潜行右键]复苏之光~复活附近玩家的D
 item.glitter_shadow.name=Glitter Shadow(Laugh or Cry)
 item.glitter_shadow.skill.0=乱舞
 
+item.glitter_shadow_s.name=Glitter Shadow(S)
+
 item.glitter_shadow_ss.name=Glitter Shadow(红莲月华Killrazor)
 item.glitter_shadow_ss.toast=杀戮如呼吸……！
 item.glitter_shadow_ss.skill.0=狂野投掷
 item.glitter_shadow_ss.skill.1=血腥之舞
+
+item.fatal_null.name=Fatal Null
+item.fatal_null.skill.0=
+
+item.fatal_null_ss.name=Fatal Null(SS)
+item.fatal_null_ss.skill.0=
+
+item.scarlet_valet.name=Scarlet Valet
+item.scarlet_valet.skill.0=
+
+item.scarlet_valet_s.name=Scarlet Valet(S)
+
+item.scarlet_valet_ss.name=Scarlet Valet(SS)
+item.scarlet_valet_ss.skill.0=
+
+item.kazabana.name=Kazabana
+item.kazabana.skill.0=
+
+item.ren.name=Ren
+item.ren.skill.0=
+
 
 item.cancer_shell.name=壳石
 item.cancer_helmet.name=星癌体头盔
@@ -67,6 +96,28 @@ item.gem_black.name=玛瑙
 item.gem_amber.name=碧琥珀
 item.gem_droplet.name=阳石水滴
 
+item.boost_1_a.name=诺瓦原水（斩）
+item.boost_1_a.desc=与炽天使合成以强化之。
+
+item.boost_1_b.name=诺瓦原水（突）
+item.boost_1_b.desc=与炽天使合成以强化之。
+
+item.boost_1_c.name=诺瓦原水（打）
+item.boost_1_c.desc=与炽天使合成以强化之。
+
+item.xp_item_1.name=战斗报告书 I
+item.xp_item_1.desc=与炽天使合成，可提升少量经验值的道具。
+
+item.xp_item_2.name=战斗报告书 II
+item.xp_item_2.desc=与炽天使合成，可提升不少经验值的道具。
+
+item.xp_item_3.name=战斗报告书 III
+item.xp_item_3.desc=与炽天使合成，可提升大量经验值的道具。
+
+
+item.leaf_circlet.name=花环
+item.leaf_circlet.desc=若你在副手佩戴花环时不幸牺牲……
+
 item.shard_ss.name=SS 万能碎片
 item.shard_ss.desc=与A级炽天使合成，可以保留数据升阶为SS炽天使。（但A级的技能不会保留）
 
@@ -76,6 +127,7 @@ item.lottery.desc=抽卡券。消耗以获取随机炽天使。
 item.crystal_lottery.name=免费石英
 item.crystal_lottery.desc=合成为抽卡券
 
+hbr_mc.msg.dummy_hurt=%s伤害造成至%s号测试机，防御属性%s
 
 # tiles
 tile.heal_stash.name=补给箱（一次性）
@@ -84,7 +136,6 @@ tile.energy_ore.name=体力矿石
 tile.crystal_ore.name=免费石英矿石
 tile.cancer_carpet.name=星癌体地毯
 tile.cancer_carpet.desc=廉价的地毯。用来抑制刷怪，尤其是防止刷星癌体。
-
 
 attribute.name.hbr_mc.attr.str=力量
 attribute.name.hbr_mc.attr.dex=灵巧
@@ -102,13 +153,16 @@ desc.hbr_mc.seraph.attr_desc=§d%s §b+%s +%s%%
 desc.hbr_mc.seraph.boost=§d强化 §r%s/%s
 
 msg.hbr_mc.level_up=等级提升！ Lv.%s -> Lv.%s
+msg.hbr_mc.apply failed=MISS
+msg.hbr_mc.apply_revive=DP已复活
 
-hbr_mc.potion.skill_atk_up_1=Skill Atk UP
-hbr_mc.potion.skill_atk_up_2=Skill Atk UP
-hbr_mc.potion.skill_atk_up_3=Skill Atk UP
+hbr_mc.potion.skill_atk_up_1=技能攻击力提升
+hbr_mc.potion.skill_atk_up_2=技能攻击力提升
+hbr_mc.potion.skill_atk_up_3=技能攻击力提升
 hbr_mc.potion.self_recoil=反作用力
 hbr_mc.potion.stunned=晕眩
 
+entity.nabi.name=纳比
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper
@@ -116,13 +170,17 @@ entity.cancer_test.name=训练机
 entity.cancer_test_50.name=训练机 (50)
 entity.cancer_test_100.name=训练机 (100)
 
-entity.i_natsume.name=夏目 祈
 entity.l_kayamori.name=茅森 月歌
 entity.y_izumi.name=和泉 由希
 entity.m_aikawa.name=逢川 惠
 entity.t_tsukasa.name=东城 司
 entity.k_asakura.name=朝仓 可怜
 entity.t_kunimi.name=国见 玉
+entity.s_higuchi.name=樋口 圣华
+entity.h_ogasahara.name=小笠原 绯雨
+entity.ohshima_1.name=大岛 一千子
+entity.k_maruyama.name=丸山 奏多
+entity.i_natsume.name=夏目 祈
 
 configgui.idealland.category.Menu0.SpawnConf=生成设置
 configgui.hbr_mc.category.Menu0.GeneralConf=通用设置
@@ -133,10 +191,8 @@ conf.operation.teleport_enable=右键传送
 conf.operation.teleport_enable_side=右键方块侧面时传送
 conf.operation.teleport_enable_top=右键方块顶面时传送
 conf.operation.teleport_at_rough_surface=右键不规则表面也传送
-msg.hbr_mc.apply failed=MISS
-msg.hbr_mc.apply_revive=DP已复活
-hbr_mc.shared.wip.desc=开发中
 
+hbr_mc.shared.wip.desc=开发中
 hbr_mc.msg.starter_kit_given=[七濑七海]我一直在等你来，请收下这个。
 hbr_mc.msg.bonus_for_advancements=获得了%s免费石英
 hbr_mc.msg.spoiler_disabled=本世界启用了防剧透模式。如果您希望完整体验，请在配置文件中将ALLOW_SPOILERS设为true。（服务器需要在服务端设置）
@@ -145,24 +201,3 @@ hbr_mc.msg.teleport_allow=炽天使传送已启用
 hbr_mc.msg.teleport_deny=炽天使传送已禁用
 hbr_mc.msg.teleport_command=[七濑七海]可以使用 /srtp 来开启或关闭炽天使传送。
 hbr_mc.msg.teleport_command_rough=可以使用 /srtpr 来开启或关闭在右键方块不规则表面时的炽天使传送。
-
-item.kazabana.name=Kazabana
-item.kazabana.skill.0=
-item.fatal_null.name=Fatal Null
-item.fatal_null.skill.0=
-item.fatal_null_ss.name=Fatal Null(SS)
-item.fatal_null_ss.skill.0=
-item.scarlet_valet.name=Scarlet Valet
-item.scarlet_valet.skill.0=
-item.xp_item_1.name=战斗报告书 I
-item.xp_item_1.desc=与炽天使合成，可提升少量经验值的道具。
-item.xp_item_2.name=战斗报告书 II
-item.xp_item_2.desc=与炽天使合成，可提升不少经验值的道具。
-item.xp_item_3.name=战斗报告书 III
-item.xp_item_3.desc=与炽天使合成，可提升大量经验值的道具。
-
-item.leaf_circlet.name=花环
-item.leaf_circlet.desc=若你在副手佩戴花环时不幸牺牲……
-
-item.brave_blue_s.name=BraveBlue S
-item.rapid_fire_s.name=RapidFire S

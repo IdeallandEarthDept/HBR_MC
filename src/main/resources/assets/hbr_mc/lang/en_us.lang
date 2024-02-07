@@ -48,6 +48,8 @@ item.clavis_ss.skill.1=[SneakInteract]ST+Stun(%d/%d)
 item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
 item.phantom_weaver.skill.0=Heal
 
+item.phantom_weaver_s.name=Phantom Weaver(S)
+
 item.phantom_weaver_ss.name=Phantom Weaver(SS)
 item.phantom_weaver_ss.toast=Worldwide top class!
 item.phantom_weaver_ss.skill.0=Slash
@@ -170,6 +172,7 @@ hbr_mc.potion.stunned=STUNNED
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper
+entity.nabi.name=Nabi
 entity.cancer_test.name=VR Cancer
 entity.cancer_test_50.name=VR Cancer (50)
 entity.cancer_test_100.name=VR Cancer (100)
@@ -186,7 +189,7 @@ entity.s_higuchi.name=Higuchi
 #30g
 entity.h_ogasahara.name=Ogasahara
 #31e
-entity.oshima_1.name=Ichiko Oshima
+entity.ohshima_1.name=Ichiko Ohshima
 #31f
 entity.k_maruyama.name=Maruyama
 entity.i_natsume.name=Natsume

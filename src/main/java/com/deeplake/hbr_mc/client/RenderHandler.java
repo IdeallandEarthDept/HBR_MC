@@ -10,7 +10,7 @@ import com.deeplake.hbr_mc.entities.cancer.EntityDoll;
 import com.deeplake.hbr_mc.entities.cancer.EntityMarionette;
 import com.deeplake.hbr_mc.entities.cancer.EntitySmallHopper;
 import com.deeplake.hbr_mc.entities.npc.b31.EntitySHiguchi;
-import com.deeplake.hbr_mc.entities.npc.e31.EntityOshima1;
+import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
@@ -45,7 +45,7 @@ public class RenderHandler {
                 renderManager -> new RenderHumanoid(renderManager, "skin/g30/hisame_ogasahara/maid_hisame"));
 
         //31E
-        RenderingRegistry.registerEntityRenderingHandler(EntityOshima1.class,
+        RenderingRegistry.registerEntityRenderingHandler(EntityOhshima1.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/e31/ichiko_ohshima/ichiko"));
 
         //31F
