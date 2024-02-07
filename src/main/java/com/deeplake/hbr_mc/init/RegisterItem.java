@@ -59,7 +59,7 @@ public class RegisterItem {
     public static final Item SCARLET_VALET_SS = new ItemWIPRanged("scarlet_valet_ss", EnumSeraphType.GUN);
 
     //30G
-    public static final Item KAZABANA = new ItemWIP("kazabana");
+    public static final Item KAZABANA = new ItemWIPRanged("kazabana", EnumSeraphType.GUN);
 
     //31F
     public static final Item REN = new ItemWIP("ren");

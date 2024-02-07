@@ -3,9 +3,12 @@ package com.deeplake.hbr_mc.init;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.EntityNabiSlime;
 import com.deeplake.hbr_mc.entities.cancer.*;
-import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
+import com.deeplake.hbr_mc.entities.npc.b31.EntitySHiguchi;
+import com.deeplake.hbr_mc.entities.npc.e31.EntityOshima1;
+import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
+import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -30,6 +33,15 @@ public class RegisterEntities {
         registerEntity("t_tsukasa", EntityTTsukasa.class, 64, 0x4b7fdc, 0xe0c385);
         registerEntity("k_asakura", EntityKAsakura.class, 64, 0x4b7fdc, 0xe0c385);
         registerEntity("t_kunimi", EntityTKunimi.class, 64, 0x4b7fdc, 0xe0c385);
+
+        //31b
+        registerEntity("s_higuchi", EntitySHiguchi.class, 64, 0xffe7d7, 0xedbaff);
+
+        //30g
+        registerEntity("h_ogasahara", EntityHOgasahara.class, 64, 0x4e3c5a, 0x94312e);
+
+        //30g
+        registerEntity("ohishima_1", EntityOshima1.class, 64, 0x404158, 0x37b2b1);
 
         //31f
         registerEntity("k_maruyama", EntityKMaruyama.class, 64, 0x757a96, 0x3845bb);
