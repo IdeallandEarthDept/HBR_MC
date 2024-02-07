@@ -28,6 +28,8 @@ item.rapid_fire_ss.skill.1=[Interact Enemy]Strong ST attack, to HP+30%% (%d/%d)
 item.supreme_edge.name=SupremeEdge(Serious or Stupid)
 item.supreme_edge.skill.0=[RMB]Nearby frontline skill atk up
 
+item.supreme_edge_s.name=SupremeEdge S
+
 item.supreme_edge_ss.name=SupremeEdge(SS)
 item.supreme_edge_ss.toast=More than one truth prevails!
 item.supreme_edge_ss.skill.0=??
@@ -36,38 +38,55 @@ item.supreme_edge_ss.skill.1=??
 item.clavis.name=Clavis(Plain or Wild)
 item.clavis.skill.0=ST+Stun
 
+item.clavis_s.name=Clavis(S)
+
 item.clavis_ss.name=Clavis(SS)
 item.clavis_ss.toast=Presenting the Savior!
 item.clavis_ss.skill.0=[Interact/RMB]AoE+Stun
 item.clavis_ss.skill.1=[SneakInteract]ST+Stun(%d/%d)
 
 item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
-item.phantom_weaver.skill.0=
+item.phantom_weaver.skill.0=Heal
 
 item.phantom_weaver_ss.name=Phantom Weaver(SS)
 item.phantom_weaver_ss.toast=Worldwide top class!
-item.phantom_weaver_ss.skill.0=??
-item.phantom_weaver_ss.skill.1=??
+item.phantom_weaver_ss.skill.0=Slash
+item.phantom_weaver_ss.skill.1=Revival(%d/%d)
 
 item.glitter_shadow.name=Glitter Shadow(Laugh or Cry)
 item.glitter_shadow.skill.0=
+
+item.glitter_shadow_s.name=Glitter Shadow(S)
 
 item.glitter_shadow_ss.name=Glitter Shadow(SS)
 item.glitter_shadow_ss.toast=I will crush you like a bug!
 item.glitter_shadow_ss.skill.0=??
 item.glitter_shadow_ss.skill.1=??
 
-item.kazabana.name=Kazabana
-item.kazabana.skill.0=
-
+#31B
 item.fatal_null.name=Fatal Null
 item.fatal_null.skill.0=
 
 item.fatal_null_ss.name=Fatal Null(SS)
 item.fatal_null_ss.skill.0=
 
+#31C
 item.scarlet_valet.name=Scarlet Valet
 item.scarlet_valet.skill.0=
+
+item.scarlet_valet_s.name=Scarlet Valet(S)
+
+item.scarlet_valet_ss.name=Scarlet Valet(SS)
+item.scarlet_valet_ss.skill.0=
+
+#30G
+item.kazabana.name=Kazabana
+item.kazabana.skill.0=
+
+#31F
+item.ren.name=Ren
+item.ren.skill.0=
+
 
 item.cancer_shell.name=Shell Fragment
 item.cancer_helmet.name=Cancer Helmet
@@ -82,8 +101,17 @@ item.gem_black.name=Onyx
 item.gem_amber.name=Jade Amber
 item.gem_droplet.name=Sol Droplet
 
+item.boost_1_a.name=Boost Material
+item.boost_1_a.desc=Craft with Seraph to give it boost.
+
+item.boost_1_b.name=Boost Material
+item.boost_1_b.desc=Craft with Seraph to give it boost.
+
+item.boost_1_c.name=Boost Material
+item.boost_1_c.desc=Craft with Seraph to give it boost.
+
 item.xp_item_1.name=Exp Book
-item.xp_item_1.desc=Craft with Seraph to give it xp.
+item.xp_item_1.desc=Craft with Seraph to give it boost.
 
 item.xp_item_2.name=Exp Book II
 item.xp_item_2.desc=Craft with Seraph to give it xp.
@@ -146,13 +174,22 @@ entity.cancer_test.name=VR Cancer
 entity.cancer_test_50.name=VR Cancer (50)
 entity.cancer_test_100.name=VR Cancer (100)
 
-entity.i_natsume.name=Natsume
+#31a
 entity.l_kayamori.name=Kayamori
 entity.y_izumi.name=Izumi
 entity.m_aikawa.name=Aikawa
 entity.t_tsukasa.name=Tsukasa
 entity.k_asakura.name=Asakura
 entity.t_kunimi.name=Kunimi
+#31b
+entity.s_higuchi.name=Higuchi
+#30g
+entity.h_ogasahara.name=Ogasahara
+#31e
+entity.oshima_1.name=Ichiko Oshima
+#31f
+entity.k_maruyama.name=Maruyama
+entity.i_natsume.name=Natsume
 
 configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration
 configgui.hbr_mc.category.Menu0.GeneralConf=General Config
