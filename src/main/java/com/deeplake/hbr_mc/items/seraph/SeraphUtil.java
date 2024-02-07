@@ -50,7 +50,7 @@ public class SeraphUtil {
 
     public static int getBreakThrough(ItemStack stack)
     {
-        return IDLNBTUtil.GetInt(stack, IDLNBTDef.BREAKTHROUGH);
+        return IDLNBTUtil.GetInt(stack, IDLNBTDef.KEY_BREAK_THRU);
     }
 
     public static int getMaxLevel(ItemStack stack)

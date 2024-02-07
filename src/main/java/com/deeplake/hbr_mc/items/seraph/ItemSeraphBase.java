@@ -376,6 +376,7 @@ public class ItemSeraphBase extends ItemBase {
                 }
             }
         }
+        base += SeraphBoostConst.attrPercentagePerBreak(seraphRarity) * SeraphUtil.getBreakThrough(stack);
 
         return base;
     }
@@ -572,7 +573,13 @@ public class ItemSeraphBase extends ItemBase {
         caster.swingArm(caster.getActiveHand());
         caster.addStat(StatList.getObjectUseStats(this));
         worldIn.playSound(null, caster.getPosition(), event, SoundCategory.PLAYERS, 1f, 1f);
-        setCoolDown(caster, CommonDef.TICK_PER_SECOND * COMBAT.SP);
+        ItemStack stack = caster.getHeldItemMainhand();
+        int cd = CommonDef.TICK_PER_SECOND * COMBAT.SP;
+        if (seraphRarity == EnumSeraphRarity.SS && SeraphUtil.getBreakThrough(stack) > 0)
+        {
+            cd = (int) (cd * 0.67f);
+        }
+        setCoolDown(caster, cd);
     }
 
     public static float currentBuffRateTotal = 0f;

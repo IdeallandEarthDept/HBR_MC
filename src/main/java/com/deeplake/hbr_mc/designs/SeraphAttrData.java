@@ -325,29 +325,29 @@ public class SeraphAttrData {
     }
 
     private static void initA(float aBuff, HashMap<IAttribute, Float> buffRatio) {
-        buffRatio.put(RegisterAttr.STR,0.4f  - aBuff);
+        buffRatio.put(RegisterAttr.STR,0.3f  - aBuff);
         buffRatio.put(RegisterAttr.DEX,0.2f  - aBuff);
-        buffRatio.put(RegisterAttr.END,0.4f  - aBuff);
-        buffRatio.put(RegisterAttr.MEN,0.35f - aBuff);
+        buffRatio.put(RegisterAttr.END,0.3f  - aBuff);
+        buffRatio.put(RegisterAttr.MEN,0.25f - aBuff);
         buffRatio.put(RegisterAttr.INT,0.2f  - aBuff);
-        buffRatio.put(RegisterAttr.LUC,0.35f - aBuff);
+        buffRatio.put(RegisterAttr.LUC,0.25f - aBuff);
         fighterA = buffRatio;
 
         buffRatio = new HashMap<>();
         buffRatio.put(RegisterAttr.STR,0.20f  - aBuff);
-        buffRatio.put(RegisterAttr.DEX,0.40f  - aBuff);
-        buffRatio.put(RegisterAttr.END,0.35f - aBuff);
+        buffRatio.put(RegisterAttr.DEX,0.30f  - aBuff);
+        buffRatio.put(RegisterAttr.END,0.25f - aBuff);
         buffRatio.put(RegisterAttr.MEN,0.20f - aBuff);
-        buffRatio.put(RegisterAttr.INT,0.35f  - aBuff);
-        buffRatio.put(RegisterAttr.LUC,0.40f - aBuff);
+        buffRatio.put(RegisterAttr.INT,0.25f  - aBuff);
+        buffRatio.put(RegisterAttr.LUC,0.30f - aBuff);
         rangerA = buffRatio;
 
         buffRatio = new HashMap<>();
-        buffRatio.put(RegisterAttr.STR,0.35f  - aBuff);
-        buffRatio.put(RegisterAttr.DEX,0.35f  - aBuff);
+        buffRatio.put(RegisterAttr.STR,0.25f  - aBuff);
+        buffRatio.put(RegisterAttr.DEX,0.25f  - aBuff);
         buffRatio.put(RegisterAttr.END,0.20f - aBuff);
-        buffRatio.put(RegisterAttr.MEN,0.40f - aBuff);
-        buffRatio.put(RegisterAttr.INT,0.40f  - aBuff);
+        buffRatio.put(RegisterAttr.MEN,0.30f - aBuff);
+        buffRatio.put(RegisterAttr.INT,0.30f  - aBuff);
         buffRatio.put(RegisterAttr.LUC,0.20f - aBuff);
         wizardA = buffRatio;
     }

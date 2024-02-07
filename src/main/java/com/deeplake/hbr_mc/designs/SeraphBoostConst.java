@@ -52,4 +52,17 @@ public class SeraphBoostConst {
                 throw new IllegalStateException("Unexpected value: " + seraphRarity);
         }
     }
+
+    public static float attrPercentagePerBreak(EnumSeraphRarity seraphRarity) {
+        switch (seraphRarity) {
+            case SS:
+                return 0.1f;
+            case S:
+                return 0.03f;
+            case A:
+                return 0.01f;
+            default:
+                throw new IllegalStateException("Unexpected value: " + seraphRarity);
+        }
+    }
 }

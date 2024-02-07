@@ -53,7 +53,7 @@ public class DescForSeraph {
                     strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.dura_format", stack.getMaxDamage() - stack.getItemDamage(), stack.getMaxDamage()));
                 }
                 strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.breakthrough",
-                        IDLNBTUtil.GetInt(stack, IDLNBTDef.KEY_BREAK_THRU), SeraphBoostConst.getMaxBreakThrough(item)));
+                        SeraphUtil.getBreakThrough(stack), SeraphBoostConst.getMaxBreakThrough(item)));
 
                 strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.seraph.boost",
                         IDLNBTUtil.GetInt(stack, IDLNBTDef.KEY_BOOST), SeraphBoostConst.getMaxBoost(item)));
