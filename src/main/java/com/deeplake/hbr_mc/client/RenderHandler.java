@@ -50,7 +50,7 @@ public class RenderHandler {
 
         //31F
         RenderingRegistry.registerEntityRenderingHandler(EntityKMaruyama.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/f31/kanata_maruyama/kanata"));
+                renderManager -> new RenderHumanoid(renderManager, "skin/f31/kanata_maruyama/kanata_2"));
         RenderingRegistry.registerEntityRenderingHandler(EntityINatsume.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/f31/inori_natsume/inori_natsume"));
 
