@@ -37,7 +37,7 @@ public class EntityNpcRanged extends EntityNPC implements IRangedAttackMob {
         super(worldIn);
     }
 
-    protected final EntityAIStrafeRangedAttack<EntityNpcRanged> aiArrowAttack = new EntityAIStrafeRangedAttack<>(this, 1.0D, 18, 24.0F).setVolley(3,3,1);
+    protected final EntityAIStrafeRangedAttack<EntityNpcRanged> aiArrowAttack = new EntityAIStrafeRangedAttack<>(this, 1.0D, 18, 12f).setVolley(3,3,1);
     protected final EntityAIAttackMelee aiAttackOnCollide = new EntityAIAttackMelee(this, 1.2D, false)
     {
         /**
