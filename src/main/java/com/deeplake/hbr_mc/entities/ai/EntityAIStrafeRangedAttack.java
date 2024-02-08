@@ -74,7 +74,9 @@ public class EntityAIStrafeRangedAttack<T extends EntityLiving & IRangedAttackMo
      */
     public boolean shouldExecute()
     {
-        return this.entity.getAttackTarget() != null && this.isRangedWeaponInMainhand();
+        T self = this.entity;
+        EntityLivingBase attackTarget = self.getAttackTarget();
+        return attackTarget != null && attackTarget != self && this.isRangedWeaponInMainhand();
     }
 
     protected boolean isRangedWeaponInMainhand()

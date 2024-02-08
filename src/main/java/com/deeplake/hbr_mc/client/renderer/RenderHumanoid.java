@@ -67,6 +67,9 @@ public class RenderHumanoid extends RenderBiped<EntityBase> {
             //client only
             entity.setSneaking(true);
         }
+        else {
+            entity.setSneaking(false);
+        }
 
 //        GlStateManager.enableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);
         super.doRender(entity, x, d0, z, entityYaw, partialTicks);

@@ -40,7 +40,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import javax.annotation.Nullable;
 import java.util.*;
 
-import static com.deeplake.hbr_mc.init.util.CommonDef.*;
+import static com.deeplake.hbr_mc.init.util.CommonDef.TICK_PER_SECOND;
 import static net.minecraft.entity.SharedMonsterAttributes.*;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
@@ -54,6 +54,14 @@ public class EntityUtil {
             return DamageSource.causePlayerDamage((EntityPlayer) source);
         } else {
             return DamageSource.causeMobDamage(source);
+        }
+    }
+
+    public static DamageSource attack(EntityLivingBase source, Entity projectile) {
+        if (source instanceof EntityPlayer) {
+            return DamageSource.causeIndirectDamage(projectile, source).setProjectile();
+        } else {
+            return DamageSource.causeIndirectDamage(projectile, source).setProjectile();
         }
     }
 

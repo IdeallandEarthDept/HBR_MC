@@ -4,6 +4,7 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -96,15 +97,24 @@ public class CombatUtil {
         }
     }
 
+
     public static void HPAttack(EntityLivingBase player, EntityLivingBase target, float minPotency, float cap, float bonusRate) {
+        HPAttack(null, player, target, minPotency, cap, bonusRate);
+    }
+
+    public static void HPAttack(Entity bullet, EntityLivingBase player, EntityLivingBase target, float minPotency, float cap, float bonusRate) {
         boolean extra = target.getAbsorptionAmount() > 0;
-        attackAsHBR(player, target, EnumAttrType.STR_FOCUS, EnumDefType.END,
+        attackAsHBR(bullet, player, target, EnumAttrType.STR_FOCUS, EnumDefType.END,
                 extra ? minPotency * bonusRate : minPotency, cap);
     }
 
     public static void DPAttack(EntityLivingBase player, EntityLivingBase target, float minPotency, float cap, float bonusRate) {
+        DPAttack(null, player, target, minPotency, cap, bonusRate);
+    }
+
+    public static void DPAttack(Entity bullet, EntityLivingBase player, EntityLivingBase target, float minPotency, float cap, float bonusRate) {
         boolean extra = target.getAbsorptionAmount() <= 0;
-        attackAsHBR(player, target, EnumAttrType.DEX_FOCUS, EnumDefType.END,
+        attackAsHBR(bullet, player, target, EnumAttrType.DEX_FOCUS, EnumDefType.END,
                 extra ? minPotency * bonusRate : minPotency, cap);
     }
 
@@ -148,6 +158,10 @@ public class CombatUtil {
     }
 
     public static void attackAsHBR(EntityLivingBase attacker, EntityLivingBase target, EnumAttrType atkType, EnumDefType defType, float lowDamage, float cap) {
+        attackAsHBR(null, attacker, target, atkType, defType, lowDamage, cap);
+    }
+
+    public static void attackAsHBR(Entity bullet, EntityLivingBase attacker, EntityLivingBase target, EnumAttrType atkType, EnumDefType defType, float lowDamage, float cap) {
         if (target == null || target.isDead || target.getHealth() <= 0) {
             return;
         }
@@ -237,7 +251,14 @@ public class CombatUtil {
         }
 
         Main.Log("(%2f,%2f)=DP,HP",target.getAbsorptionAmount(),target.getHealth());
-        target.attackEntityFrom(EntityUtil.attack(attacker), damage);
+        if (bullet != null)
+        {
+            target.attackEntityFrom(EntityUtil.attack(attacker, bullet), damage);
+        }
+        else
+        {
+            target.attackEntityFrom(EntityUtil.attack(attacker), damage);
+        }
 
         isHBRAttackProcess = false;
     }

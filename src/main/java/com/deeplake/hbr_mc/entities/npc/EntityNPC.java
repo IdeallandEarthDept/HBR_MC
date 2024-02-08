@@ -18,6 +18,7 @@ public class EntityNPC extends EntityHumanoid implements INpc {
     {
         livingdata = super.onInitialSpawn(difficulty, livingdata);
         this.setLeftHanded(false);
+        setAttr(32,0.3, 1, 0, 20);
         return livingdata;
     }
 

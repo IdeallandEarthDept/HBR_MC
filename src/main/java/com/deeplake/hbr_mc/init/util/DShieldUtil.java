@@ -41,10 +41,10 @@ public class DShieldUtil {
         {
             if (RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_LOSS_SYNC) >= max)
             {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public static double getRemainDP(EntityLivingBase entityLivingBase) {

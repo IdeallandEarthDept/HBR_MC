@@ -3,14 +3,10 @@ package com.deeplake.hbr_mc.entities.projectiles;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
-import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -52,13 +48,13 @@ public class EntityHBRProjectile extends EntityIdlProjectile{
                     switch (attackType)
                     {
                         case STR_FOCUS:
-                            CombatUtil.HPAttack(shootingEntity, (EntityLivingBase) target,minPotency,cap,bonusRate);
+                            CombatUtil.HPAttack(this, shootingEntity, (EntityLivingBase) target,minPotency,cap,bonusRate);
                             break;
                         case DEX_FOCUS:
-                            CombatUtil.DPAttack(shootingEntity, (EntityLivingBase) target,minPotency,cap,bonusRate);
+                            CombatUtil.DPAttack(this, shootingEntity, (EntityLivingBase) target,minPotency,cap,bonusRate);
                             break;
                         default:
-                            CombatUtil.attackAsHBR(shootingEntity, (EntityLivingBase) target, attackType, defType, minPotency,cap);
+                            CombatUtil.attackAsHBR(this, shootingEntity, (EntityLivingBase) target, attackType, defType, minPotency,cap);
                             break;
                     }
                     ItemSeraphBase.currentBuffRateTotal = lastRate;
