@@ -3,7 +3,6 @@ package com.deeplake.hbr_mc.init.util;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -19,14 +18,14 @@ public class DShieldUtil {
         {
             return;
         }
-        IAttributeInstance attributeInstance = entityLivingBase.getEntityAttribute(RegisterAttr.DP_SYNC);
+        IAttributeInstance attributeInstance = entityLivingBase.getEntityAttribute(RegisterAttr.DP_LOSS_SYNC);
         if (attributeInstance != null) {
             attributeInstance.setBaseValue(RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_MAX)-entityLivingBase.getAbsorptionAmount());
         }
     }
 
     public static double getDPDamage(EntityLivingBase entityLivingBase, float damage) {
-        IAttributeInstance attributeInstance = entityLivingBase.getEntityAttribute(RegisterAttr.DP_SYNC);
+        IAttributeInstance attributeInstance = entityLivingBase.getEntityAttribute(RegisterAttr.DP_LOSS_SYNC);
         if (attributeInstance != null) {
             double dp = attributeInstance.getAttributeValue();
             if (dp > 0) {
@@ -34,6 +33,18 @@ public class DShieldUtil {
             }
         }
         return 0;
+    }
+
+    public static boolean isDPDepleted(EntityLivingBase entityLivingBase) {
+        double max = RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_MAX);
+        if (max != 0)
+        {
+            if (RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_LOSS_SYNC) >= max)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static double getRemainDP(EntityLivingBase entityLivingBase) {
@@ -48,7 +59,7 @@ public class DShieldUtil {
             {
                 if (entityLivingBase.world.isRemote)
                 {
-                    return entityLivingBase.getEntityAttribute(RegisterAttr.DP_SYNC).getAttributeValue();
+                    return entityLivingBase.getEntityAttribute(RegisterAttr.DP_LOSS_SYNC).getAttributeValue();
                 }
                 else {
                     return entityLivingBase.getAbsorptionAmount();
@@ -58,7 +69,7 @@ public class DShieldUtil {
         }
 
         return RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_MAX)
-                -RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_SYNC);
+                -RegisterAttr.getAttrValue(entityLivingBase, RegisterAttr.DP_LOSS_SYNC);
     }
 
 }

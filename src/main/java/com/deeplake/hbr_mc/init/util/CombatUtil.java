@@ -1,7 +1,7 @@
 package com.deeplake.hbr_mc.init.util;
 
 import com.deeplake.hbr_mc.Main;
-import com.deeplake.hbr_mc.init.ModConfig;
+import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.EntityLiving;
@@ -116,6 +116,11 @@ public class CombatUtil {
         }
 
         if (isUsingSeraph(source.getTrueSource()))
+        {
+            return true;
+        }
+
+        if (source.getImmediateSource() instanceof EntityHBRProjectile)
         {
             return true;
         }

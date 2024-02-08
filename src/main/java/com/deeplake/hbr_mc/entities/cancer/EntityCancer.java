@@ -82,9 +82,15 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
         //setAbsorptionAmount(getInitShield());
     }
 
+    @Override
+    public boolean isInvulnerableToAttacks() {
+        return DShieldUtil.isDPDepleted(this);
+    }
+
     //when there is still shield, takes no damage to HP even if damage is overkill for shield
     protected void damageEntity(DamageSource damageSrc, float damageAmount)
     {
+        float lastDP = getAbsorptionAmount();
         if (!this.isEntityInvulnerable(damageSrc))
         {
             damageAmount = net.minecraftforge.common.ForgeHooks.onLivingHurt(this, damageSrc, damageAmount);
@@ -93,7 +99,7 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
             damageAmount = this.applyPotionDamageCalculations(damageSrc, damageAmount);
             float f = damageAmount;
             damageAmount = Math.max(damageAmount - this.getAbsorptionAmount(), 0.0F);
-            if (getAbsorptionAmount() > 0)
+            if (lastDP > 0)
             {
                 this.setAbsorptionAmount(this.getAbsorptionAmount() - (f - damageAmount));
                 //no damage to HP

@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.client.renderer;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.EntityBase;
+import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -60,6 +61,13 @@ public class RenderHumanoid extends RenderBiped<EntityBase> {
         }
 
         this.setModelVisibilities(entity);
+
+        if (DShieldUtil.isDPDepleted(entity))
+        {
+            //client only
+            entity.setSneaking(true);
+        }
+
 //        GlStateManager.enableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);
         super.doRender(entity, x, d0, z, entityYaw, partialTicks);
         //GlStateManager.disableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);

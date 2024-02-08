@@ -42,7 +42,7 @@ public class EntityBase extends EntityCreature {
     }
 
     public void onFirstTickInLife() {
-
+        DShieldUtil.syncDPStatus(this);
     }
 
     public void onFirstTickAfterConstruct() {
@@ -90,6 +90,7 @@ public class EntityBase extends EntityCreature {
     {
         this.setAbsorptionAmount(value);
         this.getEntityAttribute(RegisterAttr.DP_MAX).setBaseValue(value);
+        DShieldUtil.syncDPStatus(this);
     }
 
     //EntityMob
@@ -160,14 +161,14 @@ public class EntityBase extends EntityCreature {
         this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
     }
 
-    public boolean hasDP()
+    public boolean isInvulnerableToAttacks()
     {
         return false;
     }
 
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
-        if (hasDP())
+        if (isInvulnerableToAttacks())
         {
             if (getAbsorptionAmount() > 0 && !CombatUtil.canBreakShield(source))
             {
@@ -183,7 +184,7 @@ public class EntityBase extends EntityCreature {
     //Cannot be attacked when it still has shell
     @Override
     public boolean isEntityInvulnerable(DamageSource source) {
-        if (hasDP())
+        if (isInvulnerableToAttacks())
         {
             if (getAbsorptionAmount() > 0 && !CombatUtil.canBreakShield(source))
             {
@@ -195,7 +196,7 @@ public class EntityBase extends EntityCreature {
 
     @Override
     protected void damageEntity(DamageSource damageSrc, float damageAmount) {
-        super.damageEntity(damageSrc, damageAmount);
+        float lastDP = getAbsorptionAmount();
         if (!this.isEntityInvulnerable(damageSrc))
         {
             damageAmount = net.minecraftforge.common.ForgeHooks.onLivingHurt(this, damageSrc, damageAmount);
@@ -204,7 +205,7 @@ public class EntityBase extends EntityCreature {
             damageAmount = this.applyPotionDamageCalculations(damageSrc, damageAmount);
             float f = damageAmount;
             damageAmount = Math.max(damageAmount - this.getAbsorptionAmount(), 0.0F);
-            if (getAbsorptionAmount() > 0)
+            if (lastDP > 0)
             {
                 this.setAbsorptionAmount(this.getAbsorptionAmount() - (f - damageAmount));
                 //no damage to HP, no stun on break

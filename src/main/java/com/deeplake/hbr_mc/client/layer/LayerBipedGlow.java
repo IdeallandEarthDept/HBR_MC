@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.client.layer;
 
 import com.deeplake.hbr_mc.client.renderer.RenderHumanoid;
 import com.deeplake.hbr_mc.entities.EntityBase;
+import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -24,6 +25,11 @@ public class LayerBipedGlow implements LayerRenderer<EntityBase>
 
     public void doRenderLayer(EntityBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
+        if (DShieldUtil.isDPDepleted(entitylivingbaseIn))
+        {
+            return;
+        }
+
         this.endermanRenderer.bindTexture(RES_ENDERMAN_EYES);
         GlStateManager.enableBlend();
         //GlStateManager.disableAlpha();

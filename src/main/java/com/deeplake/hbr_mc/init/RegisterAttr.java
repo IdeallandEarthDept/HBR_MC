@@ -27,7 +27,8 @@ public class RegisterAttr {
     public static final IAttribute INT = getNewAttrNonPercentNonNegative("int", 0);//WIS
     public static final IAttribute LUC = getNewAttrNonPercentNonNegative("luc", 0);//LUK
     public static final IAttribute DP_MAX = getNewAttrNonPercentNonNegative("dpmax", 0);
-    public static final IAttribute DP_SYNC = getNewAttrNonPercentNonNegative("dpsync", 0);
+    //This is the loss, not the current value.
+    public static final IAttribute DP_LOSS_SYNC = getNewAttrNonPercentNonNegative("dpsync", 0);
 
     @SubscribeEvent
     public static void onConstruct(EntityEvent.EntityConstructing entityConstructing)
