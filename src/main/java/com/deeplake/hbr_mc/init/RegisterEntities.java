@@ -25,6 +25,7 @@ public class RegisterEntities {
         registerEntity("c_marionette", EntityMarionette.class, 64, 0x000000, 0xcccccc);
         registerEntity("c_doll", EntityDoll.class, 64, 0x000000, 0xcccccc);
         registerEntity("c_small_hopper", EntitySmallHopper.class, 64, 0x000000, 0xcccccc);
+        registerEntity("c_crest_hopper", EntityCrestHopper.class, 64, 0x000000, 0xeecc66);
 
         //31a
         registerEntity("l_kayamori", EntityLKayamori.class, 64, 0x4b7fdc, 0xe0c385);

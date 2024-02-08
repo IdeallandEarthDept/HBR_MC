@@ -623,6 +623,11 @@ public class ItemSeraphBase extends ItemBase {
         }
     }
 
+    //Used to bypass spawn protection
+    public boolean canItemEditBlocks()
+    {
+        return true;
+    }
 
     public static boolean canUseSkills(EntityLivingBase entityLiving) {
         return EntityUtil.getBuffLevelIDL(entityLiving, RegisterEffects.SELF_RECOIL) == 0;

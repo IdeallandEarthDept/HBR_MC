@@ -132,7 +132,5 @@ public class ModelSmallHopper extends ModelBase {
 			leg3.offsetY = legRaise;
 			leg4.offsetY = legRaise;
 		}
-
 	}
-
 }

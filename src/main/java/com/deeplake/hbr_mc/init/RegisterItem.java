@@ -88,6 +88,7 @@ public class RegisterItem {
     public static final Item CANCER_CHESTPLATE = new ItemArmorCancer("cancer_chestplate", ARMOR_MATERIAL_CANCER, EntityEquipmentSlot.CHEST);
     public static final Item CANCER_LEGGINGS = new ItemArmorCancer("cancer_leggings", ARMOR_MATERIAL_CANCER, EntityEquipmentSlot.LEGS);
     public static final Item CANCER_BOOTS = new ItemArmorCancer("cancer_boots", ARMOR_MATERIAL_CANCER, EntityEquipmentSlot.FEET);
+    public static final Item BETTER_SPAWNER = new ItemSpawnTestCancer("accurate_spawner");
 
     @SubscribeEvent
     public static void handleItem(RegistryEvent.Register<Item> event)
