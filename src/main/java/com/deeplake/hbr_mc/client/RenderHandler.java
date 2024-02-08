@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.client;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.client.renderer.RenderBullet;
 import com.deeplake.hbr_mc.client.renderer.RenderHumanoid;
+import com.deeplake.hbr_mc.client.renderer.RenderHumanoidGlowShell;
 import com.deeplake.hbr_mc.client.renderer.cancer.RenderCrestHopper;
 import com.deeplake.hbr_mc.client.renderer.cancer.RenderDoll;
 import com.deeplake.hbr_mc.client.renderer.cancer.RenderMarionette;
@@ -52,9 +53,9 @@ public class RenderHandler {
 
         //31F
         RenderingRegistry.registerEntityRenderingHandler(EntityKMaruyama.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/f31/kanata_maruyama/kanata_2",0.82f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/kanata_maruyama/kanata_2",0.82f));
         RenderingRegistry.registerEntityRenderingHandler(EntityINatsume.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/f31/inori_natsume/inori_natsume"));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/inori_natsume/inori_natsume"));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityMarionette.class, RenderMarionette::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDoll.class, RenderDoll::new);

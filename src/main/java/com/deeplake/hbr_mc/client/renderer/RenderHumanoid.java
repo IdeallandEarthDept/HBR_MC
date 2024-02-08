@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 //copied from IDL
 @SideOnly(Side.CLIENT)
 public class RenderHumanoid extends RenderBiped<EntityBase> {
-    private ResourceLocation RES_LOC;
+    protected ResourceLocation RES_LOC;
     private static final ResourceLocation DEFAULT_RES_LOC = new ResourceLocation(  ":textures/entity/steve.png");
 
     float scale = 1f;
