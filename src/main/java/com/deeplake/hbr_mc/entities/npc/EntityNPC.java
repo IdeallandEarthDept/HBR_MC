@@ -78,7 +78,14 @@ public class EntityNPC extends EntityHumanoid implements INpc {
             {
                 addPotionEffect(new PotionEffect(RegisterEffects.ANGRY, 100, 0, false, false));
             }
-            anger-=1;
+            anger -= 1;
+        }
+        else if (anger < -200)
+        {
+            anger = 0;
+        }
+        else {
+            anger += 1;
         }
         super.updateAITasks();
     }
