@@ -4,7 +4,6 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.potion_effects.ModPotionBase;
 import com.deeplake.hbr_mc.potion_effects.ModPotionControl;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -16,7 +15,7 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class RegisterEffects {
 //
-//89a85988-ee18-4ecf-8fc9-331c3d4b86ec
+//
 //    c76bbd38-9ef5-498a-aff9-f80420b9ecb6
 //7895524b-dd56-4dbe-833a-b0d217c4c7af
 //    de8b270a-dd90-411e-9bd6-789211f3b1c9
@@ -38,6 +37,9 @@ public class RegisterEffects {
     public static final ModPotionBase STUNNED = (ModPotionBase) new ModPotionControl(true, 0xe0e69e, "stunned", 2)
             .registerPotionAttributeModifier(SharedMonsterAttributes.MOVEMENT_SPEED, STUNNED_UUID, -1, 2)
             .registerPotionAttributeModifier(SharedMonsterAttributes.ATTACK_SPEED, STUNNED_UUID, -1, 2);
+
+    public static final ModPotionBase ANGRY = (ModPotionBase) new ModPotionBase(false, 0xee3333, "angry", 2)
+            .setUUID_CLIENT("89a85988-ee18-4ecf-8fc9-331c3d4b86ec");
 
     @SubscribeEvent
     public static void registerPotions(RegistryEvent.Register<Potion> evt)

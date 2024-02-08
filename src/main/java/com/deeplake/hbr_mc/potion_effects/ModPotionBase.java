@@ -7,16 +7,22 @@ import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.UUID;
+
 public class ModPotionBase extends Potion {
     protected static final ResourceLocation resource = new ResourceLocation(Main.MODID,"textures/misc/potions.png");
     protected final int iconIndex;
     public static final String POTION_PREFIX = Main.MODID+".potion.";
+    public UUID UUID_CLIENT = null;
 
     public ModPotionBase(boolean isBadEffectIn, int liquidColorIn, String name, int icon) {
         super(isBadEffectIn, liquidColorIn);
@@ -62,9 +68,39 @@ public class ModPotionBase extends Potion {
     /**
      * Returns true if the potion has a associated status icon to display in then inventory when active.
      */
-//    @SideOnly(Side.CLIENT)
-//    public boolean hasStatusIcon()
-//    {
-//        return this.statusIconIndex >= 0;
-//    }
+    @SideOnly(Side.CLIENT)
+    public boolean hasStatusIcon()
+    {
+        return this.iconIndex >= 0;
+    }
+
+    public ModPotionBase setUUID_CLIENT(String s)
+    {
+        UUID_CLIENT = UUID.fromString(s);
+        registerPotionAttributeModifier(SharedMonsterAttributes.MAX_HEALTH, s, 0f, 0);
+        return this;
+    }
+
+    public boolean hasPotion(EntityLivingBase livingBase)
+    {
+        if (livingBase.getEntityWorld() != null)
+        {
+            if (livingBase.getEntityWorld().isRemote)
+            {
+                IAttributeInstance attribute = livingBase.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH) ;
+                if (attribute==null || attribute.getModifier(UUID_CLIENT) == null)
+                {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            } else {
+                return livingBase.isPotionActive(this);
+            }
+        }
+        else {
+            return false;
+        }
+    }
 }

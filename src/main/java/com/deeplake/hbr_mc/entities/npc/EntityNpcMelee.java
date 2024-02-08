@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc.entities.npc;
 
+import com.deeplake.hbr_mc.entities.ai.EntityAITolerateRevenge;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
@@ -34,7 +35,7 @@ public class EntityNpcMelee extends EntityNPC{
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
 
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] {EntityNPC.class}));
+        this.targetTasks.addTask(1, new EntityAITolerateRevenge(this, true, new Class[] {EntityNPC.class}));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityCancer.class, true));
     }
 

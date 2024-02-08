@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.entities.npc;
 
 import com.deeplake.hbr_mc.entities.ai.EntityAIStrafeRangedAttack;
+import com.deeplake.hbr_mc.entities.ai.EntityAITolerateRevenge;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.entities.projectiles.EntityArrowFixed;
 import com.deeplake.hbr_mc.init.ModConfig;
@@ -65,7 +66,7 @@ public class EntityNpcRanged extends EntityNPC implements IRangedAttackMob {
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
 
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] {EntityNPC.class}));
+        this.targetTasks.addTask(1, new EntityAITolerateRevenge(this, true, new Class[] {EntityNPC.class}));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityCancer.class, true));
     }
 
