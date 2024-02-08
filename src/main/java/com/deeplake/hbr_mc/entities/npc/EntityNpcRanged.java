@@ -14,7 +14,6 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.entity.projectile.EntitySpectralArrow;
@@ -61,14 +60,13 @@ public class EntityNpcRanged extends EntityNPC implements IRangedAttackMob {
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(6, new EntityAIAvoidEntity(this, EntityPlayer.class, 12.0F, 0.5D, 2D));
+
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 0.3D));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
 
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] {EntityNPC.class}));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityCancer.class, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
     }
 
     @Nullable
