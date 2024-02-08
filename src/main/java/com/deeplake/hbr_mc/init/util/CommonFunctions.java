@@ -21,6 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntitySign;
+import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
@@ -244,6 +245,13 @@ public class CommonFunctions {
         TextComponentTranslation textcomponenttranslation = new TextComponentTranslation(key, args);
         textcomponenttranslation.getStyle().setColor(formatting);
         FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().sendMessage(textcomponenttranslation);
+    }
+
+    public static void broadCastByKeyInRange(World world, Vec3d pos, float range, TextFormatting formatting, String key, Object... args) {
+        TextComponentTranslation textcomponenttranslation = new TextComponentTranslation(key, args);
+        textcomponenttranslation.getStyle().setColor(formatting);
+        EntityUtil.getEntitiesWithinAABB(world, EntityPlayer.class, ServerAABB(pos, range), EntitySelectors.IS_ALIVE)
+                .forEach(player -> player.sendMessage(textcomponenttranslation));
     }
 
     public static void SafeSendMsgToPlayer(Entity player, String key, Object... args)

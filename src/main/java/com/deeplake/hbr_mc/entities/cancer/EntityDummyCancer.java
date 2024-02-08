@@ -21,6 +21,11 @@ public class EntityDummyCancer extends EntityCancer{
         setDPMax(9999);
     }
 
+    @Override
+    public void knockBack(Entity entityIn, float strength, double xRatio, double zRatio) {
+        //do nothing
+    }
+
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onHurt(LivingHurtEvent evt)
     {

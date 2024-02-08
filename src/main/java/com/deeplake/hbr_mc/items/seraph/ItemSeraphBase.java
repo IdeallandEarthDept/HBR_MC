@@ -576,9 +576,15 @@ public class ItemSeraphBase extends ItemBase {
         worldIn.playSound(null, caster.getPosition(), event, SoundCategory.PLAYERS, 1f, 1f);
         ItemStack stack = caster.getHeldItemMainhand();
         int cd = CommonDef.TICK_PER_SECOND * COMBAT.SP;
-        if (fasterCooldown(stack))
+        if (!caster.isCreative())
         {
-            cd = (int) (cd * 0.67f);
+            if (fasterCooldown(stack))
+            {
+                cd = (int) (cd * 0.67f);
+            }
+        }
+        else {
+            cd = 20;
         }
         setCoolDown(caster, cd);
     }

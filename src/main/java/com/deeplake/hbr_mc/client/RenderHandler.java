@@ -34,17 +34,17 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityTTsukasa.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/tojo_tsukasa/tojo"));
         RenderingRegistry.registerEntityRenderingHandler(EntityKAsakura.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/karen_asakura/karen"));
+                renderManager -> new RenderHumanoid(renderManager, "skin/karen_asakura/karen",0.95f));
         RenderingRegistry.registerEntityRenderingHandler(EntityTKunimi.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/tama_kunimi/tama"));
+                renderManager -> new RenderHumanoid(renderManager, "skin/tama_kunimi/tama",0.82f));
 
         //31b
         RenderingRegistry.registerEntityRenderingHandler(EntitySHiguchi.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/b31/seika_higuchi/lancelot_ver"));
+                renderManager -> new RenderHumanoid(renderManager, "skin/b31/seika_higuchi/lancelot_ver",0.95f));
 
         //30G
         RenderingRegistry.registerEntityRenderingHandler(EntityHOgasahara.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/g30/hisame_ogasahara/maid_hisame"));
+                renderManager -> new RenderHumanoid(renderManager, "skin/g30/hisame_ogasahara/maid_hisame",0.82f));
 
         //31E
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima1.class,
@@ -52,7 +52,7 @@ public class RenderHandler {
 
         //31F
         RenderingRegistry.registerEntityRenderingHandler(EntityKMaruyama.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/f31/kanata_maruyama/kanata_2"));
+                renderManager -> new RenderHumanoid(renderManager, "skin/f31/kanata_maruyama/kanata_2",0.82f));
         RenderingRegistry.registerEntityRenderingHandler(EntityINatsume.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/f31/inori_natsume/inori_natsume"));
 

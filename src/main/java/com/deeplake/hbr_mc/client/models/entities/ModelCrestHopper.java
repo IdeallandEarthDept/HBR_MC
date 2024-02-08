@@ -96,6 +96,7 @@ public class ModelCrestHopper extends ModelBase {
 		float legOmega = 0.35f;
 		center.rotateAngleY = netHeadYaw * CommonDef.DEG_TO_RAD;
 		center.rotateAngleX = headPitch * CommonDef.DEG_TO_RAD;
+		center.offsetY = (float) (-0.1 + 0.05 * Math.sin(legOmega/2f * ageInTicks));
 
 		if (entityIn.onGround)
 		{

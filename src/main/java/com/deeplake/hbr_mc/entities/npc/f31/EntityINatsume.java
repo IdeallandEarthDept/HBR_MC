@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.entities.npc.f31;
 
 import com.deeplake.hbr_mc.entities.npc.EntityNpcMelee;
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.init.RegisterItem;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
 import net.minecraft.entity.IEntityLivingData;
@@ -67,6 +68,9 @@ public class EntityINatsume extends EntityNpcMelee {
         ItemStack stack = new ItemStack(Items.IRON_SWORD);
         stack.addEnchantment(Enchantments.SWEEPING,3);
         stack.addEnchantment(Enchantments.UNBREAKING,10);
+        setItemStackToSlot(EntityEquipmentSlot.OFFHAND,stack);
+
+        stack = new ItemStack(RegisterItem.REN);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
 }

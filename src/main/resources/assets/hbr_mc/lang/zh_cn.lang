@@ -1,6 +1,7 @@
 
 # tabs
-itemGroup.hbr_mc.tab1=绯染天空
+itemGroup.hbr_mc.tab1=红烧天堂
+itemGroup.hbr_mc.tab2=红烧天堂 刷怪蛋
 
 # items
 item.test3.name=Test Item
@@ -47,6 +48,8 @@ item.clavis_ss.skill.1=[潜行交互]：极限冲击~单体攻击并高概率眩
 item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
 item.phantom_weaver.skill.0=[交互友方/右键]：回复~修复附近的DP (%d/%d)
 
+item.phantom_weaver_s.name=Phantom Weaver(S)
+
 item.phantom_weaver_ss.name=Phantom Weaver(天使舰长的气势一闪)
 item.phantom_weaver_ss.toast=天下一品！
 item.phantom_weaver_ss.skill.0=[交互/右键]斗气斩~有概率减小冷却，以斗气狂砍范围内敌人
@@ -82,9 +85,8 @@ item.kazabana.skill.0=
 item.ren.name=Ren
 item.ren.skill.0=
 
-
-item.cancer_shell.name=壳石
 item.cancer_shell.desc=星癌体的外壳。用于合成星癌体装备。用5个与炽天使合成，可以执行前8次的强化。
+item.cancer_shell.name=壳石
 item.cancer_helmet.name=星癌体头盔
 item.cancer_chestplate.name=星癌体胸甲
 item.cancer_leggings.name=星癌体护腿
@@ -96,6 +98,7 @@ item.gem_white.name=珍珠
 item.gem_black.name=玛瑙
 item.gem_amber.name=碧琥珀
 item.gem_droplet.name=阳石水滴
+item.accurate_spawner.name=生成 %s属性的
 
 item.boost_1_a.name=诺瓦原水（斩）
 item.boost_1_a.desc=与炽天使合成以执行第9次开始的强化。
@@ -165,10 +168,11 @@ hbr_mc.potion.skill_atk_up_3=技能攻击力提升
 hbr_mc.potion.self_recoil=反作用力
 hbr_mc.potion.stunned=晕眩
 
-entity.nabi.name=纳比
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper
+entity.c_crest_hopper.name=CrestHopper
+entity.nabi.name=纳比
 entity.cancer_test.name=训练机
 entity.cancer_test_50.name=训练机 (50)
 entity.cancer_test_100.name=训练机 (100)
@@ -205,4 +209,5 @@ hbr_mc.msg.teleport_deny=炽天使传送已禁用
 hbr_mc.msg.teleport_command=[七濑七海]可以使用 /srtp 来开启或关闭炽天使传送。
 hbr_mc.msg.teleport_command_rough=可以使用 /srtpr 来开启或关闭在右键方块不规则表面时的炽天使传送。
 
-item.phantom_weaver_s.name=Phantom Weaver(S)
+hbr_mc.msg.natsume_judgement=[夏目祈]以吾剑，断罪！
+

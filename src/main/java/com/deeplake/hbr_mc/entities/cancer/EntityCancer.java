@@ -65,13 +65,13 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
     @Nullable
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
-        Biome biome = world.getBiome(getPosition());
-        if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SNOWY))
-        {
-            boost6Attr(ModConfig.SPAWN_CONF.SNOWY_EXTRA_DIFFICULTY);
-        } else if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SANDY))
-        {
-            boost6Attr(ModConfig.SPAWN_CONF.DESERT_EXTRA_DIFFICULTY);
+        if (!(this instanceof EntityDummyCancer)) {
+            Biome biome = world.getBiome(getPosition());
+            if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SNOWY)) {
+                boost6Attr(ModConfig.SPAWN_CONF.SNOWY_EXTRA_DIFFICULTY);
+            } else if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SANDY)) {
+                boost6Attr(ModConfig.SPAWN_CONF.DESERT_EXTRA_DIFFICULTY);
+            }
         }
         return super.onInitialSpawn(difficulty, livingdata);
     }

@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.items;
 import com.deeplake.hbr_mc.ModTabs;
 import com.deeplake.hbr_mc.entities.EntityBase;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
+import com.deeplake.hbr_mc.entities.cancer.EntityDummyCancer;
 import com.deeplake.hbr_mc.init.RegisterUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import net.minecraft.block.Block;
@@ -23,6 +24,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -31,7 +33,7 @@ public class ItemSpawnTestCancer extends ItemMonsterPlacer {
     public ItemSpawnTestCancer(String name) {
         super();
         RegisterUtil.initItem(this, name);
-        setCreativeTab(ModTabs.TAB1);
+        setCreativeTab(ModTabs.TAB_EGG);
     }
 
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
@@ -81,6 +83,9 @@ public class ItemSpawnTestCancer extends ItemMonsterPlacer {
                 {
                     entity.setCustomNameTag(itemstack.getDisplayName());
                 }
+                else if (entity instanceof EntityDummyCancer){
+                    entity.setCustomNameTag(entity.getName()+IDLNBTUtil.GetState(itemstack));
+                }
 
                 applyItemEntityDataToEntity(worldIn, player, itemstack, entity);
 
@@ -116,11 +121,26 @@ public class ItemSpawnTestCancer extends ItemMonsterPlacer {
                     applyEntityIdToItemStack(itemstack, eggInfo.spawnedID);
                     for (int attr = 50; attr < 500; attr+=50) {
                         IDLNBTUtil.SetState(itemstack, attr);
+                        items.add(itemstack);
+                        itemstack = itemstack.copy();
                     }
-                    items.add(itemstack);
+                    items.add(ItemStack.EMPTY);
                 }
             }
-            items.add(new ItemStack(this));
         }
+    }
+
+    public String getItemStackDisplayName(ItemStack stack)
+    {
+        String s = ("" + I18n.translateToLocalFormatted(this.getUnlocalizedName() + ".name",
+                IDLNBTUtil.GetState(stack))).trim();
+        String s1 = EntityList.getTranslationName(getNamedIdFrom(stack));
+
+        if (s1 != null)
+        {
+            s = s + " " + I18n.translateToLocal("entity." + s1 + ".name");
+        }
+
+        return s;
     }
 }

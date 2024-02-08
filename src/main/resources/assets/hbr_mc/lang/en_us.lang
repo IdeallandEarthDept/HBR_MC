@@ -2,6 +2,7 @@
 
 #tabs
 itemGroup.hbr_mc.tab1=Heaven Burns Red
+itemGroup.hbr_mc.tab2=Heaven Burns Red Spawn
 
 #items
 item.test3.name=Test Item
@@ -102,6 +103,7 @@ item.gem_white.name=Pearl
 item.gem_black.name=Onyx
 item.gem_amber.name=Jade Amber
 item.gem_droplet.name=Sol Droplet
+item.accurate_spawner.name=Spawn Attr=%s
 
 item.boost_1_a.name=Boost Material (Slash)
 item.boost_1_a.desc=Craft with Seraph to give it boost. Works only for boost 8th+.
@@ -174,6 +176,7 @@ hbr_mc.potion.stunned=STUNNED
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper
+entity.c_crest_hopper.name=CrestHopper
 entity.nabi.name=Nabi
 entity.cancer_test.name=VR Cancer
 entity.cancer_test_50.name=VR Cancer (50)
@@ -215,4 +218,6 @@ hbr_mc.msg.teleport_allow=Seraph Teleportation is now ALLOWED.
 hbr_mc.msg.teleport_deny=Seraph Teleportation is now DENIED.
 hbr_mc.msg.teleport_command=Use /srtp to toggle Seraph teleportation.
 hbr_mc.msg.teleport_command_rough=Use /srtpr to toggle Seraph teleportation at rough block faces click.
+
+hbr_mc.msg.natsume_judgement=[Natsume]My katana is judgement.
 

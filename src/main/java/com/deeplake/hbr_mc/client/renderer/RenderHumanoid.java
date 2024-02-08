@@ -24,6 +24,8 @@ public class RenderHumanoid extends RenderBiped<EntityBase> {
     private ResourceLocation RES_LOC;
     private static final ResourceLocation DEFAULT_RES_LOC = new ResourceLocation(  ":textures/entity/steve.png");
 
+    float scale = 1f;
+
     public RenderHumanoid(RenderManager renderManagerIn)
     {
         super(renderManagerIn, new ModelPlayer(0f, false), 0.5F);
@@ -36,6 +38,11 @@ public class RenderHumanoid extends RenderBiped<EntityBase> {
     {
         this(renderManagerIn);
         RES_LOC = new ResourceLocation(Main.MODID + ":textures/entity/"+TexturePath+".png");
+    }
+
+    public RenderHumanoid(RenderManager renderManagerIn, String TexturePath, float scale) {
+        this(renderManagerIn, TexturePath);
+        this.scale = scale;
     }
 
     public ModelPlayer getMainModel()
@@ -53,7 +60,7 @@ public class RenderHumanoid extends RenderBiped<EntityBase> {
         }
 
         this.setModelVisibilities(entity);
-        //GlStateManager.enableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);
+//        GlStateManager.enableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);
         super.doRender(entity, x, d0, z, entityYaw, partialTicks);
         //GlStateManager.disableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);
     }
@@ -168,5 +175,11 @@ public class RenderHumanoid extends RenderBiped<EntityBase> {
         {
             super.applyRotations(entityLiving, p_77043_2_, rotationYaw, partialTicks);
         }
+    }
+
+    @Override
+    protected void preRenderCallback(EntityBase entitylivingbaseIn, float partialTickTime) {
+        super.preRenderCallback(entitylivingbaseIn, partialTickTime);
+        GlStateManager.scale(scale, scale, scale);
     }
 }

@@ -20,8 +20,8 @@ public class RegisterEntities {
     {
         registerEntity("cancer_test", EntityDummyCancer.class);
         registerEntity("nabi", EntityNabiSlime.class);
-        registerEntity("cancer_test_50", EntityDummy50.class);
-        registerEntity("cancer_test_100", EntityDummy100.class);
+//        registerEntity("cancer_test_50", EntityDummy50.class);
+//        registerEntity("cancer_test_100", EntityDummy100.class);
         registerEntity("c_marionette", EntityMarionette.class, 64, 0x000000, 0xcccccc);
         registerEntity("c_doll", EntityDoll.class, 64, 0x000000, 0xcccccc);
         registerEntity("c_small_hopper", EntitySmallHopper.class, 64, 0x000000, 0xcccccc);
