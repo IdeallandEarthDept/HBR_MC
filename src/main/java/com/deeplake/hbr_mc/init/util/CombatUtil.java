@@ -82,17 +82,26 @@ public class CombatUtil {
         }
     }
 
-    public static void areaAttackGroup(float[] group, World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate) {
+    public static void areaAttackGroup(float[] group, World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
         for (float ratio: group
              ) {
             areaAttack(worldIn, caster, dist, radius, atkType, minPotency * ratio, cap, bonusRate);
         }
     }
 
-    public static void HPAttackGroup(EntityLivingBase player, EntityLivingBase target, float minPotency, float[] group, float cap, float bonusRate)
+    public static void AttackGroup(EntityLivingBase player, EntityLivingBase target, float minPotency, float[] group, float cap)
     {
         for (float ratio: group
              ) {
+            attackAsHBR(null, player, target, EnumAttrType.STR_FOCUS, EnumDefType.END,
+                    ratio * minPotency, cap);
+        }
+    }
+
+    public static void HPAttackGroup(EntityLivingBase player, EntityLivingBase target, float minPotency, float[] group, float cap, float bonusRate)
+    {
+        for (float ratio: group
+        ) {
             HPAttack(player, target, minPotency * ratio, cap, bonusRate);
         }
     }

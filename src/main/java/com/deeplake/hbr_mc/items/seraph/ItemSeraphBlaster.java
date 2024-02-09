@@ -11,6 +11,9 @@ public class ItemSeraphBlaster extends ItemSeraphBase{
     public ItemSeraphBlaster(String name, EnumSeraphType seraphType) {
         super(name, seraphType);
     }
+    public ItemSeraphBlaster(String name, EnumSeraphType seraphType, EnumSeraphRarity rarity) {
+        super(name, seraphType, rarity);
+    }
 
     Set<String> toolSet = com.google.common.collect.ImmutableSet.of("pickaxe","axe","shovel");
 
