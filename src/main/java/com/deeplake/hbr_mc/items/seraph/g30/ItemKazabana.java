@@ -5,9 +5,11 @@ import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphCannonBase;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
@@ -27,6 +29,21 @@ public class ItemKazabana extends ItemSeraphCannonBase {
     @Override
     public void castSkillNonSneak(ItemStack stack, World worldIn, EntityPlayer player) {
         castSkillSneak(stack, worldIn, player);
+    }
+
+    @Override
+    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+        super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
+        if (entityIn instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entityIn;
+            if (player.getHeldItemOffhand() == stack)
+            {
+                if (player.getHeldItemMainhand().getItem() instanceof ItemSword)
+                {
+                    player.resetCooldown();
+                }
+            }
+        }
     }
 
     @Override
