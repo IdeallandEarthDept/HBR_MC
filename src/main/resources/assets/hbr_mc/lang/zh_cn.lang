@@ -56,14 +56,14 @@ item.phantom_weaver_ss.skill.0=[交互/右键]斗气斩~有概率减小冷却，
 item.phantom_weaver_ss.skill.1=[潜行右键]复苏之光~复活附近玩家的DP，并大量回复(%d/%d)
 
 item.glitter_shadow.name=Glitter Shadow(Laugh or Cry)
-item.glitter_shadow.skill.0=乱舞
+item.glitter_shadow.skill.0=[交互]乱舞~单体攻击
 
 item.glitter_shadow_s.name=Glitter Shadow(S)
 
 item.glitter_shadow_ss.name=Glitter Shadow(红莲月华Killrazor)
 item.glitter_shadow_ss.toast=杀戮如呼吸……！
-item.glitter_shadow_ss.skill.0=狂野投掷
-item.glitter_shadow_ss.skill.1=血腥之舞
+item.glitter_shadow_ss.skill.0=[交互]狂野投掷~范围攻击
+item.glitter_shadow_ss.skill.1=[潜行交互]血腥之舞~单体10连击(%d/%d)
 
 item.fatal_null.name=Fatal Null
 item.fatal_null.skill.0=
@@ -172,6 +172,7 @@ entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper
 entity.c_crest_hopper.name=CrestHopper
+entity.c_slasher.name=Slasher
 entity.nabi.name=纳比
 entity.cancer_test.name=训练机
 entity.cancer_test_50.name=训练机 (50)
@@ -210,4 +211,3 @@ hbr_mc.msg.teleport_command=[七濑七海]可以使用 /srtp 来开启或关闭�
 hbr_mc.msg.teleport_command_rough=可以使用 /srtpr 来开启或关闭在右键方块不规则表面时的炽天使传送。
 
 hbr_mc.msg.natsume_judgement=[夏目祈]以吾剑，断罪！
-

@@ -132,10 +132,7 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
 
     public void handleCancerDrop(boolean wasRecentlyHit, int lootingModifier, DamageSource source)
     {
-        if (rand.nextFloat() < (1f+lootingModifier)/(2+lootingModifier))
-        {
-            dropItem(RegisterItem.CANCER_SHELL, 1);
-        }
+        dropByAttribute(RegisterItem.CANCER_SHELL, 1);
     }
 
     @Override
@@ -205,5 +202,33 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
     @Override
     public boolean getCanSpawnHere() {
         return super.getCanSpawnHere() && this.world.canSeeSky(new BlockPos(this).up());
+    }
+
+    protected void dropByAttribute(Item dropItem, int sizePerDrop)
+    {
+        //drop bones per 100 HPMax, and chance corresponse to the remainder
+        float dropChance = (float) (RegisterAttr.getAttrValue(this, RegisterAttr.STR) / 100);
+        advancedDrop(dropChance, dropItem, sizePerDrop);
+    }
+
+    protected void advancedDrop(float dropChance, Item dropItem, int sizePerDrop) {
+        int maxStack = dropItem.getItemStackLimit();
+        int sizeTotal = 0;
+        while (dropChance > 1) {
+            sizeTotal += sizePerDrop;
+            while (sizeTotal > maxStack) {
+                dropItem(dropItem, maxStack);
+                sizeTotal -= maxStack;
+            }
+            dropChance -= 1;
+        }
+        if (rand.nextFloat() < dropChance) {
+            sizeTotal += sizePerDrop;
+            while (sizeTotal > maxStack) {
+                dropItem(dropItem, maxStack);
+                sizeTotal -= maxStack;
+            }
+            dropItem(dropItem, sizeTotal);
+        }
     }
 }

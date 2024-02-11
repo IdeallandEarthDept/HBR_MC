@@ -1,8 +1,7 @@
 package com.deeplake.hbr_mc.entities.cancer;
 
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.entity.player.EntityPlayer;
+import com.deeplake.hbr_mc.init.RegisterItem;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class EntityMarionette extends EntityWalkerCancerBase{
@@ -19,5 +18,9 @@ public class EntityMarionette extends EntityWalkerCancerBase{
         setDPMax(5);
     }
 
-
+    @Override
+    public void handleCancerDrop(boolean wasRecentlyHit, int lootingModifier, DamageSource source) {
+        super.handleCancerDrop(wasRecentlyHit, lootingModifier, source);
+        dropByAttribute(RegisterItem.BOOST_1_C, 1);
+    }
 }

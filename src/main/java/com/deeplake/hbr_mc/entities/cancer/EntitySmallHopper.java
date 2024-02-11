@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.entities.cancer;
 
-import net.minecraft.world.DifficultyInstance;
+import com.deeplake.hbr_mc.init.RegisterItem;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class EntitySmallHopper extends EntityWalkerCancerBase{
@@ -20,5 +21,11 @@ public class EntitySmallHopper extends EntityWalkerCancerBase{
         setAttr(32,0.3f,3,0,10);
         set6Attr(20);
         setDPMax(20);
+    }
+
+    @Override
+    public void handleCancerDrop(boolean wasRecentlyHit, int lootingModifier, DamageSource source) {
+        super.handleCancerDrop(wasRecentlyHit, lootingModifier, source);
+        dropByAttribute(RegisterItem.BOOST_1_A, 1);
     }
 }
