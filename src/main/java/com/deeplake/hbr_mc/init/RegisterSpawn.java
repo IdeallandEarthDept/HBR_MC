@@ -2,6 +2,7 @@ package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.entities.cancer.EntityDoll;
 import com.deeplake.hbr_mc.entities.cancer.EntityMarionette;
+import com.deeplake.hbr_mc.entities.cancer.EntitySlasher;
 import com.deeplake.hbr_mc.entities.cancer.EntitySmallHopper;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
@@ -26,6 +27,7 @@ public class RegisterSpawn {
             add(biome, ModConfig.SPAWN_CONF.SPAWN_MARIONETTE, EntityMarionette.class, 1, 3);
             add(biome, ModConfig.SPAWN_CONF.SPAWN_DOLL, EntityDoll.class, 1, 3);
             add(biome, ModConfig.SPAWN_CONF.SPAWN_SMALL_HOPPER, EntitySmallHopper.class, 1, 3);
+            add(biome, ModConfig.SPAWN_CONF.SPAWN_SLASHER, EntitySlasher.class, 1, 3);
         }
     }
 

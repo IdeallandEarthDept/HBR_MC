@@ -177,6 +177,7 @@ entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper
 entity.c_crest_hopper.name=CrestHopper
+entity.c_slasher.name=Slasher
 entity.nabi.name=Nabi
 entity.cancer_test.name=VR Cancer
 entity.cancer_test_50.name=VR Cancer (50)

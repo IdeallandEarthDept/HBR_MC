@@ -144,6 +144,10 @@ public class ModConfig {
         @Config.RequiresMcRestart
         public int SPAWN_SMALL_HOPPER = 30;
 
+        @Config.LangKey("entity.c_slasher.name")
+        @Config.RequiresMcRestart
+        public int SPAWN_SLASHER = 30;
+
         public float SNOWY_EXTRA_DIFFICULTY = 180;
         public float DESERT_EXTRA_DIFFICULTY = 100;
     }

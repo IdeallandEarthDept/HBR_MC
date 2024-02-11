@@ -4,14 +4,8 @@ import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.client.renderer.RenderBullet;
 import com.deeplake.hbr_mc.client.renderer.RenderHumanoid;
 import com.deeplake.hbr_mc.client.renderer.RenderHumanoidGlowShell;
-import com.deeplake.hbr_mc.client.renderer.cancer.RenderCrestHopper;
-import com.deeplake.hbr_mc.client.renderer.cancer.RenderDoll;
-import com.deeplake.hbr_mc.client.renderer.cancer.RenderMarionette;
-import com.deeplake.hbr_mc.client.renderer.cancer.RenderSmallHopper;
-import com.deeplake.hbr_mc.entities.cancer.EntityCrestHopper;
-import com.deeplake.hbr_mc.entities.cancer.EntityDoll;
-import com.deeplake.hbr_mc.entities.cancer.EntityMarionette;
-import com.deeplake.hbr_mc.entities.cancer.EntitySmallHopper;
+import com.deeplake.hbr_mc.client.renderer.cancer.*;
+import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.EntitySHiguchi;
 import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
@@ -61,6 +55,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityDoll.class, RenderDoll::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySmallHopper.class, RenderSmallHopper::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityCrestHopper.class, RenderCrestHopper::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntitySlasher.class, RenderSlasher::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityIdlProjectile.class, renderManager -> new RenderBullet<>(renderManager, new ResourceLocation(Main.MODID,
                 "textures/entity/projectiles/bullet_norm.png")));
 

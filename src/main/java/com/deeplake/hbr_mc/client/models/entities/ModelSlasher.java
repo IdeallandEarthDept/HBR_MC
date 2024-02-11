@@ -1,6 +1,17 @@
 // Made with Blockbench 4.9.3
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
+package com.deeplake.hbr_mc.client.models.entities;// Made with Blockbench 4.8.3
+// Exported for Minecraft version 1.7 - 1.12
+// Paste this class into your mod and generate all required imports
+
+
+import com.deeplake.hbr_mc.init.util.CommonDef;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBox;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 
 public class ModelSlasher extends ModelBase {
@@ -147,5 +158,27 @@ public class ModelSlasher extends ModelBase {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
+	}
+
+	@Override
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+		centerBallRotate.rotateAngleY = (netHeadYaw+90) * CommonDef.DEG_TO_RAD;
+		centerBallRotate.rotateAngleZ = headPitch * CommonDef.DEG_TO_RAD;
+
+		//idle
+		//like skiing or bicycle
+		float baseSwingAmp = 0.1f;
+		float baseSwingOmega = 0.15f;
+		base.rotateAngleZ = MathHelper.cos(ageInTicks * baseSwingOmega) * baseSwingAmp;
+
+		float bladeAmplitude = (float) Math.PI;
+		float bladeOmega = 0.1f;
+		innerRingRotate.rotateAngleY = MathHelper.cos(ageInTicks * bladeOmega) * bladeAmplitude;
+
+		//attack
+		//copied from zombie
+		float bladeAttackAngle = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
+		outerRingRotate.rotateAngleZ = bladeAttackAngle;
+		innerRingRotate.rotateAngleZ = bladeAttackAngle;
 	}
 }
