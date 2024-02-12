@@ -4,7 +4,7 @@ require "GenBlockJson"
 
 --GenItem("misc","boost_1_a")
 --GenItem("misc","boost_1_b")
-GenItem("misc","accurate_spawner")
+GenItem("misc","random_1")
 
 --GenBlock("cancer_carpet")
 

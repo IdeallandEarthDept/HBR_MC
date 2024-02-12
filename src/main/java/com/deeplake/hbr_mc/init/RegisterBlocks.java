@@ -3,8 +3,8 @@ package com.deeplake.hbr_mc.init;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.blocks.BlockBase;
 import com.deeplake.hbr_mc.blocks.BlockCarpetBase;
+import com.deeplake.hbr_mc.blocks.BlockCrate;
 import com.deeplake.hbr_mc.blocks.BlockHealStash;
-import com.deeplake.hbr_mc.init.util.CommonDef;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.event.RegistryEvent;
@@ -24,6 +24,7 @@ public class RegisterBlocks {
     public static final Block CRYSTAL_ORE = new BlockBase("crystal_ore", Material.ROCK).setHardness(15f);
     public static final Block ENERGY_ORE = new BlockBase("energy_ore", Material.ROCK).setHardness(15f);
     public static final Block CANCER_FLOOR = new BlockCarpetBase("cancer_carpet",Material.IRON).setHardness(4f).setResistance(999f);
+    public static final BlockCrate RANDOM_DROP_BASIC = new BlockCrate("random_1", Material.WOOD);
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)

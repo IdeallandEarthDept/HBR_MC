@@ -15,7 +15,7 @@ public class Main
 {
     public static final String MODID = "hbr_mc";
     public static final String NAME = "Heaven Burns Red";
-    public static final String VERSION = "1.1";
+    public static final String VERSION = "1.1.4";
 
     private static Logger logger;
     @Mod.Instance
@@ -42,13 +42,10 @@ public class Main
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        // Moved Spawning registry to last since forge doesn't auto-generate sub
-        // "M' biomes until late
         if (ModConfig.SPAWN_CONF.SPAWN) {
             RegisterSpawn.registerSpawnList();
         }
-
-
+        RegisterDrop.initCrateList();
     }
 
     public static void LogWarning(String str, Object...args)
