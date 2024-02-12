@@ -144,6 +144,8 @@ tile.energy_ore.name=Energy Ore
 tile.crystal_ore.name=Free Crystal Ore
 tile.cancer_carpet.name=Cancer Carpet
 tile.cancer_carpet.desc=Cheap carpet. Used to disable mob spawning, especially cancers.
+tile.random_1.name=Some Loot
+tile.random_1.desc=Break it to get random things.
 
 attribute.name.hbr_mc.attr.str=Strength
 attribute.name.hbr_mc.attr.dex=Dexterity

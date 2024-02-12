@@ -171,5 +171,9 @@ public class ModConfig {
         @Config.Comment("Generate clock tower chance. 1 = 100% per chunk")
         @Config.RangeDouble(min = 0,max = 1)
         public float CLOCK_TOWER_CHANCE = 0.005f;
+        @Config.LangKey("hbr_mc.conf.worldGen.drops")
+        @Config.Comment("Generate drops per chunk")
+        @Config.RangeDouble(min = 0)
+        public float POT_DENSITY = 1/1024f;
     }
 }

@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc.init;
 
+import com.deeplake.hbr_mc.worldgen.ModGenDropsOverworld;
 import com.deeplake.hbr_mc.worldgen.SpawnCrystal;
 import com.deeplake.hbr_mc.worldgen.WorldGenStructures;
 import net.minecraftforge.fml.common.IWorldGenerator;
@@ -11,6 +12,7 @@ public class RegisterWorldGen {
     {
         register(new SpawnCrystal());
         register(new WorldGenStructures());
+        register(new ModGenDropsOverworld());
     }
 
     static void register(IWorldGenerator generator)
