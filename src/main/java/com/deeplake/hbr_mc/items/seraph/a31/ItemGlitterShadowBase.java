@@ -24,11 +24,11 @@ public class ItemGlitterShadowBase extends ItemSeraphBlaster {
         EntityPlayer player = (EntityPlayer) entityIn;
         if (!isSelected)
         {
-            player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10, 1, true, false));
-            player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 10, 1, true, false));
+            player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10, 0, true, false));
+            player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 10, 0, true, false));
         }else {
-            player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 1, true, false));
-            player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 10, 1, true, false));
+            player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 0, true, false));
+            player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 10, 0, true, false));
         }
     }
 }
