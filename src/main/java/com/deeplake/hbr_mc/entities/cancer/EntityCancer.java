@@ -84,7 +84,7 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
 
     @Override
     public boolean isInvulnerableToAttacks() {
-        return DShieldUtil.isDPDepleted(this);
+        return !DShieldUtil.isDPDepleted(this);
     }
 
     //when there is still shield, takes no damage to HP even if damage is overkill for shield

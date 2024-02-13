@@ -42,7 +42,8 @@ public class ModGenDropsOverworld implements IWorldGenerator {
                 IBlockState state1 = world.getBlockState(pointer.up());
                 if (state.isSideSolid(world, pointer, EnumFacing.UP)
                     && state1.getBlock().isAir(state1, world, pointer.up())
-                    && world.getLight(pointer.up()) < 3)
+                    //&& world.getLight(pointer.up()) < 3)
+                )
                 {
                     if (random.nextFloat() < 0.5f)
                     {

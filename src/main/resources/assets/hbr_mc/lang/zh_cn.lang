@@ -140,6 +140,8 @@ tile.energy_ore.name=体力矿石
 tile.crystal_ore.name=免费石英矿石
 tile.cancer_carpet.name=星癌体地毯
 tile.cancer_carpet.desc=廉价的地毯。用来抑制刷怪，尤其是防止刷星癌体。
+tile.random_1.name=补给
+tile.random_1.desc=右键或打碎能掉落补给，包括战斗报告书、阳石水滴、碧琥珀。
 
 attribute.name.hbr_mc.attr.str=力量
 attribute.name.hbr_mc.attr.dex=灵巧
