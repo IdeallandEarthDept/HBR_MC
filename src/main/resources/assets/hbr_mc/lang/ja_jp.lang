@@ -106,12 +106,12 @@ tile.crystal_ore.name=Free Crystal Ore
 tile.cancer_carpet.name=Cancer Carpet
 tile.cancer_carpet.desc=Cheap carpet. Used to disable mob spawning, especially cancers.
 
-attribute.name.hbr_mc.attr.str=Strength
-attribute.name.hbr_mc.attr.dex=Dexterity
-attribute.name.hbr_mc.attr.end=Endurance
-attribute.name.hbr_mc.attr.men=Mental
-attribute.name.hbr_mc.attr.int=Intelligence
-attribute.name.hbr_mc.attr.luc=Lucky
+attribute.name.hbr_mc.attr.str=力
+attribute.name.hbr_mc.attr.dex=器
+attribute.name.hbr_mc.attr.end=精神
+attribute.name.hbr_mc.attr.men=体力
+attribute.name.hbr_mc.attr.int=知性
+attribute.name.hbr_mc.attr.luc=運
 
 desc.hbr_mc.seraph.broken=[Broken]
 desc.hbr_mc.seraph.dura_format=DP: %s/%s
