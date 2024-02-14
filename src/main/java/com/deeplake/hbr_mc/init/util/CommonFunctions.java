@@ -51,6 +51,10 @@ import static java.lang.Math.abs;
 
 public class CommonFunctions {
 
+    public static boolean isServer()
+    {
+        return FMLCommonHandler.instance().getSide().isServer();
+    }
     public static AxisAlignedBB ServerAABB(Vec3d from, Vec3d to)
     {
         return new AxisAlignedBB(from.x, from.y, from.z, to.x, to.y, to.z);

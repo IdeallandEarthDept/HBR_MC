@@ -1,7 +1,11 @@
 package com.deeplake.hbr_mc;
 
+import com.deeplake.hbr_mc.client.layer.LayerBreak;
 import com.deeplake.hbr_mc.init.*;
+import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.recipes.FurnaceRecipes;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -46,6 +50,15 @@ public class Main
             RegisterSpawn.registerSpawnList();
         }
         RegisterDrop.initCrateList();
+
+        if (!CommonFunctions.isServer())
+        {
+            Minecraft.getMinecraft().getRenderManager().entityRenderMap.values().forEach(r -> {
+                if (r instanceof RenderLivingBase) {
+                    ((RenderLivingBase<?>) r).addLayer(new LayerBreak((RenderLivingBase<?>) r));
+                }
+            });
+        }
     }
 
     public static void LogWarning(String str, Object...args)
