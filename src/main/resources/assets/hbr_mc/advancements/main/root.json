@@ -1,0 +1,19 @@
+{
+    "display": {
+        "icon": {
+            "item": "hbr_mc:shard_ss"
+        },
+        "title": {
+            "translate": "hbr_mc.advancements.root_main.title"
+        },
+        "description": {
+            "translate": "hbr_mc.advancements.root_main.desc"
+        },
+        "background": "hbr_mc:textures/blocks/cancer_carpet.png"
+    },
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

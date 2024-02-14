@@ -1,0 +1,23 @@
+{
+    "display": {
+        "icon": {
+            "item": "hbr_mc:brave_blue"
+        },
+        "title": {
+            "translate": "hbr_mc.advancements.kula.title"
+        },
+        "description": {
+            "translate": "hbr_mc.advancements.kula.desc"
+        },
+        "hidden": true,
+        "show_toast": true,
+        "announce_to_chat": true,
+        "frame": "goal"
+    },
+    "parent": "hbr_mc:main/root",
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

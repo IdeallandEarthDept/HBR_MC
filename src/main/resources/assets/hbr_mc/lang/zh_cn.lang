@@ -213,3 +213,14 @@ hbr_mc.msg.teleport_command=[七濑七海]可以使用 /srtp 来开启或关闭�
 hbr_mc.msg.teleport_command_rough=可以使用 /srtpr 来开启或关闭在右键方块不规则表面时的炽天使传送。
 
 hbr_mc.msg.natsume_judgement=[夏目祈]以吾剑，断罪！
+
+hbr_mc.advancements.root_main.title=红烧天堂
+hbr_mc.advancements.root_main.desc=但是MC
+
+hbr_mc.advancements.kulu_baka.title=你脑子有洞是吗！
+hbr_mc.advancements.kulu_baka.desc=用炽天使攻击了其他玩家
+
+hbr_mc.advancements.kula.title=藏！
+hbr_mc.advancements.kula.desc=【剧透】不，不！鄙人只想知道伙伴是生是死啊！
+
+hbr_mc.ench.history_4ky=五千年的

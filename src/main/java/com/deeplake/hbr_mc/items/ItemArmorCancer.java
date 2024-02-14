@@ -1,8 +1,6 @@
 package com.deeplake.hbr_mc.items;
 
-import com.deeplake.hbr_mc.ModTabs;
 import com.deeplake.hbr_mc.init.RegisterAttr;
-import com.deeplake.hbr_mc.init.RegisterUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.Entity;
@@ -10,7 +8,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -54,7 +51,6 @@ public class ItemArmorCancer extends ItemArmorBase implements IHasRandomAttr {
         INT(NBT_INT, RegisterAttr.INT),
         HP_MAX(NBT_HPM, SharedMonsterAttributes.MAX_HEALTH);
 
-        //todo: maybe we should add HP_MAX here
         //and crit chance perhaps?
         public final String name;
         public final IAttribute attribute;
