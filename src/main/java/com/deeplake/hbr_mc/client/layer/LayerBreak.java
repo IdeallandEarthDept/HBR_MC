@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.client.layer;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
 import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -38,10 +39,13 @@ public class LayerBreak implements LayerRenderer<EntityLivingBase> {
             return;
         }
 
+        if (!(entitylivingbaseIn instanceof EntityCancer)) {
+            return;
+        }
         //this.renderer.bindTexture(OVERLAY_ROCK);
         //this.renderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 
-        //light
+        //glowing
         GlStateManager.enableBlend();
         GlStateManager.disableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -55,9 +59,8 @@ public class LayerBreak implements LayerRenderer<EntityLivingBase> {
         this.renderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         Minecraft.getMinecraft().entityRenderer.setupFogColor(false);
 
-        if (renderer instanceof RenderLiving && entitylivingbaseIn instanceof EntityLiving)
-        {
-            ((RenderLiving)renderer).setLightmap((EntityLiving) entitylivingbaseIn);
+        if (renderer instanceof RenderLiving && entitylivingbaseIn instanceof EntityLiving) {
+            ((RenderLiving) renderer).setLightmap((EntityLiving) entitylivingbaseIn);
         }
         GlStateManager.depthMask(true);
         GlStateManager.disableBlend();
