@@ -31,7 +31,7 @@ public class LayerBipedGlow implements LayerRenderer<EntityBase>
         }
 
         this.endermanRenderer.bindTexture(RES_ENDERMAN_EYES);
-        GlStateManager.enableBlend();
+        //GlStateManager.enableBlend();
         //GlStateManager.disableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
         GlStateManager.disableLighting();
@@ -47,7 +47,7 @@ public class LayerBipedGlow implements LayerRenderer<EntityBase>
         Minecraft.getMinecraft().entityRenderer.setupFogColor(false);
         this.endermanRenderer.setLightmap(entitylivingbaseIn);
         GlStateManager.depthMask(true);
-        GlStateManager.disableBlend();
+        //GlStateManager.disableBlend();
         //GlStateManager.enableAlpha();
     }
 

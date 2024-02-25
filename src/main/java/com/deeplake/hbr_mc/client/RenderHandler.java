@@ -21,17 +21,17 @@ public class RenderHandler {
     public static void registerEntityRenders() {
         //31A
         RenderingRegistry.registerEntityRenderingHandler(EntityLKayamori.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/luka_kayamori/luka"));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/a31/luka_kayamori/luka_hy"));
         RenderingRegistry.registerEntityRenderingHandler(EntityYIzumi.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/yuki_izumi/yuki"));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/a31/yuki_izumi/yuki_hy"));
         RenderingRegistry.registerEntityRenderingHandler(EntityMAikawa.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/megumi_aikawa/megumi"));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/a31/megumi_aikawa/megumi_hy"));
         RenderingRegistry.registerEntityRenderingHandler(EntityTTsukasa.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/tojo_tsukasa/tojo"));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/a31/tojo_tsukasa/tojo_hy"));
         RenderingRegistry.registerEntityRenderingHandler(EntityKAsakura.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/karen_asakura/karen",0.95f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/a31/karen_asakura/karen_hy",0.95f));
         RenderingRegistry.registerEntityRenderingHandler(EntityTKunimi.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/tama_kunimi/tama",0.82f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/a31/tama_kunimi/tama_hy",0.82f));
 
         //31b
         RenderingRegistry.registerEntityRenderingHandler(EntitySHiguchi.class,

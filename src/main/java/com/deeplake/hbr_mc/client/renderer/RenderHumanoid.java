@@ -74,6 +74,9 @@ public class RenderHumanoid extends RenderBiped<EntityBase> {
 //        GlStateManager.enableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);
         super.doRender(entity, x, d0, z, entityYaw, partialTicks);
         //GlStateManager.disableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);
+
+//        GlStateManager.disableBlend();
+//        GlStateManager.disableAlpha();
     }
 
     private void setModelVisibilities(EntityLivingBase clientPlayer)
@@ -192,5 +195,12 @@ public class RenderHumanoid extends RenderBiped<EntityBase> {
     protected void preRenderCallback(EntityBase entitylivingbaseIn, float partialTickTime) {
         super.preRenderCallback(entitylivingbaseIn, partialTickTime);
         GlStateManager.scale(scale, scale, scale);
+    }
+
+    @Override
+    protected boolean setBrightness(EntityBase entitylivingbaseIn, float partialTicks, boolean combineTextures) {
+//        GlStateManager.enableBlend();
+//        GlStateManager.enableAlpha();
+        return super.setBrightness(entitylivingbaseIn, partialTicks, combineTextures);
     }
 }
