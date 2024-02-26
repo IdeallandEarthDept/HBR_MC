@@ -5,5 +5,6 @@ import net.minecraft.world.World;
 public class EntityCrestHopper extends EntitySmallHopper{
     public EntityCrestHopper(World worldIn) {
         super(worldIn);
+        setSize(2f, 4f);
     }
 }
