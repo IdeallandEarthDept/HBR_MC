@@ -28,6 +28,7 @@ public class ModGenDropsOverworld implements IWorldGenerator {
             return;
         }
 
+        //todo: make it support density < 1
         for (int i = 0; i < ModConfig.WORLD_CONF.POT_DENSITY; i++)
         {
             BlockPos.MutableBlockPos pointer = new BlockPos.MutableBlockPos(pos)
@@ -35,7 +36,7 @@ public class ModGenDropsOverworld implements IWorldGenerator {
                             0,
                             pos.getZ() + random.nextInt(CommonDef.CHUNK_SIZE));
 
-            for (int y = 0; y <= CommonDef.MAX_BUILD_HEIGHT; y++)
+            for (int y = CommonDef.MAX_BUILD_HEIGHT; y <= 0; y--)
             {
                 pointer.setY(y);
                 IBlockState state = world.getBlockState(pointer);
@@ -48,7 +49,8 @@ public class ModGenDropsOverworld implements IWorldGenerator {
                     if (random.nextFloat() < 0.5f)
                     {
                         world.setBlockState(pointer.up(), RegisterBlocks.RANDOM_DROP_BASIC.getDefaultState());
-                        y+=2;
+                        //y+=2;
+                        return;
                     }
                 }
             }

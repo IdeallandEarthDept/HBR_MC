@@ -5,6 +5,7 @@ import com.deeplake.hbr_mc.designs.SeraphAttrData;
 import com.deeplake.hbr_mc.designs.SeraphBoostConst;
 import com.deeplake.hbr_mc.designs.SeraphBoostUnit;
 import com.deeplake.hbr_mc.entities.cancer.EntityCancer;
+import com.deeplake.hbr_mc.entities.npc.EntityNPC;
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.RegisterEffects;
@@ -414,7 +415,7 @@ public class ItemSeraphBase extends ItemBase {
         {
             return false;
         }
-        if (target instanceof EntityPlayer)
+        if (target instanceof EntityPlayer || target instanceof EntityNPC)
         {
             castSkillFriend(stack, playerIn.getEntityWorld(), playerIn, target);
         }

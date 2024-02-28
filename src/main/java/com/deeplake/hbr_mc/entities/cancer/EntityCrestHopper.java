@@ -7,4 +7,11 @@ public class EntityCrestHopper extends EntitySmallHopper{
         super(worldIn);
         setSize(2f, 4f);
     }
+
+    @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        set6Attr(40);
+        setDPMax(40);
+    }
 }

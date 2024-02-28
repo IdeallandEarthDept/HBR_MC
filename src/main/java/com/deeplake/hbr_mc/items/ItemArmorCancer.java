@@ -121,7 +121,7 @@ public class ItemArmorCancer extends ItemArmorBase implements IHasRandomAttr {
                     addToMap(hashmap, ARMOR_BASE_MODIFY, RegisterAttr.DEX, armorBaseBonus);
                     break;
                 case HEAD:
-                    addToMap(hashmap, ARMOR_BASE_MODIFY, RegisterAttr.MEN, armorBaseBonus);
+                    addToMap(hashmap, ARMOR_BASE_MODIFY, RegisterAttr.INT, armorBaseBonus);
                     break;
                 default:
                     break;

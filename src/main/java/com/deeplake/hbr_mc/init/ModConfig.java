@@ -174,6 +174,6 @@ public class ModConfig {
         @Config.LangKey("hbr_mc.conf.worldGen.drops")
         @Config.Comment("Generate drops per chunk")
         @Config.RangeDouble(min = 0)
-        public float POT_DENSITY = 1/1024f;
+        public float POT_DENSITY = 1f;
     }
 }
