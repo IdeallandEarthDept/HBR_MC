@@ -60,8 +60,17 @@ public class RegisterItem {
     //30G
     public static final Item KAZABANA = new ItemWIPRanged("kazabana", EnumSeraphType.GUN);
 
+//    public static final Item NUE = new ItemSeraphForNPC("nue", EnumSeraphType.LARGE_SWORD);
+//    public static final Item NUE_S = new ItemSeraphForNPC("nue_s", EnumSeraphType.LARGE_SWORD);
+//    public static final Item NUE_SS = new ItemSeraphForNPC("nue_ss", EnumSeraphType.LARGE_SWORD);
+
     //31F
     public static final Item REN = new ItemWIP("ren");
+
+    //31X
+    public static final Item BLOoDY_SAGE = new ItemSeraphForNPC("bloody_sage", EnumSeraphType.LARGE_SWORD);
+    public static final Item BLOoDY_SAGE_S = new ItemSeraphForNPC("bloody_sage_s", EnumSeraphType.LARGE_SWORD);
+    public static final Item BLOoDY_SAGE_SS = new ItemSeraphForNPC("bloody_sage_ss", EnumSeraphType.LARGE_SWORD);
 
     public static final Item GEM_R =       new ItemBase("gem_red");
     public static final Item GEM_Y =       new ItemBase("gem_yellow");
