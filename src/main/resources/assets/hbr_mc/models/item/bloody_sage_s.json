@@ -1,1 +1,32 @@
-{"parent": "item/handheld","textures": {"layer0":"hbr_mc:items/seraph/bloody_sage_s"}}
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "hbr_mc:items/seraph/bloody_sage_s"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [45, 90, 0],
+			"translation": [0, 6.75, 2]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [45, -90, 0],
+			"translation": [0, 6.75, 2]
+		},
+		"firstperson_righthand": {
+			"rotation": [45, 90, 0],
+			"translation": [0, 6.75, 2]
+		},
+		"firstperson_lefthand": {
+			"rotation": [45, -90, 0],
+			"translation": [0, 6.75, 2]
+		},
+		"ground": {
+			"translation": [0, 4.25, 0]
+		},
+		"head": {
+			"rotation": [-45, 90, 0],
+			"translation": [0, 4.25, -13.25]
+		}
+	}
+}
