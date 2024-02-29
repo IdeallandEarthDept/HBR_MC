@@ -144,6 +144,11 @@ public class ModConfig {
         @Config.RequiresMcRestart
         public int SPAWN_SMALL_HOPPER = 30;
 
+        @Config.LangKey("entity.c_crest_hopper.name")
+        @Config.RequiresMcRestart
+        public int SPAWN_CREST_HOPPER = 30;
+
+
         @Config.LangKey("entity.c_slasher.name")
         @Config.RequiresMcRestart
         public int SPAWN_SLASHER = 30;
@@ -174,6 +179,6 @@ public class ModConfig {
         @Config.LangKey("hbr_mc.conf.worldGen.drops")
         @Config.Comment("Generate drops per chunk")
         @Config.RangeDouble(min = 0)
-        public float POT_DENSITY = 1f;
+        public float POT_DENSITY = 0.1f;
     }
 }
