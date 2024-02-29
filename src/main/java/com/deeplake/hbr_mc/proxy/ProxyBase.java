@@ -1,4 +1,6 @@
 package com.deeplake.hbr_mc.proxy;
 
-public class ProxyBase {
+public abstract class ProxyBase {
+    public void registerLayers() {
+    }
 }

@@ -1,13 +1,12 @@
 package com.deeplake.hbr_mc;
 
-import com.deeplake.hbr_mc.client.layer.LayerBreak;
 import com.deeplake.hbr_mc.init.*;
-import com.deeplake.hbr_mc.init.util.CommonFunctions;
+import com.deeplake.hbr_mc.init.util.CommonDef;
+import com.deeplake.hbr_mc.proxy.ProxyBase;
 import com.deeplake.hbr_mc.recipes.FurnaceRecipes;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -24,6 +23,9 @@ public class Main
     private static Logger logger;
     @Mod.Instance
     public static Main instance;
+
+    @SidedProxy(clientSide = CommonDef.PROXY_CLIENT, serverSide = CommonDef.PROXY_SERVER)
+    public static ProxyBase proxy;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -51,14 +53,7 @@ public class Main
         }
         RegisterDrop.initCrateList();
 
-        if (!CommonFunctions.isServer())
-        {
-            Minecraft.getMinecraft().getRenderManager().entityRenderMap.values().forEach(r -> {
-                if (r instanceof RenderLivingBase) {
-                    ((RenderLivingBase<?>) r).addLayer(new LayerBreak((RenderLivingBase<?>) r));
-                }
-            });
-        }
+        proxy.registerLayers();
     }
 
     public static void LogWarning(String str, Object...args)

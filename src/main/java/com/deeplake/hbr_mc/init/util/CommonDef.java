@@ -8,6 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.UUID;
 
 public class CommonDef {
+    public static final String PROXY_CLIENT = "com.deeplake.hbr_mc.proxy.ClientProxy";
+    public static final String PROXY_SERVER = "com.deeplake.hbr_mc.proxy.ServerProxy";
+
     public static final String EMPTY = "";
     public static final String MINECRAFT = "minecraft";
 
