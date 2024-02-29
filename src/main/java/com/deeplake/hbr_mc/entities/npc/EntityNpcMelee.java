@@ -30,6 +30,10 @@ public class EntityNpcMelee extends EntityNPC{
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
+        if (canSwim)
+        {
+            this.tasks.addTask(0, new EntityAISwimming(this));
+        }
         this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 0.3D));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));

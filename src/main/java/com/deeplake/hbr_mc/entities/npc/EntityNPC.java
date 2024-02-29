@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
 
 public class EntityNPC extends EntityHumanoid implements INpc {
     float anger = 0;
+    protected boolean canSwim = true;
     public EntityNPC(World worldIn) {
         super(worldIn);
     }

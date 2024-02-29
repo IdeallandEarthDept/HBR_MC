@@ -158,7 +158,7 @@ public class ModConfig {
 
     public static class WorldConf{
         @Config.RangeInt(min = 0, max = 99)
-        public int CRYSTAL_PER_CHUNK = 2;
+        public int CRYSTAL_PER_CHUNK = 6;
         @Config.RangeInt(min = 1, max = 255)
         public int CRYSTAL_MIN_Y = 12;
 
