@@ -68,9 +68,11 @@ public class RegisterItem {
     public static final Item REN = new ItemWIP("ren");
 
     //31X
-    public static final Item BLOoDY_SAGE = new ItemSeraphForNPC("bloody_sage", EnumSeraphType.LARGE_SWORD);
-    public static final Item BLOoDY_SAGE_S = new ItemSeraphForNPC("bloody_sage_s", EnumSeraphType.LARGE_SWORD);
-    public static final Item BLOoDY_SAGE_SS = new ItemSeraphForNPC("bloody_sage_ss", EnumSeraphType.LARGE_SWORD);
+    public static final Item BLOODY_SAGE = new ItemSeraphForNPC("bloody_sage", EnumSeraphType.LARGE_SWORD);
+    public static final Item BLOODY_SAGE_S = new ItemSeraphForNPC("bloody_sage_s", EnumSeraphType.LARGE_SWORD);
+    public static final Item BLOODY_SAGE_SS = new ItemSeraphForNPC("bloody_sage_ss", EnumSeraphType.LARGE_SWORD);
+
+    public static final Item INNOCENT_STINGER = new ItemSeraphForNPC("innocent_stinger", EnumSeraphType.GUN);
 
     public static final Item GEM_R =       new ItemBase("gem_red");
     public static final Item GEM_Y =       new ItemBase("gem_yellow");

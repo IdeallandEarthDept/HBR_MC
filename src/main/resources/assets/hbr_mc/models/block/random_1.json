@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all": "hbr_mc:blocks/random_1"
+		"all": "hbr_mc:blocks/crate"
 	}
 }
