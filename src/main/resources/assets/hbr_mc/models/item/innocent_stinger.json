@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
-		"2": "链式机枪",
-		"particle": "链式机枪"
+		"1": "hbr_mc:items/seraph/innocent_stinger",
+		"particle": "hbr_mc:items/seraph/innocent_stinger"
 	},
 	"display": {
 		"thirdperson_righthand": {
