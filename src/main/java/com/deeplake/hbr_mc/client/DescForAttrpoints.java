@@ -1,12 +1,8 @@
 package com.deeplake.hbr_mc.client;
 
 import com.deeplake.hbr_mc.Main;
-import com.deeplake.hbr_mc.init.RegisterItem;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import com.deeplake.hbr_mc.items.IHasRandomAttr;
-import com.deeplake.hbr_mc.items.ItemArmorCancer;
-import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
-import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
@@ -33,7 +29,7 @@ public class DescForAttrpoints {
             Item item = stack.getItem();
             if (item instanceof IHasRandomAttr)
             {
-                int count = ((IHasRandomAttr) item).getMaxAttr(stack) - IDLNBTUtil.GetState(stack);
+                int count = IDLNBTUtil.GetState(stack);
                 if (count > 0)
                 {
                     strings.add(1,I18n.translateToLocalFormatted("desc.hbr_mc.armor.random_points",

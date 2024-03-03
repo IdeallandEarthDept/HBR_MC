@@ -34,10 +34,15 @@ public class RegisterRecipes {
     public static void registerRecipes(RegistryEvent.Register<IRecipe> evt) {
         IForgeRegistry<IRecipe> r = evt.getRegistry();
 
-        r.register(craftArmor(RegisterItem.CANCER_HELMET));
-        r.register(craftArmor(RegisterItem.CANCER_CHESTPLATE));
-        r.register(craftArmor(RegisterItem.CANCER_LEGGINGS));
-        r.register(craftArmor(RegisterItem.CANCER_BOOTS));
+        r.register(refineryArmor(RegisterItem.CANCER_HELMET));
+        r.register(refineryArmor(RegisterItem.CANCER_CHESTPLATE));
+        r.register(refineryArmor(RegisterItem.CANCER_LEGGINGS));
+        r.register(refineryArmor(RegisterItem.CANCER_BOOTS));
+
+        r.register(socketOpen(RegisterItem.CANCER_HELMET));
+        r.register(socketOpen(RegisterItem.CANCER_CHESTPLATE));
+        r.register(socketOpen(RegisterItem.CANCER_LEGGINGS));
+        r.register(socketOpen(RegisterItem.CANCER_BOOTS));
 
         getRegister(r, RegisterItem.BRAVE_BLUE, RegisterItem.BRAVE_BLUE_SS);
         getRegister(r, RegisterItem.RAPID_FIRE, RegisterItem.RAPID_FIRE_SS);
@@ -73,13 +78,23 @@ public class RegisterRecipes {
 
     }
 
-    private static ShapelessRecipes craftArmor(Item armor) {
+    private static ShapelessRecipes refineryArmor(Item armor) {
         NonNullList<Ingredient> ingredients = NonNullList.create();
         ingredients.add(Ingredient.fromItem(armor));
         ingredients.add(Ingredient.fromItem(RegisterItem.GEM_DROPLET));
         ShapelessRecipes recipe =
                 new DropletRefinery(Main.MODID, new ItemStack(armor), ingredients);
         recipe.setRegistryName(Main.MODID, armor.getUnlocalizedName()+"_refine");
+        return recipe;
+    }
+
+    private static ShapelessRecipes socketOpen(Item armor) {
+        NonNullList<Ingredient> ingredients = NonNullList.create();
+        ingredients.add(Ingredient.fromItem(armor));
+        ingredients.add(Ingredient.fromItem(RegisterItem.GEM_AMBER));
+        ShapelessRecipes recipe =
+                new DropletRefinery(Main.MODID, new ItemStack(armor), ingredients);
+        recipe.setRegistryName(Main.MODID, armor.getUnlocalizedName()+"_socket");
         return recipe;
     }
 }

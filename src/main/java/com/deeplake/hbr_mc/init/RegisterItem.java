@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.init;
 import com.deeplake.hbr_mc.items.*;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.a31.*;
+import com.deeplake.hbr_mc.items.seraph.b31.ItemFatalNull;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -49,7 +50,7 @@ public class RegisterItem {
     public static final Item PHANTOM_WEAVER_SS = new ItemPhantomWeaverSS("phantom_weaver_ss");
 
     //31B
-    public static final Item FATAL_NULL = new ItemWIPRanged("fatal_null", EnumSeraphType.CANNON);
+    public static final Item FATAL_NULL = new ItemFatalNull("fatal_null");
     public static final Item FATAL_NULL_SS = new ItemWIPRanged("fatal_null_ss", EnumSeraphType.CANNON);
 
     //31C

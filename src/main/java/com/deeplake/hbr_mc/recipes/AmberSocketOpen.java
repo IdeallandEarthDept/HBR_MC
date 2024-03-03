@@ -8,22 +8,23 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
 
-public class DropletRefinery extends ShapelessRecipes {
-    public DropletRefinery(String group, ItemStack output, NonNullList<Ingredient> ingredients) {
+public class AmberSocketOpen extends ShapelessRecipes {
+    public AmberSocketOpen(String group, ItemStack output, NonNullList<Ingredient> ingredients) {
         super(group, output, ingredients);
     }
 
     @Override
     public ItemStack getCraftingResult(InventoryCrafting inv) {
         ItemStack result = super.getCraftingResult(inv);
-        IDLNBTUtil.SetState(result, IDLNBTUtil.GetState2(result));
-        IDLNBTUtil.SetState2(result, 0);
-        for (ItemArmorCancer.EnumBonusAttr attr: ItemArmorCancer.EnumBonusAttr.values()){
-            if (result.hasTagCompound() && result.getTagCompound().hasKey(attr.name))
-            {
-                result.getTagCompound().removeTag(attr.name);
-            }
+
+        int currentSockets = IDLNBTUtil.GetState2(result);
+        if (currentSockets < 3)
+        {
+            //give 1 slot
+            IDLNBTUtil.SetState(result, 1);
+            ItemArmorCancer.distributeAttr(result);
         }
+
         return result;
     }
 }

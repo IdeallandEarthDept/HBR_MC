@@ -8,6 +8,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -35,7 +36,7 @@ public class ItemArmorCancer extends ItemArmorBase implements IHasRandomAttr {
     public static final String NBT_DEX = "dex_up";
     public static final String NBT_LUC = "luc_up";
     public static final String NBT_INT = "int_up";
-    public static final String NBT_HPM = "hpm_up";
+    public static final String NBT_HPM = "hpm_up";//HPMax
 
     @Override
     public int getMaxAttr(ItemStack stack) {
@@ -62,28 +63,35 @@ public class ItemArmorCancer extends ItemArmorBase implements IHasRandomAttr {
     }
 
 
-    void distributeAttr(ItemStack stack)
+    public static void distributeAttr(ItemStack stack)
     {
-        int total = getMaxAttr(stack);
-        int[] attr = new int[EnumBonusAttr.values().length];
-
-        while (total > 0)
+        Item item = stack.getItem();
+        if (item instanceof IHasRandomAttr)
         {
-            int index = (int)(Math.random() * EnumBonusAttr.values().length);
-            attr[index] += 1;
-            total -= 1;
-        }
+            int total = IDLNBTUtil.GetState(stack);
+            IDLNBTUtil.SetState2(stack,IDLNBTUtil.GetState2(stack) + total);
+            int[] attr = new int[EnumBonusAttr.values().length];
 
-        for (int i = 0; i < attr.length; ++i)
-        {
-            if (attr[i] > 0)
+            while (total > 0)
             {
-                addBonusAttr(stack, EnumBonusAttr.values()[i], attr[i]);
+                int index = (int)(Math.random() * EnumBonusAttr.values().length);
+                attr[index] += 1;
+                total -= 1;
             }
+
+            for (int i = 0; i < attr.length; ++i)
+            {
+                if (attr[i] > 0)
+                {
+                    addBonusAttr(stack, EnumBonusAttr.values()[i], attr[i]);
+                }
+            }
+
+            IDLNBTUtil.SetState(stack,0);
         }
     }
 
-    void addBonusAttr(ItemStack stack, EnumBonusAttr attr, int amount)
+    static void addBonusAttr(ItemStack stack, EnumBonusAttr attr, int amount)
     {
         IDLNBTUtil.addInt(stack, attr.name, amount);
     }
@@ -91,11 +99,13 @@ public class ItemArmorCancer extends ItemArmorBase implements IHasRandomAttr {
     @Override
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-        if (IDLNBTUtil.GetState(stack) == 0)
-        {
-            distributeAttr(stack);
-            IDLNBTUtil.SetState(stack, 3);
-        }
+//        if (IDLNBTUtil.GetState(stack) == 0)
+//        {
+//            distributeAttr(stack);
+//            IDLNBTUtil.SetState(stack, 3);
+//        }
+        //state = spare sockets
+        //state2 = used sockets
     }
 
     @Override
