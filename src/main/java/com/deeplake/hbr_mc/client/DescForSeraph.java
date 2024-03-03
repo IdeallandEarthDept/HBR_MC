@@ -9,8 +9,10 @@ import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
+import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -22,6 +24,34 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
 public class DescForSeraph {
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public static void onToolTipColor(RenderTooltipEvent.Color event) {
+        Item item = event.getStack().getItem();
+        if (item instanceof ItemSeraphBase) {
+            ItemSeraphBase seraphBase = (ItemSeraphBase) item;
+            event.setBackground(0xf0333333);
+            switch (seraphBase.seraphRarity)
+            {
+                case SS:
+                    event.setBorderStart(0xf0ffffff);
+                    event.setBorderEnd(0xf0ecb630);
+                    break;
+                case S:
+                    event.setBorderStart(0xf095cee6);
+                    event.setBorderEnd(0xf0282266);
+                    break;
+                case A:
+                    //event.setBackground(0xf0f0f0);
+                    event.setBorderStart(0xf0fb8978);
+                    event.setBorderEnd(0xf06d2717);
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + seraphBase.seraphRarity);
+            }
+        }
+    }
+
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onDesc(ItemTooltipEvent event)
