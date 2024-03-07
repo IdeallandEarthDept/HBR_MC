@@ -75,7 +75,9 @@ public class RegisterItem {
 
     public static final Item INNOCENT_STINGER = new ItemWIPRanged("innocent_stinger", EnumSeraphType.GUN);
     public static final Item INFINITE = new ItemSeraphForNPC("infinite", EnumSeraphType.GUN);
-    public static final Item CITADEL_OF_WISDOM = new ItemSeraphForNPC("citadel_of_wisdom", EnumSeraphType.GUN);
+    public static final Item CITADEL_OF_WISDOM = new ItemWIPRanged("citadel_of_wisdom", EnumSeraphType.GUN);
+    public static final Item IRON_MAIDEN = new ItemSeraphForNPC("iron_maiden", EnumSeraphType.GUN);
+    public static final Item IRON_MAIDEN_S = new ItemSeraphForNPC("iron_maiden_s", EnumSeraphType.GUN);
 
     public static final Item GEM_R =       new ItemBase("gem_red");
     public static final Item GEM_Y =       new ItemBase("gem_yellow");
