@@ -1,0 +1,35 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "hbr_mc:items/seraph/citadel_of_wisdom",
+		"particle": "hbr_mc:items/seraph/citadel_of_wisdom"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-45, -90, 0],
+			"translation": [0, -1, -2]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-45, 90, 0],
+			"translation": [0, -1, -0.75]
+		},
+		"firstperson_righthand": {
+			"rotation": [28.76, -51.45, 51.46],
+			"translation": [0.75, 2, -1.5],
+			"scale": [0.8, 0.8, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [57.94, 78.82, -80.6],
+			"translation": [2.5, 2, -1.5],
+			"scale": [0.8, 0.8, 1]
+		},
+		"ground": {
+			"translation": [0, 4, 0]
+		},
+		"head": {
+			"rotation": [-90, -90, 0],
+			"translation": [-7.75, -25, -0.25]
+		}
+	}
+}
