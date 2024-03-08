@@ -8,6 +8,7 @@ public enum EnumSeraphType {
     GUN(EnumSeraphAtkMode.SHOOT,3),
     SWORD(EnumSeraphAtkMode.SLASH,3),
     SCYTHE(EnumSeraphAtkMode.SLASH,3),
+    SHIELD(EnumSeraphAtkMode.SMASH,1),
     ;
 
     EnumSeraphType(EnumSeraphAtkMode mode, int hitCount) {
