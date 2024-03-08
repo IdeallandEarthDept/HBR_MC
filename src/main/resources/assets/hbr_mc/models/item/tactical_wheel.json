@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "hbr_mc:items/seraph/tactical_wheel",
-		"particle": "hbr_mc:items/seraph/tactical_wheel"
+		"particle": "hbr_mc:items/seraph/tactical_wheel",
+		"layer0": "hbr_mc:items/seraph/tactical_wheel"
 	},
 	"display": {
 		"thirdperson_righthand": {
@@ -12,23 +12,30 @@
 		},
 		"thirdperson_lefthand": {
 			"rotation": [-45, 90, 0],
-			"translation": [0, 5.5, 0.75]
+			"translation": [0, 5.5, 0.75],
+			"scale": [1, 1, 0.5]
 		},
 		"firstperson_righthand": {
 			"rotation": [-45, -90, 0],
-			"translation": [0, 5.5, 0.75]
+			"translation": [0, 5.5, 0.75],
+			"scale": [1, 1, 0.5]
 		},
 		"firstperson_lefthand": {
 			"rotation": [-45, 90, 0],
-			"translation": [0, 5.5, 0.75]
+			"translation": [0, 5.5, 0.75],
+			"scale": [1, 1, 0.5]
 		},
 		"ground": {
-			"translation": [0, 5.75, 0]
+			"translation": [0, 5.75, 0],
+			"scale": [1, 1, 0.5]
 		},
 		"head": {
 			"rotation": [-180, 90, 0],
-			"translation": [-6.75, -21.75, 0],
-			"scale": [1.4, 1.4, 1]
+			"translation": [-6.5, -21.75, 0],
+			"scale": [1.4, 1.4, 0.7]
+		},
+		"fixed": {
+			"scale": [1, 1, 0.5]
 		}
 	}
 }
