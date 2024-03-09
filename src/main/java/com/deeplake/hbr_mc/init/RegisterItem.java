@@ -67,6 +67,7 @@ public class RegisterItem {
 
     //31F
     public static final Item REN = new ItemWIP("ren");
+    public static final Item POP_N_GORE = new ItemWIP("pop_n_gore");
 
     //31X
     public static final Item BLOODY_SAGE = new ItemSeraphForNPC("bloody_sage", EnumSeraphType.LARGE_SWORD);
