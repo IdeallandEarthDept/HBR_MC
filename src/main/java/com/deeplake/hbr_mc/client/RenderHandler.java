@@ -3,11 +3,12 @@ package com.deeplake.hbr_mc.client;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.client.renderer.RenderBullet;
 import com.deeplake.hbr_mc.client.renderer.RenderHumanoid;
+import com.deeplake.hbr_mc.client.renderer.RenderHumanoidGlassShell;
 import com.deeplake.hbr_mc.client.renderer.RenderHumanoidGlowShell;
 import com.deeplake.hbr_mc.client.renderer.cancer.*;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
-import com.deeplake.hbr_mc.entities.npc.b31.EntitySHiguchi;
+import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
@@ -34,8 +35,18 @@ public class RenderHandler {
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/a31/tama_kunimi/tama_hy",0.82f));
 
         //31b
+        RenderingRegistry.registerEntityRenderingHandler(EntityEAoi.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/b31/erika_aoi/aoi_ht",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityIMinase.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/b31/ichigo_minase/ichigo_ht",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySMinase.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/b31/sumomo_minase/sumomo_ht",0.9f));
         RenderingRegistry.registerEntityRenderingHandler(EntitySHiguchi.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/b31/seika_higuchi/lancelot_ver",0.95f));
+                renderManager -> new RenderHumanoidGlassShell(renderManager, "skin/b31/seika_higuchi/seika_ht",0.9f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityKHiiragi.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/b31/kozue_hiiragi/hiiragi_ht",0.9f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityByakko.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/b31/byakko/byakko_ht",1.1f));
 
         //30G
         RenderingRegistry.registerEntityRenderingHandler(EntityHOgasahara.class,
