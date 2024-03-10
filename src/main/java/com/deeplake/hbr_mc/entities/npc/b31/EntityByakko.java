@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 public class EntityByakko extends EntityNpcRanged {
     public EntityByakko(World worldIn) {
         super(worldIn);
+        this.setSize(0.8f, 2.0f);
     }
 
     @Override
