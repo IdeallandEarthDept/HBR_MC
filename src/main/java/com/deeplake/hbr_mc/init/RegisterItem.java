@@ -66,6 +66,7 @@ public class RegisterItem {
 //    public static final Item NUE_SS = new ItemSeraphForNPC("nue_ss", EnumSeraphType.LARGE_SWORD);
 
     //31F
+    public static final Item CRY_FLOWER = new ItemSeraphForNPC("cry_flower", EnumSeraphType.SWORD);
     public static final Item REN = new ItemSeraphForNPC("ren", EnumSeraphType.SWORD);
     public static final Item POP_N_GORE = new ItemSeraphForNPC("pop_n_gore", EnumSeraphType.SHIELD);
     public static final Item FURY_STRINGER = new ItemSeraphForNPC("fury_stringer", EnumSeraphType.SCYTHE);

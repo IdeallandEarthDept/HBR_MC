@@ -14,7 +14,7 @@ public class EntityKMaruyama extends EntityNpcRanged {
     @Override
     public void onFirstTickInLife() {
         super.onFirstTickInLife();
-        ItemStack stack = new ItemStack(RegisterItem.SUPERME_EDGE_S);
+        ItemStack stack = new ItemStack(RegisterItem.CRY_FLOWER);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
         set6Attr(1);
         setDPMax(10);
