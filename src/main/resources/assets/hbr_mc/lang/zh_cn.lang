@@ -85,6 +85,39 @@ item.kazabana.skill.0=
 item.ren.name=Ren
 item.ren.skill.0=
 
+item.pop_n_gore.name=Pop'n Gore
+item.pop_n_gore.skill.0=
+
+item.fury_stringer.name=Fury Stringer
+item.fury_stringer.skill.0=
+
+item.iron_maiden.name=Iron Maiden
+item.iron_maiden.skill.0=
+
+item.iron_maiden_s.name=Iron Maiden (S)
+item.iron_maiden_s.skill.0=
+
+item.bloody_sage.name=Bloody Sage
+item.bloody_sage.skill.0=
+
+item.bloody_sage_s.name=Bloody Sage (S)
+item.bloody_sage_s.skill.0=
+
+item.bloody_sage_ss.name=Bloody Sage (SS)
+item.bloody_sage_ss.skill.0=
+
+item.innocent_stinger.name=Innocent Stinger
+item.innocent_stinger.skill.0=
+
+item.infinite.name=∞
+item.infinite.skill.0=
+
+item.citadel_of_wisdom.name=Citadel of Wisdom
+item.citadel_of_wisdom.skill.0=
+
+item.tactical_wheel.name=Tactical Wheel
+item.tactical_wheel.skill.0=
+
 item.cancer_shell.desc=星癌体的外壳。用于合成星癌体装备。用5个与炽天使合成，可以执行前8次的强化。
 item.cancer_shell.name=壳石
 item.cancer_helmet.name=星癌体头盔
@@ -186,7 +219,12 @@ entity.m_aikawa.name=逢川 惠
 entity.t_tsukasa.name=东城 司
 entity.k_asakura.name=朝仓 可怜
 entity.t_kunimi.name=国见 玉
+entity.e_aoi.name=Erika Aoi
+entity.i_minase.name=Ichigo Minase
+entity.s_minase.name=Sumomo Minase
 entity.s_higuchi.name=樋口 圣华
+entity.s_hiiragi.name=Kozue Hiiragi
+entity.s_byakko.name=Byakko
 entity.h_ogasahara.name=小笠原 绯雨
 entity.ohshima_1.name=大岛 一千子
 entity.k_maruyama.name=丸山 奏多
@@ -223,4 +261,4 @@ hbr_mc.advancements.kulu_baka.desc=用炽天使攻击了其他玩家
 hbr_mc.advancements.kula.title=藏！
 hbr_mc.advancements.kula.desc=【剧透】不，不！鄙人只想知道伙伴是生是死啊！
 
-hbr_mc.ench.history_4ky=五千年的
+hbr_mc.ench.history_4ky=... Of Thousands of Years
