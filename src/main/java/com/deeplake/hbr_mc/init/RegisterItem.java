@@ -71,6 +71,9 @@ public class RegisterItem {
     public static final Item FURY_STRINGER = new ItemSeraphForNPC("fury_stringer", EnumSeraphType.SCYTHE);
 
     //31X
+    public static final Item IRON_MAIDEN = new ItemSeraphForNPC("iron_maiden", EnumSeraphType.LARGE_SWORD);
+    public static final Item IRON_MAIDEN_S = new ItemSeraphForNPC("iron_maiden_s", EnumSeraphType.LARGE_SWORD);
+
     public static final Item BLOODY_SAGE = new ItemSeraphForNPC("bloody_sage", EnumSeraphType.LARGE_SWORD);
     public static final Item BLOODY_SAGE_S = new ItemSeraphForNPC("bloody_sage_s", EnumSeraphType.LARGE_SWORD);
     public static final Item BLOODY_SAGE_SS = new ItemSeraphForNPC("bloody_sage_ss", EnumSeraphType.LARGE_SWORD);
@@ -78,8 +81,6 @@ public class RegisterItem {
     public static final Item INNOCENT_STINGER = new ItemWIPRanged("innocent_stinger", EnumSeraphType.GUN);
     public static final Item INFINITE = new ItemSeraphForNPC("infinite", EnumSeraphType.SHIELD);
     public static final Item CITADEL_OF_WISDOM = new ItemWIPRanged("citadel_of_wisdom", EnumSeraphType.GUN);
-    public static final Item IRON_MAIDEN = new ItemSeraphForNPC("iron_maiden", EnumSeraphType.LARGE_SWORD);
-    public static final Item IRON_MAIDEN_S = new ItemSeraphForNPC("iron_maiden_s", EnumSeraphType.LARGE_SWORD);
     public static final Item TACTICAL_WHEEL = new ItemSeraphForNPC("tactical_wheel", EnumSeraphType.SWORD);
 
     public static final Item GEM_R =       new ItemBase("gem_red");

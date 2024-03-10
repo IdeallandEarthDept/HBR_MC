@@ -90,6 +90,40 @@ item.kazabana.skill.0=
 item.ren.name=Ren
 item.ren.skill.0=
 
+item.pop_n_gore.name=Pop'n Gore
+item.pop_n_gore.skill.0=
+
+item.fury_stringer.name=Fury Stringer
+item.fury_stringer.skill.0=
+
+#31X
+item.iron_maiden.name=Iron Maiden
+item.iron_maiden.skill.0=
+
+item.iron_maiden_s.name=Iron Maiden (S)
+item.iron_maiden_s.skill.0=
+
+item.bloody_sage.name=Bloody Sage
+item.bloody_sage.skill.0=
+
+item.bloody_sage_s.name=Bloody Sage (S)
+item.bloody_sage_s.skill.0=
+
+item.bloody_sage_ss.name=Bloody Sage (SS)
+item.bloody_sage_ss.skill.0=
+
+item.innocent_stinger.name=Innocent Stinger
+item.innocent_stinger.skill.0=
+
+item.infinite.name=∞
+item.infinite.skill.0=
+
+item.citadel_of_wisdom.name=Citadel of Wisdom
+item.citadel_of_wisdom.skill.0=
+
+item.tactical_wheel.name=Tactical Wheel
+item.tactical_wheel.skill.0=
+
 item.cancer_shell.desc=Shell of Cancer. Can be crafted into armor. Craft 5x with Seraph to boost it for the first 8 times.
 item.cancer_shell.name=Shell Fragment
 item.cancer_helmet.name=Cancer Helmet
@@ -186,14 +220,19 @@ entity.cancer_test_50.name=VR Cancer (50)
 entity.cancer_test_100.name=VR Cancer (100)
 
 #31a
-entity.l_kayamori.name=Kayamori
-entity.y_izumi.name=Izumi
-entity.m_aikawa.name=Aikawa
-entity.t_tsukasa.name=Tsukasa
-entity.k_asakura.name=Asakura
-entity.t_kunimi.name=Kunimi
+entity.l_kayamori.name=Ruka Kayamori
+entity.y_izumi.name=Yuki Izumi
+entity.m_aikawa.name=Megumi Aikawa
+entity.t_tsukasa.name=Tojo Tsukasa
+entity.k_asakura.name=Karen Chan
+entity.t_kunimi.name=Tama Kunimi
 #31b
-entity.s_higuchi.name=Higuchi
+entity.e_aoi.name=Erika Aoi
+entity.i_minase.name=Ichigo Minase
+entity.s_minase.name=Sumomo Minase
+entity.s_higuchi.name=Seika Higuchi
+entity.s_hiiragi.name=Kozue Hiiragi
+entity.s_byakko.name=Byakko
 #30g
 entity.h_ogasahara.name=Ogasahara
 #31e
