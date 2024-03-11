@@ -3,7 +3,7 @@
 	"parent": "pop_n_gore",
 	"texture_size": [128, 128],
 	"textures": {
-		"layer0": "hbr_mc:items/seraph/pop_n_gore",
+		"0": "hbr_mc:items/seraph/pop_n_gore",
 		"particle": "hbr_mc:items/seraph/pop_n_gore"
 	},
 	"elements": [
