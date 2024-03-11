@@ -108,6 +108,10 @@ public class ModConfig {
         public SkillConf PHANTOM_WEAVER_HEAL_A = new SkillConf(305F, CombatUtil.DEFAULT_HEAL_CAP, 5).setUses(5,5);
         public SkillConf PHANTOM_WEAVER_7SP_AOE = new SkillConf(59.1f, 126, 7,1.4f);
         public SkillConf PHANTOM_WEAVER_13SP_REVIVAL = new SkillConf(1169, 248, 13).setUses(2,2);
+        //31B
+        public SkillConf FATAL_NULL_6SP_BUFF = new SkillConf(50/65f, 208, 6);
+
+        //Other
         public SkillConf KAZABANA_5SP_AOE = new SkillConf(37.5f, 120, 5,1f);//potency means success rate
     }
 

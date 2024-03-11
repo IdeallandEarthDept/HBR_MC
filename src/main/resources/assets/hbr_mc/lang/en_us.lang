@@ -72,15 +72,21 @@ item.fatal_null.skill.0=
 
 item.fatal_null_ss.name=Fatal Null(SS)
 item.fatal_null_ss.skill.0=
+item.fatal_null_ss.skill.1=诡骗加农炮~展开雷属性强化空间，用雷击将敌人劈成两半，并随即赋予弱化效果(%d/%d)
+
+
 
 #31C
 item.scarlet_valet.name=Scarlet Valet
 item.scarlet_valet.skill.0=
 
 item.scarlet_valet_s.name=Scarlet Valet(S)
+item.scarlet_valet_s.skill.0=蝴蝶饼~用子弹对全体敌人进行滥射，对DP+30%%
 
 item.scarlet_valet_ss.name=Scarlet Valet(SS)
 item.scarlet_valet_ss.skill.0=
+item.scarlet_valet_ss.skill.1=不给糖就捣蛋~让冰之力寄宿于炽天使之中，使出强大的一击，但是，运气不好时会失败(%d/%d)
+
 
 #30G
 item.kazabana.name=Kazabana
@@ -181,12 +187,30 @@ hbr_mc.msg.dummy_hurt=Damage: %s to [uid%s]Attr=%s
 # tiles
 tile.heal_stash.name=Heal Stash
 tile.heal_stash_perma.name=Heal Stash Perma
+
 tile.energy_ore.name=Energy Ore
 tile.crystal_ore.name=Free Crystal Ore
+
 tile.cancer_carpet.name=Cancer Carpet
 tile.cancer_carpet.desc=Cheap carpet. Used to disable mob spawning, especially cancers.
+
 tile.random_1.name=Some Loot
 tile.random_1.desc=Break it to get random things.
+
+tile.field_fire.name=Field Fire
+tile.field_fire.desc=It's hot. It's dangerous.
+
+tile.field_ice.name=Field Ice
+tile.field_ice.desc=It's cold. It's dangerous.
+
+tile.field_thunder.name=Field Thunder
+tile.field_thunder.desc=It's shocking. It's dangerous.
+
+tile.field_light.name=Field Light
+tile.field_light.desc=It's bright. It's dangerous.
+
+tile.field_dark.name=Field Dark
+tile.field_dark.desc=It's dark. It's dangerous.
 
 attribute.name.hbr_mc.attr.str=Strength
 attribute.name.hbr_mc.attr.dex=Dexterity

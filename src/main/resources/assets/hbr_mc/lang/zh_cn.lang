@@ -1,4 +1,3 @@
-#PARSE_ESCAPES
 
 # tabs
 itemGroup.hbr_mc.tab1=红烧天堂
@@ -66,30 +65,33 @@ item.glitter_shadow_ss.toast=杀戮如呼吸……！
 item.glitter_shadow_ss.skill.0=[交互]狂野投掷~范围攻击
 item.glitter_shadow_ss.skill.1=[潜行交互]血腥之舞~单体10连击(%d/%d)
 
-#31B
+# 31B
 item.fatal_null.name=Fatal Null(战场的科学家)
 item.fatal_null.skill.0=增强~提升附近玩家技能攻击力
 
 item.fatal_null_ss.name=Fatal Null(生者的恒定性)
 item.fatal_null_ss.skill.0=禁药~牺牲防御力，藉此大幅激发出前卫的攻击力
-item.fatal_null_ss.skill.1=诡骗加农炮~展开雷属性强化空间，用雷击将敌人劈成两半，并随即赋予弱化效果(%d/%d)
 
-#31C
+# 31C
 item.scarlet_valet.name=Scarlet Valet(蟹手使魔)
 item.scarlet_valet.skill.0=小咸饼~用枪狙击敌人，对DP有+30%%的效果
 
 item.scarlet_valet_s.name=Scarlet Valet(掌心上的美好)
-item.scarlet_valet_s.skill.0=蝴蝶饼~用子弹对全体敌人进行滥射，对DP+30%%
 
 item.scarlet_valet_ss.name=Scarlet Valet(夜空中的Shinning Star)
 item.scarlet_valet_ss.skill.0=意式脆饼~用子弹对全体敌人进行滥射，对DP+30%%，并降低冰属性防御力
-item.scarlet_valet_ss.skill.1=不给糖就捣蛋~让冰之力寄宿于炽天使之中，使出强大的一击，但是，运气不好时会失败(%d/%d)
 
-#30G
+# 30G
 item.kazabana.name=Kazabana(轻摇的火焰)
 item.kazabana.skill.0=胧月~对全体敌人进行枪击，对DP+30%%
 
-#31F
+item.luxury_thorn.name=Luxury Thorn
+item.luxury_thorn.skill.0=
+
+item.cry_flower.name=Cry Flower
+item.cry_flower.skill.0=
+
+# 31F
 item.ren.name=Ren(天诛斩影)
 item.ren.skill.0=残心~用锐利的斩击砍杀敌人，并蓄力在自己身上(强化技能)
 
@@ -99,7 +101,7 @@ item.pop_n_gore.skill.0=汇聚重击~发射高压能量弹，并让敌人的攻�
 item.fury_stringer.name=Fury Stringer(危险恋爱指挥家)
 item.fury_stringer.skill.0=增强~提升附近玩家技能攻击力
 
-#31X
+# 31X
 item.iron_maiden.name=Iron Maiden(星之继承者)
 item.iron_maiden.skill.0=爆破斩~扔出镰刀，狂砍全体敌人，对HP+30%%
 
@@ -178,12 +180,31 @@ hbr_mc.msg.dummy_hurt=%s伤害造成至%s号测试机，防御属性%s
 # tiles
 tile.heal_stash.name=补给箱（一次性）
 tile.heal_stash_perma.name=补给箱(无限)
+
 tile.energy_ore.name=体力矿石
 tile.crystal_ore.name=免费石英矿石
+
 tile.cancer_carpet.name=星癌体地毯
 tile.cancer_carpet.desc=廉价的地毯。用来抑制刷怪，尤其是防止刷星癌体。
+
 tile.random_1.name=补给
 tile.random_1.desc=右键或打碎能掉落补给，包括战斗报告书、阳石水滴、碧琥珀。
+
+tile.field_fire.name=火场
+tile.field_fire.desc=在其中时，火属性技能伤害提升
+
+tile.field_ice.name=冰场
+tile.field_ice.desc=在其中时，冰属性技能伤害提升
+
+tile.field_thunder.name=雷场
+tile.field_thunder.desc=在其中时，雷属性技能伤害提升
+
+tile.field_light.name=光场
+tile.field_light.desc=在其中时，光属性技能伤害提升
+
+tile.field_dark.name=暗场
+tile.field_dark.desc=在其中时，暗属性技能伤害提升
+hbr_mc.ench.history_4ky=五千年历史的……
 
 attribute.name.hbr_mc.attr.str=力量
 attribute.name.hbr_mc.attr.dex=灵巧
@@ -212,7 +233,7 @@ hbr_mc.potion.skill_atk_up_3=技能攻击力提升
 hbr_mc.potion.self_recoil=反作用力
 hbr_mc.potion.stunned=晕眩
 
-#entity
+# entity
 entity.c_marionette.name=Marionette
 entity.c_doll.name=Doll
 entity.c_small_hopper.name=SmallHopper
@@ -223,25 +244,25 @@ entity.cancer_test.name=训练机
 entity.cancer_test_50.name=训练机 (50)
 entity.cancer_test_100.name=训练机 (100)
 
-#31a
+# 31a
 entity.l_kayamori.name=茅森 月歌
 entity.y_izumi.name=和泉 由希
 entity.m_aikawa.name=逢川 惠
 entity.t_tsukasa.name=东城 司
 entity.k_asakura.name=朝仓 可怜
 entity.t_kunimi.name=国见 玉
-#31b
+# 31b
 entity.e_aoi.name=苍井 绘梨花
 entity.i_minase.name=水濑 莓
 entity.s_minase.name=水濑 李
 entity.s_higuchi.name=樋口 圣华
 entity.k_hiiragi.name=柊木 梢
 entity.byakko.name=白虎
-#30g
+# 30g
 entity.h_ogasahara.name=小笠原 绯雨
-#31e
+# 31e
 entity.ohshima_1.name=大岛 一千子
-#31f
+# 31f
 entity.k_maruyama.name=丸山 奏多
 entity.i_natsume.name=夏目 祈
 
@@ -276,4 +297,7 @@ hbr_mc.advancements.kulu_baka.desc=用炽天使攻击了其他玩家
 hbr_mc.advancements.kula.title=藏！
 hbr_mc.advancements.kula.desc=【剧透】不，不！鄙人只想知道伙伴是生是死啊！
 
-hbr_mc.ench.history_4ky=五千年的
+item.fatal_null_ss.skill.1=诡骗加农炮~展开雷属性强化空间，用雷击将敌人劈成两半，并随即赋予弱化效果(%d/%d)
+item.scarlet_valet_s.skill.0=蝴蝶饼~用子弹对全体敌人进行滥射，对DP+30%%
+item.scarlet_valet_ss.skill.1=不给糖就捣蛋~让冰之力寄宿于炽天使之中，使出强大的一击，但是，运气不好时会失败(%d/%d)
+

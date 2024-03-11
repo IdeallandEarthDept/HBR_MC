@@ -3,6 +3,8 @@ package com.deeplake.hbr_mc.init.util;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import com.deeplake.hbr_mc.init.RegisterAttr;
+import com.deeplake.hbr_mc.init.RegisterEffects;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.deeplake.hbr_mc.items.seraph.SeraphUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -159,6 +161,15 @@ public class CombatUtil {
         END,//stamina?
     }
 
+    public enum EnumElement {
+        FIRE,
+        ICE,
+        THUNDER,
+        DARK,
+        LIGHT,
+        NONE
+    }
+
     //min = 1x, max = 5x
     static final float MAX_EXTRA = 4f;
 
@@ -171,6 +182,10 @@ public class CombatUtil {
     }
 
     public static void attackAsHBR(Entity bullet, EntityLivingBase attacker, EntityLivingBase target, EnumAttrType atkType, EnumDefType defType, float lowDamage, float cap) {
+        attackAsHBR(bullet, attacker, target, EnumElement.NONE, atkType, defType, lowDamage, cap);
+    }
+
+    public static void attackAsHBR(Entity bullet, EntityLivingBase attacker, EntityLivingBase target, EnumElement element, EnumAttrType atkType, EnumDefType defType, float lowDamage, float cap) {
         if (target == null || target.isDead || target.getHealth() <= 0) {
             return;
         }
@@ -247,6 +262,14 @@ public class CombatUtil {
             else
             {
                 damage = lowDamage * (MAX_EXTRA + 1);
+            }
+            damage *= 1 + ItemSeraphBase.currentBuffRateTotal;
+            if (element != EnumElement.NONE)
+            {
+                if (attacker.getActivePotionEffect(RegisterEffects.getField(element)) != null)
+                {
+                    damage *= 1.5f;
+                }
             }
             damage *= (target.getRNG().nextFloat() * 0.2f + 0.9f);
         }

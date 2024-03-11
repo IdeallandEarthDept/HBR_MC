@@ -646,4 +646,31 @@ public class ItemSeraphBase extends ItemBase {
         return stack.isItemEnchanted() || seraphRarity == EnumSeraphRarity.SS;
     }
 
+    public void cast6SPBoost(World worldIn, EntityPlayer caster, ModConfig.SkillConf skillConf) {
+        if (!worldIn.isRemote) {
+            EntityPlayer playerIn = caster;
+            worldIn.playSound(null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+
+            float range = 16f;
+            List<EntityPlayer> playerList = EntityUtil.getEntitiesWithinAABB(worldIn, EntityPlayer.class, playerIn.getPositionVector(), range, EntitySelectors.NOT_SPECTATING);
+
+            float chance = skillConf.MIN_POTENCY;
+            float cap = skillConf.CAP;
+            chance += (1-chance) * Math.min(0, (EntityUtil.getAttr(playerIn, RegisterAttr.INT)/cap));
+
+            for (EntityPlayer player :
+                    playerList) {
+                if (player.getRNG().nextFloat() <= chance)
+                {
+                    Potion buff = RegisterEffects.SKILL_ATK_UP;
+                    int level = EntityUtil.getBuffLevelIDL(player, buff);
+                    EntityUtil.ApplyBuff(player, buff, level, ModConfig.COMBAT.BUFF_TIME);
+                }
+            }
+            playerIn.swingArm(playerIn.getActiveHand());
+            playerIn.addStat(StatList.getObjectUseStats(this));
+            worldIn.playSound(null, caster.getPosition(), SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.PLAYERS, 1f, 1.5f);
+            setCoolDown(caster, CommonDef.TICK_PER_SECOND * skillConf.SP);
+        }
+    }
 }
