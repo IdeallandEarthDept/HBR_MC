@@ -87,6 +87,12 @@ item.kazabana.name=Kazabana
 item.kazabana.skill.0=
 
 #31F
+item.luxury_thorn.name=Luxury Thorn
+item.luxury_thorn.skill.0=
+
+item.cry_flower.name=Cry Flower
+item.cry_flower.skill.0=
+
 item.ren.name=Ren
 item.ren.skill.0=
 
@@ -232,8 +238,8 @@ entity.e_aoi.name=Erika Aoi
 entity.i_minase.name=Ichigo Minase
 entity.s_minase.name=Sumomo Minase
 entity.s_higuchi.name=Seika Higuchi
-entity.s_hiiragi.name=Kozue Hiiragi
-entity.s_byakko.name=Byakko
+entity.k_hiiragi.name=Kozue Hiiragi
+entity.byakko.name=Byakko
 #30g
 entity.h_ogasahara.name=Ogasahara
 #31e

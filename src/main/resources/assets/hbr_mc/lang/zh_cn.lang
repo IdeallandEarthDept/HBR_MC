@@ -235,8 +235,8 @@ entity.e_aoi.name=苍井 绘梨花
 entity.i_minase.name=水濑 莓
 entity.s_minase.name=水濑 李
 entity.s_higuchi.name=樋口 圣华
-entity.s_hiiragi.name=柊木 梢
-entity.s_byakko.name=白虎
+entity.k_hiiragi.name=柊木 梢
+entity.byakko.name=白虎
 #30g
 entity.h_ogasahara.name=小笠原 绯雨
 #31e
