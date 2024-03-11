@@ -3,7 +3,7 @@
 	"parent": "cry_flower",
 	"texture_size": [128, 128],
 	"textures": {
-		"layer0": "hbr_mc:items/seraph/cry_flower",
+		"0": "hbr_mc:items/seraph/cry_flower",
 		"particle": "hbr_mc:items/seraph/cry_flower"
 	},
 	"elements": [
