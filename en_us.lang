@@ -1,0 +1,276 @@
+#PARSE_ESCAPES
+
+#tabs
+itemGroup.hbr_mc.tab1=Heaven Burns Red
+itemGroup.hbr_mc.tab2=Heaven Burns Red Spawn
+
+#items
+item.test3.name=Test Item
+item.brave_blue.name=BraveBlue
+item.brave_blue.skill.0=[Interact Enemy]ST attack, to HP+30%%
+
+item.brave_blue_s.name=BraveBlue S
+
+item.brave_blue_ss.name=BraveBlue SS
+item.brave_blue_ss.toast=My legends unfold at here at once!
+item.brave_blue_ss.skill.0=[Sneak RMB]Repair nearby seraph (%d/%d)
+item.brave_blue_ss.skill.1=[Interact Enemy]Strong ST attack, to HP+30%% (%d/%d)
+
+item.rapid_fire.name=RapidFire
+item.rapid_fire.skill.0=[RMB]Spreading Atk, to DP+30%%
+
+item.rapid_fire_s.name=RapidFire S
+
+item.rapid_fire_ss.name=RapidFire 終いのSpitfire
+item.rapid_fire_ss.toast=Hello world!
+item.rapid_fire_ss.skill.0=[RMB]Spreading Atk, to DP+30%%
+item.rapid_fire_ss.skill.1=[Interact Enemy]Strong ST attack, to HP+30%% (%d/%d)
+
+item.supreme_edge.name=SupremeEdge(Serious or Stupid)
+item.supreme_edge.skill.0=[RMB]Nearby frontline skill atk up
+
+item.supreme_edge_s.name=SupremeEdge S
+
+item.supreme_edge_ss.name=SupremeEdge(SS)
+item.supreme_edge_ss.toast=More than one truth prevails!
+item.supreme_edge_ss.skill.0=??
+item.supreme_edge_ss.skill.1=??
+
+item.clavis.name=Clavis(Plain or Wild)
+item.clavis.skill.0=ST+Stun
+
+item.clavis_s.name=Clavis(S)
+
+item.clavis_ss.name=Clavis(SS)
+item.clavis_ss.toast=Presenting the Savior!
+item.clavis_ss.skill.0=[Interact/RMB]AoE+Stun
+item.clavis_ss.skill.1=[SneakInteract]ST+Stun(%d/%d)
+
+item.phantom_weaver.name=Phantom Weaver(Truth or Lies)
+item.phantom_weaver.skill.0=Heal
+
+item.phantom_weaver_s.name=Phantom Weaver(S)
+
+item.phantom_weaver_ss.name=Phantom Weaver(SS)
+item.phantom_weaver_ss.toast=Worldwide top class!
+item.phantom_weaver_ss.skill.0=Slash
+item.phantom_weaver_ss.skill.1=Revival(%d/%d)
+
+item.glitter_shadow.name=Glitter Shadow(Laugh or Cry)
+item.glitter_shadow.skill.0=
+
+item.glitter_shadow_s.name=Glitter Shadow(S)
+
+item.glitter_shadow_ss.name=Glitter Shadow(SS)
+item.glitter_shadow_ss.toast=I will crush you like a bug!
+item.glitter_shadow_ss.skill.0=??
+item.glitter_shadow_ss.skill.1=??
+
+#31B
+item.fatal_null.name=Fatal Null
+item.fatal_null.skill.0=
+
+item.fatal_null_ss.name=Fatal Null(SS)
+item.fatal_null_ss.skill.0=
+
+#31C
+item.scarlet_valet.name=Scarlet Valet
+item.scarlet_valet.skill.0=
+
+item.scarlet_valet_s.name=Scarlet Valet(S)
+
+item.scarlet_valet_ss.name=Scarlet Valet(SS)
+item.scarlet_valet_ss.skill.0=
+
+#30G
+item.kazabana.name=Kazabana
+item.kazabana.skill.0=
+
+#31F
+item.ren.name=Ren
+item.ren.skill.0=
+
+item.pop_n_gore.name=Pop'n Gore
+item.pop_n_gore.skill.0=
+
+item.fury_stringer.name=Fury Stringer
+item.fury_stringer.skill.0=
+
+#31X
+item.iron_maiden.name=Iron Maiden
+item.iron_maiden.skill.0=
+
+item.iron_maiden_s.name=Iron Maiden (S)
+item.iron_maiden_s.skill.0=
+
+item.bloody_sage.name=Bloody Sage
+item.bloody_sage.skill.0=
+
+item.bloody_sage_s.name=Bloody Sage (S)
+item.bloody_sage_s.skill.0=
+
+item.bloody_sage_ss.name=Bloody Sage (SS)
+item.bloody_sage_ss.skill.0=
+
+item.innocent_stinger.name=Innocent Stinger
+item.innocent_stinger.skill.0=
+
+item.infinite.name=∞
+item.infinite.skill.0=
+
+item.citadel_of_wisdom.name=Citadel of Wisdom
+item.citadel_of_wisdom.skill.0=
+
+item.tactical_wheel.name=Tactical Wheel
+item.tactical_wheel.skill.0=
+
+item.cancer_shell.desc=Shell of Cancer. Can be crafted into armor. Craft 5x with Seraph to boost it for the first 8 times.
+item.cancer_shell.name=Shell Fragment
+item.cancer_helmet.name=Cancer Helmet
+item.cancer_chestplate.name=Cancer Chestplate
+item.cancer_leggings.name=Cancer Leggings
+item.cancer_boots.name=Cancer Boots
+item.gem_red.name=Ruby
+item.gem_yellow.name=Topaz
+item.gem_blue.name=Sapphire
+item.gem_white.name=Pearl
+item.gem_black.name=Onyx
+item.gem_amber.name=Jade Amber
+item.gem_droplet.name=Sol Droplet
+item.accurate_spawner.name=Spawn Attr=%s
+
+item.boost_1_a.name=Boost Material (Slash)
+item.boost_1_a.desc=Craft with Seraph to give it boost. Works only for boost 8th+.
+
+item.boost_1_b.name=Boost Material (Shoot)
+item.boost_1_b.desc=Craft with Seraph to give it boost. Works only for boost 8th+.
+
+item.boost_1_c.name=Boost Material (Smash)
+item.boost_1_c.desc=Craft with Seraph to give it boost. Works only for boost 8th+.
+
+item.xp_item_1.name=Exp Book
+item.xp_item_1.desc=Craft with Seraph to give it boost.
+
+item.xp_item_2.name=Exp Book II
+item.xp_item_2.desc=Craft with Seraph to give it xp.
+
+item.xp_item_3.name=Exp Book III
+item.xp_item_3.desc=Craft with Seraph to give it xp.
+
+
+item.leaf_circlet.name=Leaf Circlet
+item.leaf_circlet.desc=If you die while this is on your offhand...
+
+item.shard_ss.name=SS Universal Shard
+item.shard_ss.desc=Shard + A = SS, stat preserved
+
+item.lottery.name=Lottery Ticket
+item.lottery.desc=Consume to get random Seraph.
+
+item.crystal_lottery.name=Free Crystal
+item.crystal_lottery.desc=Combine 3x2 to get a lottery ticket.
+
+hbr_mc.msg.dummy_hurt=Damage: %s to [uid%s]Attr=%s
+
+# tiles
+tile.heal_stash.name=Heal Stash
+tile.heal_stash_perma.name=Heal Stash Perma
+tile.energy_ore.name=Energy Ore
+tile.crystal_ore.name=Free Crystal Ore
+tile.cancer_carpet.name=Cancer Carpet
+tile.cancer_carpet.desc=Cheap carpet. Used to disable mob spawning, especially cancers.
+tile.random_1.name=Some Loot
+tile.random_1.desc=Break it to get random things.
+
+attribute.name.hbr_mc.attr.str=Strength
+attribute.name.hbr_mc.attr.dex=Dexterity
+attribute.name.hbr_mc.attr.end=Constitution
+attribute.name.hbr_mc.attr.men=Spirit
+attribute.name.hbr_mc.attr.int=Wisdom
+attribute.name.hbr_mc.attr.luc=Luck
+
+desc.hbr_mc.seraph.broken=[Broken]
+desc.hbr_mc.seraph.dura_format=DP: %s/%s
+desc.hbr_mc.seraph.level_format=Lv.%s (%s/%s)
+desc.hbr_mc.seraph.level_format_max=Lv.%s (MAX)
+desc.hbr_mc.armor.random_points=+%s random attribute point(s)
+desc.hbr_mc.seraph.attr_desc=§d%s §b+%s +%s%%
+desc.hbr_mc.seraph.boost=Boost %s/%s
+desc.hbr_mc.seraph.breakthrough=Breakthrough %s/%s
+desc.hbr_mc.seraph.faster_cooldown=Faster Cooldown
+
+msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
+msg.hbr_mc.apply failed=MISS
+msg.hbr_mc.apply_revive=REVIVED
+
+hbr_mc.potion.skill_atk_up_1=Skill Atk UP
+hbr_mc.potion.skill_atk_up_2=Skill Atk UP
+hbr_mc.potion.skill_atk_up_3=Skill Atk UP
+hbr_mc.potion.self_recoil=SELF RECOIL
+hbr_mc.potion.stunned=STUNNED
+
+#entity
+entity.c_marionette.name=Marionette
+entity.c_doll.name=Doll
+entity.c_small_hopper.name=SmallHopper
+entity.c_crest_hopper.name=CrestHopper
+entity.c_slasher.name=Slasher
+entity.nabi.name=Nabi
+entity.cancer_test.name=VR Cancer
+entity.cancer_test_50.name=VR Cancer (50)
+entity.cancer_test_100.name=VR Cancer (100)
+
+#31a
+entity.l_kayamori.name=Ruka Kayamori
+entity.y_izumi.name=Yuki Izumi
+entity.m_aikawa.name=Megumi Aikawa
+entity.t_tsukasa.name=Tojo Tsukasa
+entity.k_asakura.name=Karen Chan
+entity.t_kunimi.name=Tama Kunimi
+#31b
+entity.e_aoi.name=Erika Aoi
+entity.i_minase.name=Ichigo Minase
+entity.s_minase.name=Sumomo Minase
+entity.s_higuchi.name=Seika Higuchi
+entity.s_hiiragi.name=Kozue Hiiragi
+entity.s_byakko.name=Byakko
+#30g
+entity.h_ogasahara.name=Ogasahara
+#31e
+entity.ohshima_1.name=Ichiko Ohshima
+#31f
+entity.k_maruyama.name=Maruyama
+entity.i_natsume.name=Natsume
+
+configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration
+configgui.hbr_mc.category.Menu0.GeneralConf=General Config
+configgui.hbr_mc.category.Menu0.CombatConf.SSChance=SS Lottery Chance
+configgui.hbr_mc.category.Menu0.CombatConf=Combat Config
+configgui.hbr_mc.category.Menu0.OperationConf=Operation Config
+conf.operation.teleport_enable=Enable Teleport
+conf.operation.teleport_enable_side=Teleport at Side Click on Blocks
+conf.operation.teleport_enable_top=Teleport at Top Click on Blocks
+conf.operation.teleport_at_rough_surface=Teleport at Rough Surface
+
+hbr_mc.shared.wip.desc=Work in Progress
+hbr_mc.msg.starter_kit_given=[Nanami Nanase]I have been waiting for you. Please take this.
+hbr_mc.msg.bonus_for_advancements=Obtained %s crystal(s)
+hbr_mc.msg.spoiler_disabled=The world have spoilers DISABLED. If you want full experience, set config ALLOW_SPOILERS = true.
+hbr_mc.msg.spoiler_enabled=The world have spoilers ENABLED. If you want no spoilers, set config ALLOW_SPOILERS = false (at server side on servers).
+hbr_mc.msg.teleport_allow=Seraph Teleportation is now ALLOWED.
+hbr_mc.msg.teleport_deny=Seraph Teleportation is now DENIED.
+hbr_mc.msg.teleport_command=Use /srtp to toggle Seraph teleportation.
+hbr_mc.msg.teleport_command_rough=Use /srtpr to toggle Seraph teleportation at rough block faces click.
+
+hbr_mc.msg.natsume_judgement=[Natsume]My katana is judgement.
+
+hbr_mc.advancements.root_main.title=Heaven Burns Red
+hbr_mc.advancements.root_main.desc=In Minecraft
+
+hbr_mc.advancements.kulu_baka.title=Kulu Kulu Baka!!!
+hbr_mc.advancements.kulu_baka.desc=Attack another player with your seraph
+
+hbr_mc.advancements.kula.title=Kula!!!
+hbr_mc.advancements.kula.desc=[Spoiler]No, no! I just wanted to know if my pals were alive!
+
+hbr_mc.ench.history_4ky=... Of Thousands of Years
