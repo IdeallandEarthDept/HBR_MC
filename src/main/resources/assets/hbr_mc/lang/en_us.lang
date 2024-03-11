@@ -172,6 +172,7 @@ item.crystal_lottery.desc=Combine 3x2 to get a lottery ticket.
 
 hbr_mc.msg.dummy_hurt=Damage: %s to [uid%s]Attr=%s
 
+# tiles
 tile.heal_stash.name=Heal Stash
 tile.heal_stash_perma.name=Heal Stash Perma
 tile.energy_ore.name=Energy Ore
