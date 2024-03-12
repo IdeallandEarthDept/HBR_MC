@@ -66,10 +66,12 @@ public class RegisterItem {
 //    public static final Item NUE_SS = new ItemSeraphForNPC("nue_ss", EnumSeraphType.LARGE_SWORD);
 
     //31F
-    public static final Item CRY_FLOWER = new ItemSeraphForNPC("cry_flower", EnumSeraphType.SWORD);
-    public static final Item REN = new ItemSeraphForNPC("ren", EnumSeraphType.SWORD);
-    public static final Item POP_N_GORE = new ItemSeraphForNPC("pop_n_gore", EnumSeraphType.SHIELD);
+    public static final Item LUXURY_THORN = new ItemWIPRanged("luxury_thorn", EnumSeraphType.GUN);
+    public static final Item CRY_FLOWER = new ItemSeraphForNPC("cry_flower", EnumSeraphType.CANNON);
     public static final Item FURY_STRINGER = new ItemSeraphForNPC("fury_stringer", EnumSeraphType.SCYTHE);
+    public static final Item POP_N_GORE = new ItemSeraphForNPC("pop_n_gore", EnumSeraphType.SHIELD);
+    public static final Item REN = new ItemSeraphForNPC("ren", EnumSeraphType.SWORD);
+    public static final Item AMAZING_EXECUTER = new ItemSeraphForNPC("amazing_executer", EnumSeraphType.LARGE_SWORD);
 
     //31X
     public static final Item IRON_MAIDEN = new ItemSeraphForNPC("iron_maiden", EnumSeraphType.LARGE_SWORD);

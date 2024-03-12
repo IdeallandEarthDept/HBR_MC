@@ -32,7 +32,7 @@ public class LayerBipedGlow implements LayerRenderer<EntityBase>
 
         this.endermanRenderer.bindTexture(RES_ENDERMAN_EYES);
         GlStateManager.enableBlend();
-        GlStateManager.disableAlpha();
+        //GlStateManager.disableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
         GlStateManager.disableLighting();
         GlStateManager.depthMask(!entitylivingbaseIn.isInvisible());
