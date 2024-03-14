@@ -50,8 +50,13 @@ public class RegisterItem {
     public static final Item PHANTOM_WEAVER_SS = new ItemPhantomWeaverSS("phantom_weaver_ss");
 
     //31B
+    public static final Item MANA = new ItemSeraphForNPC("mana", EnumSeraphType.SCYTHE);
+    public static final Item MANA_S = new ItemSeraphForNPC("mana_s", EnumSeraphType.SCYTHE);
+    public static final Item MANA_SS = new ItemSeraphForNPC("mana_ss", EnumSeraphType.SCYTHE);
     public static final Item FATAL_NULL = new ItemFatalNull("fatal_null");
     public static final Item FATAL_NULL_SS = new ItemWIPRanged("fatal_null_ss", EnumSeraphType.CANNON);
+    public static final Item RAINNY_LULL = new ItemSeraphForNPC("rainny_lull", EnumSeraphType.SCYTHE);
+
 
     //31C
     public static final Item SCARLET_VALET = new ItemWIPRanged("scarlet_valet", EnumSeraphType.GUN);

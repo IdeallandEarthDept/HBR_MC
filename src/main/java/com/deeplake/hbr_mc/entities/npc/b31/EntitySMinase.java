@@ -14,7 +14,7 @@ public class EntitySMinase extends EntityNpcMelee {
     @Override
     public void onFirstTickInLife() {
         super.onFirstTickInLife();
-        ItemStack stack = new ItemStack(RegisterItem.TACTICAL_WHEEL);
+        ItemStack stack = new ItemStack(RegisterItem.RAINNY_LULL);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
 }
