@@ -74,6 +74,17 @@ item.fatal_null_ss.name=Fatal Null(SS)
 item.fatal_null_ss.skill.0=
 item.fatal_null_ss.skill.1=诡骗加农炮~展开雷属性强化空间，用雷击将敌人劈成两半，并随即赋予弱化效果(%d/%d)
 
+item.mana.name=Mana
+item.mana.skill.0=
+
+item.mana_s.name=Mana S
+item.mana_s.skill.0=
+
+item.mana_ss.name=Mana SS
+item.mana_ss.skill.0=
+
+item.rainny_lull.name=Rainny Lull
+item.rainny_lull.skill.0=
 
 
 #31C
@@ -92,12 +103,19 @@ item.scarlet_valet_ss.skill.1=不给糖就捣蛋~让冰之力寄宿于炽天使�
 item.kazabana.name=Kazabana
 item.kazabana.skill.0=
 
+#31E
+item.flavor_rain.name=Flavor Rain
+item.flavor_rain.skill.0=
+
 #31F
 item.luxury_thorn.name=Luxury Thorn
 item.luxury_thorn.skill.0=
 
 item.cry_flower.name=Cry Flower
 item.cry_flower.skill.0=
+
+item.amazing_executer.name=Amazing Executer
+item.amazing_executer.skill.0=
 
 item.ren.name=Ren
 item.ren.skill.0=
