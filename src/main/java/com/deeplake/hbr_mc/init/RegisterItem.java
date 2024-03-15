@@ -56,6 +56,8 @@ public class RegisterItem {
     public static final Item FATAL_NULL = new ItemFatalNull("fatal_null");
     public static final Item FATAL_NULL_SS = new ItemWIPRanged("fatal_null_ss", EnumSeraphType.CANNON);
     public static final Item RAINNY_LULL = new ItemSeraphForNPC("rainny_lull", EnumSeraphType.SCYTHE);
+    public static final Item RAINNY_LULL_S = new ItemSeraphForNPC("rainny_lull_s", EnumSeraphType.SCYTHE);
+    public static final Item RAINNY_LULL_SS = new ItemSeraphForNPC("rainny_lull_ss", EnumSeraphType.SCYTHE);
 
 
     //31C

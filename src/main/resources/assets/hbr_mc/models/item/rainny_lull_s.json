@@ -1,4 +1,4 @@
-{"parent": "item/handheld","textures": {"layer0":"hbr_mc:items/seraph/rainny_lull"},
+{"parent": "item/handheld","textures": {"layer0":"hbr_mc:items/seraph/rainny_lull_s"},
   "display": {
     "thirdperson_righthand": {
       "rotation": [0, -90, 35],
