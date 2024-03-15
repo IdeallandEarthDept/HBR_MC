@@ -663,8 +663,7 @@ public class ItemSeraphBase extends ItemBase {
                 if (player.getRNG().nextFloat() <= chance)
                 {
                     Potion buff = RegisterEffects.SKILL_ATK_UP;
-                    int level = EntityUtil.getBuffLevelIDL(player, buff);
-                    EntityUtil.ApplyBuff(player, buff, level, ModConfig.COMBAT.BUFF_TIME);
+                    levelPlusOne(player, buff);
                 }
             }
             playerIn.swingArm(playerIn.getActiveHand());
@@ -672,5 +671,10 @@ public class ItemSeraphBase extends ItemBase {
             worldIn.playSound(null, caster.getPosition(), SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.PLAYERS, 1f, 1.5f);
             setCoolDown(caster, CommonDef.TICK_PER_SECOND * skillConf.SP);
         }
+    }
+
+    public static void levelPlusOne(EntityPlayer player, Potion buff) {
+        int level = EntityUtil.getBuffLevelIDL(player, buff);
+        EntityUtil.ApplyBuff(player, buff, level, ModConfig.COMBAT.BUFF_TIME);
     }
 }
