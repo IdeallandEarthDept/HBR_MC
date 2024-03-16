@@ -36,7 +36,7 @@ public class ItemGlitterShadowSS extends ItemGlitterShadowBase {
                 float minPotency = ModConfig.COMBAT.GLITTER_SHADOW_SS_ULTI.MIN_POTENCY;
                 float cap = ModConfig.COMBAT.GLITTER_SHADOW_SS_ULTI.CAP;
                 calcAtkBuffSkill(player);
-                CombatUtil.AttackGroup(player, target, minPotency,
+                CombatUtil.attackGroup(player, target, minPotency,
                         new float[]{0.1f,0.1f,0.1f,0.1f,0.1f,
                                 0.1f,0.1f,0.1f,0.1f,0.1f,}, cap);
                 postCastSkill(player,worldIn,ModConfig.COMBAT.GLITTER_SHADOW_SS_ULTI, SoundEvents.BLOCK_GLASS_BREAK);

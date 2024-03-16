@@ -91,16 +91,16 @@ public class CombatUtil {
         }
     }
 
-    public static void AttackGroup(EntityLivingBase player, EntityLivingBase target, float minPotency, float[] group, float cap)
+    public static void attackGroup(EntityLivingBase player, EntityLivingBase target, float minPotency, float[] group, float cap)
     {
         for (float ratio: group
              ) {
-            attackAsHBR(null, player, target, EnumAttrType.STR_FOCUS, EnumDefType.END,
+            attackAsHBR(null, player, target, EnumAttrType.STANDARD, EnumDefType.END,
                     ratio * minPotency, cap);
         }
     }
 
-    public static void HPAttackGroup(EntityLivingBase player, EntityLivingBase target, float minPotency, float[] group, float cap, float bonusRate)
+    public static void hpattackgroup(EntityLivingBase player, EntityLivingBase target, float minPotency, float[] group, float cap, float bonusRate)
     {
         for (float ratio: group
         ) {

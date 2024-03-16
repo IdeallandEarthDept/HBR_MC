@@ -64,7 +64,7 @@ public class ItemBraveBlueSS extends ItemSeraphBase {
             float cap = ModConfig.COMBAT.BRAVE_BLUE_ULTI.CAP;
             float bonusRate = ModConfig.COMBAT.BONUS_DAMAGE_RATE;
             calcAtkBuffSkill(player);
-            CombatUtil.HPAttackGroup(player, target, minPotency,new float[]{0.15f,0.05f,0.05f,0.05f,0.05f,0.05f,0.05f,0.5f}, cap, bonusRate);
+            CombatUtil.hpattackgroup(player, target, minPotency,new float[]{0.15f,0.05f,0.05f,0.05f,0.05f,0.05f,0.05f,0.5f}, cap, bonusRate);
 
             postCastSkill(player,worldIn,ModConfig.COMBAT.BRAVE_BLUE_ULTI,SoundEvents.ENTITY_GENERIC_EXPLODE);
             skillUseMark(stack, ULTIMATE_INDEX);

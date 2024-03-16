@@ -4,6 +4,8 @@ import com.deeplake.hbr_mc.items.*;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.a31.*;
 import com.deeplake.hbr_mc.items.seraph.b31.ItemFatalNull;
+import com.deeplake.hbr_mc.items.seraph.b31.ItemFatalNullSS;
+import com.deeplake.hbr_mc.items.seraph.b31.ItemMana;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -50,12 +52,14 @@ public class RegisterItem {
     public static final Item PHANTOM_WEAVER_SS = new ItemPhantomWeaverSS("phantom_weaver_ss");
 
     //31B
-    public static final Item MANA = new ItemSeraphForNPC("mana", EnumSeraphType.SCYTHE);
+    public static final Item MANA = new ItemMana("mana");
     public static final Item MANA_S = new ItemSeraphForNPC("mana_s", EnumSeraphType.SCYTHE);
-    public static final Item MANA_SS = new ItemSeraphForNPC("mana_ss", EnumSeraphType.SCYTHE);
+    public static final Item MANA_SS = new ItemSeraphForNPC("mana_ss", EnumSeraphType.SCYTHE);//not obtained,skip
     public static final Item FATAL_NULL = new ItemFatalNull("fatal_null");
-    public static final Item FATAL_NULL_SS = new ItemWIPRanged("fatal_null_ss", EnumSeraphType.CANNON);
+    public static final Item FATAL_NULL_SS = new ItemFatalNullSS("fatal_null_ss");
     public static final Item RAINNY_LULL = new ItemSeraphForNPC("rainny_lull", EnumSeraphType.SCYTHE);
+    public static final Item RAINNY_LULL_S = new ItemSeraphForNPC("rainny_lull_s", EnumSeraphType.SCYTHE);
+    public static final Item RAINNY_LULL_SS = new ItemSeraphForNPC("rainny_lull_ss", EnumSeraphType.SCYTHE);
 
 
     //31C
@@ -69,6 +73,9 @@ public class RegisterItem {
 //    public static final Item NUE = new ItemSeraphForNPC("nue", EnumSeraphType.LARGE_SWORD);
 //    public static final Item NUE_S = new ItemSeraphForNPC("nue_s", EnumSeraphType.LARGE_SWORD);
 //    public static final Item NUE_SS = new ItemSeraphForNPC("nue_ss", EnumSeraphType.LARGE_SWORD);
+
+    //31E
+    public static final Item FLAVOR_RAIN = new ItemWIPRanged("flavor_rain", EnumSeraphType.GUN);
 
     //31F
     public static final Item LUXURY_THORN = new ItemWIPRanged("luxury_thorn", EnumSeraphType.GUN);
