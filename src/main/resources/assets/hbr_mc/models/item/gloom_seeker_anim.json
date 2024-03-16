@@ -1,0 +1,7 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "hbr_mc:item/gloom_seeker_static",
+	"textures": {
+		"layer0": "hbr_mc:items/seraph/gloom_seeker_anim"
+	}
+}

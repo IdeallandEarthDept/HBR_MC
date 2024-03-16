@@ -6,6 +6,7 @@ import com.deeplake.hbr_mc.items.seraph.a31.*;
 import com.deeplake.hbr_mc.items.seraph.b31.ItemFatalNull;
 import com.deeplake.hbr_mc.items.seraph.b31.ItemFatalNullSS;
 import com.deeplake.hbr_mc.items.seraph.b31.ItemMana;
+import com.deeplake.hbr_mc.items.seraph.e31.ItemGloomSeeker;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -76,7 +77,7 @@ public class RegisterItem {
 
     //31E
     public static final Item FLAVOR_RAIN = new ItemWIPRanged("flavor_rain", EnumSeraphType.GUN);
-    public static final Item GLOOM_SEEKER = new ItemSeraphForNPC("gloom_seeker", EnumSeraphType.SCYTHE);
+    public static final Item GLOOM_SEEKER = new ItemGloomSeeker("gloom_seeker");
 
     //31F
     public static final Item LUXURY_THORN = new ItemWIPRanged("luxury_thorn", EnumSeraphType.GUN);
