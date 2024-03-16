@@ -252,8 +252,18 @@ msg.hbr_mc.apply_revive=DP已复活
 hbr_mc.potion.skill_atk_up_1=技能攻击力提升
 hbr_mc.potion.skill_atk_up_2=技能攻击力提升
 hbr_mc.potion.skill_atk_up_3=技能攻击力提升
+hbr_mc.potion.skill_atk_dn_1=攻击力下降[45%%]
+hbr_mc.potion.skill_def_dn_1=防御力下降[30%%]
+hbr_mc.potion.skill_def_dn_2=防御力下降[45%%]
+hbr_mc.potion.skill_def_dn_4=防御力下降[100%%]
 hbr_mc.potion.self_recoil=反作用力
 hbr_mc.potion.stunned=晕眩
+hbr_mc.potion.angry=你脑子有洞是吗！
+hbr_mc.potion.field_fire=火领域空间
+hbr_mc.potion.field_thunder=雷领域空间
+hbr_mc.potion.field_ice=冰领域空间
+hbr_mc.potion.field_light=光领域空间
+hbr_mc.potion.field_dark=暗领域空间
 
 # entity
 entity.c_marionette.name=Marionette

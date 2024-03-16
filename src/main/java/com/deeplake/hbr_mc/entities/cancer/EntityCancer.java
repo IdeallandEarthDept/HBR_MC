@@ -23,6 +23,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -185,6 +186,16 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
         }
     }
 
+    public void onUpdate()
+    {
+        super.onUpdate();
+
+        if (!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL)
+        {
+            this.setDead();
+        }
+    }
+
     @Override
     public void fall(float distance, float damageMultiplier) {
         super.fall(distance, damageMultiplier);
@@ -201,7 +212,9 @@ public class EntityCancer extends EntityBase implements IMob, ICancer {
 
     @Override
     public boolean getCanSpawnHere() {
-        return super.getCanSpawnHere() && this.world.canSeeSky(new BlockPos(this).up());
+        return super.getCanSpawnHere()
+                && this.world.getDifficulty() != EnumDifficulty.PEACEFUL
+                && this.world.canSeeSky(new BlockPos(this).up());
     }
 
     protected void dropByAttribute(Item dropItem, int sizePerDrop)

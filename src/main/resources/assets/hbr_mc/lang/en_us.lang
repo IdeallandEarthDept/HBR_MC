@@ -251,11 +251,21 @@ msg.hbr_mc.level_up=Level Up! Lv.%s -> Lv.%s
 msg.hbr_mc.apply failed=MISS
 msg.hbr_mc.apply_revive=REVIVED
 
-hbr_mc.potion.skill_atk_up_1=Skill Atk UP
-hbr_mc.potion.skill_atk_up_2=Skill Atk UP
-hbr_mc.potion.skill_atk_up_3=Skill Atk UP
+hbr_mc.potion.skill_atk_up_1=Skill Atk UP[50%%]
+hbr_mc.potion.skill_atk_up_2=Skill Atk UP[65%%]
+hbr_mc.potion.skill_atk_up_3=Skill Atk UP[90%%]
+hbr_mc.potion.skill_atk_dn_1=Atk Down[45%%]
+hbr_mc.potion.skill_def_dn_1=Def Down[30%%]
+hbr_mc.potion.skill_def_dn_2=Def Down[45%%]
+hbr_mc.potion.skill_def_dn_4=Def Down[100%]
 hbr_mc.potion.self_recoil=SELF RECOIL
 hbr_mc.potion.stunned=STUNNED
+hbr_mc.potion.angry=ANGRY
+hbr_mc.potion.field_fire=Field of Fire
+hbr_mc.potion.field_thunder=Field of Thunder
+hbr_mc.potion.field_ice=Field of Ice
+hbr_mc.potion.field_light=Field of Light
+hbr_mc.potion.field_dark=Field of Dark
 
 #entity
 entity.c_marionette.name=Marionette
@@ -322,3 +332,4 @@ hbr_mc.advancements.kula.title=Kula!!!
 hbr_mc.advancements.kula.desc=[Spoiler]No, no! I just wanted to know if my pals were alive!
 
 hbr_mc.ench.history_4ky=... Of Thousands of Years
+

@@ -28,14 +28,17 @@ public class RegisterEffects {
 //
 //
     public static final List<Potion> INSTANCES = new ArrayList<Potion>();
-    public static final ModPotionBase SKILL_ATK_UP_LESSER = new ModPotionBase(false, 0x6abece, "skill_atk_up_1", 0);
-    public static final ModPotionBase SKILL_ATK_UP = new ModPotionBase(false, 0x6abece, "skill_atk_up_2", 0);
-    public static final ModPotionBase SKILL_ATK_UP_GREATER = new ModPotionBase(false, 0x6abece, "skill_atk_up_3", 0);
+    public static final ModPotionBase SKILL_ATK_UP_LESSER = new ModPotionBase(false, 0x6abece, "skill_atk_up_1", 0);//50%
+    public static final ModPotionBase SKILL_ATK_UP = new ModPotionBase(false, 0x6abece, "skill_atk_up_2", 0);//65%
+    public static final ModPotionBase SKILL_ATK_UP_GREATER = new ModPotionBase(false, 0x6abece, "skill_atk_up_3", 0);//90%
 
 
-    public static final ModPotionBase SKILL_ATK_DN_SEIKA = new ModPotionBase(true, 0x6abece, "skill_atk_dn_1", 6);//30~45%
-    public static final ModPotionBase SKILL_DEF_DN_SEIKA = new ModPotionBase(true, 0x6abece, "skill_def_dn_1", 5);//30~45%
-    public static final ModPotionBase SKILL_DEF_DN_SEIKA_7SP = new ModPotionBase(true, 0x6abece, "skill_def_dn_4", 5);//100%
+    public static final ModPotionBase ATK_DN_SEIKA = new ModPotionBase(true, 0x6abece, "skill_atk_dn_1", 5);//30~45%
+    public static final ModPotionBase DEF_DN_LESS = new ModPotionBase(true, 0x6abece, "skill_def_dn_1", 6);//20~30%
+    public static final ModPotionBase DEF_DN = new ModPotionBase(true, 0x6abece, "skill_def_dn_2", 6);//30~45%
+    public static final ModPotionBase DEF_DN_100 = new ModPotionBase(true, 0x6abece, "skill_def_dn_4", 6);//100%
+
+    //elem def down~  20~30%(aikawa) 30~45%,45~60%
 
     public static final HashMap<CombatUtil.EnumElement, ModPotionField> FIELDS = new HashMap<>();
 
@@ -53,17 +56,17 @@ public class RegisterEffects {
     public static final ModPotionBase SEAL = (ModPotionBase) new ModPotionControl(true, 0xe0e69e, "seal", 3)
             .setUUID_CLIENT(SEAL_UUID);
 
-    public static final ModPotionBase ANGRY = new ModPotionBase(false, 0xee3333, "angry", 4)
+    public static final ModPotionBase ANGRY = new ModPotionBase(false, 0xee3333, "angry", 7)
             .setUUID_CLIENT("89a85988-ee18-4ecf-8fc9-331c3d4b86ec");
 
     @SubscribeEvent
     public static void registerPotions(RegistryEvent.Register<Potion> evt)
     {
-        FIELDS.put(CombatUtil.EnumElement.FIRE, new ModPotionField(CombatUtil.EnumElement.FIRE, 0x6abece, "field_fire", 0));
-        FIELDS.put(CombatUtil.EnumElement.THUNDER, new ModPotionField(CombatUtil.EnumElement.THUNDER, 0x6abece, "field_thunder", 0));
-        FIELDS.put(CombatUtil.EnumElement.ICE, new ModPotionField(CombatUtil.EnumElement.ICE, 0x6abece, "field_ice", 0));
-        FIELDS.put(CombatUtil.EnumElement.LIGHT, new ModPotionField(CombatUtil.EnumElement.LIGHT, 0x6abece, "field_light", 0));
-        FIELDS.put(CombatUtil.EnumElement.DARK, new ModPotionField(CombatUtil.EnumElement.DARK, 0x6abece, "field_dark", 0));
+        FIELDS.put(CombatUtil.EnumElement.FIRE, new ModPotionField(CombatUtil.EnumElement.FIRE, 0x6abece, "field_fire", 8));
+        FIELDS.put(CombatUtil.EnumElement.THUNDER, new ModPotionField(CombatUtil.EnumElement.THUNDER, 0x6abece, "field_thunder", 9));
+        FIELDS.put(CombatUtil.EnumElement.ICE, new ModPotionField(CombatUtil.EnumElement.ICE, 0x6abece, "field_ice", 10));
+        FIELDS.put(CombatUtil.EnumElement.LIGHT, new ModPotionField(CombatUtil.EnumElement.LIGHT, 0x6abece, "field_light", 11));
+        FIELDS.put(CombatUtil.EnumElement.DARK, new ModPotionField(CombatUtil.EnumElement.DARK, 0x6abece, "field_dark", 12));
 
         evt.getRegistry().registerAll(INSTANCES.toArray(new Potion[0]));
         Main.Log("registered %d potion effect(s)", INSTANCES.size());

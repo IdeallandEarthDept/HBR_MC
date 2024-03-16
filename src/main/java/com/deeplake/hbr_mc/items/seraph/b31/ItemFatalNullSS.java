@@ -65,9 +65,6 @@ public class ItemFatalNullSS extends ItemSeraphCannonBase {
 
             //expand thunder field
             int range = 7;
-            int xMax = player.getPosition().getX() + range;
-            int zMax = player.getPosition().getZ() + range;
-            int yBase = player.getPosition().getY();
 
             for (int x = -range; x < range; x++) {
                 for (int z = -range; z < range; z++) {
@@ -97,10 +94,10 @@ public class ItemFatalNullSS extends ItemSeraphCannonBase {
             //debuff enemy
             if (itemRand.nextBoolean())
             {
-                ItemSeraphBase.levelPlusOne(player, RegisterEffects.SKILL_DEF_DN_SEIKA);
+                ItemSeraphBase.levelPlusOne(player, RegisterEffects.DEF_DN);
             }
             else {
-                ItemSeraphBase.levelPlusOne(player, RegisterEffects.SKILL_ATK_DN_SEIKA);
+                ItemSeraphBase.levelPlusOne(player, RegisterEffects.ATK_DN_SEIKA);
             }
 
             postCastSkill(player,worldIn,ModConfig.COMBAT.FATAL_NULL_SS_13SP_ULTI,SoundEvents.ENTITY_GENERIC_EXPLODE);
@@ -152,7 +149,7 @@ public class ItemFatalNullSS extends ItemSeraphCannonBase {
                 }
 
                 //def down 100%
-                buff = RegisterEffects.SKILL_DEF_DN_SEIKA_7SP;
+                buff = RegisterEffects.DEF_DN_100;
                 level = EntityUtil.getBuffLevelIDL(player, buff);
                 //+1 level
                 EntityUtil.ApplyBuff(player, buff, level, ModConfig.COMBAT.BUFF_TIME);
