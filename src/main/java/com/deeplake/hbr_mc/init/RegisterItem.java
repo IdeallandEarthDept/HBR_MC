@@ -76,6 +76,7 @@ public class RegisterItem {
 
     //31E
     public static final Item FLAVOR_RAIN = new ItemWIPRanged("flavor_rain", EnumSeraphType.GUN);
+    public static final Item GLOOM_SEEKER = new ItemSeraphForNPC("gloom_seeker", EnumSeraphType.SCYTHE);
 
     //31F
     public static final Item LUXURY_THORN = new ItemWIPRanged("luxury_thorn", EnumSeraphType.GUN);
