@@ -67,6 +67,19 @@ public class CombatUtil {
         return targets;
     }
 
+    public static List<EntityLiving> areaHPAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
+        List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
+                worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec().scale(dist)), radius, EntitySelectors.IS_ALIVE
+        );
+
+        for (EntityLiving target :
+                targets) {
+            HPAttack(caster, target, minPotency, cap, bonusRate);
+        }
+
+        return targets;
+    }
+
     public static void generalAttack(EnumAttrType atkType, EntityLivingBase player, float minPotency, float cap, float bonusRate, EntityLivingBase target) {
         switch (atkType){
             case STANDARD:
@@ -88,6 +101,13 @@ public class CombatUtil {
         for (float ratio: group
              ) {
             areaAttack(worldIn, caster, dist, radius, atkType, minPotency * ratio, cap, bonusRate);
+        }
+    }
+
+    public static void areaHPAttackGroup(float[] group, World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
+        for (float ratio: group
+        ) {
+            areaHPAttack(worldIn, caster, dist, radius, atkType, minPotency * ratio, cap, bonusRate);
         }
     }
 

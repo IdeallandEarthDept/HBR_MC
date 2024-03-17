@@ -7,6 +7,7 @@ import com.deeplake.hbr_mc.items.seraph.b31.ItemFatalNull;
 import com.deeplake.hbr_mc.items.seraph.b31.ItemFatalNullSS;
 import com.deeplake.hbr_mc.items.seraph.b31.ItemMana;
 import com.deeplake.hbr_mc.items.seraph.e31.ItemGloomSeeker;
+import com.deeplake.hbr_mc.items.seraph.x31.ItemIronMaidenA;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -88,7 +89,7 @@ public class RegisterItem {
     public static final Item AMAZING_EXECUTER = new ItemSeraphForNPC("amazing_executer", EnumSeraphType.LARGE_SWORD);
 
     //31X
-    public static final Item IRON_MAIDEN = new ItemSeraphForNPC("iron_maiden", EnumSeraphType.LARGE_SWORD);
+    public static final Item IRON_MAIDEN = new ItemIronMaidenA("iron_maiden");
     public static final Item IRON_MAIDEN_S = new ItemSeraphForNPC("iron_maiden_s", EnumSeraphType.LARGE_SWORD);
 
     public static final Item BLOODY_SAGE = new ItemSeraphForNPC("bloody_sage", EnumSeraphType.LARGE_SWORD);

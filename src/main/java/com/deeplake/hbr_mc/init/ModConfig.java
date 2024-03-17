@@ -115,8 +115,16 @@ public class ModConfig {
         public SkillConf FATAL_NULL_SS_13SP_ULTI = new SkillConf(160.2f, 138, 13,2.75f).setUses(2,2);//atk/def down
         public SkillConf MANA_5SP_SEAL = new SkillConf(45, 120, 5,1.25f);
 
+
         //Other
         public SkillConf KAZABANA_5SP_AOE = new SkillConf(37.5f, 120, 5,1f);//potency means success rate
+
+        //31X
+        public ConfSkill31X SKILL_31X = new ConfSkill31X();
+    }
+
+    public static class ConfSkill31X{
+        public SkillConf IRON_MAIDEN_A = new SkillConf(294, 117, 4,0.8f);//3hit
     }
 
     public static final GUIConf GUI_CONF = new GUIConf();
