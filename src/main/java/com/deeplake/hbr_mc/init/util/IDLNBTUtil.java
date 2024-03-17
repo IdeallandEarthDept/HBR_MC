@@ -524,6 +524,14 @@ public class IDLNBTUtil {
         return getPlyrIdlTagSafe(player).getBoolean(key);
     }
 
+	public static boolean getPlayerIdeallandBoolSafe(EntityPlayer player, String key, boolean defaultVal) {
+		NBTTagCompound tagCompound = getPlyrIdlTagSafe(player);
+		if (tagCompound.hasKey(key)) {
+			tagCompound.getBoolean(key);
+		}
+		return defaultVal;
+	}
+
     public static String getPlayerIdeallandStrSafe(EntityPlayer player, String key) {
         return getPlyrIdlTagSafe(player).getString(key);
     }

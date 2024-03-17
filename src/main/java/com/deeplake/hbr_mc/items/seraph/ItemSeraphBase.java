@@ -158,7 +158,7 @@ public class ItemSeraphBase extends ItemBase {
         //only server will know about NBTs
         if (!worldIn.isRemote)
         {
-            boolean canTeleport = IDLNBTUtil.getPlayerIdeallandBoolSafe(player, SERAPH_TELEPORT);
+            boolean canTeleport = IDLNBTUtil.getPlayerIdeallandBoolSafe(player, SERAPH_TELEPORT, true);
             //canTeleport &= player.isSprinting();
             if (!canTeleport)
             {
