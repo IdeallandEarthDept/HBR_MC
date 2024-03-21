@@ -64,12 +64,12 @@ public class RenderHandler {
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/inori_natsume/inori_natsume"));
 
         //31X
-        RenderingRegistry.registerEntityRenderingHandler(EntityCReaper.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/c_reaper/reaper_ht",1f));
-        RenderingRegistry.registerEntityRenderingHandler(EntityCSkopovskaya.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/c_skopovskaya/skopovskaya_ht",0.9f));
-        RenderingRegistry.registerEntityRenderingHandler(EntityIRedmayne.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/i_redmayne/redmayne_ht",0.85f));
-        RenderingRegistry.registerEntityRenderingHandler(EntityLShanhua.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/l_shanhua/shanhua_ht",1f));
-        RenderingRegistry.registerEntityRenderingHandler(EntityMdAngelis.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/md_angelis/angelis_ht",1f));
-        RenderingRegistry.registerEntityRenderingHandler(EntityVBalakrishnan.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/v_balakrishnan/balakrishnan_ht",0.9f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityCReaper.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/c_reaper/reaper_ht",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityCSkopovskaya.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/c_skopovskaya/skopovskaya_ht",0.9f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityIRedmayne.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/i_redmayne/redmayne_ht",0.85f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityLShanhua.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/l_shanhua/shanhua_ht",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMdAngelis.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/md_angelis/angelis_ht",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityVBalakrishnan.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/v_balakrishnan/balakrishnan_ht",0.9f));
 
         //Cancer
         RenderingRegistry.registerEntityRenderingHandler(EntityMarionette.class, RenderMarionette::new);
