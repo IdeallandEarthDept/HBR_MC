@@ -1,6 +1,8 @@
 package com.deeplake.hbr_mc.init.util;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.entities.npc.x31.EntityCSkopovskaya;
+import com.deeplake.hbr_mc.items.ItemArmorCancer;
 import com.google.common.base.Predicate;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -124,6 +126,31 @@ public class EntityUtil {
 
             return ((entity instanceof EntityLiving) || (entity instanceof EntityPlayer))
                     && entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty();
+        }
+    };
+
+    public static final Predicate<EntityLivingBase> CANCER_ARMOR_LESS_THAN_2 = new Predicate<EntityLivingBase>() {
+        public boolean apply(@Nullable EntityLivingBase entity) {
+            if (entity == null) {
+                return false;
+            }
+
+            if (entity instanceof EntityCSkopovskaya)
+            {
+                return true;
+            }
+
+            int count = 0;
+            for (EntityEquipmentSlot slot : EntityEquipmentSlot.values()) {
+                if (slot.getSlotType() == EntityEquipmentSlot.Type.ARMOR) {
+                    ItemStack stack = entity.getItemStackFromSlot(slot);
+                    if (stack.getItem() instanceof ItemArmorCancer) {
+                        count++;
+                    }
+                }
+            }
+
+            return count <= 1;
         }
     };
 

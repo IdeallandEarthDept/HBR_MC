@@ -1,5 +1,7 @@
 package com.deeplake.hbr_mc.entities.cancer;
 
+import com.deeplake.hbr_mc.entities.npc.EntityNPC;
+import com.deeplake.hbr_mc.init.util.EntityUtil;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +21,8 @@ public class EntityWalkerCancerBase extends EntityCancer{
         this.tasks.addTask(8, new EntityAILookIdle(this));
 
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] {EntityCancer.class}));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 10, true, false, EntityUtil.CANCER_ARMOR_LESS_THAN_2));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityNPC.class, 10, true, false, EntityUtil.CANCER_ARMOR_LESS_THAN_2));
+        this.targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, EntityVillager.class, 5, true, true, EntityUtil.CANCER_ARMOR_LESS_THAN_2));
     }
 }

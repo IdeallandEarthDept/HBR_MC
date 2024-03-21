@@ -18,6 +18,7 @@ public class ItemArmorCancer extends ItemArmorBase implements IHasRandomAttr {
 
     static final UUID[] ARMOR_MODIFIERS_VANILLA = new UUID[] {UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
     static final UUID ARMOR_BASE_MODIFY = UUID.fromString("5B0E382C-0AC1-4CFA-9748-5EBA6FAF4653");
+    public static final float MODIFIER_SPEED = -0.10f;
 
     public ItemArmorCancer(String name, ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlotIn) {
         super(name, materialIn, equipmentSlotIn);
@@ -27,6 +28,10 @@ public class ItemArmorCancer extends ItemArmorBase implements IHasRandomAttr {
 
     private void addToMap(Multimap<String, AttributeModifier> multimap, UUID uuid, IAttribute str, float amount) {
         multimap.put(str.getName(), new AttributeModifier(uuid, "armor_modifier", amount, 0));
+    }
+
+    private void addToMap2(Multimap<String, AttributeModifier> multimap, UUID uuid, IAttribute str, float amount) {
+        multimap.put(str.getName(), new AttributeModifier(uuid, "armor_modifier", amount, 2));
     }
 
     //todo: random bonus of total 3 points, marked by NBT
@@ -121,17 +126,21 @@ public class ItemArmorCancer extends ItemArmorBase implements IHasRandomAttr {
 
                 case FEET:
                     addToMap(hashmap, ARMOR_BASE_MODIFY, RegisterAttr.LUC, armorBaseBonus);
+                    addToMap2(hashmap, ARMOR_MODIFIERS_VANILLA[0], SharedMonsterAttributes.MOVEMENT_SPEED, MODIFIER_SPEED);
                     break;
                 case LEGS:
                     addToMap(hashmap, ARMOR_BASE_MODIFY, RegisterAttr.END, armorBaseBonus);
                     addToMap(hashmap, ARMOR_BASE_MODIFY, RegisterAttr.MEN, armorBaseBonus);
+                    addToMap2(hashmap, ARMOR_MODIFIERS_VANILLA[1], SharedMonsterAttributes.MOVEMENT_SPEED, MODIFIER_SPEED);
                     break;
                 case CHEST:
                     addToMap(hashmap, ARMOR_BASE_MODIFY, RegisterAttr.STR, armorBaseBonus);
                     addToMap(hashmap, ARMOR_BASE_MODIFY, RegisterAttr.DEX, armorBaseBonus);
+                    addToMap2(hashmap, ARMOR_MODIFIERS_VANILLA[2], SharedMonsterAttributes.MOVEMENT_SPEED, MODIFIER_SPEED);
                     break;
                 case HEAD:
                     addToMap(hashmap, ARMOR_BASE_MODIFY, RegisterAttr.INT, armorBaseBonus);
+                    addToMap2(hashmap, ARMOR_MODIFIERS_VANILLA[3], SharedMonsterAttributes.MOVEMENT_SPEED, MODIFIER_SPEED);
                     break;
                 default:
                     break;
