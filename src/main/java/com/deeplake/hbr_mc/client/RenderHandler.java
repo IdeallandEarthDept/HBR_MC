@@ -13,6 +13,7 @@ import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
+import com.deeplake.hbr_mc.entities.npc.x31.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityIdlProjectile;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -62,6 +63,15 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityINatsume.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/inori_natsume/inori_natsume"));
 
+        //31X
+        RenderingRegistry.registerEntityRenderingHandler(EntityCReaper.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/c_reaper/reaper_ht",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityCSkopovskaya.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/c_skopovskaya/skopovskaya_ht",0.9f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityIRedmayne.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/i_redmayne/redmayne_ht",0.85f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityLShanhua.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/l_shanhua/shanhua_ht",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMdAngelis.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/md_angelis/angelis_ht",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityVBalakrishnan.class, renderManager -> new RenderHumanoid(renderManager, "skin/x31/v_balakrishnan/balakrishnan_ht",0.9f));
+
+        //Cancer
         RenderingRegistry.registerEntityRenderingHandler(EntityMarionette.class, RenderMarionette::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDoll.class, RenderDoll::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySmallHopper.class, RenderSmallHopper::new);
