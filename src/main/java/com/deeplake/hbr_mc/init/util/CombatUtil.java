@@ -246,7 +246,7 @@ public class CombatUtil {
                 throw new IllegalStateException("Unexpected value: " + defType);
         }
 
-        boolean isCritical = checkCritical(attacker);
+        boolean isCritical = checkCritical(attacker, target);
         if (isCritical)
         {
             enemyAttr -= 50;
@@ -315,11 +315,21 @@ public class CombatUtil {
         isHBRAttackProcess = false;
     }
 
-    public static boolean checkCritical(EntityLivingBase attacker)
+    public static boolean checkCritical(EntityLivingBase attacker, EntityLivingBase target)
     {
-        float luck = (float) RegisterAttr.getAttrValue(attacker, RegisterAttr.LUC);
+        double ref = RegisterAttr.getAttrValue(attacker, RegisterAttr.LUC)
+                - RegisterAttr.getAttrValue(target, RegisterAttr.LUC);
+
+        float chance = 0.015f;
+        if (ref >= 250)
+        {
+            chance = 0.115f;
+        }
+        else if (ref > 0) {
+            chance += ref * 0.0004f;
+        }
+
         //todo: check buff
-        float chance = (1 - 1 / (luck + 1)) * 0.1f;
         return attacker.getRNG().nextFloat() < chance;
     }
 }
