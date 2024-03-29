@@ -12,6 +12,7 @@ import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
+import com.deeplake.hbr_mc.entities.npc.f31.EntityMYanagi;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
 import com.deeplake.hbr_mc.entities.npc.x31.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityIdlProjectile;
@@ -58,6 +59,8 @@ public class RenderHandler {
                 renderManager -> new RenderHumanoid(renderManager, "skin/e31/ichiko_ohshima/ichiko"));
 
         //31F
+        RenderingRegistry.registerEntityRenderingHandler(EntityMYanagi.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/mion_yanagi/yanagi",1.1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityKMaruyama.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/kanata_maruyama/kanata_2",0.82f));
         RenderingRegistry.registerEntityRenderingHandler(EntityINatsume.class,

@@ -6,15 +6,15 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class EntityKMaruyama extends EntityNpcRanged {
-    public EntityKMaruyama(World worldIn) {
+public class EntityMYanagi extends EntityNpcRanged {
+    public EntityMYanagi(World worldIn) {
         super(worldIn);
     }
 
     @Override
     public void onFirstTickInLife() {
         super.onFirstTickInLife();
-        ItemStack stack = new ItemStack(RegisterItem.CRY_FLOWER);
+        ItemStack stack = new ItemStack(RegisterItem.LUXURY_THORN);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
 }

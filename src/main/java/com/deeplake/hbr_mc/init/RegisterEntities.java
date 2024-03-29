@@ -8,6 +8,7 @@ import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
 import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
+import com.deeplake.hbr_mc.entities.npc.f31.EntityMYanagi;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
 import com.deeplake.hbr_mc.entities.npc.x31.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
@@ -53,6 +54,7 @@ public class RegisterEntities {
         registerEntity("ohshima_1", EntityOhshima1.class, 64, 0x404158, 0x37b2b1);
 
         //31f
+        registerEntity("m_yanagi", EntityMYanagi.class, 64, 0x757a96, 0x3845bb);
         registerEntity("k_maruyama", EntityKMaruyama.class, 64, 0x757a96, 0x3845bb);
         registerEntity("i_natsume", EntityINatsume.class, 64, 0x2a2b2c, 0xc03d3d);
 
