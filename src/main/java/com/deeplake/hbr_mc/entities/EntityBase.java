@@ -207,7 +207,7 @@ public class EntityBase extends EntityCreature {
             damageAmount = Math.max(damageAmount - this.getAbsorptionAmount(), 0.0F);
             if (lastDP > 0)
             {
-                this.setAbsorptionAmount(this.getAbsorptionAmount() - (f - damageAmount));
+                this.setAbsorptionAmount(this.getAbsorptionAmount() - (f));
                 //no damage to HP, no stun on break
             }
             else {

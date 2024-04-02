@@ -151,7 +151,7 @@ public class CombatUtil {
 
     public static boolean canBreakShield(DamageSource source)
     {
-        if (source == DamageSource.OUT_OF_WORLD)
+        if (source == DamageSource.OUT_OF_WORLD || source.canHarmInCreative())
         {
             return true;
         }
