@@ -57,6 +57,7 @@ public class RegisterEntities {
         registerEntity("i_natsume", EntityINatsume.class, 64, 0x2a2b2c, 0xc03d3d);
         registerEntity("s_hanamura", EntitySHanamura.class, 64, 0x798bd2, 0x50566b);
         registerEntity("c_matsuoka", EntityCMatsuoka.class, 64, 0xd284b8, 0x354542);
+        registerEntity("m_kurosawa", EntityMKurosawa.class, 64, 0x8884bc, 0xf2f2b4);
 
         //31X
         registerEntity("c_reaper", EntityCReaper.class, 64, 0x143281, 0xc03d3d);
