@@ -10,6 +10,8 @@ import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
+import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima2;
+import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima6;
 import com.deeplake.hbr_mc.entities.npc.f31.*;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
 import com.deeplake.hbr_mc.entities.npc.x31.*;
@@ -55,6 +57,10 @@ public class RenderHandler {
         //31E
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima1.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/e31/ichiko_ohshima/ichiko"));
+        RenderingRegistry.registerEntityRenderingHandler(EntityOhshima2.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/niina_ohshima/niina"));
+        RenderingRegistry.registerEntityRenderingHandler(EntityOhshima6.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/muya_ohshima/muya"));
 
         //31F
         RenderingRegistry.registerEntityRenderingHandler(EntityMYanagi.class,

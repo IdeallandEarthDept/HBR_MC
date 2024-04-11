@@ -5,7 +5,7 @@ import com.deeplake.hbr_mc.entities.EntityNabiSlime;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
-import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
+import com.deeplake.hbr_mc.entities.npc.e31.*;
 import com.deeplake.hbr_mc.entities.npc.f31.*;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
 import com.deeplake.hbr_mc.entities.npc.x31.*;
@@ -48,8 +48,13 @@ public class RegisterEntities {
         //30g
         registerEntity("h_ogasahara", EntityHOgasahara.class, 64, 0x4e3c5a, 0x94312e);
 
-        //30g
+        //31e
         registerEntity("ohshima_1", EntityOhshima1.class, 64, 0x404158, 0x37b2b1);
+        registerEntity("ohshima_2", EntityOhshima2.class, 64, 0x404158, 0x37b2b1);
+        registerEntity("ohshima_3", EntityOhshima3.class, 64, 0x404158, 0x37b2b1);
+        registerEntity("ohshima_4", EntityOhshima4.class, 64, 0x404158, 0x37b2b1);
+        registerEntity("ohshima_5", EntityOhshima5.class, 64, 0x404158, 0x37b2b1);
+        registerEntity("ohshima_6", EntityOhshima6.class, 64, 0x404158, 0x37b2b1);
 
         //31f
         registerEntity("m_yanagi", EntityMYanagi.class, 64, 0xa9aaaf, 0xa03838);
