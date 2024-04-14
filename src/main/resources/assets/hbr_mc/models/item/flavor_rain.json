@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "flavor_rain",
+	"parent": "item/handheld",
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "hbr_mc:items/seraph/flavor_rain",

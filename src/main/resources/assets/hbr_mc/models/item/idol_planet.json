@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "hbr_mc:items/seraph/i_do_planet",
-		"particle": "hbr_mc:items/seraph/i_do_planet"
+		"layer0": "hbr_mc:items/seraph/idol_planet",
+		"particle": "hbr_mc:items/seraph/idol_planet"
 	},
 	"display": {
 		"thirdperson_righthand": {

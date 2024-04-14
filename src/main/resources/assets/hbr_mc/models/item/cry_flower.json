@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "cry_flower",
+	"parent": "item/handheld",
 	"texture_size": [128, 128],
 	"textures": {
 		"0": "hbr_mc:items/seraph/cry_flower",

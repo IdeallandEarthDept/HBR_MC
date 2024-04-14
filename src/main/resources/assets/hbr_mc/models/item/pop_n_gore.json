@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "pop_n_gore",
+	"parent": "item/handheld",
 	"texture_size": [128, 128],
 	"textures": {
 		"0": "hbr_mc:items/seraph/pop_n_gore",
