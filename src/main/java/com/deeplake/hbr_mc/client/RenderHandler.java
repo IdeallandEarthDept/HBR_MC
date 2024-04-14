@@ -54,15 +54,15 @@ public class RenderHandler {
 
         //31E
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima1.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/e31/ichiko_ohshima/ichiko_yl"));
+                renderManager -> new RenderHumanoid(renderManager, "skin/e31/ichiko_ohshima/ichiko_yl",1.05f));
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima2.class,
-                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/niina_ohshima/niina"));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/niina_ohshima/niina", 0.95f));
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima3.class,
-                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/minori_ohshima/minori"));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/minori_ohshima/minori", 0.9f));
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima4.class,
-                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/yotsuha_ohshima/yotsuha"));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/yotsuha_ohshima/yotsuha", 0.8f));
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima6.class,
-                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/muya_ohshima/muya"));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/muya_ohshima/muya", 0.9f));
 
         //31F
         RenderingRegistry.registerEntityRenderingHandler(EntityMYanagi.class,
