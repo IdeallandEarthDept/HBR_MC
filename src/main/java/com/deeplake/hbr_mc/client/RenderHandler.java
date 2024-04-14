@@ -75,7 +75,7 @@ public class RenderHandler {
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/shiki_hanamura/shiki",1.05f));
         RenderingRegistry.registerEntityRenderingHandler(EntityCMatsuoka.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/chiroru_matsuoka/chiroru",0.9f));
-        RenderingRegistry.registerEntityRenderingHandler(EntityCMatsuoka.class,
+        RenderingRegistry.registerEntityRenderingHandler(EntityMKurosawa.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/maki_kurosawa/maki",0.9f));
 
         //31X
