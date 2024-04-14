@@ -80,7 +80,9 @@ public class RegisterItem {
     public static final Item FLAVOR_RAIN = new ItemWIPRanged("flavor_rain", EnumSeraphType.GUN);
     public static final Item GLOOM_SEEKER = new ItemGloomSeeker("gloom_seeker");
     public static final Item LAZY_CRITTER = new ItemWIPRanged("lazy_critter", EnumSeraphType.GUN);
-    public static final Item LIGHT_BEAT = new ItemWIPRanged("light_beat", EnumSeraphType.LARGE_SWORD);
+    public static final Item LIGHT_BEAT = new ItemSeraphForNPC("light_beat", EnumSeraphType.LARGE_SWORD);
+    public static final Item IDOL_PLANET = new ItemWIPRanged("idol_planet", EnumSeraphType.SWORD);
+    public static final Item HEROIC_FULCRUM = new ItemSeraphForNPC("heroic_fulcrum", EnumSeraphType.SHIELD);
 
     //31F
     public static final Item LUXURY_THORN = new ItemWIPRanged("luxury_thorn", EnumSeraphType.GUN);
