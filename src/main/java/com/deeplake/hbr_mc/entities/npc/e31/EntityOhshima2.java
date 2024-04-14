@@ -1,7 +1,7 @@
 package com.deeplake.hbr_mc.entities.npc.e31;
 
 import com.deeplake.hbr_mc.entities.npc.EntityNpcMelee;
-import net.minecraft.init.Items;
+import com.deeplake.hbr_mc.init.RegisterItem;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -14,7 +14,7 @@ public class EntityOhshima2 extends EntityNpcMelee {
     @Override
     public void onFirstTickInLife() {
         super.onFirstTickInLife();
-        ItemStack stack = new ItemStack(Items.SHIELD);
+        ItemStack stack = new ItemStack(RegisterItem.IDOL_PLANET);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
 }
