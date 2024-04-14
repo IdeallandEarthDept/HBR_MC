@@ -6,8 +6,7 @@ import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
-import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
-import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
+import com.deeplake.hbr_mc.entities.npc.f31.*;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
 import com.deeplake.hbr_mc.entities.npc.x31.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
@@ -53,8 +52,12 @@ public class RegisterEntities {
         registerEntity("ohshima_1", EntityOhshima1.class, 64, 0x404158, 0x37b2b1);
 
         //31f
+        registerEntity("m_yanagi", EntityMYanagi.class, 64, 0xa9aaaf, 0xa03838);
         registerEntity("k_maruyama", EntityKMaruyama.class, 64, 0x757a96, 0x3845bb);
         registerEntity("i_natsume", EntityINatsume.class, 64, 0x2a2b2c, 0xc03d3d);
+        registerEntity("s_hanamura", EntitySHanamura.class, 64, 0x798bd2, 0x50566b);
+        registerEntity("c_matsuoka", EntityCMatsuoka.class, 64, 0xd284b8, 0x354542);
+        registerEntity("m_kurosawa", EntityMKurosawa.class, 64, 0x8884bc, 0xf2f2b4);
 
         //31X
         registerEntity("c_reaper", EntityCReaper.class, 64, 0x143281, 0xc03d3d);

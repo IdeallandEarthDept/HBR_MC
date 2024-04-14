@@ -10,8 +10,7 @@ import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.EntityOhshima1;
-import com.deeplake.hbr_mc.entities.npc.f31.EntityINatsume;
-import com.deeplake.hbr_mc.entities.npc.f31.EntityKMaruyama;
+import com.deeplake.hbr_mc.entities.npc.f31.*;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
 import com.deeplake.hbr_mc.entities.npc.x31.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityIdlProjectile;
@@ -58,10 +57,16 @@ public class RenderHandler {
                 renderManager -> new RenderHumanoid(renderManager, "skin/e31/ichiko_ohshima/ichiko"));
 
         //31F
+        RenderingRegistry.registerEntityRenderingHandler(EntityMYanagi.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/mion_yanagi/yanagi",1.1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityKMaruyama.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/kanata_maruyama/kanata_2",0.82f));
         RenderingRegistry.registerEntityRenderingHandler(EntityINatsume.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/inori_natsume/inori_natsume"));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySHanamura.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/shiki_hanamura/shiki",1.05f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityCMatsuoka.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/chiroru_matsuoka/chiroru",0.9f));
 
         //31X
         RenderingRegistry.registerEntityRenderingHandler(EntityCReaper.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/c_reaper/reaper_ht",1f));
