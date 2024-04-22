@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 import static com.deeplake.hbr_mc.init.util.CommonDef.TICK_PER_SECOND;
+import static com.deeplake.hbr_mc.init.util.IDLNBTDef.SENTRY;
 import static net.minecraft.entity.SharedMonsterAttributes.*;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
@@ -693,5 +694,20 @@ public class EntityUtil {
         }
 
         return f;
+    }
+
+    public static boolean canWander(Entity entity)
+    {
+        return IDLNBTUtil.GetInt(entity, SENTRY, 0) == 0;
+    }
+
+    public static final float ATK_SPEED_PER_LEVEL = 0.2f;
+    public static double getHasteModifierIDL(EntityLivingBase livingBase) {
+        int level = getBuffLevelIDL(livingBase, MobEffects.HASTE) - getBuffLevelIDL(livingBase, MobEffects.MINING_FATIGUE);
+        double result = 1f + level * ATK_SPEED_PER_LEVEL;
+        if (result <= ATK_SPEED_PER_LEVEL) {
+            return ATK_SPEED_PER_LEVEL;
+        }
+        return result;
     }
 }

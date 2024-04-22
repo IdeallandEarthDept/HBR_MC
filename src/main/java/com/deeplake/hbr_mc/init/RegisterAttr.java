@@ -29,7 +29,7 @@ public class RegisterAttr {
     public static final IAttribute DP_MAX = getNewAttrNonPercentNonNegative("dpmax", 0);
     //This is the loss, not the current value.
     public static final IAttribute DP_LOSS_SYNC = getNewAttrNonPercentNonNegative("dpsync", 0);
-
+    public static final IAttribute AI_REACH = getNewAttrNonPercent("ai_reach", 1.5);
     @SubscribeEvent
     public static void onConstruct(EntityEvent.EntityConstructing entityConstructing)
     {
