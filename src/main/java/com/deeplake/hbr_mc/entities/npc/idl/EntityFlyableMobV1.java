@@ -69,8 +69,12 @@ public class EntityFlyableMobV1 extends EntityMobRanged {
     EntityAIBase GLIDE_HOVER = registerModularAI(new EntityAIPhantomCircleAroundAnchor(this));
     EntityAIBase WALKER_ATTACK = registerModularAI(new EntityStrafeMelee(this, 1.0D, CommonDef.TICK_PER_SECOND,3));
 //    EntityAIBase WALKER_ATTACK = registerModularAI(new EntityAIMeleeIDL(this, 1.0D, true));
-    EntityAIBase WALKER_RANGED = registerModularAI(new EntityAIStrafeRangedAttack<>(this, 1.0D, 5, 16.0F)
-        );
+    EntityAIBase WALKER_RANGED = registerModularAI(getStrafeRangedAttack());
+
+    protected EntityAIStrafeRangedAttack getStrafeRangedAttack() {
+        return new EntityAIStrafeRangedAttack(this, 1.0D, 5, 16.0F);
+    }
+
     EntityAIBase WALKER_WANDER = registerModularAI(new EntityAIWanderAvoidWater(this,1.0));
     public int attackPriority = 1;
 

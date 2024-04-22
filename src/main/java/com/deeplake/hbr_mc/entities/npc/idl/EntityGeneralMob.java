@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc.entities.npc.idl;
 
+import com.deeplake.hbr_mc.entities.EntityBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.world.DifficultyInstance;
@@ -7,7 +8,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityGeneralMob extends EntityModUnit implements IMob {
+public class EntityGeneralMob extends EntityBase implements IMob {
     protected boolean autoArmor = false;
 
     public EntityGeneralMob(World worldIn) {

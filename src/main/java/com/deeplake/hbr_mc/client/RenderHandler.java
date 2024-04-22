@@ -70,7 +70,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityMYanagi.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/mion_yanagi/yanagi",1.1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityKMaruyama.class,
-                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/kanata_maruyama/kanata_2",0.82f));
+                renderManager -> new RenderHumanoid(renderManager, "skin/f31/kanata_maruyama/kanata_2",0.82f));
         RenderingRegistry.registerEntityRenderingHandler(EntityINatsume.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/f31/inori_natsume/inori_natsume"));
         RenderingRegistry.registerEntityRenderingHandler(EntitySHanamura.class,

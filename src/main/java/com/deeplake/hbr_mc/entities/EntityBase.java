@@ -1,12 +1,12 @@
 package com.deeplake.hbr_mc.entities;
 
+import com.deeplake.hbr_mc.entities.npc.idl.EntityModUnit;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +18,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityBase extends EntityCreature {
+public class EntityBase extends EntityModUnit {
     public EntityBase(World worldIn) {
         super(worldIn);
     }
@@ -45,9 +45,6 @@ public class EntityBase extends EntityCreature {
         DShieldUtil.syncDPStatus(this);
     }
 
-    public void onFirstTickAfterConstruct() {
-    }
-
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
@@ -61,13 +58,7 @@ public class EntityBase extends EntityCreature {
     }
 
     public void setAttr(double sight, double speed, double attack, double armor, double hp) {
-        //float modifier = getLevelModifier();
-        float modifier = 1f;
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(sight * modifier);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(speed);//don't modify speed, crazy.
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(attack * modifier);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(armor * modifier);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(hp * modifier);
+        super.setAttr(sight, speed, attack, armor, hp);
         setHealth(getMaxHealth());
     }
 
@@ -153,12 +144,6 @@ public class EntityBase extends EntityCreature {
             CombatUtil.attackAsHBR(this, (EntityLivingBase) target, 150, damage);
         }
         return target.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
-    }
-
-    protected void applyEntityAttributes()
-    {
-        super.applyEntityAttributes();
-        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
     }
 
     public boolean isInvulnerableToAttacks()

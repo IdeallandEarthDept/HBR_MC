@@ -1,9 +1,10 @@
-package com.deeplake.hbr_mc.entities.npc.idl;
+package com.deeplake.hbr_mc.entities.npc;
 
 import com.deeplake.hbr_mc.entities.IHasOwner;
 import com.deeplake.hbr_mc.entities.ai.EntityAIFollowSomething;
 import com.deeplake.hbr_mc.entities.ai.idl.EnumActionMode;
 import com.deeplake.hbr_mc.entities.ai.idl.EnumAttackMode;
+import com.deeplake.hbr_mc.entities.npc.idl.EntityFlyableMobV1;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
@@ -37,7 +38,7 @@ import static com.deeplake.hbr_mc.init.util.CommonDef.TICK_PER_SECOND;
 import static com.deeplake.hbr_mc.init.util.CommonDef.UUID_DEFAULT;
 
 //parent of EntityAlterEgo
-public class EntityCleverNPC extends EntityFlyableMobV1 implements IHasOwner {
+public class EntityCleverNPCForHBR extends EntityFlyableMobV1 implements IHasOwner {
 
     EnumActionMode currentMode = EnumActionMode.FOLLOW;
 
@@ -53,7 +54,7 @@ public class EntityCleverNPC extends EntityFlyableMobV1 implements IHasOwner {
 
     float maxDefendDistSqr = 64f;
 
-    protected Predicate<EntityLiving> ATTACK_PREDICATE = p_apply_1_ -> p_apply_1_ != null && IMob.VISIBLE_MOB_SELECTOR.apply(p_apply_1_) && !(p_apply_1_ instanceof EntityCreeper);
+    Predicate<EntityLiving> ATTACK_PREDICATE = p_apply_1_ -> p_apply_1_ != null && IMob.VISIBLE_MOB_SELECTOR.apply(p_apply_1_) && !(p_apply_1_ instanceof EntityCreeper);
     ;
     private final EntityAIFollowSomething AI_FOLLOW = new EntityAIFollowSomething(this, 1.5D, 4, 32);
     protected EntityAIBase TARGET_REVENGE = new EntityAIHurtByTarget(this, false);
@@ -62,10 +63,10 @@ public class EntityCleverNPC extends EntityFlyableMobV1 implements IHasOwner {
 
     private final EntityAINearestAttackableTarget TARGET_PLAYERS = new EntityAINearestAttackableTarget(this, EntityPlayer.class, true);
 
-    public EntityPlayer player;
-    protected static final DataParameter<String> PLAYER_UUID = EntityDataManager.<String>createKey(EntityCleverNPC.class, DataSerializers.STRING);
+    public EntityLivingBase owner;
+    protected static final DataParameter<String> PLAYER_UUID = EntityDataManager.<String>createKey(EntityCleverNPCForHBR.class, DataSerializers.STRING);
 
-    public EntityCleverNPC(World worldIn) {
+    public EntityCleverNPCForHBR(World worldIn) {
         super(worldIn);
         experienceValue = 0;
         dontDespawn = true;
@@ -76,24 +77,24 @@ public class EntityCleverNPC extends EntityFlyableMobV1 implements IHasOwner {
 
     public void imitatePlayer(EntityPlayer player) {
         imitateLiving(player);
-        setPlayer(player);
+        setOwner(player);
         this.setHealth(player.getHealth());
         clearEquips();
         setDropItemsWhenDead(false);
     }
 
-    public void setPlayer(EntityPlayer player) {
-        this.player = player;
-        if (player == null) {
+    public void setOwner(EntityPlayer owner) {
+        this.owner = owner;
+        if (owner == null) {
             this.dataManager.set(PLAYER_UUID, UUID_DEFAULT.toString());
         } else {
-            this.dataManager.set(PLAYER_UUID, player.getUniqueID().toString());
+            this.dataManager.set(PLAYER_UUID, owner.getUniqueID().toString());
         }
     }
 
     @Override
     public EntityLivingBase getOwner() {
-        return player;
+        return owner;
     }
 
     public UUID getPlayerUUID() {
@@ -111,8 +112,8 @@ public class EntityCleverNPC extends EntityFlyableMobV1 implements IHasOwner {
 
     @Override
     protected boolean processInteract(EntityPlayer player, EnumHand hand) {
-        if (!world.isRemote && this.player == null && currentMode != EnumActionMode.BETRAY) {
-            this.player = player;
+        if (!world.isRemote && this.owner == null && currentMode != EnumActionMode.BETRAY) {
+            this.owner = player;
             setBehaviorMode(EnumActionMode.FOLLOW);
             this.dataManager.set(PLAYER_UUID, player.getUniqueID().toString());
             return true;
@@ -120,35 +121,33 @@ public class EntityCleverNPC extends EntityFlyableMobV1 implements IHasOwner {
         return super.processInteract(player, hand);
     }
 
-
     int PARTICLE_PER_TICK = 3;
 
     @Override
     public void onEntityUpdate() {
         super.onEntityUpdate();
         if (world.isRemote) {
-            //EntityUtil.spawnHaloParticleAround(this, EnumParticleTypes.FLAME, 1);
-            if (player != null) {
+            if (owner != null) {
                 float factorBase = (float) (world.getTotalWorldTime() % TICK_PER_SECOND) / TICK_PER_SECOND;
                 for (int i = 0; i < PARTICLE_PER_TICK; i++) {
                     //lerp
                     float factor = factorBase + getRNG().nextFloat() * 0.1f;
                     factor = CommonFunctions.clamp(factor, 0f, 1f);
-                    Vec3d pos = (player.getPositionEyes(0).scale(factor))
+                    Vec3d pos = (owner.getPositionEyes(0).scale(factor))
                             .add(getPositionEyes(0).scale(1 - factor));
                     world.spawnParticle(EnumParticleTypes.SPELL, pos.x, pos.y, pos.z, 0, 0.1, 0);
                 }
             }
         } else {
-            if (player == null) {
+            if (owner == null) {
                 if (autoFade) {
-                    player = world.getPlayerEntityByUUID(UUID.fromString(this.dataManager.get(PLAYER_UUID)));
-                    if (player == null && !world.isRemote) {
+                    owner = world.getPlayerEntityByUUID(UUID.fromString(this.dataManager.get(PLAYER_UUID)));
+                    if (owner == null && !world.isRemote) {
                         setHealth(getHealth() - loseHealthRate);
                     }
                 }
             } else {
-                float distToOwner = getDistance(player);
+                float distToOwner = getDistance(owner);
                 //Idealland.Log("dist to ownwer:%s",distToOwner);
                 if (distToOwner < maxRecoverDist) {
                     //recovers if owner is nearby
@@ -158,11 +157,11 @@ public class EntityCleverNPC extends EntityFlyableMobV1 implements IHasOwner {
                 if (currentMode == EnumActionMode.DEFEND) {
                     if (getAttackTarget() == null) {
                         List<EntityLiving> livings = EntityUtil.getEntitiesWithinAABB(world,
-                                EntityLiving.class, CommonFunctions.ServerAABB(player.getPositionVector(), 8f), ATTACK_PREDICATE);
+                                EntityLiving.class, CommonFunctions.ServerAABB(owner.getPositionVector(), 8f), ATTACK_PREDICATE);
 
                         //first, attack those who are attacking the player
                         for (EntityLiving target : livings) {
-                            if (target.getAttackTarget() == player) {
+                            if (target.getAttackTarget() == owner) {
                                 setAttackTarget(target);
                                 break;
                             }
@@ -176,7 +175,7 @@ public class EntityCleverNPC extends EntityFlyableMobV1 implements IHasOwner {
                         }
                     } else {//if already has a target
                         EntityLivingBase target = getAttackTarget();
-                        if (target.getDistanceSq(player) > maxDefendDistSqr) {
+                        if (target.getDistanceSq(owner) > maxDefendDistSqr) {
                             if (target instanceof EntityLiving && ((EntityLiving) target).getAttackTarget() == null) {
                                 //give up if it's too far and not attacking anything.
                                 setAttackTarget(null);
@@ -204,7 +203,7 @@ public class EntityCleverNPC extends EntityFlyableMobV1 implements IHasOwner {
     public void writeEntityToNBT(NBTTagCompound compound) {
         compound.setInteger(IDLNBTDef.STATE, currentMode.ordinal());
         //use random to prevent bad format exception
-        compound.setString(IDLNBTDef.OWNER_UUID, player == null ? UUID.randomUUID().toString() : player.getUniqueID().toString());
+        compound.setString(IDLNBTDef.OWNER_UUID, owner == null ? UUID.randomUUID().toString() : owner.getUniqueID().toString());
         super.writeEntityToNBT(compound);
     }
 

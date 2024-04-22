@@ -1,6 +1,6 @@
 package com.deeplake.hbr_mc.entities.npc;
 
-import com.deeplake.hbr_mc.entities.EntityHumanoid;
+import com.deeplake.hbr_mc.entities.ai.EntityAITolerateRevenge;
 import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.DShieldUtil;
 import net.minecraft.entity.Entity;
@@ -16,11 +16,14 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityNPC extends EntityHumanoid implements INpc {
+public class EntityNPC extends EntityCleverNPCForHBR implements INpc {
     float anger = 0;
-    protected boolean canSwim = true;
     public EntityNPC(World worldIn) {
         super(worldIn);
+        if (!world.isRemote)
+        {
+            TARGET_REVENGE = new EntityAITolerateRevenge(this, true, EntityNPC.class);
+        }
     }
 
     @Nullable
