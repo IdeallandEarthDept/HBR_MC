@@ -27,8 +27,6 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -245,10 +243,5 @@ public class EntityCleverNPCForHBR extends EntityFlyableMobV1 implements IHasOwn
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
         return super.onInitialSpawn(difficulty, livingdata);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public int getBrightnessForRender() {
-        return 0xcccccc;
     }
 }
