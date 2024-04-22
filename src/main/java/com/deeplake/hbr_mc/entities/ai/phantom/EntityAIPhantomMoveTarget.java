@@ -1,7 +1,7 @@
 package com.deeplake.hbr_mc.entities.ai.phantom;
 
 import com.deeplake.hbr_mc.entities.ai.idl.EntityAIBaseIDL;
-import com.deeplake.hbr_mc.entities.npc.EntityModUnit;
+import com.deeplake.hbr_mc.entities.npc.idl.EntityModUnit;
 
 abstract class EntityAIPhantomMoveTarget extends EntityAIBaseIDL {
     protected final EntityModUnit entityPhantom;

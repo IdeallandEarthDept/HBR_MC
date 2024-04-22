@@ -1,6 +1,6 @@
 package com.deeplake.hbr_mc.entities.ai.phantom;
 
-import com.deeplake.hbr_mc.entities.npc.EntityModUnit;
+import com.deeplake.hbr_mc.entities.npc.idl.EntityModUnit;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityMoveHelper;

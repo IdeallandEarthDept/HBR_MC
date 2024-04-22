@@ -1,7 +1,7 @@
 package com.deeplake.hbr_mc.entities.ai.phantom;
 
 import com.deeplake.hbr_mc.entities.ai.idl.EnumSlideAttackPhase;
-import com.deeplake.hbr_mc.entities.npc.EntityModUnit;
+import com.deeplake.hbr_mc.entities.npc.idl.EntityModUnit;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 

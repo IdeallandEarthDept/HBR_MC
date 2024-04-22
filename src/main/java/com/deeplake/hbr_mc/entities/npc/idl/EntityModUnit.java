@@ -1,4 +1,4 @@
-package com.deeplake.hbr_mc.entities.npc;
+package com.deeplake.hbr_mc.entities.npc.idl;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.ai.idl.EntityAIMeleeIDL;

@@ -1,4 +1,4 @@
-package com.deeplake.hbr_mc.entities.npc;
+package com.deeplake.hbr_mc.entities.npc.idl;
 
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.monster.IMob;
