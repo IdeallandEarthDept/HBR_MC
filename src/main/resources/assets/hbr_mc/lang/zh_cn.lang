@@ -342,3 +342,11 @@ hbr_mc.advancements.kula.title=藏！
 hbr_mc.advancements.kula.desc=【剧透】不，不！鄙人只想知道伙伴是生是死啊！
 
 hbr_mc.ench.history_4ky=五千年历史的……
+
+item.command_badge.mode.0=解散
+item.command_badge.mode.1=护卫
+item.command_badge.mode.2=出击
+item.command_badge.mode.3=跟随
+
+item.command_all.name=命令 [%s]
+item.command_all.desc=潜行右键切换命令，右键发号施令

@@ -211,6 +211,7 @@ public class EntityCleverNPCForHBR extends EntityFlyableMobV1 implements IHasOwn
         this.targetTasks.removeTask(TARGET_REVENGE);
         this.targetTasks.removeTask(TARGET_SEEKING);
         this.targetTasks.removeTask(TARGET_PLAYERS);
+        decideBehaviorMode();
         setCombatTask();
         switch (action) {
             case NONE:

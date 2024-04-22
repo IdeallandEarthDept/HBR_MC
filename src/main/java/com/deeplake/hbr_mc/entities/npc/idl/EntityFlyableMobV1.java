@@ -33,6 +33,8 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.UUID;
 
 public class EntityFlyableMobV1 extends EntityMobRanged {
@@ -99,7 +101,17 @@ public class EntityFlyableMobV1 extends EntityMobRanged {
 
     public void clearModular(EntityAITasks aiTasks)
     {
-        aiTasks.taskEntries.removeIf(taskEntry -> modularAI.contains(taskEntry.action));
+        Set<EntityAITasks.EntityAITaskEntry> taskEntries = new HashSet<>(aiTasks.taskEntries);
+        //removeTask
+        Iterator<EntityAITasks.EntityAITaskEntry> iterator = taskEntries.iterator();
+        while (iterator.hasNext())
+        {
+            EntityAITasks.EntityAITaskEntry aiTaskEntry = iterator.next();
+            if (modularAI.contains(aiTaskEntry.action))
+            {
+                aiTasks.removeTask(aiTaskEntry.action);
+            }
+        }
     }
 
     @Override
@@ -115,7 +127,6 @@ public class EntityFlyableMobV1 extends EntityMobRanged {
 
     public void setCombatTask(){
         clearAll();
-        decideBehaviorMode();
         IAttributeInstance attrFollow = getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE);
         switch (movementType) {
             case FLYING_GLIDE:
@@ -176,7 +187,7 @@ public class EntityFlyableMobV1 extends EntityMobRanged {
         }
     }
 
-    private void decideBehaviorMode() {
+    protected void decideBehaviorMode() {
         if (this.world != null && !this.world.isRemote)
         {
             ItemStack itemstack = this.getHeldItemMainhand();

@@ -40,6 +40,7 @@ public class EntityNpcRanged extends EntityNPC implements IRangedAttackMob {
         this.getEntityAttribute(RegisterAttr.INT).setBaseValue(346);
         this.getEntityAttribute(RegisterAttr.LUC).setBaseValue(328);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(393.5f);
+        decideBehaviorMode();
         setCombatTask();
         return super.onInitialSpawn(difficulty, livingdata);
     }

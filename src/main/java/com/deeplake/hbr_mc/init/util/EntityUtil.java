@@ -3,6 +3,8 @@ package com.deeplake.hbr_mc.init.util;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.npc.x31.EntityCSkopovskaya;
 import com.deeplake.hbr_mc.items.ItemArmorCancer;
+import com.deeplake.hbr_mc.items.commander.ItemCommandBadge;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.google.common.base.Predicate;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -508,6 +510,10 @@ public class EntityUtil {
                     ((EntityLiving) entityDungeonSentry).setDropChance(EntityEquipmentSlot.MAINHAND, 0.5f);
                 }
                 return true;
+            } else if (item instanceof ItemCommandBadge) {
+                return false;
+            } else if (item instanceof ItemSeraphBase) {
+                return false;
             }
             else
             {
