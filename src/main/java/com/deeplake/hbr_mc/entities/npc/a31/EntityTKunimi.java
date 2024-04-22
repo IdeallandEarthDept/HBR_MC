@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 public class EntityTKunimi extends EntityNpcMelee {
     public EntityTKunimi(World worldIn) {
         super(worldIn);
-        canSwim = false;
+        can_swim = false;
     }
 
     @Override

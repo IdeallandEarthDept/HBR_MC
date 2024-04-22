@@ -3,6 +3,8 @@ package com.deeplake.hbr_mc.init.util;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.npc.x31.EntityCSkopovskaya;
 import com.deeplake.hbr_mc.items.ItemArmorCancer;
+import com.deeplake.hbr_mc.items.commander.ItemCommandBadge;
+import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
 import com.google.common.base.Predicate;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -43,6 +45,7 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 import static com.deeplake.hbr_mc.init.util.CommonDef.TICK_PER_SECOND;
+import static com.deeplake.hbr_mc.init.util.IDLNBTDef.SENTRY;
 import static net.minecraft.entity.SharedMonsterAttributes.*;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
@@ -507,6 +510,10 @@ public class EntityUtil {
                     ((EntityLiving) entityDungeonSentry).setDropChance(EntityEquipmentSlot.MAINHAND, 0.5f);
                 }
                 return true;
+            } else if (item instanceof ItemCommandBadge) {
+                return false;
+            } else if (item instanceof ItemSeraphBase) {
+                return false;
             }
             else
             {
@@ -693,5 +700,20 @@ public class EntityUtil {
         }
 
         return f;
+    }
+
+    public static boolean canWander(Entity entity)
+    {
+        return IDLNBTUtil.GetInt(entity, SENTRY, 0) == 0;
+    }
+
+    public static final float ATK_SPEED_PER_LEVEL = 0.2f;
+    public static double getHasteModifierIDL(EntityLivingBase livingBase) {
+        int level = getBuffLevelIDL(livingBase, MobEffects.HASTE) - getBuffLevelIDL(livingBase, MobEffects.MINING_FATIGUE);
+        double result = 1f + level * ATK_SPEED_PER_LEVEL;
+        if (result <= ATK_SPEED_PER_LEVEL) {
+            return ATK_SPEED_PER_LEVEL;
+        }
+        return result;
     }
 }

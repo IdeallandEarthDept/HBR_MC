@@ -646,4 +646,5 @@ public class CommonFunctions {
     public static float degreesDifferenceAbs(float p_14146_, float p_14147_) {
         return abs(degreesDifference(p_14146_, p_14147_));
     }
+
 }

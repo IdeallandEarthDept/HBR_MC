@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.items.*;
+import com.deeplake.hbr_mc.items.commander.ItemCommandBadge;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.a31.*;
 import com.deeplake.hbr_mc.items.seraph.b31.ItemFatalNull;
@@ -130,6 +131,7 @@ public class RegisterItem {
     public static final Item CANCER_LEGGINGS = new ItemArmorCancer("cancer_leggings", ARMOR_MATERIAL_CANCER, EntityEquipmentSlot.LEGS);
     public static final Item CANCER_BOOTS = new ItemArmorCancer("cancer_boots", ARMOR_MATERIAL_CANCER, EntityEquipmentSlot.FEET);
     public static final Item BETTER_SPAWNER = new ItemSpawnTestCancer("accurate_spawner");
+    public static final Item COMMAND_ALL = new ItemCommandBadge("command_all", null);
 
     @SubscribeEvent
     public static void handleItem(RegistryEvent.Register<Item> event)

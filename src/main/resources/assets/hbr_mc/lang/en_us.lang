@@ -344,3 +344,10 @@ hbr_mc.advancements.kula.desc=[Spoiler]No, no! I just wanted to know if my pals 
 
 hbr_mc.ench.history_4ky=... Of Thousands of Years
 
+item.command_badge.mode.0=Normal
+item.command_badge.mode.1=Defend
+item.command_badge.mode.2=Attack
+item.command_badge.mode.3=Follow
+
+item.command_all.name=Command [%s]
+item.command_all.desc=Sneak + RMB to change mode, RMB to command

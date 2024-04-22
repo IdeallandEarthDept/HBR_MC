@@ -1,8 +1,10 @@
 package com.deeplake.hbr_mc.items.seraph;
 
+import com.deeplake.hbr_mc.entities.npc.EntityNPC;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
+import com.deeplake.hbr_mc.items.ItemSeraphForNPC;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -206,6 +208,15 @@ public class SeraphUtil {
         if (livingBase instanceof EntityLivingBase)
         {
             ItemStack stack = ((EntityLivingBase) livingBase).getHeldItemMainhand();
+            if (livingBase instanceof EntityNPC)
+            {
+                Item item = stack.getItem();
+                if (item instanceof ItemSeraphForNPC)
+                {
+                    return !isBroken(stack);
+                }
+            }
+
             return isSeraph(stack) && !isBroken(stack);
         }
 
