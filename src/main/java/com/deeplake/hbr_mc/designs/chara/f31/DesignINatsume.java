@@ -24,6 +24,10 @@ public class DesignINatsume {
     @SubscribeEvent
     public static void onAttackEvent(LivingHurtEvent event)
     {
+        if (!(event.getSource().getTrueSource() instanceof EntityLivingBase)) {
+            return;
+        }
+
         EntityLivingBase attacker = (EntityLivingBase) event.getSource().getTrueSource();
         EntityLivingBase target = event.getEntityLiving();
         if (attacker != null && target != null)
