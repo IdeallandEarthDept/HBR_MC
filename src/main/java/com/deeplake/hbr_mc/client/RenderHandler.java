@@ -9,6 +9,7 @@ import com.deeplake.hbr_mc.client.renderer.cancer.*;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
+import com.deeplake.hbr_mc.entities.npc.c31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.*;
 import com.deeplake.hbr_mc.entities.npc.f31.*;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
@@ -47,6 +48,21 @@ public class RenderHandler {
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/b31/kozue_hiiragi/hiiragi_ht",0.9f));
         RenderingRegistry.registerEntityRenderingHandler(EntityByakko.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/b31/byakko/byakko_ht",1.1f));
+
+        //31c
+        RenderingRegistry.registerEntityRenderingHandler(EntityIYamawaki.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/ivar_bon_yamawaki/ivar_bon_yamawaki",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySSakuraba.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/seira_sakuraba/seira_sakuraba",1.05f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMTenne.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/miko_tenne/miko_tenne",0.8f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityYBungo.class,
+                renderManager -> new RenderHumanoidGlassShell(renderManager, "skin/c31/yayoi_bungo/yayoi_bungo",0.8f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityAKanzaki.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/adelheid_kanzaki/adelheid_kanzaki",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMSatsuki.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/mari_satsuki/mari_satsuki",1f));
+
 
         //30G
         RenderingRegistry.registerEntityRenderingHandler(EntityHOgasahara.class,

@@ -5,6 +5,7 @@ import com.deeplake.hbr_mc.entities.EntityNabiSlime;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
+import com.deeplake.hbr_mc.entities.npc.c31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.*;
 import com.deeplake.hbr_mc.entities.npc.f31.*;
 import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
@@ -44,6 +45,13 @@ public class RegisterEntities {
         registerEntity("k_hiiragi", EntityKHiiragi.class, 64, 0xf1e7d4, 0xc94644);
         registerEntity("byakko", EntityByakko.class, 64, 0xe4e3ec, 0x61568b);
 
+        //31c
+        registerEntity("i_yamawaki", EntityIYamawaki.class, 64, 0xD5D1D7, 0x9F193B);
+        registerEntity("s_sakuraba", EntitySSakuraba.class, 64, 0xF0E2F0, 0xF8BDC9);
+        registerEntity("m_tenne", EntityMTenne.class, 64, 0x3C3245, 0xAA958B);
+        registerEntity("y_bungo", EntityYBungo.class, 64, 0xC70909, 0xD5CCAB);
+        registerEntity("a_kanzaki", EntityAKanzaki.class, 64, 0xE9CEA1, 0xB52221);
+        registerEntity("m_satsuki", EntityMSatsuki.class, 64, 0xFAF5F7, 0x484477);
 
         //30g
         registerEntity("h_ogasahara", EntityHOgasahara.class, 64, 0x4e3c5a, 0x94312e);
