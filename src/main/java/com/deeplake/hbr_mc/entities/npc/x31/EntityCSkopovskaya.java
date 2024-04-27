@@ -12,8 +12,8 @@ public class EntityCSkopovskaya extends EntityNpcRanged {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.INNOCENT_STINGER);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

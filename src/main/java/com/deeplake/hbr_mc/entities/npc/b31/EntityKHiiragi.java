@@ -12,8 +12,8 @@ public class EntityKHiiragi extends EntityNpcRanged {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.MANA_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

@@ -12,8 +12,8 @@ public class EntityVBalakrishnan extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.INFINITE);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

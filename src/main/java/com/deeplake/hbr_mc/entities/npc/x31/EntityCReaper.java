@@ -12,8 +12,8 @@ public class EntityCReaper extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.IRON_MAIDEN_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

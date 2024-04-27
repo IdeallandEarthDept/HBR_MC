@@ -119,4 +119,18 @@ public class EntityNPC extends EntityCleverNPCForHBR implements INpc {
     public void setAnger(float anger) {
         this.anger = anger;
     }
+
+    @Override
+    public void onFirstTickInLife() {
+        super.onFirstTickInLife();
+        if (!world.isRemote)
+        {
+            initEquip();
+        }
+    }
+
+    public void initEquip()
+    {
+
+    }
 }

@@ -50,8 +50,8 @@ public class EntitySHanamura extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(Blocks.RED_FLOWER);
         setItemStackToSlot(EntityEquipmentSlot.OFFHAND,stack);
 

@@ -12,8 +12,8 @@ public class EntityMdAngelis extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.BLOODY_SAGE_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

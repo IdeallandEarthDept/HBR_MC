@@ -12,8 +12,8 @@ public class EntityOhshima1 extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.HEROIC_FULCRUM);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

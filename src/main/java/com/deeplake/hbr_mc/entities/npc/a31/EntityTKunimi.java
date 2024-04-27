@@ -13,8 +13,8 @@ public class EntityTKunimi extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.PHANTOM_WEAVER_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

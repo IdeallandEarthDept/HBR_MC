@@ -12,8 +12,8 @@ public class EntityMYanagi extends EntityNpcRanged {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.LUXURY_THORN);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

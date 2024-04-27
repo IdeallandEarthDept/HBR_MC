@@ -45,8 +45,8 @@ public class EntityCMatsuoka extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.POP_N_GORE);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

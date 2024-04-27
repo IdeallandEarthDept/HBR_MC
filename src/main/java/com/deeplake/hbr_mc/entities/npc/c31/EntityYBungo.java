@@ -12,8 +12,8 @@ public class EntityYBungo extends EntityNpcRanged {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.SCARLET_VALET_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

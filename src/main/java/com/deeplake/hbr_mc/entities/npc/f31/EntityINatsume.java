@@ -63,8 +63,8 @@ public class EntityINatsume extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(Items.IRON_SWORD);
         stack.addEnchantment(Enchantments.SWEEPING,3);
         stack.addEnchantment(Enchantments.UNBREAKING,10);

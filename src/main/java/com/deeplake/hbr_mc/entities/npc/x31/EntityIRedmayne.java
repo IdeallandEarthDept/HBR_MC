@@ -12,8 +12,8 @@ public class EntityIRedmayne extends EntityNpcRanged {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.CITADEL_OF_WISDOM);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

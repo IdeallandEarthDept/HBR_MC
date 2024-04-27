@@ -12,8 +12,8 @@ public class EntitySHiguchi extends EntityNpcRanged {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.FATAL_NULL);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

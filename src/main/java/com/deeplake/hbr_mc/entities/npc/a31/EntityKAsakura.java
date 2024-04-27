@@ -12,8 +12,8 @@ public class EntityKAsakura extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.GLITTER_SHADOW_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }

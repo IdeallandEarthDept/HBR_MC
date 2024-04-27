@@ -22,8 +22,8 @@ public class EntityLKayamori extends EntityNpcMelee {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.BRAVE_BLUE_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
         setItemStackToSlot(EntityEquipmentSlot.OFFHAND,stack.copy());

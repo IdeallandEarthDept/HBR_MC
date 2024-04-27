@@ -12,8 +12,8 @@ public class EntityYIzumi extends EntityNpcRanged {
     }
 
     @Override
-    public void onFirstTickInLife() {
-        super.onFirstTickInLife();
+    public void initEquip() {
+        super.initEquip();
         ItemStack stack = new ItemStack(RegisterItem.RAPID_FIRE_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
