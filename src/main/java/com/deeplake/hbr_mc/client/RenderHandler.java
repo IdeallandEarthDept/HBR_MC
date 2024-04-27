@@ -57,7 +57,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityMTenne.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/miko_tenne/miko_tenne",0.8f));
         RenderingRegistry.registerEntityRenderingHandler(EntityYBungo.class,
-                renderManager -> new RenderHumanoidGlassShell(renderManager, "skin/c31/yayoi_bungo/yayoi_bungo",0.8f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/yayoi_bungo/yayoi_bungo",0.8f));
         RenderingRegistry.registerEntityRenderingHandler(EntityAKanzaki.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/adelheid_kanzaki/adelheid_kanzaki",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityMSatsuki.class,

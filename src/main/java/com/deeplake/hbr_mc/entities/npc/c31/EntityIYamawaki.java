@@ -14,7 +14,7 @@ public class EntityIYamawaki extends EntityNpcMelee {
     @Override
     public void onFirstTickInLife() {
         super.onFirstTickInLife();
-        ItemStack stack = new ItemStack(RegisterItem.CRY_FLOWER);
+        ItemStack stack = new ItemStack(RegisterItem.LOVE_REAPER_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
 }

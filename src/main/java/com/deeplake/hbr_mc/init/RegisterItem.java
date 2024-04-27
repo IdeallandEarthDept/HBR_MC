@@ -64,8 +64,11 @@ public class RegisterItem {
     public static final Item RAINNY_LULL_S = new ItemSeraphForNPC("rainny_lull_s", EnumSeraphType.SCYTHE);
     public static final Item RAINNY_LULL_SS = new ItemSeraphForNPC("rainny_lull_ss", EnumSeraphType.SCYTHE);
 
-
     //31C
+    public static final Item LOVE_REAPER = new ItemSeraphForNPC("love_reaper", EnumSeraphType.SCYTHE);
+    public static final Item LOVE_REAPER_S = new ItemSeraphForNPC("love_reaper_s", EnumSeraphType.SCYTHE);
+    public static final Item LOVE_REAPER_SS = new ItemSeraphForNPC("love_reaper_ss", EnumSeraphType.SCYTHE);
+
     public static final Item SCARLET_VALET = new ItemWIPRanged("scarlet_valet", EnumSeraphType.GUN);
     public static final Item SCARLET_VALET_S = new ItemWIPRanged("scarlet_valet_s", EnumSeraphType.GUN);
     public static final Item SCARLET_VALET_SS = new ItemWIPRanged("scarlet_valet_ss", EnumSeraphType.GUN);
