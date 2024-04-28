@@ -55,6 +55,7 @@ public class RegisterItem {
     public static final Item PHANTOM_WEAVER_SS = new ItemPhantomWeaverSS("phantom_weaver_ss");
 
     //31B
+    public static final Item GUILTY_CRACKER = new ItemWIPRanged("guilty_cracker", EnumSeraphType.GUN);
     public static final Item MANA = new ItemMana("mana");
     public static final Item MANA_S = new ItemSeraphForNPC("mana_s", EnumSeraphType.SCYTHE);
     public static final Item MANA_SS = new ItemSeraphForNPC("mana_ss", EnumSeraphType.SCYTHE);//not obtained,skip
@@ -68,6 +69,15 @@ public class RegisterItem {
     public static final Item LOVE_REAPER = new ItemSeraphForNPC("love_reaper", EnumSeraphType.SCYTHE);
     public static final Item LOVE_REAPER_S = new ItemSeraphForNPC("love_reaper_s", EnumSeraphType.SCYTHE);
     public static final Item LOVE_REAPER_SS = new ItemSeraphForNPC("love_reaper_ss", EnumSeraphType.SCYTHE);
+
+    public static final Item MARGINAL_WIZARD = new ItemWIPRanged("marginal_wizard", EnumSeraphType.GUN);
+    public static final Item MARGINAL_WIZARD_S = new ItemWIPRanged("marginal_wizard_s", EnumSeraphType.GUN);
+    public static final Item MARGINAL_WIZARD_SS = new ItemWIPRanged("marginal_wizard_ss", EnumSeraphType.GUN);
+    public static final Item NINE_MINUS = new ItemSeraphForNPC("nine_minus", EnumSeraphType.SWORD);
+    public static final Item NINE_MINUS_S = new ItemSeraphForNPC("nine_minus_s", EnumSeraphType.SWORD);
+    public static final Item NINE_MINUS_SS = new ItemSeraphForNPC("nine_minus_ss", EnumSeraphType.SWORD);
+
+    public static final Item FORTUNE_GEAR = new ItemWIPRanged("fortune_gear", EnumSeraphType.CANNON);
 
     public static final Item SCARLET_VALET = new ItemWIPRanged("scarlet_valet", EnumSeraphType.GUN);
     public static final Item SCARLET_VALET_S = new ItemWIPRanged("scarlet_valet_s", EnumSeraphType.GUN);
