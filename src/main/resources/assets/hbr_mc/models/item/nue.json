@@ -1,1 +1,43 @@
-{"parent": "item/handheld","textures": {"layer0":"hbr_mc:items/seraph/nue"}}
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "hbr_mc:items/seraph/nue",
+		"particle": "hbr_mc:items/seraph/nue"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [45, 90, 0],
+			"translation": [0, 10, 1.5],
+			"scale": [2, 2, 0.6]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [45, -90, 0],
+			"translation": [0, 10, 1.5],
+			"scale": [2, 2, 0.6]
+		},
+		"firstperson_righthand": {
+			"rotation": [22.5, 90, 0],
+			"translation": [1.5, 7, 0],
+			"scale": [1.2, 1.2, 0.3]
+		},
+		"firstperson_lefthand": {
+			"rotation": [22.5, -90, 0],
+			"translation": [1.5, 7, 0],
+			"scale": [1.2, 1.2, 0.3]
+		},
+		"ground": {
+			"translation": [0, 9.25, 0],
+			"scale": [1.5, 1.5, 0.75]
+		},
+		"head": {
+			"rotation": [72.75, -90, 0],
+			"translation": [9.75, -30.75, 10],
+			"scale": [3, 3, 1]
+		},
+		"fixed": {
+			"translation": [0.25, 0, 1],
+			"scale": [1.2, 1.2, 1]
+		}
+	}
+}
