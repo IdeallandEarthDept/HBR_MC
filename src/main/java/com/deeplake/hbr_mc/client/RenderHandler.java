@@ -12,7 +12,7 @@ import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.c31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.*;
 import com.deeplake.hbr_mc.entities.npc.f31.*;
-import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
+import com.deeplake.hbr_mc.entities.npc.g30.*;
 import com.deeplake.hbr_mc.entities.npc.x31.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityIdlProjectile;
 import net.minecraft.util.ResourceLocation;
@@ -65,8 +65,18 @@ public class RenderHandler {
 
 
         //30G
+        RenderingRegistry.registerEntityRenderingHandler(EntityYShirakawa.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/g30/yuina_shirakawa/yuina",1.1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMTsukishiro.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/g30/monaka_tsukishiro/monaka",0.82f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMKiryu.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/g30/miya_kiryu/miya",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityCSugawara.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/g30/chie_sugawara/chie",0.9f));
         RenderingRegistry.registerEntityRenderingHandler(EntityHOgasahara.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/g30/hisame_ogasahara/maid_hisame",0.82f));
+                renderManager -> new RenderHumanoid(renderManager, "skin/g30/hisame_ogasahara/hisame",0.82f));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySKura.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/g30/satomi_kura/kura",1f));
 
         //31E
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima1.class,

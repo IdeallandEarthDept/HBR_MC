@@ -86,11 +86,17 @@ public class RegisterItem {
     public static final Item SCARLET_VALET_SS = new ItemWIPRanged("scarlet_valet_ss", EnumSeraphType.GUN);
 
     //30G
+    public static final Item NUE = new ItemSeraphForNPC("nue", EnumSeraphType.LARGE_SWORD);
     public static final Item KAZABANA = new ItemWIPRanged("kazabana", EnumSeraphType.GUN);
+
 
 //    public static final Item NUE = new ItemSeraphForNPC("nue", EnumSeraphType.LARGE_SWORD);
 //    public static final Item NUE_S = new ItemSeraphForNPC("nue_s", EnumSeraphType.LARGE_SWORD);
 //    public static final Item NUE_SS = new ItemSeraphForNPC("nue_ss", EnumSeraphType.LARGE_SWORD);
+
+    //31D
+    public static final Item FALLING_EXPECTER = new ItemSeraphForNPC("falling_expecter", EnumSeraphType.LARGE_SWORD);
+    public static final Item LAUGHING_DIVER = new ItemSeraphForNPC("laughing_diver", EnumSeraphType.LARGE_SWORD);
 
     //31E
     public static final Item FLAVOR_RAIN = new ItemWIPRanged("flavor_rain", EnumSeraphType.GUN);

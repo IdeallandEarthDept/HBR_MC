@@ -8,7 +8,7 @@ import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.c31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.*;
 import com.deeplake.hbr_mc.entities.npc.f31.*;
-import com.deeplake.hbr_mc.entities.npc.g30.EntityHOgasahara;
+import com.deeplake.hbr_mc.entities.npc.g30.*;
 import com.deeplake.hbr_mc.entities.npc.x31.*;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import net.minecraft.entity.Entity;
@@ -54,7 +54,13 @@ public class RegisterEntities {
         registerEntity("m_satsuki", EntityMSatsuki.class, 64, 0xFAF5F7, 0x484477);
 
         //30g
+        registerEntity("y_shirakawa", EntityYShirakawa.class, 64, 0xF2E9EF, 0x476EC0);
+        registerEntity("m_tsukishiro", EntityMTsukishiro.class, 64, 0xF2E9EF, 0xDAB7CE);
+        registerEntity("m_kiryu", EntityMKiryu.class, 64, 0xF7F7F6, 0xC84649);
+        registerEntity("c_sugawara", EntityCSugawara.class, 64, 0xF7F7F6, 0x75AB8F);
         registerEntity("h_ogasahara", EntityHOgasahara.class, 64, 0x4e3c5a, 0x94312e);
+        registerEntity("s_kura", EntitySKura.class, 64, 0xF2E9EF, 0xB77DC0);
+
 
         //31e
         registerEntity("ohshima_1", EntityOhshima1.class, 64, 0x404158, 0x37b2b1);
