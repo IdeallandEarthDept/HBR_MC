@@ -56,6 +56,8 @@ public class RegisterItem {
 
     //31B
     public static final Item GUILTY_CRACKER = new ItemWIPRanged("guilty_cracker", EnumSeraphType.GUN);
+    public static final Item GUILTY_CRACKER_S = new ItemWIPRanged("guilty_cracker_s", EnumSeraphType.GUN);
+    public static final Item GUILTY_CRACKER_SS = new ItemWIPRanged("guilty_cracker_ss", EnumSeraphType.GUN);
     public static final Item MANA = new ItemMana("mana");
     public static final Item MANA_S = new ItemSeraphForNPC("mana_s", EnumSeraphType.SCYTHE);
     public static final Item MANA_SS = new ItemSeraphForNPC("mana_ss", EnumSeraphType.SCYTHE);//not obtained,skip
