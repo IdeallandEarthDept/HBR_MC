@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntitySelectors;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -40,7 +41,7 @@ public class CombatUtil {
         return players;
     }
 
-    public static List<EntityPlayer> areaRevive(World worldIn, EntityPlayer caster) {
+    public static List<EntityPlayer> areaRevive(World worldIn, EntityLivingBase caster) {
         List<EntityPlayer> players = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityPlayer.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
         );
@@ -54,7 +55,7 @@ public class CombatUtil {
         return players;
     }
 
-    public static List<EntityLiving> areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
+    public static List<EntityLiving> areaAttack(World worldIn, EntityLivingBase caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
         List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec().scale(dist)), radius, EntitySelectors.IS_ALIVE
         );
@@ -67,7 +68,20 @@ public class CombatUtil {
         return targets;
     }
 
-    public static List<EntityLiving> areaHPAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
+    public static List<EntityLiving> areaAttack(World worldIn, EntityLivingBase caster, Vec3d pos, float radius, EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
+        List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
+                worldIn,EntityLiving.class, pos, radius, EntitySelectors.IS_ALIVE
+        );
+
+        for (EntityLiving target :
+                targets) {
+            generalAttack(atkType, caster, minPotency, cap, bonusRate, target);
+        }
+
+        return targets;
+    }
+
+    public static List<EntityLiving> areaHPAttack(World worldIn, EntityLivingBase caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
         List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec().scale(dist)), radius, EntitySelectors.IS_ALIVE
         );

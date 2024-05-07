@@ -2,7 +2,9 @@ package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.EntityNabiSlime;
+import com.deeplake.hbr_mc.entities.boss.EntityBossBase;
 import com.deeplake.hbr_mc.entities.cancer.*;
+import com.deeplake.hbr_mc.entities.effect.EntityCastDelayIcePillar;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.c31.*;
@@ -86,7 +88,11 @@ public class RegisterEntities {
         registerEntity("md_angelis", EntityMdAngelis.class, 64, 0xbe3143, 0x212953);
         registerEntity("c_skopovskaya", EntityCSkopovskaya.class, 64, 0x57596e, 0xf9303c);
 
+        //boss
+        registerEntity("boss_yamawaki", EntityBossBase.class, 64, 0xffffff, 0x3366ff);
+
         registerEntityNoEgg("bullet", EntityHBRProjectile.class);
+        registerEntityNoEgg("cast_ice_pillar", EntityCastDelayIcePillar.class);
 
         //Assign Dungeons
         //DungeonHooks.addDungeonMob(EntityList.getKey(EntityMoroonStandardInfantrySpawner.class), STANDARD_DUNGEON_MOB_RARITY >> 1);

@@ -23,6 +23,7 @@ public class RegisterBlocks {
     public static final Block CRYSTAL_ORE = new BlockBase("crystal_ore", Material.ROCK).setHardness(15f);
     public static final Block ENERGY_ORE = new BlockBase("energy_ore", Material.ROCK).setHardness(15f);
     public static final Block CANCER_FLOOR = new BlockCarpetBase("cancer_carpet",Material.IRON).setHardness(4f).setResistance(999f);
+    public static final Block DRY_ICE = new BlockDryIce("dry_ice");
     public static final BlockCrate RANDOM_DROP_BASIC = new BlockCrate("random_1", Material.WOOD);
     public static final HashMap<CombatUtil.EnumElement, BlockFieldBase> FIELDS = new HashMap<>();
 

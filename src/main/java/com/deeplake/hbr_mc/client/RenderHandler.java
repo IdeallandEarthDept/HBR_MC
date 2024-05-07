@@ -1,12 +1,11 @@
 package com.deeplake.hbr_mc.client;
 
 import com.deeplake.hbr_mc.Main;
-import com.deeplake.hbr_mc.client.renderer.RenderBullet;
-import com.deeplake.hbr_mc.client.renderer.RenderHumanoid;
-import com.deeplake.hbr_mc.client.renderer.RenderHumanoidGlassShell;
-import com.deeplake.hbr_mc.client.renderer.RenderHumanoidGlowShell;
+import com.deeplake.hbr_mc.client.renderer.*;
 import com.deeplake.hbr_mc.client.renderer.cancer.*;
+import com.deeplake.hbr_mc.entities.boss.EntityBossBase;
 import com.deeplake.hbr_mc.entities.cancer.*;
+import com.deeplake.hbr_mc.entities.effect.EntityCastDelayIcePillar;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.c31.*;
@@ -122,6 +121,13 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntitySlasher.class, RenderSlasher::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityIdlProjectile.class, renderManager -> new RenderBullet<>(renderManager, new ResourceLocation(Main.MODID,
                 "textures/entity/projectiles/bullet_norm.png")));
+
+        //boss
+        RenderingRegistry.registerEntityRenderingHandler(EntityBossBase.class,
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/ivar_bon_yamawaki/ivar_bon_yamawaki",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityCastDelayIcePillar.class,
+                RenderNone::new);
+
 
     }
 }
