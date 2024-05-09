@@ -14,7 +14,7 @@ public class EntityAKanzaki extends EntityNpcMelee {
     @Override
     public void initEquip() {
         super.initEquip();
-        ItemStack stack = new ItemStack(RegisterItem.SUPERME_EDGE_S);
+        ItemStack stack = new ItemStack(RegisterItem.NINE_MINUS_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
 }

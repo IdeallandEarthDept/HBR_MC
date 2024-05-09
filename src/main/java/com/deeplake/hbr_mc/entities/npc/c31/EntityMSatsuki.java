@@ -14,7 +14,7 @@ public class EntityMSatsuki extends EntityNpcRanged {
     @Override
     public void initEquip() {
         super.initEquip();
-        ItemStack stack = new ItemStack(RegisterItem.FATAL_NULL);
+        ItemStack stack = new ItemStack(RegisterItem.FORTUNE_GEAR);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
 }

@@ -14,7 +14,7 @@ public class EntityMTenne extends EntityNpcRanged {
     @Override
     public void initEquip() {
         super.initEquip();
-        ItemStack stack = new ItemStack(RegisterItem.SUPERME_EDGE_S);
+        ItemStack stack = new ItemStack(RegisterItem.MARGINAL_WIZARD_S);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
 }
