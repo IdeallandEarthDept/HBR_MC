@@ -219,7 +219,8 @@ public class CombatUtil {
         attackAsHBR(bullet, attacker, target, EnumElement.NONE, atkType, defType, lowDamage, cap);
     }
 
-    public static void attackAsHBR(Entity bullet, EntityLivingBase attacker, EntityLivingBase target, EnumElement element, EnumAttrType atkType, EnumDefType defType, float lowDamage, float cap) {
+    public static void attackAsHBR(Entity bullet, EntityLivingBase attacker, EntityLivingBase target,
+                                   EnumElement element, EnumAttrType atkType, EnumDefType defType, float lowDamage, float cap) {
         if (target == null || target.isDead || target.getHealth() <= 0) {
             return;
         }

@@ -5,6 +5,7 @@ import com.deeplake.hbr_mc.entities.EntityNabiSlime;
 import com.deeplake.hbr_mc.entities.boss.EntityBossBase;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.effect.EntityCastDelayIcePillar;
+import com.deeplake.hbr_mc.entities.effect.EntityCastLineSnow;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.c31.*;
@@ -93,6 +94,7 @@ public class RegisterEntities {
 
         registerEntityNoEgg("bullet", EntityHBRProjectile.class);
         registerEntityNoEgg("cast_ice_pillar", EntityCastDelayIcePillar.class);
+        registerEntityNoEgg("cast_snow_line", EntityCastLineSnow.class);
 
         //Assign Dungeons
         //DungeonHooks.addDungeonMob(EntityList.getKey(EntityMoroonStandardInfantrySpawner.class), STANDARD_DUNGEON_MOB_RARITY >> 1);

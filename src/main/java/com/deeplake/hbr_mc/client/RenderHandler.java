@@ -6,6 +6,7 @@ import com.deeplake.hbr_mc.client.renderer.cancer.*;
 import com.deeplake.hbr_mc.entities.boss.EntityBossBase;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.effect.EntityCastDelayIcePillar;
+import com.deeplake.hbr_mc.entities.effect.EntityCastLineSnow;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.c31.*;
@@ -67,7 +68,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityYShirakawa.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/g30/yuina_shirakawa/yuina",1.1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityMTsukishiro.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/g30/monaka_tsukishiro/monaka",0.82f));
+                renderManager -> new RenderHumanoid(renderManager, "skin/g30/monaka_tsukishiro/monaka",1.1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityMKiryu.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/g30/miya_kiryu/miya",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityCSugawara.class,
@@ -127,7 +128,8 @@ public class RenderHandler {
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/ivar_bon_yamawaki/ivar_bon_yamawaki",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityCastDelayIcePillar.class,
                 RenderNone::new);
-
+        RenderingRegistry.registerEntityRenderingHandler(EntityCastLineSnow.class,
+                RenderNone::new);
 
     }
 }

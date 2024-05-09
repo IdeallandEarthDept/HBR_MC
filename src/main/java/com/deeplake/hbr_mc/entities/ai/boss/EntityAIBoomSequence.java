@@ -1,7 +1,7 @@
 package com.deeplake.hbr_mc.entities.ai.boss;
 
-import com.deeplake.hbr_mc.entities.ai.idl.EntityAIBaseIDL;
 import com.deeplake.hbr_mc.entities.effect.EntityCastDelayIcePillar;
+import com.deeplake.hbr_mc.init.util.CommonDef;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
@@ -10,38 +10,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class EntityAIBoomSequence extends EntityAIBaseIDL {
-    final EntityLiving aiOwner;
-    int ticksLeft = 0;
+public class EntityAIBoomSequence extends EntityAISequenceBase {
     List<Integer> triggerTicks = new ArrayList<>();
-    boolean isActive = false;
-    int maxTicks = 60;
 
     public EntityAIBoomSequence(EntityLiving aiOwner) {
-        this.aiOwner = aiOwner;
-        triggerTicks.add(10);
-        triggerTicks.add(20);
+        super(aiOwner);
+        setMutexBits(CommonDef.AIMutexFlags.MOVE);
         triggerTicks.add(30);
-    }
-
-    public void activate()
-    {
-        isActive = true;
-    }
-    public boolean isActivated()
-    {
-        return isActive;
-    }
-
-    @Override
-    public void startExecuting() {
-        super.startExecuting();
-        ticksLeft = maxTicks;
+        triggerTicks.add(20);
+        triggerTicks.add(10);
     }
 
     @Override
     public void updateTask() {
-        super.updateTask();
         if (triggerTicks.contains(ticksLeft))
         {
             //Do something
@@ -57,27 +38,6 @@ public class EntityAIBoomSequence extends EntityAIBaseIDL {
                 aiOwner.world.spawnEntity(boomCast);
             }
         }
-        ticksLeft--;
-    }
-
-    @Override
-    public void resetTask() {
-        isActive = false;
-        ticksLeft = 0;
-        super.resetTask();
-    }
-
-    @Override
-    public boolean shouldContinueExecuting() {
-        return ticksLeft > 0 & super.shouldContinueExecuting();
-    }
-
-    @Override
-    public boolean shouldExecute() {
-        return isActive;
-    }
-
-    public boolean ownerHasTarget() {
-        return aiOwner.getAttackTarget() != null;
+        super.updateTask();
     }
 }
