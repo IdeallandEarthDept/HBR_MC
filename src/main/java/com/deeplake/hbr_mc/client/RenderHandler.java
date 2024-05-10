@@ -3,7 +3,7 @@ package com.deeplake.hbr_mc.client;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.client.renderer.*;
 import com.deeplake.hbr_mc.client.renderer.cancer.*;
-import com.deeplake.hbr_mc.entities.boss.EntityBossBase;
+import com.deeplake.hbr_mc.entities.boss.EntityBossYamawaki;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.effect.EntityCastDelayIcePillar;
 import com.deeplake.hbr_mc.entities.effect.EntityCastLineSnow;
@@ -124,7 +124,7 @@ public class RenderHandler {
                 "textures/entity/projectiles/bullet_norm.png")));
 
         //boss
-        RenderingRegistry.registerEntityRenderingHandler(EntityBossBase.class,
+        RenderingRegistry.registerEntityRenderingHandler(EntityBossYamawaki.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/c31/ivar_bon_yamawaki/ivar_bon_yamawaki",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityCastDelayIcePillar.class,
                 RenderNone::new);

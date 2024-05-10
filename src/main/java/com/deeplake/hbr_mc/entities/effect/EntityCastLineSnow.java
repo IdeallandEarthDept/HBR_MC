@@ -22,7 +22,7 @@ public class EntityCastLineSnow extends EntityCastLineBase{
             double x = getStart().x + (getEnd().x - getStart().x) * ratio;
             double y = getStart().y + (getEnd().y - getStart().y) * ratio;
             double z = getStart().z + (getEnd().z - getStart().z) * ratio;
-            world.spawnParticle(EnumParticleTypes.SNOWBALL, x, y, z, 0, 0, 0);
+            world.spawnParticle(EnumParticleTypes.SNOW_SHOVEL, x, y, z, 0, 0, 0);
         }
     }
 }

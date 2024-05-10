@@ -2,7 +2,7 @@ package com.deeplake.hbr_mc.init;
 
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.entities.EntityNabiSlime;
-import com.deeplake.hbr_mc.entities.boss.EntityBossBase;
+import com.deeplake.hbr_mc.entities.boss.EntityBossYamawaki;
 import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.effect.EntityCastDelayIcePillar;
 import com.deeplake.hbr_mc.entities.effect.EntityCastLineSnow;
@@ -90,7 +90,7 @@ public class RegisterEntities {
         registerEntity("c_skopovskaya", EntityCSkopovskaya.class, 64, 0x57596e, 0xf9303c);
 
         //boss
-        registerEntity("boss_yamawaki", EntityBossBase.class, 64, 0xffffff, 0x3366ff);
+        registerEntity("boss_yamawaki", EntityBossYamawaki.class, 64, 0xffffff, 0x3366ff);
 
         registerEntityNoEgg("bullet", EntityHBRProjectile.class);
         registerEntityNoEgg("cast_ice_pillar", EntityCastDelayIcePillar.class);
