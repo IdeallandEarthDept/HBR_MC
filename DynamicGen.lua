@@ -1,10 +1,6 @@
 require "GenBlockJson"
 
-GenItem("seraph","guilty_cracker_s")
-GenItem("seraph","guilty_cracker_ss")
-
-
-
+GenItem("seraph","shooting_star")
 
 --GenItem("misc","boost_1_a")
 --GenItem("misc","boost_1_b")

@@ -55,6 +55,7 @@ public class RegisterItem {
     public static final Item PHANTOM_WEAVER_SS = new ItemPhantomWeaverSS("phantom_weaver_ss");
 
     //31B
+    public static final Item SHOOTING_STAR = new ItemSeraphForNPC("shooting_star", EnumSeraphType.SHIELD);
     public static final Item GUILTY_CRACKER = new ItemWIPRanged("guilty_cracker", EnumSeraphType.GUN);
     public static final Item GUILTY_CRACKER_S = new ItemWIPRanged("guilty_cracker_s", EnumSeraphType.GUN);
     public static final Item GUILTY_CRACKER_SS = new ItemWIPRanged("guilty_cracker_ss", EnumSeraphType.GUN);

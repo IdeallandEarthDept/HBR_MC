@@ -14,7 +14,7 @@ public class EntityEAoi extends EntityNpcMelee {
     @Override
     public void initEquip() {
         super.initEquip();
-        ItemStack stack = new ItemStack(RegisterItem.POP_N_GORE);
+        ItemStack stack = new ItemStack(RegisterItem.SHOOTING_STAR);
         setItemStackToSlot(EntityEquipmentSlot.MAINHAND,stack);
     }
 }
