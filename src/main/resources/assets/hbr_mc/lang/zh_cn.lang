@@ -328,7 +328,7 @@ entity.m_yanagi.name=柳 美音
 entity.k_maruyama.name=丸山 奏多
 entity.s_hanamura.name=华村 诗纪
 entity.c_matsuoka.name=松冈 绮罗路
-entity.i_natume.name=夏目 祈
+entity.i_natsume.name=夏目 祈
 entity.m_kurosawa.name=黑泽 真希
 # 30G
 entity.y_shirakawa.name=白河 结奈
@@ -344,6 +344,10 @@ entity.i_redmayne.name=艾琳 雷德梅因
 entity.v_balakrishnan.name=芙里提卡 巴拉克里希南
 entity.md_angelis.name=玛利亚 黛 安杰利斯
 entity.c_skopovskaya.name=夏洛特 斯可波夫斯加
+#Command
+entity.s_tezuka.name=手冢 咲
+entity.n_nanamse.name=七濑 七海
+entity.m_asami.name=浅见 真纪子
 
 configgui.idealland.category.Menu0.SpawnConf=生成设置
 configgui.hbr_mc.category.Menu0.GeneralConf=通用设置

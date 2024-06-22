@@ -329,7 +329,7 @@ entity.m_yanagi.name=Mion Yanagi
 entity.k_maruyama.name=Kanata Maruyama
 entity.s_hanamura.name=Shiki Hanamura
 entity.c_matsuoka.name=Chiroru Matsuoka
-entity.i_natume.name=Inori Natsume
+entity.i_natsume.name=Inori Natsume
 entity.m_kurosawa.name=Maki Kurosawa
 # 30G
 entity.y_shirakawa.name=Yuina Shirakawa
@@ -345,6 +345,10 @@ entity.i_redmayne.name=Irene Redmayne
 entity.v_balakrishnan.name=Vritika Balakrishnan
 entity.md_angelis.name=Maria de Angelis
 entity.c_skopovskaya.name=Charlotta Skopovskaya
+#Command
+entity.s_tezuka.name=Saki Tezuka
+entity.n_nanamse.name=Nanami Nanase
+entity.m_asami.name=Makiko Asami
 
 configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration
 configgui.hbr_mc.category.Menu0.GeneralConf=General Config
