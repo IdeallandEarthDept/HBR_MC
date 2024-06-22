@@ -5,6 +5,7 @@ import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.RegisterItem;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.EntityUtil;
+import com.deeplake.hbr_mc.init.util.PlayerUtil;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
@@ -57,6 +58,8 @@ public class EntityINatsume extends EntityNpcMelee {
             List<EntityPlayer> players = EntityUtil.getEntitiesWithinAABB(world, EntityPlayer.class, getPositionVector(), 16f, EntitySelectors.NOT_SPECTATING);
             for (EntityPlayer player :
                     players) {
+                if (PlayerUtil.isCreative(player))
+                    continue;
                 EntityUtil.ApplyBuff(player, MobEffects.MINING_FATIGUE, 0,3);
             }
         }

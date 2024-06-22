@@ -98,6 +98,7 @@ public class RegisterItem {
     //31D
     public static final Item FALLING_EXPECTER = new ItemSeraphForNPC("falling_expecter", EnumSeraphType.LARGE_SWORD);
     public static final Item LAUGHING_DIVER = new ItemSeraphForNPC("laughing_diver", EnumSeraphType.LARGE_SWORD);
+    public static final Item DEATH_VALLEY = new ItemSeraphForNPC("death_valley", EnumSeraphType.LARGE_SWORD);
 
     //31E
     public static final Item FLAVOR_RAIN = new ItemWIPRanged("flavor_rain", EnumSeraphType.GUN);

@@ -10,6 +10,10 @@ import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.c31.*;
+import com.deeplake.hbr_mc.entities.npc.command.EntityMAsami;
+import com.deeplake.hbr_mc.entities.npc.command.EntityNNanase;
+import com.deeplake.hbr_mc.entities.npc.command.EntitySTezuka;
+import com.deeplake.hbr_mc.entities.npc.d31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.*;
 import com.deeplake.hbr_mc.entities.npc.f31.*;
 import com.deeplake.hbr_mc.entities.npc.g30.*;
@@ -78,6 +82,20 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntitySKura.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/g30/satomi_kura/kura",1f));
 
+        //31D
+        RenderingRegistry.registerEntityRenderingHandler(EntityAMizuhara.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/d31/aina_mizuhara/aina",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityADate.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/d31/akari_date/date",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityFMikoto.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/d31/fubuki_mikoto/fubuki",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityIIshii.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/d31/iroha_ishii/ishii",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMNikaido.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/d31/misato_nikaido/nikaido",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityRMurofushi.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/d31/risa_murofushi/risa",1f));
+
         //31E
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima1.class,
                 renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/e31/ichiko_ohshima/ichiko",1.05f));
@@ -113,6 +131,14 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityLShanhua.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/l_shanhua/shanhua_ht",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityMdAngelis.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/md_angelis/angelis_ht",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityVBalakrishnan.class, renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/x31/v_balakrishnan/balakrishnan_ht",0.9f));
+
+        //Command
+        RenderingRegistry.registerEntityRenderingHandler(EntitySTezuka.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/command/saki_tezuka/tezuka",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityNNanase.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/command/nanami_nanase/nanami",1f));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMAsami.class,
+                renderManager -> new RenderHumanoid(renderManager, "skin/command/makiko_asami/asami",1f));
 
         //Cancer
         RenderingRegistry.registerEntityRenderingHandler(EntityMarionette.class, RenderMarionette::new);

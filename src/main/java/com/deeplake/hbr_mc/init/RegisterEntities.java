@@ -6,6 +6,10 @@ import com.deeplake.hbr_mc.entities.cancer.*;
 import com.deeplake.hbr_mc.entities.npc.a31.*;
 import com.deeplake.hbr_mc.entities.npc.b31.*;
 import com.deeplake.hbr_mc.entities.npc.c31.*;
+import com.deeplake.hbr_mc.entities.npc.command.EntityMAsami;
+import com.deeplake.hbr_mc.entities.npc.command.EntityNNanase;
+import com.deeplake.hbr_mc.entities.npc.command.EntitySTezuka;
+import com.deeplake.hbr_mc.entities.npc.d31.*;
 import com.deeplake.hbr_mc.entities.npc.e31.*;
 import com.deeplake.hbr_mc.entities.npc.f31.*;
 import com.deeplake.hbr_mc.entities.npc.g30.*;
@@ -53,6 +57,14 @@ public class RegisterEntities {
         registerEntity("a_kanzaki", EntityAKanzaki.class, 64, 0xE9CEA1, 0xB52221);
         registerEntity("m_satsuki", EntityMSatsuki.class, 64, 0xFAF5F7, 0x484477);
 
+        //31d
+        registerEntity("m_nikaido", EntityMNikaido.class, 64, 0xD5D1D7, 0x9F193B);
+        registerEntity("a_mizuhara", EntityAMizuhara.class, 64, 0xD5D1D7, 0x9F193B);
+        registerEntity("a_date", EntityADate.class, 64, 0xD5D1D7, 0x9F193B);
+        registerEntity("f_mikoto", EntityFMikoto.class, 64, 0xD5D1D7, 0x9F193B);
+        registerEntity("i_ishii", EntityIIshii.class, 64, 0xD5D1D7, 0x9F193B);
+        registerEntity("r_murofushi", EntityRMurofushi.class, 64, 0xD5D1D7, 0x9F193B);
+
         //30g
         registerEntity("y_shirakawa", EntityYShirakawa.class, 64, 0xF2E9EF, 0x476EC0);
         registerEntity("m_tsukishiro", EntityMTsukishiro.class, 64, 0xF2E9EF, 0xDAB7CE);
@@ -85,6 +97,10 @@ public class RegisterEntities {
         registerEntity("v_balakrishnan", EntityVBalakrishnan.class, 64, 0xf6ecea, 0xe8a9e2);
         registerEntity("md_angelis", EntityMdAngelis.class, 64, 0xbe3143, 0x212953);
         registerEntity("c_skopovskaya", EntityCSkopovskaya.class, 64, 0x57596e, 0xf9303c);
+
+        registerEntity("s_tezuka", EntitySTezuka.class, 64, 0x57596e, 0xf9303c);
+        registerEntity("n_nanase", EntityNNanase.class, 64, 0x57596e, 0xf9303c);
+        registerEntity("m_asami", EntityMAsami.class, 64, 0x57596e, 0xf9303c);
 
         registerEntityNoEgg("bullet", EntityHBRProjectile.class);
 
