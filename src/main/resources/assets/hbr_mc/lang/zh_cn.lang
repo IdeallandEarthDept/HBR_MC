@@ -288,27 +288,62 @@ entity.cancer_test.name=训练机
 entity.cancer_test_50.name=训练机 (50)
 entity.cancer_test_100.name=训练机 (100)
 
-# 31a
+# 31A
 entity.l_kayamori.name=茅森 月歌
 entity.y_izumi.name=和泉 由希
 entity.m_aikawa.name=逢川 惠
 entity.t_tsukasa.name=东城 司
 entity.k_asakura.name=朝仓 可怜
 entity.t_kunimi.name=国见 玉
-# 31b
+# 31B
 entity.e_aoi.name=苍井 绘梨花
 entity.i_minase.name=水濑 莓
 entity.s_minase.name=水濑 李
 entity.s_higuchi.name=樋口 圣华
 entity.k_hiiragi.name=柊木 梢
 entity.byakko.name=白虎
-# 30g
-entity.h_ogasahara.name=小笠原 绯雨
-# 31e
+# 31C
+entity.i_yamawaki.name=山脇 波昂 伊瓦尔
+entity.s_sakuraba.name=樱庭 星罗
+entity.m_tenne.name=天音 巫呼
+entity.y_bungo.name=丰后 弥生
+entity.a_kanzaki.name=神崎 阿黛尔海德
+entity.m_satsuki.name=佐月 麻里
+# 31D
+entity.m_nikaido.name=二阶堂 三乡
+entity.i_ishii.name=石井 色叶
+entity.f_mikoto.name=命 吹雪
+entity.r_murofushi.name=室伏 理沙
+entity.a_date.name=伊达 朱里
+entity.a_mizuhara.name=瑞原 蓝娜
+# 31E
 entity.ohshima_1.name=大岛 一千子
-# 31f
+entity.ohshima_2.name=大岛 二以奈
+entity.ohshima_3.name=大岛 三野里
+entity.ohshima_4.name=大岛 四叶草
+entity.ohshima_5.name=大岛 五十铃
+entity.ohshima_6.name=大岛 六宇亚
+# 31F
+entity.m_yanagi.name=柳 美音
 entity.k_maruyama.name=丸山 奏多
-entity.i_natsume.name=夏目 祈
+entity.s_hanamura.name=华村 诗纪
+entity.c_matsuoka.name=松冈 绮罗路
+entity.i_natume.name=夏目 祈
+entity.m_kurosawa.name=黑泽 真希
+# 30G
+entity.y_shirakawa.name=白河 结奈
+entity.m_tsukishiro.name=月城 最中
+entity.m_kiryu.name=桐生 美也
+entity.c_sugawara.name=菅原 千惠
+entity.h_ogasahara.name=小笠原 绯雨
+entity.s_kura.name=藏 里见
+# 31X
+entity.c_reaper.name=卡罗尔 利帕
+entity.l_shanhua.name=李 映夏
+entity.i_redmayne.name=艾琳 雷德梅因
+entity.v_balakrishnan.name=芙里提卡 巴拉克里希南
+entity.md_angelis.name=玛利亚 黛 安杰利斯
+entity.c_skopovskaya.name=夏洛特 斯可波夫斯加
 
 configgui.idealland.category.Menu0.SpawnConf=生成设置
 configgui.hbr_mc.category.Menu0.GeneralConf=通用设置
