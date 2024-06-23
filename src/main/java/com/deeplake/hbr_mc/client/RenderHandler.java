@@ -84,17 +84,17 @@ public class RenderHandler {
 
         //31D
         RenderingRegistry.registerEntityRenderingHandler(EntityAMizuhara.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/d31/aina_mizuhara/aina",1f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/d31/aina_mizuhara/aina",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityADate.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/d31/akari_date/date",1f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/d31/akari_date/date",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityFMikoto.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/d31/fubuki_mikoto/fubuki",1f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/d31/fubuki_mikoto/fubuki",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityIIshii.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/d31/iroha_ishii/ishii",1f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/d31/iroha_ishii/ishii",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityMNikaido.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/d31/misato_nikaido/nikaido",1f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/d31/misato_nikaido/nikaido",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityRMurofushi.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/d31/risa_murofushi/risa",1f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/d31/risa_murofushi/risa",1f));
 
         //31E
         RenderingRegistry.registerEntityRenderingHandler(EntityOhshima1.class,
@@ -134,9 +134,9 @@ public class RenderHandler {
 
         //Command
         RenderingRegistry.registerEntityRenderingHandler(EntitySTezuka.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/command/saki_tezuka/tezuka",1f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/command/saki_tezuka/tezuka",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityNNanase.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/command/nanami_nanase/nanami",1f));
+                renderManager -> new RenderHumanoidGlowShell(renderManager, "skin/command/nanami_nanase/nanami",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityMAsami.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/command/makiko_asami/asami",1f));
 
