@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "hbr_mc:items/seraph/amazing_executer",
-		"particle": "hbr_mc:items/seraph/amazing_executer"
+		"particle": "hbr_mc:items/seraph/amazing_executer",
+		"layer0": "hbr_mc:items/seraph/amazing_executer"
 	},
 	"display": {
 		"thirdperson_righthand": {
@@ -17,13 +17,13 @@
 			"scale": [2, 2, 0.8]
 		},
 		"firstperson_righthand": {
-			"rotation": [-45, -90, 0],
-			"translation": [0, 1.25, 0],
+			"rotation": [-180, -80.5, -135],
+			"translation": [2, 8.75, 0],
 			"scale": [1.5, 1.5, 0.6]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-45, 90, 0],
-			"translation": [0, 1.25, 0],
+			"rotation": [-180, -67.25, 135],
+			"translation": [2, 8.75, 0],
 			"scale": [1.5, 1.5, 0.6]
 		},
 		"ground": {

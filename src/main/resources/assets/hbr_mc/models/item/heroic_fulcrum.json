@@ -9548,13 +9548,13 @@
 			"scale": [1.2, 1.2, 1.2]
 		},
 		"firstperson_righthand": {
-			"rotation": [-12, -105, -48.5],
-			"translation": [-4.75, -2, 14],
+			"rotation": [-35, -93, -23],
+			"translation": [-2, 9.5, 19],
 			"scale": [0.8, 0.8, 0.33]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-12, -105, -48.5],
-			"translation": [-4.75, -2, 14],
+			"rotation": [-35, -93, -23],
+			"translation": [-2, 9.5, 19],
 			"scale": [0.8, 0.8, 0.33]
 		},
 		"ground": {
@@ -9568,12 +9568,12 @@
 		},
 		"head": {
 			"rotation": [-180, 0, -180],
-			"translation": [0, -6.5, 7],
+			"translation": [0, -6.5, 7.5],
 			"scale": [1.2, 1.2, 1.2]
 		},
 		"fixed": {
 			"rotation": [0, 0, 45],
-			"translation": [-0.75, 0.5, -1],
+			"translation": [-0.75, 0.5, -1.5],
 			"scale": [0.6, 0.6, 0.8]
 		}
 	},
