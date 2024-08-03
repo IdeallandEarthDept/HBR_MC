@@ -346,7 +346,7 @@ entity.md_angelis.name=玛利亚 黛 安杰利斯
 entity.c_skopovskaya.name=夏洛特 斯可波夫斯加
 #Command
 entity.s_tezuka.name=手冢 咲
-entity.n_nanamse.name=七濑 七海
+entity.n_nanase.name=七濑 七海
 entity.m_asami.name=浅见 真纪子
 
 configgui.idealland.category.Menu0.SpawnConf=生成设置

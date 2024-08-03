@@ -347,7 +347,7 @@ entity.md_angelis.name=Maria de Angelis
 entity.c_skopovskaya.name=Charlotta Skopovskaya
 #Command
 entity.s_tezuka.name=Saki Tezuka
-entity.n_nanamse.name=Nanami Nanase
+entity.n_nanase.name=Nanami Nanase
 entity.m_asami.name=Makiko Asami
 
 configgui.idealland.category.Menu0.SpawnConf=Spawn Configuration

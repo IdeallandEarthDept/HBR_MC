@@ -484,6 +484,10 @@ public class ItemSeraphBase extends ItemBase {
             ItemStack stack = entityLivingBase.getHeldItemMainhand();
             if (stack.getItem() instanceof ItemSeraphBase)
             {
+                if (SeraphUtil.isBroken(stack))
+                {
+                    return;
+                }
                 float amount = event.getAmount();
                 event.setAmount(0);
                 stack.setItemDamage((int) (stack.getItemDamage() + amount));
