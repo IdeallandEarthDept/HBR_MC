@@ -2,12 +2,12 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
-		"particle": "hbr_mc:items/seraph/tactical_wheel",
-		"layer0": "hbr_mc:items/seraph/tactical_wheel"
+		"particle": "hbr_mc:items/seraph/temperance",
+		"layer0": "hbr_mc:items/seraph/temperance"
 	},
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [-45, -90, 0],
+			"rotation": [45, 90, 0],
 			"translation": [0, 5.5, 0.75],
 			"scale": [1.2, 1.2, 0.8]
 		},
@@ -17,9 +17,9 @@
 			"scale": [1.2, 1.2, 0.8]
 		},
 		"firstperson_righthand": {
-			"rotation": [-45, -90, 0],
-			"translation": [0, 6.75, 0.75],
-			"scale": [1, 1, 0.5]
+			"rotation": [45, 90, 0],
+			"translation": [0, 6.5, 0.75],
+			"scale": [1, 1, 0.6]
 		},
 		"firstperson_lefthand": {
 			"rotation": [120, 90, 0],
@@ -27,16 +27,17 @@
 			"scale": [1, 1, 0.6]
 		},
 		"ground": {
-			"translation": [0, 5.75, 0],
-			"scale": [1, 1, 0.5]
+			"translation": [0, 4.25, 0],
+			"scale": [1, 1, 0.7]
 		},
 		"head": {
 			"rotation": [-180, 90, 0],
-			"translation": [-6.5, -21.75, 0],
-			"scale": [1.4, 1.4, 0.7]
+			"translation": [-6.5, -27.25, 0],
+			"scale": [1.6, 1.6, 1]
 		},
 		"fixed": {
-			"scale": [1, 1, 0.5]
+			"rotation": [-180, 0, -180],
+			"scale": [1.2, 1.2, 0.5]
 		}
 	}
 }
