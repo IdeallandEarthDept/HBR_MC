@@ -2463,20 +2463,21 @@
 			"scale": [0.8, 0.8, 0.8]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, 90, 0],
-			"translation": [12.75, 6.25, -7.75],
-			"scale": [1.2, 1.2, 1]
+			"rotation": [44.5, 90, 0],
+			"translation": [1.13, 3.2, 2.13],
+			"scale": [0.68, 0.68, 0.68]
 		},
 		"firstperson_lefthand": {
-			"rotation": [0, -90, 0],
-			"translation": [12.75, 6.25, -7.75],
-			"scale": [1.2, 1.2, 1]
+			"rotation": [44.5, -90, 0],
+			"translation": [1.13, 3.2, 2.13],
+			"scale": [0.68, 0.68, 0.68]
 		},
 		"ground": {
-			"translation": [0, 18.5, 0]
+			"translation": [0, 5.5, 0],
+			"scale": [0.5, 0.5, 0.5]
 		},
 		"gui": {
-			"rotation": [0, 180, 90],
+			"rotation": [0, -8.25, 85],
 			"translation": [-0.5, -2, 0],
 			"scale": [0.4, 0.4, 0.4]
 		},

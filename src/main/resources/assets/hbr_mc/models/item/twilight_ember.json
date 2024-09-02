@@ -1,0 +1,43 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "hbr_mc:items/seraph/twilight_ember",
+		"particle": "hbr_mc:items/seraph/twilight_ember"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-90.75, -90, 0],
+			"translation": [-2, 0.75, 5],
+			"scale": [2, 2, 0.8]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-123.75, -90, 0],
+			"translation": [-2, -4, 4],
+			"scale": [2, 2, 0.8]
+		},
+		"firstperson_righthand": {
+			"rotation": [-3.15, 72.52, 25.03],
+			"translation": [4.75, 7.25, -4],
+			"scale": [2, 2, 0.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-154.75, -90, 0],
+			"translation": [4.75, -1.5, 1.25],
+			"scale": [2, 2, 0.5]
+		},
+		"ground": {
+			"translation": [0, 9.25, 0],
+			"scale": [1.5, 1.5, 0.8]
+		},
+		"head": {
+			"rotation": [178, 90, 0],
+			"translation": [-6.75, -20, -1.5],
+			"scale": [3, 3, 1]
+		},
+		"fixed": {
+			"translation": [0.25, 0, 0],
+			"scale": [1.2, 1.2, 1]
+		}
+	}
+}

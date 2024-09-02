@@ -1336,11 +1336,11 @@
 			"scale": [0.8, 0.8, 0.8]
 		},
 		"firstperson_righthand": {
-			"translation": [0, -1.75, -8.75],
+			"translation": [0, -4, -8.75],
 			"scale": [1.5, 1.5, 1]
 		},
 		"firstperson_lefthand": {
-			"translation": [0, -1.75, -8.75],
+			"translation": [0, -4, -8.75],
 			"scale": [1.5, 1.5, 1]
 		},
 		"ground": {
