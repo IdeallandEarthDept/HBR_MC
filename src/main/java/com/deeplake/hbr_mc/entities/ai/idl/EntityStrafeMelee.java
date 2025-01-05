@@ -77,7 +77,7 @@ public class EntityStrafeMelee<T extends EntityLiving> extends EntityAIBase {
      */
     public boolean shouldContinueExecuting()
     {
-        return (this.shouldExecute() || !this.entity.getNavigator().noPath()) && !this.isRangedWeaponInMainhand();
+        return (this.shouldExecute() || !this.entity.getNavigator().noPath()) && !this.isRangedWeaponInMainhand() && this.entity.getAttackTarget() != this.entity;
     }
 
     /**

@@ -3,6 +3,7 @@ package com.deeplake.hbr_mc.init.util;
 import com.deeplake.hbr_mc.Main;
 import com.deeplake.hbr_mc.items.ItemWIPRanged;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
+import com.google.gson.JsonParseException;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,6 +19,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.server.SPacketTitle;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntitySign;
@@ -239,6 +241,10 @@ public class CommonFunctions {
 
     public static int SecondToTicks(float ticks) {
         return (int)(ticks * TICK_PER_SECOND);
+    }
+
+    public static void broadcast(ITextComponent textComponent) {
+        FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().sendMessage(textComponent);
     }
 
     public static void broadcastbykey(String key, Object... args) {
@@ -647,4 +653,33 @@ public class CommonFunctions {
         return abs(degreesDifference(p_14146_, p_14147_));
     }
 
+    public static void sendTitleToPlayer(EntityPlayer player, String content, Object... args)
+    {
+        if (player instanceof EntityPlayerMP)
+        {
+            EntityPlayerMP entityplayermp = (EntityPlayerMP)player;
+            ITextComponent itextcomponent;
+
+            try
+            {
+                itextcomponent = new TextComponentTranslation(content, args);
+                SPacketTitle spackettitle1 =
+                        new SPacketTitle(SPacketTitle.Type.TITLE,
+                                itextcomponent);
+                entityplayermp.connection.sendPacket(spackettitle1);
+            }
+            catch (JsonParseException jsonparseexception)
+            {
+                Main.Log("Failed to parse title JSON", jsonparseexception);
+            }
+        }
+    }
+
+    public static void broadcastTitle(String content,Object... args)
+    {
+        for (EntityPlayerMP player : FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayers())
+        {
+            sendTitleToPlayer(player, content, args);
+        }
+    }
 }

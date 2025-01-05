@@ -2,7 +2,6 @@ package com.deeplake.hbr_mc.items.seraph.a31;
 
 import com.deeplake.hbr_mc.init.ModConfig;
 import com.deeplake.hbr_mc.init.RegisterAttr;
-import com.deeplake.hbr_mc.init.RegisterEffects;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
@@ -10,14 +9,11 @@ import com.deeplake.hbr_mc.init.util.EntityUtil;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphRarity;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
 import com.deeplake.hbr_mc.items.seraph.ItemSeraphBase;
-import com.deeplake.hbr_mc.items.seraph.ItemSeraphCannonBase;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
@@ -80,8 +76,8 @@ public class ItemPhantomWeaverSS extends ItemSeraphBase {
             float minHeal = ModConfig.COMBAT.PHANTOM_WEAVER_13SP_REVIVAL.MIN_POTENCY;
             float cap = ModConfig.COMBAT.PHANTOM_WEAVER_13SP_REVIVAL.CAP;
 
-            CombatUtil.areaRevive(worldIn, caster);
-            CombatUtil.areaHeal(worldIn, caster, minHeal, cap);
+            CombatUtil.areaReviveIncludeNPC(worldIn, caster);
+            CombatUtil.areaHealIncludeNPC(worldIn, caster, minHeal, cap);
             worldIn.playSound(null, caster.getPosition(), SoundEvents.ENTITY_GENERIC_DRINK,SoundCategory.PLAYERS, 1f,1.5f);
             setCoolDown(caster, CommonDef.TICK_PER_SECOND * ModConfig.COMBAT.PHANTOM_WEAVER_13SP_REVIVAL.SP);
 

@@ -389,3 +389,18 @@ item.command_badge.mode.3=跟随
 
 item.command_all.name=命令 [%s]
 item.command_all.desc=潜行右键切换命令，右键发号施令
+
+hbr_mc.danmaku.config_disabled=直播已在系统配置中禁用.
+hbr_mc.danmaku.connect=正在连接B站直播间 No.%s……
+hbr_mc.danmaku.connect_already=已连接。
+hbr_mc.danmaku.connect_failed=未能连接B站直播间 No.%s。请检查您的网络和直播间号。
+hbr_mc.danmaku.connect_success=成功连接B站直播间 No.%s。
+hbr_mc.danmaku.closing=正在关闭直播连接……
+hbr_mc.danmaku.closed=直播连接已关闭。
+hbr_mc.danmaku.login=V%s[Lv.%s] %s 来了！
+hbr_mc.danmaku.text=V%s[Lv.%s] %s : %s
+hbr_mc.danmaku.gift_auto_thank=感谢 %s 送出的 %s 个%s
+
+hbr_mc.danmaku.guard1=%s 上舰！
+hbr_mc.danmaku.guard2=%s 就任提督！
+hbr_mc.danmaku.guard3=%s 就任总督！

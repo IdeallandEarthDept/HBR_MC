@@ -716,4 +716,22 @@ public class EntityUtil {
         }
         return result;
     }
+
+    public static boolean HasEntityWithName(World world, String name) {
+        for (Entity entity : world.loadedEntityList) {
+            if (entity.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Entity GetEntityWithName(World world, String name) {
+        for (Entity entity : world.loadedEntityList) {
+            if (entity.getName().equals(name)) {
+                return entity;
+            }
+        }
+        return null;
+    }
 }

@@ -72,7 +72,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityYShirakawa.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/g30/yuina_shirakawa/yuina",1.1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityMTsukishiro.class,
-                renderManager -> new RenderHumanoid(renderManager, "skin/g30/monaka_tsukishiro/monaka",0.82f));
+                renderManager -> new RenderHumanoid(renderManager, "skin/g30/monaka_tsukishiro/monaka",1.1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityMKiryu.class,
                 renderManager -> new RenderHumanoid(renderManager, "skin/g30/miya_kiryu/miya",1f));
         RenderingRegistry.registerEntityRenderingHandler(EntityCSugawara.class,

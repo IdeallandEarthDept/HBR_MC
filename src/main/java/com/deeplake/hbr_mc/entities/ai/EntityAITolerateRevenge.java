@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.entities.ai;
 
 import com.deeplake.hbr_mc.entities.npc.EntityNPC;
+import com.deeplake.hbr_mc.init.util.EntityUtil;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAITarget;
@@ -8,6 +9,7 @@ import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.util.math.AxisAlignedBB;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class EntityAITolerateRevenge extends EntityAITarget
 {
@@ -35,10 +37,15 @@ public class EntityAITolerateRevenge extends EntityAITarget
 
     @Override
     protected boolean isSuitableTarget(@Nullable EntityLivingBase target, boolean includeInvincibles) {
+        if (target == null)
+        {
+            return false;
+        }
         EntityNPC taskOwner1 = (EntityNPC) (this.taskOwner);
+        List<EntityNPC> list = EntityUtil.getEntitiesWithinAABB(this.taskOwner.world, EntityNPC.class, new AxisAlignedBB(target.getPosition()).grow(10, 10, 10), EntityUtil.ALL_ALIVE);
         if (taskOwner1.isFriendlyTo(target))
         {
-            if (taskOwner1.getAnger() > 1000)
+            if (taskOwner1.getAnger() > 500*(1+list.size()))
             {
                 return true;
             }

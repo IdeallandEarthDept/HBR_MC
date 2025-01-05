@@ -1,9 +1,11 @@
 package com.deeplake.hbr_mc;
 
+import com.deeplake.hbr_mc.designs.danmaku.after2024.BilibiliConfig;
 import com.deeplake.hbr_mc.init.*;
 import com.deeplake.hbr_mc.init.util.CommonDef;
 import com.deeplake.hbr_mc.proxy.ProxyBase;
 import com.deeplake.hbr_mc.recipes.FurnaceRecipes;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -23,6 +25,8 @@ public class Main
     private static Logger logger;
     @Mod.Instance
     public static Main instance;
+
+    public static boolean isNeatInstalled = false;
 
     @SidedProxy(clientSide = CommonDef.PROXY_CLIENT, serverSide = CommonDef.PROXY_SERVER)
     public static ProxyBase proxy;
@@ -54,6 +58,8 @@ public class Main
         RegisterDrop.initCrateList();
 
         proxy.registerLayers();
+        BilibiliConfig.init();
+        isNeatInstalled = Loader.isModLoaded("neat");
     }
 
     public static void LogWarning(String str, Object...args)
@@ -66,6 +72,14 @@ public class Main
         if (ModConfig.CONFIG.LOG_ON)
         {
             logger.info(String.format(str, args));
+        }
+    }
+
+    public static void LogRaw(String str)
+    {
+        if (ModConfig.CONFIG.LOG_ON)
+        {
+            logger.info(str);
         }
     }
 }

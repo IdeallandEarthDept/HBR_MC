@@ -1,12 +1,14 @@
 package com.deeplake.hbr_mc.items.seraph;
 
 import com.deeplake.hbr_mc.entities.npc.EntityNPC;
+import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.IDLNBTDef;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import com.deeplake.hbr_mc.items.ItemSeraphForNPC;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -132,6 +134,36 @@ public class SeraphUtil {
         }
     }
 
+    public static void cureSeraph(EntityLivingBase target, float amount)
+    {
+        IAttributeInstance attribute = target.getEntityAttribute(RegisterAttr.DP_MAX);
+        if (attribute != null)
+        {
+            double maxDP = attribute.getAttributeValue();
+            if (maxDP > 0)
+            {
+                IAttributeInstance dpLoss = target.getEntityAttribute(RegisterAttr.DP_LOSS_SYNC);
+                if (dpLoss != null)
+                {
+                    double curDamage = dpLoss.getAttributeValue();
+                    if (curDamage >= maxDP)
+                    {
+                        //already broken
+                        return;
+                    }
+
+                    double newDamage = curDamage-amount;
+                    if (newDamage < 0)
+                    {
+                        newDamage = 0;
+                    }
+
+                    dpLoss.setBaseValue(newDamage);
+                }
+            }
+        }
+    }
+
     public static boolean reviveSeraph(ItemStack stack, float amount)
     {
         boolean result = false;
@@ -145,6 +177,31 @@ public class SeraphUtil {
         }
         IDLNBTUtil.SetBoolean(stack, IDLNBTDef.KEY_BROKEN, false);
         stack.setItemDamage((int) (stack.getItemDamage() - amount));
+        return result;
+    }
+
+    public static boolean reviveSeraph(EntityLivingBase target, float amount)
+    {
+        boolean result = false;
+        IAttributeInstance attribute = target.getEntityAttribute(RegisterAttr.DP_MAX);
+        if (attribute != null)
+        {
+            double maxDP = attribute.getAttributeValue();
+            if (maxDP > 0)
+            {
+                IAttributeInstance curDamage = target.getEntityAttribute(RegisterAttr.DP_LOSS_SYNC);
+                if (curDamage != null)
+                {
+                    double loss = maxDP - amount;
+                    if (loss < 0)
+                    {
+                        loss = 0;
+                    }
+                    curDamage.setBaseValue(loss);
+                    result = true;
+                }
+            }
+        }
         return result;
     }
 

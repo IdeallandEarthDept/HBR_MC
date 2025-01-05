@@ -109,7 +109,13 @@ public class EntityFlyableMobV1 extends EntityMobRanged {
             EntityAITasks.EntityAITaskEntry aiTaskEntry = iterator.next();
             if (modularAI.contains(aiTaskEntry.action))
             {
-                aiTasks.removeTask(aiTaskEntry.action);
+                try {
+                    aiTasks.removeTask(aiTaskEntry.action);
+                }
+                catch (Exception e)
+                {
+                    System.out.println("Error: " + e.getMessage());
+                }
             }
         }
     }
@@ -239,7 +245,8 @@ public class EntityFlyableMobV1 extends EntityMobRanged {
 
     @Override
     public void setAttackTarget(@Nullable EntityLivingBase entitylivingbaseIn) {
-        super.setAttackTarget(entitylivingbaseIn);
+        if (entitylivingbaseIn != this)
+            super.setAttackTarget(entitylivingbaseIn);
     }
 
     public int getUniqueFlapTickOffset() {

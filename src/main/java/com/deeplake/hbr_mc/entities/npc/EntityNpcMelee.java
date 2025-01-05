@@ -1,45 +1,24 @@
 package com.deeplake.hbr_mc.entities.npc;
 
 import com.deeplake.hbr_mc.init.ModConfig;
-import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.util.CombatUtil;
 import com.deeplake.hbr_mc.items.ItemSeraphForNPC;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
-
-import javax.annotation.Nullable;
 
 public class EntityNpcMelee extends EntityNPC{
     public EntityNpcMelee(World worldIn) {
         super(worldIn);
     }
 
-    @Nullable
-    @Override
-    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
-        //Level 133
-        setDPMax(4000);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(134.5f);
-        setHealth(getMaxHealth());
-        this.getEntityAttribute(RegisterAttr.STR).setBaseValue(459);
-        this.getEntityAttribute(RegisterAttr.DEX).setBaseValue(328);
-        this.getEntityAttribute(RegisterAttr.END).setBaseValue(375);
-        this.getEntityAttribute(RegisterAttr.MEN).setBaseValue(357);
-        this.getEntityAttribute(RegisterAttr.INT).setBaseValue(346);
-        this.getEntityAttribute(RegisterAttr.LUC).setBaseValue(328);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(393.5f);
-        return super.onInitialSpawn(difficulty, livingdata);
-    }
 
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {

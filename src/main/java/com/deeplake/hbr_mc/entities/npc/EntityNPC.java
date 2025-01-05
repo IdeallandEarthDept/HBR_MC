@@ -32,8 +32,11 @@ public class EntityNPC extends EntityCleverNPCForHBR implements INpc {
         livingdata = super.onInitialSpawn(difficulty, livingdata);
         this.setLeftHanded(false);
         setAttr(32,0.3, 1, 0, 20);
+        setAsStrongData();
         return livingdata;
     }
+
+
 
     @Override
     protected boolean canDespawn() {

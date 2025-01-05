@@ -1,6 +1,7 @@
 package com.deeplake.hbr_mc.init.util;
 
 import com.deeplake.hbr_mc.Main;
+import com.deeplake.hbr_mc.entities.npc.EntityCleverNPCForHBR;
 import com.deeplake.hbr_mc.entities.projectiles.EntityHBRProjectile;
 import com.deeplake.hbr_mc.init.RegisterAttr;
 import com.deeplake.hbr_mc.init.RegisterEffects;
@@ -40,6 +41,26 @@ public class CombatUtil {
         return players;
     }
 
+    public static List<EntityLivingBase> areaHealIncludeNPC(World worldIn, EntityPlayer caster, float minHeal, float cap) {
+        List<EntityLivingBase> players = EntityUtil.getEntitiesWithinAABB(
+                worldIn,EntityLivingBase.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
+        );
+        float maxHeal = minHeal * 3;
+        float intelligence = (float) RegisterAttr.getAttrValue(caster, RegisterAttr.INT);
+        float healAmount = Math.min(intelligence, cap) / cap * (maxHeal - minHeal) + minHeal;
+        for (EntityLivingBase target :
+                players) {
+            if (target instanceof EntityPlayer)
+            {
+                SeraphUtil.cureSeraph(SeraphUtil.getFirstSeraphNonBrokenInHand((EntityPlayer) target), healAmount);
+            }
+            else {
+                SeraphUtil.cureSeraph(target, healAmount);
+            }
+        }
+        return players;
+    }
+
     public static List<EntityPlayer> areaRevive(World worldIn, EntityPlayer caster) {
         List<EntityPlayer> players = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityPlayer.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
@@ -54,6 +75,28 @@ public class CombatUtil {
         return players;
     }
 
+    public static List<EntityLivingBase> areaReviveIncludeNPC(World worldIn, EntityPlayer caster) {
+        List<EntityLivingBase> players = EntityUtil.getEntitiesWithinAABB(
+                worldIn,EntityLivingBase.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
+        );
+        for (EntityLivingBase player :
+                players) {
+            if (player instanceof EntityPlayer)
+            {
+                if (SeraphUtil.reviveSeraph(SeraphUtil.getFirstSeraphInHand((EntityPlayer) player), 1))
+                {
+                    CommonFunctions.SafeSendMsgToPlayer(player, "msg.hbr_mc.apply_revive");
+                }
+            }
+
+            if (player instanceof EntityCleverNPCForHBR)
+            {
+                SeraphUtil.reviveSeraph(player, 1);
+            }
+        }
+        return players;
+    }
+
     public static List<EntityLiving> areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
         List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec().scale(dist)), radius, EntitySelectors.IS_ALIVE
@@ -61,6 +104,13 @@ public class CombatUtil {
 
         for (EntityLiving target :
                 targets) {
+            if (target instanceof EntityCleverNPCForHBR)
+            {
+                if (target.getAttackTarget() != caster)
+                {
+                    continue;
+                }
+            }
             generalAttack(atkType, caster, minPotency, cap, bonusRate, target);
         }
 

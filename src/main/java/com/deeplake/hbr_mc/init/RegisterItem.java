@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc.init;
 
+import com.deeplake.hbr_mc.designs.danmaku.ItemDanmaku;
 import com.deeplake.hbr_mc.items.*;
 import com.deeplake.hbr_mc.items.commander.ItemCommandBadge;
 import com.deeplake.hbr_mc.items.seraph.EnumSeraphType;
@@ -29,6 +30,7 @@ import java.util.List;
 @Mod.EventBusSubscriber
 public class RegisterItem {
     public static final List<Item> ITEM_LIST = new ArrayList<>();
+    public static final ItemDanmaku BILI = new ItemDanmaku("danmaku", true);
     //31A
     public static final Item BRAVE_BLUE = new ItemBraveBlue("brave_blue");
     public static final Item BRAVE_BLUE_S = new ItemSeraphForNPC("brave_blue_s", EnumSeraphType.DOUBLE_SWORD);

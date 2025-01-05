@@ -1,8 +1,13 @@
 package com.deeplake.hbr_mc.entities.ai.idl;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
 
+import java.util.Iterator;
+import java.util.List;
+
 public abstract class EntityAIBaseIDL extends EntityAIBase {
+
     public boolean requiresUpdateEveryTick() {
         return false;
     }
@@ -18,4 +23,14 @@ public abstract class EntityAIBaseIDL extends EntityAIBase {
         return -Math.floorDiv(-p_184653_, p_184654_);
     }
 
+    public void removeEntity(List list, Entity arg) {
+        Iterator iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Object entity = iterator.next();
+            if (entity.equals(arg)) {
+                iterator.remove();
+                break;
+            }
+        }
+    }
 }

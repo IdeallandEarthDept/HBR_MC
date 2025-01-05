@@ -197,4 +197,46 @@ public class ModConfig {
         @Config.RangeDouble(min = 0)
         public float POT_DENSITY = 0.1f;
     }
+
+    @Config.LangKey("configgui.idealland.category.Menu0.LiveConfig")
+    @Config.Comment("Bilibili live config.")
+    public static final LiveConf LIVE_CONF = new LiveConf();
+
+    public static class LiveConf {
+        @Config.LangKey("idealland.conf.live.enabled")
+        @Config.Comment("Whether this system is enabled.")
+        public boolean LIVE_ENABLED = true;
+
+        @Config.LangKey("idealland.conf.live.live_bili_room_id")
+        @Config.Comment("The room id to connect to.")
+        public int LIVE_BILI_ROOM_ID = 893240;
+
+        @Config.LangKey("idealland.conf.live.auto_summon_lv")
+        @Config.Comment("Auto summon those with medal lv >= this value. 0 = everyone")
+        public int AUTO_SUMMON_LV = 0;
+
+        @Config.LangKey("idealland.conf.live.auto_summon_max")
+        @Config.Comment("Stop auto summoning when there is already this count. Guards bypass this limit. 0 = don't summon.")
+        public int AUTO_SUMMON_MAX = 50;
+
+        @Config.LangKey("idealland.conf.live.auto_connect")
+        @Config.Comment("Whether the server will auto connect when login")
+        public boolean AUTO_CONNECT = false;
+
+        @Config.LangKey("idealland.conf.live.only_affect_enchanted")
+        @Config.Comment("Whether only players with give enchantments will be affected")
+        public boolean ONLY_AFFECT_ENCHANTED = false;
+
+        @Config.LangKey("idealland.conf.live.auto_select_boxman")
+        @Config.Comment("If the danmaku sender has a boxman, the buff affects the boxman instead")
+        public boolean AUTO_SELECT_BOXMAN = true;
+
+        @Config.LangKey("idealland.conf.live.helps_moving")
+        @Config.Comment("ClientOnly: danmaku moves the main player")
+        public boolean MOVES_PLAYER = false;
+
+        @Config.LangKey("idealland.conf.live.manual_auth")
+        @Config.Comment("Leaves blank to disable. It looks like {\"uid\":24124162,\"roomid\":32204892,...}")
+        public String MANUAL_AUTH = "";
+    }
 }

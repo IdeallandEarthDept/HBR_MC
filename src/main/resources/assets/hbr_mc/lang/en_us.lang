@@ -390,3 +390,18 @@ item.command_badge.mode.3=Follow
 
 item.command_all.name=Command [%s]
 item.command_all.desc=Sneak + RMB to change mode, RMB to command
+
+hbr_mc.danmaku.config_disabled=Live system is disabled in the config.
+hbr_mc.danmaku.connect=Connecting to bilibili-live No.%s...
+hbr_mc.danmaku.connect_already=Already connected.
+hbr_mc.danmaku.connect_failed=Failed to connect to Bilibli Live No.%s. Check network and the room number.
+hbr_mc.danmaku.connect_success=Succesfully connected to Bilibli Live No.%s.
+hbr_mc.danmaku.closing=Shutting down live connection..
+hbr_mc.danmaku.closed=Live connection is now offline.
+hbr_mc.danmaku.login=(V%s)[Lv.%s] %s has come.
+hbr_mc.danmaku.text=V%s[Lv.%s] %s : %s
+hbr_mc.danmaku.gift_auto_thank= %s gives out %s x%s
+
+hbr_mc.danmaku.guard1=%s is now a Guard!
+hbr_mc.danmaku.guard2=%s is now a Guard II!
+hbr_mc.danmaku.guard3=%s is now a Guard III!

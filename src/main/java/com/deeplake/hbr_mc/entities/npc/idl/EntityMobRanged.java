@@ -29,7 +29,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityMobRanged extends EntityGeneralMob implements IRangedAttackMob {
+public class EntityMobRanged extends EntityGeneralCreature implements IRangedAttackMob {
     private float bulletAccel = 0.1f;
     private float errorModifier = 0.2f;
     public boolean useBulletForRanged = true;
