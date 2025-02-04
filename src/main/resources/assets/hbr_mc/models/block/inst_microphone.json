@@ -1,6 +1,126 @@
 {
-	"parent": "block/cube_all",
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
 	"textures": {
-		"all": "hbr_mc:blocks/inst_microphone"
-	}
+		"1": "hbr_mc:items/seraph/instrument/microphone"
+	},
+	"elements": [
+		{
+			"from": [5.2, 20.1961, 5.2],
+			"to": [10.8, 26.44805, 10.8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.5, 25.14805, 8.5]},
+			"faces": {
+				"north": {"uv": [0, 0, 1.25, 1.46299], "texture": "#1"},
+				"east": {"uv": [1.25, 0, 2.5, 1.46299], "texture": "#1"},
+				"south": {"uv": [0, 2.5, 1.25, 3.96299], "texture": "#1"},
+				"west": {"uv": [2.5, 0, 3.75, 1.46299], "texture": "#1"},
+				"up": {"uv": [1.25, 6.25, 0, 5], "texture": "#1"},
+				"down": {"uv": [6.25, 0, 5, 1.25], "texture": "#1"}
+			}
+		},
+		{
+			"from": [5.3, 20.2961, 5.3],
+			"to": [10.7, 26.34805, 10.7],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.5, 25.14805, 8.5]},
+			"faces": {
+				"north": {"uv": [0, 8.25, 1.25, 9.71299], "texture": "#1"},
+				"east": {"uv": [0, 8.25, 1.25, 9.71299], "texture": "#1"},
+				"south": {"uv": [0, 8.25, 1.25, 9.71299], "texture": "#1"},
+				"west": {"uv": [0, 8.25, 1.25, 9.71299], "texture": "#1"},
+				"up": {"uv": [1.25, 6.25, 0, 5], "texture": "#1"},
+				"down": {"uv": [6.25, 0, 5, 1.25], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6.5, 6.64805, 6.5],
+			"to": [9.5, 15.64805, 9.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.5, 7.64805, 7.5]},
+			"faces": {
+				"north": {"uv": [2.25, 6.5, 3, 8.75], "texture": "#1"},
+				"east": {"uv": [6.5, 3.75, 7.25, 6], "texture": "#1"},
+				"south": {"uv": [6.5, 6, 7.25, 8.25], "texture": "#1"},
+				"west": {"uv": [4.5, 6.75, 5.25, 9], "texture": "#1"},
+				"up": {"uv": [2.75, 2.25, 2, 1.5], "texture": "#1"},
+				"down": {"uv": [3.5, 1.5, 2.75, 2.25], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6, 15.14805, 6],
+			"to": [10, 20.14805, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 13.14805, 7]},
+			"faces": {
+				"north": {"uv": [2.5, 4, 3.5, 5.25], "texture": "#1"},
+				"east": {"uv": [5, 2.5, 6, 3.75], "texture": "#1"},
+				"south": {"uv": [6, 2.5, 7, 3.75], "texture": "#1"},
+				"west": {"uv": [3.5, 6.25, 4.5, 7.5], "texture": "#1"},
+				"up": {"uv": [1, 2.5, 0, 1.5], "texture": "#1"},
+				"down": {"uv": [2, 1.5, 1, 2.5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [5.1, 19.74805, 5.1],
+			"to": [10.9, 21.54805, 10.9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.5, 23.14805, 8.5]},
+			"faces": {
+				"north": {"uv": [6.25, 1.75, 7.5, 2], "texture": "#1"},
+				"east": {"uv": [6.25, 2, 7.5, 2.25], "texture": "#1"},
+				"south": {"uv": [2.25, 6.25, 3.5, 6.5], "texture": "#1"},
+				"west": {"uv": [6.25, 2.25, 7.5, 2.5], "texture": "#1"},
+				"up": {"uv": [2.5, 6.25, 1.25, 5], "texture": "#1"},
+				"down": {"uv": [6.25, 1.25, 5, 2.5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [5.5, 20.2961, 5.5],
+			"to": [10.5, 26.14805, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.5, 25.14805, 8.5]},
+			"faces": {
+				"north": {"uv": [1.25, 2.5, 2.5, 3.96299], "texture": "#1"},
+				"east": {"uv": [2.5, 2.5, 3.75, 3.96299], "texture": "#1"},
+				"south": {"uv": [3.75, 0, 5, 1.46299], "texture": "#1"},
+				"west": {"uv": [3.75, 2.5, 5, 3.96299], "texture": "#1"},
+				"up": {"uv": [5, 6.25, 3.75, 5], "texture": "#1"},
+				"down": {"uv": [6.25, 3.75, 5, 5], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [168.65, -10.83, 136.33],
+			"translation": [2.5, -3.75, 3]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 3, 1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"head": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 13, 7]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "初始",
+			"origin": [8, 25.14805, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3, 4, 5]
+		}
+	]
 }

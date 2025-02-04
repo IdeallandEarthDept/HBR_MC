@@ -1,0 +1,184 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"1": "hbr_mc:items/seraph/instrument/microphone"
+	},
+	"elements": [
+		{
+			"name": "支架",
+			"from": [6.65, 18.57389, 9.4912],
+			"to": [9.35, 20.27389, 11.0912],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 19.92389, 11.88029]},
+			"faces": {
+				"north": {"uv": [2.5, 4, 2, 4.5], "texture": "#1"},
+				"east": {"uv": [4.5, 1.5, 4, 2], "texture": "#1"},
+				"south": {"uv": [4.25, 2, 3.75, 2.5], "texture": "#1"},
+				"west": {"uv": [4, 4, 3.5, 4.5], "texture": "#1"},
+				"up": {"uv": [4.5, 4, 4, 4.5], "texture": "#1"},
+				"down": {"uv": [4.75, 2.5, 4.25, 2], "texture": "#1"}
+			}
+		},
+		{
+			"name": "支架",
+			"from": [7.4367, 0.92721, 9.34421],
+			"to": [8.5633, 19.51241, 10.47081],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.4367, 0.58781, 10.47081]},
+			"faces": {
+				"north": {"uv": [5.5, 5, 5.25, 9.75], "texture": "#1"},
+				"east": {"uv": [5.75, 5, 5.5, 9.75], "texture": "#1"},
+				"south": {"uv": [5.5, 5, 5.25, 9.75], "texture": "#1"},
+				"west": {"uv": [5.75, 5, 5.5, 9.75], "texture": "#1"},
+				"up": {"uv": [2.75, 2.25, 2.5, 2.5], "texture": "#1"},
+				"down": {"uv": [3, 2.5, 2.75, 2.25], "texture": "#1"}
+			}
+		},
+		{
+			"name": "支架",
+			"from": [4, 0, 5.94328],
+			"to": [12, 1, 13.94328],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 5.94328]},
+			"faces": {
+				"north": {"uv": [0, 4, 2, 4.25], "texture": "#1"},
+				"east": {"uv": [0, 4.25, 2, 4.5], "texture": "#1"},
+				"south": {"uv": [0, 4.5, 2, 4.75], "texture": "#1"},
+				"west": {"uv": [0, 4.75, 2, 5], "texture": "#1"},
+				"up": {"uv": [2, 8.25, 0, 6.25], "texture": "#1"},
+				"down": {"uv": [9.25, 2.5, 7.25, 4.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "麦克风",
+			"from": [5.97, 19.50116, 4.98091],
+			"to": [10.03, 23.56116, 6.24091],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 21.53116, 8]},
+			"faces": {
+				"north": {"uv": [1.25, 6.25, 2.5, 5], "texture": "#1"},
+				"east": {"uv": [6.25, 2.25, 7.5, 2], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [5, 1.25, 6.25, 2.5], "rotation": 180, "texture": "#1"},
+				"west": {"uv": [6.25, 2.5, 7.5, 2.25], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [6.25, 2, 7.5, 1.75], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [2.25, 6.5, 3.5, 6.25], "texture": "#1"}
+			}
+		},
+		{
+			"name": "麦克风",
+			"from": [6.6, 20.13116, 5.96091],
+			"to": [9.4, 22.93116, 9.46091],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 21.53116, 8]},
+			"faces": {
+				"north": {"uv": [0, 2.5, 1, 1.5], "texture": "#1"},
+				"east": {"uv": [5, 3.75, 6, 2.5], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [1, 1.5, 2, 2.5], "rotation": 180, "texture": "#1"},
+				"west": {"uv": [3.5, 7.5, 4.5, 6.25], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [2.5, 5.25, 3.5, 4], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [6, 3.75, 7, 2.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "麦克风",
+			"from": [6.95, 20.48116, 9.11091],
+			"to": [9.05, 22.58116, 15.41091],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 21.53116, 8]},
+			"faces": {
+				"north": {"uv": [2, 2.25, 2.75, 1.5], "texture": "#1"},
+				"east": {"uv": [6.5, 6, 7.25, 3.75], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [2.75, 1.5, 3.5, 2.25], "rotation": 180, "texture": "#1"},
+				"west": {"uv": [4.5, 9, 5.25, 6.75], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [2.25, 8.75, 3, 6.5], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [6.5, 8.25, 7.25, 6], "texture": "#1"}
+			}
+		},
+		{
+			"name": "麦克风",
+			"from": [6.25, 19.78116, 1.76091],
+			"to": [9.75, 23.28116, 5.85727],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 21.53116, 8]},
+			"faces": {
+				"north": {"uv": [3.75, 6.25, 5, 5], "texture": "#1"},
+				"east": {"uv": [2.5, 3.96299, 3.75, 2.5], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [5, 3.75, 6.25, 5], "rotation": 180, "texture": "#1"},
+				"west": {"uv": [3.75, 3.96299, 5, 2.5], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [1.25, 3.96299, 2.5, 2.5], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [3.75, 1.46299, 5, 0], "texture": "#1"}
+			}
+		},
+		{
+			"name": "麦克风",
+			"from": [6.11, 19.64116, 1.62091],
+			"to": [9.89, 23.42116, 5.85727],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 21.53116, 8]},
+			"faces": {
+				"north": {"uv": [1.25, 9.75, 0, 11], "rotation": 270, "texture": "#1"},
+				"east": {"uv": [0, 9.71299, 1.25, 8.25], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [5, 0, 6.25, 1.25], "rotation": 180, "texture": "#1"},
+				"west": {"uv": [0, 9.71299, 1.25, 8.25], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [0, 9.71299, 1.25, 8.25], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [0, 9.71299, 1.25, 8.25], "texture": "#1"}
+			}
+		},
+		{
+			"name": "麦克风",
+			"from": [6.01, 19.54116, 1.52091],
+			"to": [9.99, 23.52116, 5.95727],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 21.53116, 8]},
+			"faces": {
+				"north": {"uv": [0, 6.25, 1.25, 5], "rotation": 180, "texture": "#1"},
+				"east": {"uv": [1.25, 1.46299, 2.5, 0], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [5, 0, 6.25, 1.25], "rotation": 180, "texture": "#1"},
+				"west": {"uv": [2.5, 1.46299, 3.75, 0], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [0, 1.46299, 1.25, 0], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [0, 3.96299, 1.25, 2.5], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [168.65, -10.83, 136.33],
+			"translation": [2.5, -3.75, 3]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 3, 1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"head": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 13, 7]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "座式麦克风",
+			"origin": [8, 25.14805, 9.54328],
+			"color": 0,
+			"children": [
+				0,
+				1,
+				2,
+				{
+					"name": "麦克风",
+					"origin": [8, 21.53116, 8],
+					"color": 0,
+					"children": [3, 4, 5, 6, 7, 8]
+				}
+			]
+		}
+	]
+}

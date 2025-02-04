@@ -390,3 +390,14 @@ item.command_badge.mode.3=Follow
 
 item.command_all.name=Command [%s]
 item.command_all.desc=Sneak + RMB to change mode, RMB to command
+
+tile.inst_microphone_seated.name=inst_microphone_seated
+tile.inst_microphone_in_hand.name=inst_microphone_in_hand
+tile.inst_st_guitar.name=inst_st_guitar
+tile.inst_bed_double.name=inst_bed_double
+tile.inst_microphone.name=inst_microphone
+tile.inst_drum_set.name=inst_drum_set
+tile.inst_wood_guitar.name=inst_wood_guitar
+tile.inst_bass.name=inst_bass
+tile.inst_keyboard.name=inst_keyboard
+tile.inst_speaker.name=inst_speaker

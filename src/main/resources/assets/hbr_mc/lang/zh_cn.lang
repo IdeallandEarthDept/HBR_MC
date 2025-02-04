@@ -389,3 +389,14 @@ item.command_badge.mode.3=跟随
 
 item.command_all.name=命令 [%s]
 item.command_all.desc=潜行右键切换命令，右键发号施令
+
+tile.inst_microphone_seated.name=座式麦克风
+tile.inst_microphone_in_hand.name=手持麦克风
+tile.inst_st_guitar.name=吉他
+tile.inst_bed_double.name=双层床
+tile.inst_microphone.name=初始麦克风
+tile.inst_drum_set.name=架子鼓
+tile.inst_wood_guitar.name=木吉他
+tile.inst_bass.name=贝斯
+tile.inst_keyboard.name=键盘
+tile.inst_speaker.name=音箱
