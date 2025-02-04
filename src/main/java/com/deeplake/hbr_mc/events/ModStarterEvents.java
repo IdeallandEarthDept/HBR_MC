@@ -7,7 +7,6 @@ import com.deeplake.hbr_mc.init.util.CommonFunctions;
 import com.deeplake.hbr_mc.init.util.IDLNBTUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.Mod;
@@ -39,6 +38,11 @@ public class ModStarterEvents {
 
 				ItemStack starter = new ItemStack(RegisterItem.LOTTERY);
 				player.addItemStackToInventory(starter);
+
+				if (ModConfig.LIVE_CONF.LIVE_ENABLED)
+				{
+					player.addItemStackToInventory(new ItemStack(RegisterItem.BILI));
+				}
 
 				if (player instanceof EntityPlayerMP) {
 					CommonFunctions.SendMsgToPlayerStyled((EntityPlayerMP)player, "hbr_mc.msg.starter_kit_given", TextFormatting.AQUA);

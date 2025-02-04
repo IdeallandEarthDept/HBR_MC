@@ -1,5 +1,6 @@
 package com.deeplake.hbr_mc.entities.ai.idl;
 
+import com.deeplake.hbr_mc.Main;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import net.minecraft.entity.Entity;
@@ -66,42 +67,50 @@ public class EntityKeepDistance<T extends Entity> extends EntityAIBaseIDL
      */
     public boolean shouldExecute()
     {
-        List<T> list = this.entity.world.<T>getEntitiesWithinAABB(this.classToAvoid, this.entity.getEntityBoundingBox().grow((double)this.avoidDistance, 3.0D, (double)this.avoidDistance),
-                predicateMerged);
+        try {
+            List<T> list = this.entity.world.<T>getEntitiesWithinAABB(this.classToAvoid, this.entity.getEntityBoundingBox().grow((double)this.avoidDistance, 3.0D, (double)this.avoidDistance),
+                    predicateMerged);
 
-        List<T> list2 = this.entity.world.<T>getEntitiesWithinAABB(this.classToAvoid, this.entity.getEntityBoundingBox()
-                        .grow((double)this.avoidDistance * this.entity.world.getEntities(this.classToAvoid, EntitySelectors.IS_ALIVE).size()+1, 3.0D, (double)this.avoidDistance),
-                predicateMerged);
-
-        if (list.isEmpty())
-        {
-            return false;
-        }
-        else
-        {
-            removeSelf(list);
+            List<T> list2 = this.entity.world.<T>getEntitiesWithinAABB(this.classToAvoid, this.entity.getEntityBoundingBox()
+                            .grow((double)this.avoidDistance * this.entity.world.getEntities(this.classToAvoid, EntitySelectors.IS_ALIVE).size()+1, 3.0D, (double)this.avoidDistance),
+                    predicateMerged);
 
             if (list.isEmpty())
             {
                 return false;
             }
-            this.closestLivingEntity = list.get(0);
-            Vec3d vec3d = RandomPositionGenerator.findRandomTargetBlockAwayFrom(this.entity, (int) (avoidDistance*(list2.size()+1)), 7, new Vec3d(this.closestLivingEntity.posX, this.closestLivingEntity.posY, this.closestLivingEntity.posZ));
-
-            if (vec3d == null)
-            {
-                return false;
-            }
-            else if (this.closestLivingEntity.getDistanceSq(vec3d.x, vec3d.y, vec3d.z) < this.closestLivingEntity.getDistanceSq(this.entity))
-            {
-                return false;
-            }
             else
             {
-                this.path = this.navigation.getPathToXYZ(vec3d.x, vec3d.y, vec3d.z);
-                return this.path != null;
+                removeSelf(list);
+
+                if (list.isEmpty())
+                {
+                    return false;
+                }
+                this.closestLivingEntity = list.get(0);
+                Vec3d vec3d = RandomPositionGenerator.findRandomTargetBlockAwayFrom(this.entity, (int) (avoidDistance*(list2.size()+1)), 7, new Vec3d(this.closestLivingEntity.posX, this.closestLivingEntity.posY, this.closestLivingEntity.posZ));
+
+                if (vec3d == null)
+                {
+                    return false;
+                }
+                else if (this.closestLivingEntity.getDistanceSq(vec3d.x, vec3d.y, vec3d.z) < this.closestLivingEntity.getDistanceSq(this.entity))
+                {
+                    return false;
+                }
+                else
+                {
+                    this.path = this.navigation.getPathToXYZ(vec3d.x, vec3d.y, vec3d.z);
+                    return this.path != null;
+                }
             }
         }
+        catch (Exception e)
+        {
+            Main.Log(e.toString());
+            return false;
+        }
+
     }
 
 

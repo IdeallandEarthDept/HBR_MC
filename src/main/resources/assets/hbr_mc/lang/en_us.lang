@@ -391,6 +391,9 @@ item.command_badge.mode.3=Follow
 item.command_all.name=Command [%s]
 item.command_all.desc=Sneak + RMB to change mode, RMB to command
 
+item.danmaku.name=Bilibili Connect
+item.danmaku.desc=Sneak + RMB to cutdown, RMB to connect
+
 hbr_mc.danmaku.config_disabled=Live system is disabled in the config.
 hbr_mc.danmaku.connect=Connecting to bilibili-live No.%s...
 hbr_mc.danmaku.connect_already=Already connected.

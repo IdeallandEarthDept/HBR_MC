@@ -75,6 +75,7 @@ public class CombatUtil {
         return players;
     }
 
+    //player
     public static List<EntityLivingBase> areaReviveIncludeNPC(World worldIn, EntityPlayer caster) {
         List<EntityLivingBase> players = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityLivingBase.class, caster.getPositionVector(), 32, EntitySelectors.IS_ALIVE
@@ -97,6 +98,7 @@ public class CombatUtil {
         return players;
     }
 
+    //player
     public static List<EntityLiving> areaAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
         List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec().scale(dist)), radius, EntitySelectors.IS_ALIVE
@@ -117,6 +119,7 @@ public class CombatUtil {
         return targets;
     }
 
+    //Player team
     public static List<EntityLiving> areaHPAttack(World worldIn, EntityPlayer caster, float dist, float radius,EnumAttrType atkType, float minPotency, float cap, float bonusRate) {
         List<EntityLiving> targets = EntityUtil.getEntitiesWithinAABB(
                 worldIn,EntityLiving.class, caster.getPositionVector().add(caster.getLookVec().scale(dist)), radius, EntitySelectors.IS_ALIVE
@@ -124,6 +127,13 @@ public class CombatUtil {
 
         for (EntityLiving target :
                 targets) {
+            if (target instanceof EntityCleverNPCForHBR)
+            {
+                if (target.getAttackTarget() != caster)
+                {
+                    continue;
+                }
+            }
             HPAttack(caster, target, minPotency, cap, bonusRate);
         }
 

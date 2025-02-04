@@ -120,6 +120,15 @@ public class EntityCleverNPCForHBR extends EntityFlyableMobV1 implements IHasOwn
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3+level);
     }
 
+    public void setAsLevelAndOwner(EntityPlayer player, int level)
+    {
+        setDPMax(10+level*2);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(player.getMaxHealth()/2+level*2);
+        setHealth(getMaxHealth());
+        set6Attr((float) (EntityUtil.getAttr(player, RegisterAttr.STR)/2 + level));
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1+level);
+    }
+
     public void setAsStrongData(){
         //Level 133
         setDPMax(4000);

@@ -380,6 +380,10 @@ hbr_mc.advancements.kulu_baka.desc=用炽天使攻击了其他玩家
 hbr_mc.advancements.kula.title=藏！
 hbr_mc.advancements.kula.desc=【剧透】不，不！鄙人只想知道伙伴是生是死啊！
 
+
+item.danmaku.name=Bilibili链接
+item.danmaku.desc=右键链接直播间，潜行右键断开直播间
+
 hbr_mc.ench.history_4ky=五千年历史的……
 
 item.command_badge.mode.0=解散

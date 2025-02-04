@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "IGI"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "hbr_mc:cancer_shell"
+        },
+        "G":
+        {
+            "item": "minecraft:rotten_flesh"
+        }
+    },
+    
+    "result":
+    {
+        "item": "hbr_mc:danmaku",
+        "count": 1
+    }
+}
