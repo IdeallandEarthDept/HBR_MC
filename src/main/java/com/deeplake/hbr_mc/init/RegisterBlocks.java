@@ -23,6 +23,16 @@ public class RegisterBlocks {
     public static final Block CRYSTAL_ORE = new BlockBase("crystal_ore", Material.ROCK).setHardness(15f);
     public static final Block ENERGY_ORE = new BlockBase("energy_ore", Material.ROCK).setHardness(15f);
     public static final Block CANCER_FLOOR = new BlockCarpetBase("cancer_carpet",Material.IRON).setHardness(4f).setResistance(999f);
+
+    public static final Block CANCER_CARPET = new BlockInstrument("cancer_carpet");
+    public static final Block INST_ST_GUITAR = new BlockInstrument("inst_st_guitar");
+    public static final Block INST_BED_DOUBLE = new BlockInstrument("inst_bed_double");
+    public static final Block INST_MICROPHONE = new BlockInstrument("inst_microphone");
+    public static final Block INST_DRUM_SET = new BlockInstrument("inst_drum_set");
+    public static final Block INST_WOOD_GUITAR = new BlockInstrument("inst_wood_guitar");
+    public static final Block INST_BASS = new BlockInstrument("inst_bass");
+    public static final Block INST_KEYBOARD = new BlockInstrument("inst_keyboard");
+    public static final Block INST_SPEAKER = new BlockInstrument("inst_speaker");
     public static final BlockCrate RANDOM_DROP_BASIC = new BlockCrate("random_1", Material.WOOD);
     public static final HashMap<CombatUtil.EnumElement, BlockFieldBase> FIELDS = new HashMap<>();
 
