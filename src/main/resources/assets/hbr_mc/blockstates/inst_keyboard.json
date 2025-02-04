@@ -1,5 +1,19 @@
 {
-	"variants": {
-		"normal": { "model": "hbr_mc:inst_keyboard" }
-	}
+    "variants": {
+        "facing=north": {
+            "model": "hbr_mc:inst_keyboard"
+        },
+        "facing=south": {
+            "model": "hbr_mc:inst_keyboard",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "hbr_mc:inst_keyboard",
+            "y": 270
+        },
+        "facing=east": {
+            "model": "hbr_mc:inst_keyboard",
+            "y": 90
+        }
+    }
 }

@@ -1,5 +1,19 @@
 {
-	"variants": {
-		"normal": { "model": "hbr_mc:inst_speaker" }
-	}
+    "variants": {
+        "facing=north": {
+            "model": "hbr_mc:inst_speaker"
+        },
+        "facing=south": {
+            "model": "hbr_mc:inst_speaker",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "hbr_mc:inst_speaker",
+            "y": 270
+        },
+        "facing=east": {
+            "model": "hbr_mc:inst_speaker",
+            "y": 90
+        }
+    }
 }

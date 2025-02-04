@@ -1,5 +1,19 @@
 {
-	"variants": {
-		"normal": { "model": "hbr_mc:inst_drum_set" }
-	}
+    "variants": {
+        "facing=north": {
+            "model": "hbr_mc:inst_drum_set"
+        },
+        "facing=south": {
+            "model": "hbr_mc:inst_drum_set",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "hbr_mc:inst_drum_set",
+            "y": 270
+        },
+        "facing=east": {
+            "model": "hbr_mc:inst_drum_set",
+            "y": 90
+        }
+    }
 }

@@ -1,5 +1,19 @@
 {
-	"variants": {
-		"normal": { "model": "hbr_mc:inst_bass" }
-	}
+    "variants": {
+        "facing=north": {
+            "model": "hbr_mc:inst_bass"
+        },
+        "facing=south": {
+            "model": "hbr_mc:inst_bass",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "hbr_mc:inst_bass",
+            "y": 270
+        },
+        "facing=east": {
+            "model": "hbr_mc:inst_bass",
+            "y": 90
+        }
+    }
 }

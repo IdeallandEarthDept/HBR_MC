@@ -1,5 +1,19 @@
 {
-	"variants": {
-		"normal": { "model": "hbr_mc:inst_microphone_in_hand" }
-	}
+    "variants": {
+        "facing=north": {
+            "model": "hbr_mc:inst_microphone_in_hand"
+        },
+        "facing=south": {
+            "model": "hbr_mc:inst_microphone_in_hand",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "hbr_mc:inst_microphone_in_hand",
+            "y": 270
+        },
+        "facing=east": {
+            "model": "hbr_mc:inst_microphone_in_hand",
+            "y": 90
+        }
+    }
 }

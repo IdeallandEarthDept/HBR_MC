@@ -1,5 +1,19 @@
 {
-	"variants": {
-		"normal": { "model": "hbr_mc:inst_st_guitar" }
-	}
+    "variants": {
+        "facing=north": {
+            "model": "hbr_mc:inst_st_guitar"
+        },
+        "facing=south": {
+            "model": "hbr_mc:inst_st_guitar",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "hbr_mc:inst_st_guitar",
+            "y": 270
+        },
+        "facing=east": {
+            "model": "hbr_mc:inst_st_guitar",
+            "y": 90
+        }
+    }
 }
