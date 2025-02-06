@@ -22,10 +22,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 
 public class BlockComplexDeco extends BlockBase{
+    boolean isHorizontal = true;
     public BlockComplexDeco(String name) {
         super(name, Material.CIRCUITS);
         setHardness(4.0f);
         setLightOpacity(0);
+        setLightLevel(1/15f);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 
@@ -76,7 +78,14 @@ public class BlockComplexDeco extends BlockBase{
     //Rotatable
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
-        return this.getDefaultState().withProperty(FACING, EnumFacing.getDirectionFromEntityLiving(pos, placer));
+        if (isHorizontal)
+        {
+            return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+        }
+        else
+        {
+            return this.getDefaultState().withProperty(FACING, EnumFacing.getDirectionFromEntityLiving(pos, placer).getOpposite());
+        }
     }
 
     public static final PropertyDirection FACING = BlockDirectional.FACING;
